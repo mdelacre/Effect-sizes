@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  4 NOV 2019 13:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  14 NOV 2019 15:11
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -966,23 +966,32 @@ fg"
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{C:/Users/Marie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-] [2] [3] [4] [5] AED endfloat: Processing end Figures and Tables [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
+] [2] [3] [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5]
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+[6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[7] AED endfloat: Processing end Figures and Tables [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
 (ES.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
 Package rerunfilecheck Info: File `ES.out' has not changed.
 (rerunfilecheck)             Checksum: 10C54D8BA714F239805C8BFEB0367D65;2102.
  ) 
 Here is how much of TeX's memory you used:
- 15750 strings out of 492452
- 235929 string characters out of 3128447
- 350968 words of memory out of 3000000
+ 15767 strings out of 492452
+ 236083 string characters out of 3128447
+ 352968 words of memory out of 3000000
  19797 multiletter control sequences out of 15000+200000
- 49496 words of font info for 69 fonts, out of 3000000 for 9000
+ 50224 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,10n,51p,1651b,452s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,10n,51p,3702b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}<C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
@@ -990,9 +999,9 @@ mr12.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
 m/lmr8.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /lm/lmri12.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmss8.pfb>
-Output written on ES.pdf (6 pages, 143183 bytes).
+Output written on ES.pdf (8 pages, 149840 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
  6201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
