@@ -120,65 +120,88 @@ During decades, researchers in social science (Henson \& Smith, 2000) and educat
 
 Such an approach has faced many criticisms among which the most relevant to our concern is that the null hypothesis testing highly depends on sample size: for a given alpha level and a given difference between groups, the larger the sample size, the higher the probability of rejecting the null hypothesis (Fan, 2001; Kirk, 2009; Olejnik \& Algina, 2000; Sullivan \& Feinn, 2012). It implies that even tiny differences could be detected as statistically significant with very large sample sizes (McBride, Loftis, \& Adkins, 1993)\footnote{This is especially problematic since these tiny differences might be due to other factors than the one of interest: even under the assumption of random assignent (which is a necessary but not sufficient condition), it is almost impossible to be sure that the only difference between two conditions is the one defined by the factor of interest. Other tiny factors of no theoretical interest might slighly influence results, making the probability of getting an actual zero effect very low. This is what Meehl (1990) calls 'systematic noise'}.
 
-Facing this argument, it has become an adviced practice to report the \emph{p}-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimenter effect (Cohen, 1965; Fan, 2001; Hays, 1963). This practice is also highly endorsed by the \emph{APA Publication Manual} (Association, 2010). However, limited studies properly report effect size in the last several decades.
+Facing this argument, it has become an adviced practice to report the \emph{p}-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimenter effect (Cohen, 1965; Fan, 2001; Hays, 1963). This practice is also highly endorsed by the American Psychological Association (APA) and the American Educational Research Association (AERA) (American Educational Research Association, 2006; American Psychological Association, 2010). However, limited studies properly report effect size in the last several decades.
 
-First, there is a high confusion between the effect size and other related concept such as the clininal significance of a result (i.e.~the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in which circumstances.
+First, there is a high confusion between the effect size and other related concepts such as the clininal significance of a result (i.e.~the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in specific context.
 
-Second, when associated with interential tests, the main measures of effect sizes are submitted to a range of assumptions that are unrealistic in many research designs. As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's \(d_{s}\) is the dominant effect size measure used by researchers (Peng, Chen, Chiang, \& Chiang, 2013). We will argue that, like Student's \emph{t}-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances.
+Second, when used for inference, the main measures of effect sizes are submitted to a range of assumptions (i.e.~normality and heteroscedasticity) and these assumptions are known to be unrealistic in many research designs (Cain, Zhang, \& Yuan, 2017; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004). As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's \(d_{s}\) is the dominant effect size measure used by researchers (Peng, Chen, Chiang, \& Chiang, 2013). We will argue that, like Student's \emph{t}-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances. \footnote{encore à implémenter dans le texte: Bcp d'autres chercheurs avant nous étaient arrivés à la même conclusion. Pourtant, beaucoup moins d'auteurs se sont penchés sur les mesures de taille d'effet à utiliser en complément du test de welch. Il existe de la littérature sur la question, mais pas vraiment d'accord (parce que grande confusion quant à la questino suivante: à quoi sert la mesure de taille d'effet? ) Par ailleurs, s'il est de plus en plus communément admis que les conditions d'application des tests de comparaison de moyennes (dominant toujours la recherche) sont peu réalistes et rarement respectées, pourtant et que de nombreux chercheurs recommandent d'utiliser le Welch au lieu du test de Student, peu de littérature suggère quelle taille d'effet associer à ce test. Même Jamovi ne propose comme mesure de taille d'effet que le d de Cohen, souffrant des mêmes limites que le test de Student.}.
 
 In sum the aim of this paper is threefold:
 1. Clearly define what is (and what is not) a measure of effect size;
 2. Listing the different situations that call for effect sizes measure and reviewing which measure is appropriate in which circumstance;
-3. Define different properties of a good effect size estimator and discuss the impact of assumptions violations on the robustness of the measures of effect size.
+3. Define different properties of a good effect size estimator and discuss the impact of assumptions violations on the robustness of the measures of effect size, based on simulations.
 
-\hypertarget{levels-of-significance}{%
-\section{Levels of Significance}\label{levels-of-significance}}
+\hypertarget{measure-of-effect-size-what-it-is-what-it-is-not}{%
+\section{Measure of effect size: what it is, what it is not}\label{measure-of-effect-size-what-it-is-what-it-is-not}}
 
-Measures of effect sizes aim at communicating the \textbf{practical} significance of an effect. It refers to the \emph{magnitude} of the difference between distributions, groups, means\ldots{}(Bothe, 2011). Voir le word, essayer d'écrire un truc clair.
+The effect size is commonly refered to the practical significance of a test. Grissom and Kim (2005) define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from (e.g.~the mean; Peng \& Chen, 2014) or as the magnitude of the relation between one dichotomous factor and one dependent variable (American Educational Research Association, 2006). Both definitions refers to as the most famous families of measures of effect sizes {[}Rosenthal\_1994{]}: respectively the \emph{d}-family and the \emph{r}-family.
 
-very often, the contribution of the measures of effect size is misunderstood as a measure of \enquote{the importance of an effect in real life} while it is not.
+Very often, the contribution of the measures of effect size is overestimated.
 
-In their paper, Bothe (2011) distinguish between three levels of signiﬁcance, namely Statistical signiﬁcance, Practical signiﬁcance and Clinical signiﬁcance (with the adjunction of Personal signiﬁcance). Statistical signiﬁcance refers to the p-value. As stated before, this conclusion is highly dependent from the sample size. Laslty, the Clinical signiﬁcance refers to the interpretation of treatment outcomes. This last level is not statistical nor mathematical,it is related to underlying theory that posits an empirical hypothesis.
-It is important to understand the diﬀerence between these three concepts. Statistical signiﬁcance allows the researcher to determine whether the oberved departure from H0 can be attributed to something else than randomness (i.e.~an actual eﬀect). Practical signiﬁcance is a mathematical indicator of eﬀect size that is not necessarily related to the theoretical eﬀect or at least that the relation is not straightforward. As stated by Kazdin « \ldots{} clinical signiﬁcance has been deﬁned as whether an intervention \enquote{makes a real (e.g., genuine, noticeable) diﬀerence in everyday life to the clients or to others with whom the clients interact}" (Kazdin, 1999, p.332 ; cité par Bothe (2011)). Indeed, Pratical signiﬁcance depends on the way a variable is converted into numerical indicator. For example, when assessing Self-Compassion, one can use a scale such as the Self-Compassion Scale (Kotsou \& Leys, 2016; Neﬀ, 2003). This scale inform the researcher about the level of self-compassion based on a ordinal scale that can yield diﬀerent value depending on the inﬂuence of any independent variable. For example, some training program can improve subjects level of self-compassion (Jazaieri et al.~(2013)). Yet, since the scale is ordinal, meaning that there is no standard unit to assess the construct, the relation between the mathematical eﬀect size (i.e.~Pratical signiﬁcance) and the actual change in self-compassion (i.e.~Clinical signiﬁcance) will always remain unknown. Therefore, although, as we will see, pratcial signiﬁcance is important to determine, it's relation with clinical signiﬁcance has often to be addressed, and that is more a theoretical argument than a statistical one.
-To further distinguish between important constructs, the authors suggest incorporating as deﬁnitive the existing notion that clinical signiﬁcance may refer to measures selected or interpreted by professionals or with respect to groups of clients. The term personal signiﬁcance is introduced to refer to goals, variables, measures, and changes that are of demonstrated value to individual clients.
-AS a conclusion, statistically signiﬁcant eﬀect is not necessarily of practical interest. The statistical signiﬁcance is the probability that ﬁndings have occured by chance (Stout \& Ruble, 1995). The practical signiﬁcance is the magnitude of ﬁndings and is assessed by measures of eﬀect sizes.
+First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not (Stout \& Ruble, 1995). The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of en effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world (Andersen, McCullagh, \& Wilson, 2007). For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g.~30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the \emph{clinical significance} (Bothe \& Richardson, 2011). {[}I DON'T LIKE THE WORD \enquote{CLINICAL} BECAUSE IT'S NOT GENERAL ENOUGH.A MEANINGFUL SIGNIFICANCE COULD BE SOCIAL, PERSONAL, CLINICAL, PROFESIONNAL\ldots{} ANY IDEA OF A MORE GENERAL WORD?{]}. It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between \emph{practical} and \emph{clinical} significance is more a theoretical argument than a statistical one.
 
-At the same time, a vast literature has developed that casts doubt on the credibility of the assumptions of Student's \emph{t}-test and classical \emph{F}-test ANOVA (i.e.~the assumptions that two or more samples are independent, and that independent and identically distributed residuals are normal and have equal variances between groups; Glass, Peckham, \& Sanders, 1972) (CITER TOUTES MES REFERENCES). In a previous paper, We focused on the assumptions of normality and equality of variances, and argued that these assumptions are often unrealistic in the field of psychology. Bcp d'autres chercheurs avant nous étaient arrivés à la même conclusion. Pourtant, beaucoup moins d'auteurs se sont penchés sur les mesures de taille d'effet à utiliser en complément du test de welch. Il existe de la littérature sur la question, mais pas vraiment d'accord (parce que grande confusion quant à la questino suivante: à quoi sert la mesure de taille d'effet? ) Par ailleurs, s'il est de plus en plus communément admis que les conditions d'application des tests de comparaison de moyennes (dominant toujours la recherche) sont peu réalistes et rarement respectées, pourtant et que de nombreux chercheurs recommandent d'utiliser le Welch au lieu du test de Student, peu de littérature suggère quelle taille d'effet associer à ce test. Même Jamovi ne propose comme mesure de taille d'effet que le d de Cohen, souffrant des mêmes limites que le test de Student.
+Second, in the context of the comparison of two groups based on their means, it should not replace the null hypothesis testing. Statistical testing allows the researcher to determine whether the oberved departure from H0 occured by chance or not (Stout \& Ruble, 1995) while effect size estimators allow to assess the practical signficance of an effect, and as reminds Fan (2001) \enquote{a practically meaningful outcome may also have occured by chance, and consequently, is not trustworthy}. For this reason, the use of confidence intervals around the effect size estimate is highly recommended (Bothe \& Richardson, 2011).
 
-Pour cette raison, nous proposons de structurer cet article comme suit:
-\# 1) Bien definir practical significance (donc donner une définition claire de la taille d'effet qui nous convient)
-Expliquer un peu pourquoi c'est important d'avoir l'IC autour de l'effect size:
-1) Parce que l'estimation dépend du n (plus n est grand, plus précise est l'estimation)
-2) parce que la mesure de taille d'effet est un complément de la significativité statistique: comme le dit
+\hypertarget{different-goals-of-measures-of-effect-sizes}{%
+\section{Different goals of measures of effect sizes}\label{different-goals-of-measures-of-effect-sizes}}
 
-\hypertarget{bien-duxe9finir-uxe0-quel-objectif-on-tente-de-ruxe9pondre-via-la-mesure-de-taille-deffet-je-les-cite-tous-dans-mon-pwp}{%
-\section{2) Bien définir à quel objectif on tente de répondre via la mesure de taille d'effet (je les cite tous dans mon pwp)}\label{bien-duxe9finir-uxe0-quel-objectif-on-tente-de-ruxe9pondre-via-la-mesure-de-taille-deffet-je-les-cite-tous-dans-mon-pwp}}
+\hypertarget{robust-measures}{%
+\section{Robust measures}\label{robust-measures}}
 
-\hypertarget{qualituxe9s-mathematisues-importantes-dune-bonne-mesure-de-taille-deffet-et-de-lic}{%
-\section{3) Qualités MATHEMATISUES importantes d'une bonne mesure de taille d'effet et de l'IC}\label{qualituxe9s-mathematisues-importantes-dune-bonne-mesure-de-taille-deffet-et-de-lic}}
+\hypertarget{properties-of-a-good-effect-size-estimator}{%
+\subsection{Properties of a good effect size estimator}\label{properties-of-a-good-effect-size-estimator}}
 
-\hypertarget{revue-sur-les-familles-de-tailles-deffet-r-et-d-et-mesures-les-plus-connues}{%
-\section{4) Revue sur les familles de tailles d'effet (r et d, et mesures les plus connues)}\label{revue-sur-les-familles-de-tailles-deffet-r-et-d-et-mesures-les-plus-connues}}
+\hypertarget{unbiasedness}{%
+\subsubsection{Unbiasedness}\label{unbiasedness}}
+
+\hypertarget{consistency}{%
+\subsubsection{Consistency}\label{consistency}}
+
+\hypertarget{efficiency}{%
+\subsubsection{Efficiency}\label{efficiency}}
+
+\hypertarget{interpretability}{%
+\subsubsection{Interpretability}\label{interpretability}}
+
+Interpretability is not a very clear concept to me. Reading about it!
 
 \hypertarget{simulations}{%
-\section*{5) Simulations}\label{simulations}}
-\addcontentsline{toc}{section}{5) Simulations}
+\subsection*{Simulations}\label{simulations}}
+\addcontentsline{toc}{subsection}{Simulations}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-AERA_2006}{}%
+American Educational Research Association. (2006). Standards for reporting on empirical social science research in aera publications. \emph{Educational Researcher}, \emph{35}, 33--40. doi:\href{https://doi.org/10.3102/0013189X035006033}{10.3102/0013189X035006033}
+
 \leavevmode\hypertarget{ref-APA_2010}{}%
-Association. (2010). \emph{Publication manual of the american psychological association {[}apa{]} (6 ed.)} (American Psychological Association.). Washington, DC:
+American Psychological Association. (2010). \emph{Publication manual of the american psychological association {[}apa{]} (6 ed.)} (American Psychological Association.). Washington, DC:
+
+\leavevmode\hypertarget{ref-Andersen_et_al_2007}{}%
+Andersen, M. B., McCullagh, P., \& Wilson, G. J. (2007). But what do the numbers really tell us? Arbitrary metrics and effect size reporting in sport psychology research. \emph{Journal of Sport \& Exercise Psychology}, \emph{29}, 664--672.
 
 \leavevmode\hypertarget{ref-Bothe_Richardson_2011}{}%
-Bothe, R., A. K. (2011). Statistical, practical, clinical, and personal significance: Definitions and applications in speech-language pathology. \emph{American Journal of Speech-Language Pathology}, \emph{20}, 233--242.
+Bothe, A. K., \& Richardson, J. D. (2011). Statistical, practical, clinical, and personal significance: Definitions and applications in speech-language pathology. \emph{American Journal of Speech-Language Pathology}, \emph{20}, 233--242.
+
+\leavevmode\hypertarget{ref-Cain_et_al_2017}{}%
+Cain, M. K., Zhang, Z., \& Yuan, K.-H. (2017). Univariate and multivariate skewness and kurtosis for measuring nonnormality: Prevalence, influence and estimation. \emph{Behavior Research Methods}, \emph{49}(5), 1716--1735. doi:\href{https://doi.org/10.3758/s13428-016-0814-1}{10.3758/s13428-016-0814-1}
 
 \leavevmode\hypertarget{ref-Cohen_1965}{}%
 Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
+
+\leavevmode\hypertarget{ref-Erceg-Hurn_Mirosevich_2008}{}%
+Erceg-Hurn, D. M., \& Mirosevich, V. M. (2008). Modern robust statistical methods: An easy way to maximize the accuracy and power of your research. \emph{American Psychologist}, \emph{63}(7), 591--601. doi:\href{https://doi.org/10.1037/0003-066X.63.7.591}{10.1037/0003-066X.63.7.591}
 
 \leavevmode\hypertarget{ref-Fan_2001}{}%
 Fan, X. (2001). Statistical significance and effect size in education research: Two sides of a coin. \emph{Journal of Educational Research}, \emph{94}(5), 275--282. doi:\href{https://doi.org/10.1080/00220670109598763}{10.1080/00220670109598763}
 
 \leavevmode\hypertarget{ref-Glass_et_al_1972}{}%
 Glass, G. V., Peckham, P. D., \& Sanders, J. R. (1972). Consequences of failure to meet assumptions underlying the fixed effects analyses of variance and covariance. \emph{Review of Educational Research}, \emph{42}(3), 237--288. doi:\href{https://doi.org/10.3102/00346543042003237}{10.3102/00346543042003237}
+
+\leavevmode\hypertarget{ref-Grissom_2000}{}%
+Grissom, R. J. (2000). Heterogeneity of variance in clinical data. \emph{Journal of Consulting and Clinical Psychology}, \emph{68}(1), 155--165. doi:\href{https://doi.org/10.1037//0022-006x.68.1.155}{10.1037//0022-006x.68.1.155}
+
+\leavevmode\hypertarget{ref-Grissom_and_kim_2005}{}%
+Grissom, R. R., \& Kim, J. J. (2005). \emph{Effect size for research: A broad practical approach.} (Lawrence Erlbaum Associates, Mahwah, N.J.). London.
 
 \leavevmode\hypertarget{ref-Hays_1963}{}%
 Hays, W. L. (1963). \emph{Statistics for psychologists} (Holt, Rinehart \& Winston.). New York.
@@ -195,8 +218,14 @@ McBride, G. B., Loftis, J. C., \& Adkins, N. C. (1993). What do significance tes
 \leavevmode\hypertarget{ref-Meehl_1990}{}%
 Meehl, P. E. (1990). Appraising and amending theories: The strategy of Lakatosian defense and two principles that warrant it. \emph{Psychological Inquiry}, \emph{1}(2), 108--141.
 
+\leavevmode\hypertarget{ref-Micceri_1989}{}%
+Micceri, T. (1989). The unicorn, the normal curve, and other improbable creatures. \emph{Psychological Bulletin}, \emph{105}(1), 156--166. doi:\href{https://doi.org/10.1037/0033-2909.105.1.156}{10.1037/0033-2909.105.1.156}
+
 \leavevmode\hypertarget{ref-Olejnik_Algina_2000}{}%
 Olejnik, S., \& Algina, J. (2000). Measures of effect size for comparative studies: Applications, interpretations, and limitations. \emph{Contemporary Educational Psychology}, \emph{25}, 241--286. doi:\href{https://doi.org/10.1006/ceps.2000.1040}{10.1006/ceps.2000.1040}
+
+\leavevmode\hypertarget{ref-Peng_and_Chen_2014}{}%
+Peng, C.-Y., \& Chen, L.-T. (2014). Beyond cohen's d: Alternative effect size measures for between-subject designs. \emph{THE JOURNAL OF EXPERIMENTAL EDUCATION}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
 
 \leavevmode\hypertarget{ref-Peng_et_al_2013}{}%
 Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of APA and AERA Guidelines on Effect size Reporting. \emph{Contemporary Educational Psychology}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
@@ -204,8 +233,14 @@ Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of 
 \leavevmode\hypertarget{ref-Steyn_2000}{}%
 Steyn, H. S. (2000). Practical significance of the difference in means. \emph{Journal of Industrial Psychology}, \emph{26}(3), 1--3.
 
+\leavevmode\hypertarget{ref-Stout_Ruble_1995}{}%
+Stout, D. D., \& Ruble, T. L. (1995). Assessing the practical signficance of empirical results in accounting education research: The use of effect size information. \emph{Journal of Accounting Education}, \emph{13}(3), 281--298.
+
 \leavevmode\hypertarget{ref-Sullivan_Feinn_2012}{}%
 Sullivan, G., \& Feinn, R. (2012). Using effect size---or why the p value is not enough. \emph{Journal of Graduate Medical Education}, 279--282. doi:\href{https://doi.org/10.4300/JGME-D-12-00156.1}{10.4300/JGME-D-12-00156.1}
+
+\leavevmode\hypertarget{ref-Yuan_et_al_2004}{}%
+Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling with heavy tailed distributions. \emph{Psychometrika}, \emph{69}(3), 421--436. doi:\href{https://doi.org/10.1007/bf02295644}{10.1007/bf02295644}
 
 
 \end{document}

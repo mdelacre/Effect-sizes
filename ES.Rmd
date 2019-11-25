@@ -66,65 +66,40 @@ During decades, researchers in social science [@Henson_Smith_2000] and education
 
 Such an approach has faced many criticisms among which the most relevant to our concern is that the null hypothesis testing highly depends on sample size: for a given alpha level and a given difference between groups, the larger the sample size, the higher the probability of rejecting the null hypothesis [@Fan_2001; @Sullivan_Feinn_2012; @Olejnik_Algina_2000; @Kirk_2009]. It implies that even tiny differences could be detected as statistically significant with very large sample sizes [@McBride_et_al_1993]\footnote{This is especially problematic since these tiny differences might be due to other factors than the one of interest: even under the assumption of random assignent (which is a necessary but not sufficient condition), it is almost impossible to be sure that the only difference between two conditions is the one defined by the factor of interest. Other tiny factors of no theoretical interest might slighly influence results, making the probability of getting an actual zero effect very low. This is what Meehl (1990) calls 'systematic noise'}. 
 
-Facing this argument, it has become an adviced practice to report the *p*-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimenter effect [@Fan_2001; @Hays_1963;@Cohen_1965]. This practice is also highly endorsed by the *APA Publication Manual* [@APA_2010]. However, limited studies properly report effect size in the last several decades. 
+Facing this argument, it has become an adviced practice to report the *p*-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimenter effect [@Fan_2001; @Hays_1963;@Cohen_1965]. This practice is also highly endorsed by the American Psychological Association (APA) and the American Educational Research Association (AERA) [@APA_2010;@AERA_2006]. However, limited studies properly report effect size in the last several decades. 
 
-First, there is a high confusion between the effect size and other related concept such as the clininal significance of a result (i.e. the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in which circumstances. 
+First, there is a high confusion between the effect size and other related concepts such as the clininal significance [SEE NOTE LATER] of a result (i.e. the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in specific context. 
 
-Second, when associated with interential tests, the main measures of effect sizes are submitted to a range of assumptions that are unrealistic in many research designs. As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's $d_{s}$ is the dominant effect size measure used by researchers [@Peng_et_al_2013]. We will argue that, like Student's *t*-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances. 
+Second, when used for inference, the main measures of effect sizes are submitted to a range of assumptions (i.e. normality and heteroscedasticity) and these assumptions are known to be unrealistic in many research designs [@Cain_et_al_2017; @Micceri_1989; @Yuan_et_al_2004; @Erceg-Hurn_Mirosevich_2008;@Grissom_2000; @Glass_et_al_1972]. As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's $d_{s}$ is the dominant effect size measure used by researchers [@Peng_et_al_2013]. We will argue that, like Student's *t*-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances. \footnote{encore à implémenter dans le texte: Bcp d'autres chercheurs avant nous étaient arrivés à la même conclusion. Pourtant, beaucoup moins d'auteurs se sont penchés sur les mesures de taille d'effet à utiliser en complément du test de welch. Il existe de la littérature sur la question, mais pas vraiment d'accord (parce que grande confusion quant à la questino suivante: à quoi sert la mesure de taille d'effet? ) Par ailleurs, s'il est de plus en plus communément admis que les conditions d'application des tests de comparaison de moyennes (dominant toujours la recherche) sont peu réalistes et rarement respectées, pourtant et que de nombreux chercheurs recommandent d'utiliser le Welch au lieu du test de Student, peu de littérature suggère quelle taille d'effet associer à ce test. Même Jamovi ne propose comme mesure de taille d'effet que le d de Cohen, souffrant des mêmes limites que le test de Student.}.
 
 In sum the aim of this paper is threefold: 
 1. Clearly define what is (and what is not) a measure of effect size;
 2. Listing the different situations that call for effect sizes measure and reviewing which measure is appropriate in which circumstance;
-3. Define different properties of a good effect size estimator and discuss the impact of assumptions violations on the robustness of the measures of effect size.
+3. Define different properties of a good effect size estimator and discuss the impact of assumptions violations on the robustness of the measures of effect size, based on simulations.
   
-  
+# Measure of effect size: what it is, what it is not 
 
-  
-# Levels of Significance
+The effect size is commonly refered to the practical significance of a test. @Grissom_and_kim_2005 define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from [e.g. the mean; @Peng_and_Chen_2014] or as the magnitude of the relation between one dichotomous factor and one dependent variable [@AERA_2006]. Both definitions refers to as the most famous families of measures of effect sizes [Rosenthal_1994]: respectively the *d*-family and the *r*-family.
 
-Measures of effect sizes aim at communicating the **practical** significance of an effect. It refers to the *magnitude* of the difference between distributions, groups, means...[@Bothe_Richardson_2011].  Voir le word, essayer d'écrire un truc clair.
+Very often, the contribution of the measures of effect size is overestimated. 
 
-very often, the contribution of the measures of effect size is misunderstood as a measure of "the importance of an effect in real life" while it is not.
+First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not [@Stout_Ruble_1995]. The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of an effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world [@Andersen_et_al_2007]. For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g. 30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the *clinical significance* [@Bothe_Richardson_2011]. [I DON'T LIKE THE WORD "CLINICAL" BECAUSE IT'S NOT GENERAL ENOUGH.A MEANINGFUL SIGNIFICANCE COULD BE SOCIAL, PERSONAL, CLINICAL, PROFESIONNAL... ANY IDEA OF A MORE GENERAL WORD?]. It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between *practical* and *clinical* significance is more a theoretical argument than a statistical one. 
 
-In their paper, Bothe (2011) distinguish between three levels of signiﬁcance, namely Statistical signiﬁcance, Practical signiﬁcance and Clinical signiﬁcance (with the adjunction of Personal signiﬁcance). Statistical signiﬁcance refers to the p-value. As stated before, this conclusion is highly dependent from the sample size. Laslty, the Clinical signiﬁcance refers to the interpretation of treatment outcomes. This last level is not statistical nor mathematical,it is related to underlying theory that posits an empirical hypothesis.
-It is important to understand the diﬀerence between these three concepts. Statistical signiﬁcance allows the researcher to determine whether the oberved departure from H0 can be attributed to something else than randomness (i.e. an actual eﬀect). Practical signiﬁcance is a mathematical indicator of eﬀect size that is not necessarily related to the theoretical eﬀect or at least that the relation is not straightforward. As stated by Kazdin « ... clinical signiﬁcance has been deﬁned as whether an intervention “makes a real (e.g., genuine, noticeable) diﬀerence in everyday life to the clients or to others with whom the clients interact”" (Kazdin, 1999, p.332 ; cité par Bothe (2011)). Indeed, Pratical signiﬁcance depends on the way a variable is converted into numerical indicator. For example, when assessing Self-Compassion, one can use a scale such as the Self-Compassion Scale (Kotsou & Leys, 2016; Neﬀ, 2003). This scale inform the researcher about the level of self-compassion based on a ordinal scale that can yield diﬀerent value depending on the inﬂuence of any independent variable. For example, some training program can improve subjects level of self-compassion (Jazaieri et al. (2013)). Yet, since the scale is ordinal, meaning that there is no standard unit to assess the construct, the relation between the mathematical eﬀect size (i.e. Pratical signiﬁcance) and the actual change in self-compassion (i.e. Clinical signiﬁcance) will always remain unknown. Therefore, although, as we will see, pratcial signiﬁcance is important to determine, it’s relation with clinical signiﬁcance has often to be addressed, and that is more a theoretical argument than a statistical one.
-To further distinguish between important constructs, the authors suggest incorporating as deﬁnitive the existing notion that clinical signiﬁcance may refer to measures selected or interpreted by professionals or with respect to groups of clients. The term personal signiﬁcance is introduced to refer to goals, variables, measures, and changes that are of demonstrated value to individual clients.
-AS a conclusion, statistically signiﬁcant eﬀect is not necessarily of practical interest. The statistical signiﬁcance is the probability that ﬁndings have occured by chance (Stout & Ruble, 1995). The practical signiﬁcance is the magnitude of ﬁndings and is assessed by measures of eﬀect sizes.
+Second, in the context of the comparison of two groups based on their means, it should not replace the null hypothesis testing. Statistical testing allows the researcher to determine whether the oberved departure from H0 occured by chance or not [@Stout_Ruble_1995] while effect size estimators allow to assess the practical signficance of an effect, and as reminds @Fan_2001 "a practically meaningful outcome may also have occured by chance, and consequently, is not trustworthy". For this reason, the use of confidence intervals around the effect size estimate is highly recommended [@Bothe_Richardson_2011].
 
+# Different goals of measures of effect sizes
 
+# Robust measures
 
+## Properties of a good effect size estimator
 
+### Unbiasedness
 
+### Consistency
+### Efficiency
 
+### Interpretability
+Interpretability is not a very clear concept to me. Reading about it!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-At the same time, a vast literature has developed that casts doubt on the credibility of the assumptions of Student's *t*-test and classical *F*-test ANOVA [i.e. the assumptions that two or more samples are independent, and that independent and identically distributed residuals are normal and have equal variances between groups; @Glass_et_al_1972] (CITER TOUTES MES REFERENCES). In a previous paper, We focused on the assumptions of normality and equality of variances, and argued that these assumptions are often unrealistic in the field of psychology. Bcp d'autres chercheurs avant nous étaient arrivés à la même conclusion. Pourtant, beaucoup moins d'auteurs se sont penchés sur les mesures de taille d'effet à utiliser en complément du test de welch. Il existe de la littérature sur la question, mais pas vraiment d'accord (parce que grande confusion quant à la questino suivante: à quoi sert la mesure de taille d'effet? ) Par ailleurs, s'il est de plus en plus communément admis que les conditions d'application des tests de comparaison de moyennes (dominant toujours la recherche) sont peu réalistes et rarement respectées, pourtant et que de nombreux chercheurs recommandent d'utiliser le Welch au lieu du test de Student, peu de littérature suggère quelle taille d'effet associer à ce test. Même Jamovi ne propose comme mesure de taille d'effet que le d de Cohen, souffrant des mêmes limites que le test de Student.  
-
-Pour cette raison, nous proposons de structurer cet article comme suit:
-# 1) Bien definir practical significance (donc donner une définition claire de la taille d'effet qui nous convient)
-Expliquer un peu pourquoi c'est important d'avoir l'IC autour de l'effect size:
-1) Parce que l'estimation dépend du n (plus n est grand, plus précise est l'estimation)
-2) parce que la mesure de taille d'effet est un complément de la significativité statistique: comme le dit 
-
-# 2) Bien définir à quel objectif on tente de répondre via la mesure de taille d'effet (je les cite tous dans mon pwp)
-# 3) Qualités MATHEMATISUES importantes d'une bonne mesure de taille d'effet et de l'IC
-# 4) Revue sur les familles de tailles d'effet (r et d, et mesures les plus connues)
-# 5) Simulations
+## Simulations
 
