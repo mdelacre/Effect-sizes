@@ -3,7 +3,6 @@
 # Shieh's d will vary as a function of the n-ratio.
 
 # Case 1: when sd1 = sd2
-#when n1=n2, shieh's d = .25
 
 n=500
 shieh<-function(n1,mu1=1,mu2=0,sd1=2,sd2=2)
@@ -26,12 +25,22 @@ rep
 
 rep$nratio[rep$shieh==max(rep$shieh)] # As one can see, Shieh's d achieves its maximum value when n1 = n2. It's always true (not only in this example)
 
+# when n1=n2, shieh's d = .25
 ## Note: shieh's d = cohen's d/2 (whatever sd1=sd2 or not)
-# see manuscript mathematical demonstration
+# see the word file "Relation between Shieh and Cohen when n1=n2"
 
-#################################################################################################
-###              QUESTION: WHAT IS THE RELATION BETWEEN SHIEH's D and the n-ratio             ###
-#################################################################################################
+##############################################################################################################################################
+###  QUESTION: WHAT IS THE RELATION BETWEEN the n-ratio and the multiplier required in order to obtain same shieh's d value as when n1=n1  ###
+##############################################################################################################################################
+
+## I would like to find a mathematical transformation of Shieh's d measure, in order to be able to answer the
+## following question: "what would be the shieh's d effect size is design was balanced?"
+## The correction would work for any cases where there is homoscedasticity
+
+# It seems very improbable to find a transformation that fits all configurations of sd, nratio, N... but it would be great to do so!
+
+
+## WHAT IS THE RELATION BETWEEN SHIEH's D and the n-ratio?
 plot(rep$nratio,rep$shieh,ylim=c(0,.3),pch=19,cex=.3,xlab="n-ratio",ylab="shieh's d")
 abline(h=max(rep$shieh),lty=2,col="lightgrey")
 abline(v=rep$nratio[rep$shieh==max(rep$shieh)],lty=2,col="lightgrey")
@@ -62,5 +71,4 @@ obj<-loess(coeff[rep$nratio > 1] ~ rep$nratio[rep$nratio > 1])
 lines(obj,lty=2,col="red")
 
 write.table(cbind(rep,multiplier=coeff),"multipliervsnratio.txt",sep=";",dec=",")
-# essayer de dégager une loi de ceci 
-# Réfléchir à cette forme!
+# trying to figure out a law underlying this relation!
