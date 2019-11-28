@@ -124,7 +124,7 @@ Facing this argument, it has become an adviced practice to report the \emph{p}-v
 
 First, there is a high confusion between the effect size and other related concepts such as the clininal significance {[}SEE NOTE LATER{]} of a result (i.e.~the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in a specific context.
 
-Second, when used for inference, the main measures of effect sizes (i.e.~Cohen's \emph{d} and point-biserial \emph{r}) are submitted to a range of assumptions (i.e.~normality and heteroscedasticity) and these assumptions are known to be unrealistic in many research designs (Cain, Zhang, \& Yuan, 2017; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004). As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's \(d_{s}\) is the dominant effect size measure used by researchers (Peng, Chen, Chiang, \& Chiang, 2013). We will argue that, like Student's \emph{t}-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances (Cumming, 2013; Grissom \& Kim, 2005; Kelley, 2005; Shieh, 2013). While it is becoming more common in statistical software to present Welch's \emph{t}-test by default, when performing a \emph{t}-test (i.e., R, Minitab), Cohen's \(d_{s}\) remains persistent \footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}.
+Second, when used for inference, the main measures of effect sizes (i.e.~Cohen's \emph{d} and point-biserial \emph{r}) are submitted to a range of assumptions (i.e.~normality and heteroscedasticity) and these assumptions are known to be unrealistic in many research designs (Cain, Zhang, \& Yuan, 2017; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004). As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's \(d_{s}\) is the dominant effect size measure used by researchers (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013). We will argue that, like Student's \emph{t}-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances (Cumming, 2013; Grissom \& Kim, 2005; Kelley, 2005; Shieh, 2013). While it is becoming more common in statistical software to present Welch's \emph{t}-test by default, when performing a \emph{t}-test (i.e., R, Minitab), similar issues for the measures of effect sizes has received less attention (Shieh, 2013) and Cohen's \(d_{s}\) remains persistent \footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}.
 
 In sum the aim of this paper is threefold:\\
 1. Clearly define what is (and what is not) a measure of effect size;\\
@@ -144,6 +144,18 @@ Second, in the context of the comparison of two groups based on their means, it 
 
 \hypertarget{different-goals-of-measures-of-effect-sizes}{%
 \section{Different goals of measures of effect sizes}\label{different-goals-of-measures-of-effect-sizes}}
+
+Effect size measures can be used for \emph{inferential} purposes:\\
+- The effect sizes from previous studies can be used in a priori power analysis when planning a new study (Lakens, 2013; Prentice \& Miller, 1990; Stout \& Ruble, 1995; Sullivan \& Feinn, 2012; Wilkinson \& the Task Force on Statistical Inference, 1999)\\
+- To compute confidence intervals (Shieh, 2013)
+
+Measures of effect size can also be used for \emph{comparative} purposes, i.e.~to assess the stability of results across designs, analysis, samples sizes (Wilkinson \& the Task Force on Statistical Inference, 1999). It includes:\\
+- To compare results of 2 or more studies (Prentice \& Miller, 1990)\\
+- To incorporate results in meta-analysis (Lakens, 2013; Li, 2016; Nakagawa \& Cuthill, 2007; Stout \& Ruble, 1995; Wilkinson \& the Task Force on Statistical Inference, 1999)
+
+Finally, effect size measures can be used for \emph{interpretive} purposes: in order to assess the practical significance of a result (beyond statistical significance; Lakens, 2013; American Psychological Association, 2010; Prentice \& Miller, 1990)
+
+When used for \emph{inference}, effect size measures should meet some mathematical properties (see next section). According to the statistical properties of Welch's statistic, in the context of heteroscedasticity, it does not seem possible to define a proper measure of effect size without taking the specificity of the design (and more specifically the sample size allocation ratio) into account in the calculation of the group variance (Shieh, 2013). On the other side, generality is required for comparative and interpretive purposes (Cumming, 2013).
 
 \hypertarget{robust-measures}{%
 \section{Robust measures}\label{robust-measures}}
@@ -218,6 +230,12 @@ Kelley, K. (2005). The effects of nonnormal distributions on confidence interval
 \leavevmode\hypertarget{ref-Kirk_2009}{}%
 Kirk, R. E. (2009). Practical significance: A concept whose time has come. \emph{Educational and Psychological Measurement}, \emph{56}(5), 746--759. doi:\href{https://doi.org/10.1177/0013164496056005002\%20}{10.1177/0013164496056005002 }
 
+\leavevmode\hypertarget{ref-Lakens_2013}{}%
+Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science: A practical primer for t-tests and ANOVAs. \emph{Frontiers in Psychology}, \emph{4}(863), 1--12. doi:\href{https://doi.org/10.3389/fpsyg.2013.00863}{10.3389/fpsyg.2013.00863}
+
+\leavevmode\hypertarget{ref-Li_2016}{}%
+Li, J. (2016). Effect size measures in a two-independent-samples case with nonnormal and nonhomogeneous data. \emph{Behavior Research Methods}, \emph{48}(4), 1560--1574. doi:\href{https://doi.org/10.3758/s13428-015-0667-z}{10.3758/s13428-015-0667-z}
+
 \leavevmode\hypertarget{ref-McBride_et_al_1993}{}%
 McBride, G. B., Loftis, J. C., \& Adkins, N. C. (1993). What do significance tests really tell us about the environment? \emph{Environmental Management}, \emph{17}(4), 423--432.
 
@@ -227,6 +245,9 @@ Meehl, P. E. (1990). Appraising and amending theories: The strategy of Lakatosia
 \leavevmode\hypertarget{ref-Micceri_1989}{}%
 Micceri, T. (1989). The unicorn, the normal curve, and other improbable creatures. \emph{Psychological Bulletin}, \emph{105}(1), 156--166. doi:\href{https://doi.org/10.1037/0033-2909.105.1.156}{10.1037/0033-2909.105.1.156}
 
+\leavevmode\hypertarget{ref-Nakagawa_and_Cuthill_2007}{}%
+Nakagawa, S., \& Cuthill, I. C. (2007). Effect size, confidence interval and statistical significance: A practical guide for biologists. \emph{Biological Reviews}, \emph{82}, 591--605. doi:\href{https://doi.org/10.1111/j.1469-185X.2007.00027.x}{10.1111/j.1469-185X.2007.00027.x}
+
 \leavevmode\hypertarget{ref-Olejnik_Algina_2000}{}%
 Olejnik, S., \& Algina, J. (2000). Measures of effect size for comparative studies: Applications, interpretations, and limitations. \emph{Contemporary Educational Psychology}, \emph{25}, 241--286. doi:\href{https://doi.org/10.1006/ceps.2000.1040}{10.1006/ceps.2000.1040}
 
@@ -235,6 +256,9 @@ Peng, C.-Y., \& Chen, L.-T. (2014). Beyond cohen's d: Alternative effect size me
 
 \leavevmode\hypertarget{ref-Peng_et_al_2013}{}%
 Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of APA and AERA Guidelines on Effect size Reporting. \emph{Contemporary Educational Psychology}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
+
+\leavevmode\hypertarget{ref-Prentice_Miller_1992}{}%
+Prentice, D., \& Miller, D. T. (1990). When small effects are impressive. \emph{Psychological Bulletin}, \emph{112}(1), 160--164.
 
 \leavevmode\hypertarget{ref-Shieh_2013}{}%
 Shieh, G. (2013). Confidence intervals and sample size calculations for the weighted eta-squared effect sizes in one-way heteroscedastic ANOVA. \emph{Behavior Research Methods}, \emph{45}(1), 2--37. doi:\href{https://doi.org/10.3758/s13428-012-0228-7}{10.3758/s13428-012-0228-7}
@@ -247,6 +271,9 @@ Stout, D. D., \& Ruble, T. L. (1995). Assessing the practical signficance of emp
 
 \leavevmode\hypertarget{ref-Sullivan_Feinn_2012}{}%
 Sullivan, G., \& Feinn, R. (2012). Using effect size---or why the p value is not enough. \emph{Journal of Graduate Medical Education}, 279--282. doi:\href{https://doi.org/10.4300/JGME-D-12-00156.1}{10.4300/JGME-D-12-00156.1}
+
+\leavevmode\hypertarget{ref-Wilkinson_1999}{}%
+Wilkinson, L., \& the Task Force on Statistical Inference. (1999). Statistical methods in psychology journals: Guidelines and explanations. \emph{American Psychologist}, \emph{54}(8), 594--604.
 
 \leavevmode\hypertarget{ref-Yuan_et_al_2004}{}%
 Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling with heavy tailed distributions. \emph{Psychometrika}, \emph{69}(3), 421--436. doi:\href{https://doi.org/10.1007/bf02295644}{10.1007/bf02295644}
