@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{The-shieh-s-and-its-relation-with-Cohen-s-d_files/figure-latex/SHIEH1-1.pdf}
+\caption{\label{fig:SHIEH1}Comparison of Shieh's d when mu1 - mu2 = 1, N = 200 and delta 1 = delta 2 = 2}
+\end{figure*}

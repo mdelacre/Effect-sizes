@@ -1,0 +1,115 @@
+---
+title             : "The Shieh's d and its relation with Cohen's d"
+shorttitle        : "Shieh's d vs Cohen's d"
+
+author:
+  - name          : "Marie Delacre"
+    affiliation   : "1"
+    corresponding : yes
+    address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
+    email         : "marie.delacre@ulb.ac.be"
+
+affiliation:
+  - id            : "1"
+    institution   : "Service of Analysis of the Data, Université Libre de Bruxelles, Belgium"
+
+authornote: |
+
+abstract: |
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+---
+title: "Shieh's d vs Cohen's d"
+output: pdf_document
+---
+
+Unlike the classical Cohen's $\delta$, Shieh's $\delta$ depends on the sample size ratio (that I will call later nratio). For the same amount of differences betweeen two means, same standard deviations (sd) and sd-ratio, Shieh's $\delta$ will vary as a function of the nratio. To illustrate the relation between Shieh's $\delta$ and the nratio, we can calculate the parameter across a range of nratio. We will first study the Shieh's $\delta$ (and its relation with Cohen's $\delta$) when variances are equal between groups. We will then go through the relation when variances are unequal between groups.
+ 
+# When variances are equal between groups
+
+```{r, include=FALSE}
+n=200
+mu1=1
+mu2=0
+sd1=2
+sd2=2
+
+shieh<-function(n1)
+{
+n1 <- n1
+n2 <- n-n1
+q1<-n1/n
+q2<-n2/n
+shieh_d<-(mu1-mu2)/sqrt(sd1^2/q1+sd2^2/q2)
+pooled_sd<-sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+cohen_d<-(mu1-mu2)/pooled_sd
+return(cbind(n1,n2,nratio=n1/n2,shieh=shieh_d,cohen=cohen_d))
+}
+
+rep <-data.frame(t(sapply(seq(1,n-1,1),shieh)))
+colnames(rep)=c("n1","n2","nratio","shieh","cohen")
+```
+
+As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\delta$ are calculated for different configurations where the observed mean difference ($\mu_{1}-\mu_{2}$) is `r mu1-mu2`, the total sample size is `r n` and standard deviation of each groups $\sigma_{1}$ and $\sigma_{2}$ both equals `r sd1`. As one can see, as long as variances are equal between groups, Cohen's $\delta$ remains constant for all nratio, unlike Shieh's $\delta$. Moreover, Shieh's $\delta$ achieves its maximum value when $n_{1}$ = $n_{2}$ (in Figure \ref{fig:SHIEH1}, Shieh's $\delta$ equals `r max(rep$shieh)` when nratio is `r rep$nratio[rep$shieh==max(rep$shieh)]`). One can also see that at the maximum point value, the relation between Shieh's $\delta$ and Cohen's $\delta$ is as follows:
+
+\begin{equation} 
+\hat{\delta}_{Cohen}=2 \times \hat{\delta}_{Shieh}  
+(\#eq:cohenshieh)
+\end{equation} 
+
+```{r, SHIEH1, fig.cap="Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and sigma 1 and sigma 2 both equals 2"}
+plot(rep[,3],rep[,4],ylim=c(0,.5),pch=19,cex=.3,xlab="n-ratio",ylab="effect size d")
+points(rep[,3],rep[,5],pch=19,cex=.3,xlab="n-ratio",col="grey")
+abline(h=max(rep$shieh),lty=2,col="lightgrey")
+abline(v=rep$nratio[rep$shieh==max(rep$shieh)],lty=2,col="lightgrey")
+```
+
+When plotting both parameters against the log of the nratio, one can more easily observe that the Shieh's $\delta$ departs symmetrically from it's maximum value as long as the nratio moves away from 1 (see Figure \ref{fig:SHIEH2}). The relation between all Shieh's $\delta$ values and its value when nratio=1 can be expressed as follows:
+
+\begin{equation} 
+max(\hat{\delta}_{Shieh})= \hat{\delta}_{Shieh} \times \frac{nratio+1}{2 \times sqrt(nratio)}
+(\#eq:shiehvsmax)
+\end{equation} 
+
+Because we know from \@ref(eq:cohenshieh) than $max(\hat{\delta}_{Shieh})$ is half of the value of $\hat{\delta}_{Cohen}$, we can therefore deduce a more general relation between Cohen's $\delta$ and Shieh's $\delta$:
+
+\begin{equation} 
+\hat{\delta}_{Cohen}= \hat{\delta}_{Shieh} \times \frac{nratio+1}{sqrt(nratio)}
+(\#eq:cohenshiehgen)
+\end{equation} 
+
+This relations remains true as long as variances are equal between groups.
+
+```{r, SHIEH2, fig.cap="Comparison of Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and delta 1 = delta 2 = 2"}
+plot(log(rep[,3]),rep[,4],ylim=c(0,.5),pch=19,cex=.3,xlab="log of the n-ratio",ylab="shieh's d")
+points(log(rep[,3]),rep[,5],pch=19,cex=.3,xlab="n-ratio",col="grey")
+abline(h=max(rep$shieh),lty=2,col="lightgrey")
+abline(v=log(rep$nratio[rep$shieh==max(rep$shieh)]),lty=2,col="lightgrey")
+```
+
+# When variances are unequal between groups
