@@ -48,7 +48,7 @@ title: "Shieh's d vs Cohen's d"
 output: pdf_document
 ---
 
-Unlike the classical Cohen's $\delta$, Shieh's $\delta$ depends on the sample size ratio (that I will call later nratio). For the same amount of differences between two means, same standard deviations (sd) and sd-ratio, Shieh's $\delta$ will vary as a function of the nratio. To illustrate the relation between Shieh's $\delta$ and the nratio, we can calculate the parameter across a range of nratio. We will first study the Shieh's $\delta$ (and its relation with Cohen's $\delta$) when variances are equal between groups. We will then go through the relation when variances are unequal between groups.
+Unlike the classical Cohen's $\delta$, Shieh's $\delta$ depends on the sample size ratio (that I will call later nratio). For the same amount of differences between two means, same standard deviations (sd) and $\sigma$-ratio, Shieh's $\delta$ will vary as a function of the nratio. To illustrate the relation between Shieh's $\delta$ and the nratio, we can calculate the parameter across a range of nratio. We will first study the Shieh's $\delta$ (and its relation with Cohen's $\delta$) when variances are equal between groups. We will then go through the relation when variances are unequal between groups.
  
 # When variances are equal between groups
 
@@ -74,7 +74,7 @@ rep <-data.frame(t(sapply(seq(1,n-1,1),shieh)))
 colnames(rep)=c("n1","n2","nratio","shieh","cohen")
 ```
 
-As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\delta$ are calculated for different configurations where the observed mean difference ($\mu_{1}-\mu_{2}$) is `r mu1-mu2`, the total sample size is `r n` and standard deviations $\sigma_{1}$ and $\sigma_{2}$ both equals `r sd1`. As one can see, as long as variances are equal between groups, Cohen's $\delta$ remains constant for all nratio, unlike Shieh's $\delta$. Moreover, Shieh's $\delta$ achieves its maximum value when $n_{1}$ = $n_{2}$ (in Figure \ref{fig:SHIEH1}, Shieh's $\delta$ equals `r max(rep$shieh)` when nratio is `r rep$nratio[rep$shieh==max(rep$shieh)]`). One can also see that at the maximum point value, the relation between Shieh's $\delta$ and Cohen's $\delta$ is as follows:
+As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\delta$ are calculated for different configurations where the observed mean difference ($\mu_{1}-\mu_{2}$) is `r mu1-mu2`, the total sample size is `r n` and standard deviations $\sigma_{1}$ and $\sigma_{2}$ both equals `r sd1`. As one can see, as long as variances are equal between groups, Cohen's $\delta$ remains constant for all nratio, unlike Shieh's $\delta$. Moreover, Shieh's $\delta$ achieves its maximum value when $n_{1}$ = $n_{2}$ (in Figure \ref{fig:SHIEH1}, Shieh's $\delta$ equals `r max(rep$shieh)` when nratio is `r rep$nratio[rep$shieh==max(rep$shieh)]`) \footnote{Because we keep total sample size (n) constant, the larger $n_{1}$, the smaller $n_{2}$. As a consequence, when variances are equal between groups, the larger $\frac{\sigma^2_{1} \times n}{n_{1}}$, the smaller $\frac{\sigma^2_{2} \times n}{n_{2}}$.  $min(\frac{\sigma^2_{1} \times n}{n_{1}}+\frac{\sigma^2_{2} \times n}{n_{2}})$ will be achieved when $\frac{\sigma^2_{1} \times n}{n_{1}}=\frac{\sigma^2_{2} \times n}{n_{2}}$ and therefore when $n_{1}=n_{2}$.}. One can also see that at the maximum point value, the relation between Shieh's $\delta$ and Cohen's $\delta$ is as follows:
 
 \begin{equation} 
 \delta_{Cohen}=2 \times max(\delta_{Shieh})  
@@ -186,8 +186,6 @@ Once again, it is easier to study the influence of the nratio on both parameters
 
 This implies that all samples are considered as issued from a common population variance (hence the assumption of homoscedasticity). When there is heteroscedasticity, if the larger variance is associated with the larger sample size (i.e. the colored parts on both plots in Figure \ref{fig:SHIEH4}), the error term is overestimated and therefore, the Cohen's $\delta$ is decreased. The smallest value is achieved when the sample size of the group associated with the largest variance equals n-1=`r n-1`. On the other side, if the larger variance is associated with the smaller sample size (i.e. the non-colored parts of both plots), the error term is underestimated and therefore, the Cohen's $\delta$ is increased. The largest value is achieved when the sample size of the group associated with the largest variance equals `r 1`.   
 
-Unlike Cohen's $\delta$, Shieh's $\delta$ is not influenced by the correlation between the sample size and the standard deviation. It remains true that when $n_{1}=n_{2}$, the Cohen's $\delta$ is exactly as twice as large as Shieh's $\delta$, however, the maximum Shieh's $\delta$ value is not achieved when the nratio equals 1 (i.e the log of the nratio equals 0).  When there is heteroscedasticity and unequal sample sizes, the maximum Shieh's $\delta$ is always achieved when there is a positive correlation between variances and sample sizes and the more unequal the variances, the further from 1 the nratio associated with the maximum , as illustrated in Figure \ref{fig:SHIEH5}.
-
 ```{r, SHIEH4, fig.cap="Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and sigma 1 and sigma 2 are respectively 4 and 2 (left) or 2 and 4 (right)"}
 par(mfrow=c(1,2))
 plot(log(rep2[,3]),rep2[,4],ylim=c(0,.4),pch=19,cex=.3,xlab="log of the n-ratio",ylab="effect size d")
@@ -211,7 +209,7 @@ rect(-6,-.5,0,.5, col = rgb(0,1,0,alpha=0.2),density=50)
 ```
 
 ```{r, include=FALSE}
-n=200
+n=10000
 mu1=1
 mu2=0
 sd2=1
@@ -253,20 +251,23 @@ colnames(rep)=c("sdratio","maxshieh_ratio")
 #View(rep)
 ```
 
+While it remains true that when $n_{1}=n_{2}$, the Cohen's $\delta$ is exactly as twice as large as Shieh's $\delta$, the maximum Shieh's $\delta$ value is not achieved when the nratio equals 1 (i.e the log of the nratio equals 0).  When there is heteroscedasticity and unequal sample sizes, the maximum Shieh's $\delta$ is always achieved when there is a positive correlation between variances and sample sizes and the more unequal the variances, the further from 1 the nratio associated with the maximum. As an illustration, we computed Shieh's $\delta$ values for difference configurations where $\sigma_{2}=1$, total sample size = `r n` and $\mu_{1}-\mu_{2}=1$, and the nratio varies from $\frac{1}{n-1}$ to n-1, and we extracted the nratio at which Shieh's $\delta$ was the largest (=$nratio_{largest \space \delta}$). All configurations varied as a function of $\sigma_{1}$, which varied from .02 to 50, in steps of .02 (so does the $\sigma$-ratio). In Figure \ref{fig:SHIEH5}, we plotted the $\sigma$-ratio against $nratio_{largest \space \delta}$.
+
+As one can observe, when the $\sigma$-ratio is larger than 1 (i.e. $\sigma_{1} > \sigma_{1}$), the nratio associated with the largest Shieh's $\delta$ value is also larger than 1(i.e. $n_{1} > n_{2}$). On the other side, when the $\sigma$-ratio is lower than 1 (i.e. $\sigma_{1} < \sigma_{1}$), the nratio associated with the largest Shieh's $\delta$ value is also lower than 1 (i.e. $n_{1} < n_{2}$), and the relation between $nratio_{largest \space \delta}$ and $\sigma$-ratio seems linear. 
+
 ```{r, SHIEH5, fig.cap="At which nratio the largest value of Shieh's d is achieved, as a function of the sd-ratio ( = sd1/sd2)"}
 par(mfrow=c(1,1))
 plot(rep$sdratio,rep$maxshieh_ratio,pch=19,cex=.1,xlab="sd-ratio",ylab="nratio associated which largest shieh's d value")
 abline(v=1,lty=2,col="lightgrey")
 abline(h=1,lty=2,col="lightgrey")
-rep$maxshieh_ratio[rep$sdratio==1]
 ```
 
-DANS LE GRAPHIQUE 6 J AI JUSTE PRIS 1/SDRATIO ET DU COUP LE GRAPHIQUE A L AIR PLUS JOLI. MAIS MM SI CA SE VOIT PAS LE FAIT QUE PLEINS DE NRATIO SONT LES MËMES PR PLUSIEURS SIMULATIONS RESTE VRAI. ESSAYER DE COMPRENDRE PK (MAIS A MON AVIS, C JUSTE QUE Y A BCP MOYENS DE NRATIO POSSIBLES DANS MES SIMULATIONS QUE DE SDRATIO ENVISAGE DC A UN MOMENT J ATTEINT LA LIMITE DE LA MESURE VS. PRECISION EXCESSIVE DANS LES VALEURS POSSIBLES DU SD RATIO --> MOUAIS EN FAIT PO SURE CAR SI JE FAIT DES PAS DE 1 AU LIEU DE .02 LE GRAPHIQUE A TJ LA MEME ALLURE... )
-```{r, SHIEH6, fig.cap="At which nratio the largest value of Shieh's d is achieved, as a function of the sd-ratio ( = sd2/sd1)"}
-par(mfrow=c(1,1))
-plot(1/rep$sdratio,rep$maxshieh_ratio,pch=19,cex=.1,xlab="sd-ratio",ylab="nratio associated which largest shieh's d value")
-abline(v=1,lty=2,col="lightgrey")
-abline(h=1,lty=2,col="lightgrey")
-rep$maxshieh_ratio[rep$sdratio==1]
-```
+This result can be easily explained: **Shieh's $\delta$** is the difference between both groups means, divided an error term where variances $\sigma_{j}$ are weighted by $\frac{n}{n_{j}}$:
+
+\begin{equation} 
+\delta_{Shieh}= \frac{\mu_{1}-\mu_{2}}{\sqrt{\frac{\sigma^2_{1} \times n}{n_{1}}+\frac{\sigma^2_{2} \times n}{n_{2}}}}
+(\#eq:shieh)
+\end{equation} 
+
+It implies that when there is a positive correlation between sample size and $\sigma$-ratio, the group with smallest variance is given more weight. As a consequence, the error term is decreased and the Shieh's $\delta$ is increased.  When there is a negative correlation between sample size and $\sigma$-ratio, the group with largest variance is given more weight and therefore, the error term is increased, and the Shieh's $\delta$ is decreased. FINISH TO EXPLAIN THIS
 
