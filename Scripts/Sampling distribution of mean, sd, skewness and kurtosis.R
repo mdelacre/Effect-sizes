@@ -24,32 +24,31 @@ for (i in seq_len(length(Folder))){
     n2 <- as.numeric(param[[1]][6])
     m1 <- as.numeric(param[[1]][7])
     m2 <- as.numeric(param[[1]][8])
-    sd1 <- as.numeric(param[[1]][9])
-    sd2 <- as.numeric(param[[1]][10])
+    var1 <- as.numeric(param[[1]][9])^2
+    var2 <- as.numeric(param[[1]][10])^2
     skewness <- as.numeric(param[[1]][2])
     kurtosis <- as.numeric(param[[1]][4])
 
     # Compute bias
     
-    colnames(matr) <- c("n1","n2","m1","m2","sd1","sd2","skew","kurt",paste0(columns_names[,1],columns_names[,3],columns_names[,2]))
+    colnames(matr) <- c("n1","n2","m1","m2","var1","var2","skew","kurt",paste0(columns_names[,1],columns_names[,3],columns_names[,2]))
     
     matr[j,1]<- n1
     matr[j,2]<- n2
     matr[j,3]<- m1
     matr[j,4]<- m2
-    matr[j,5]<- sd1
-    matr[j,6]<- sd2
+    matr[j,5]<- var1
+    matr[j,6]<- var2
     matr[j,7]<- skewness
     matr[j,8]<- kurtosis
-    
     matr[j,9]<- mean(file[,1])
     matr[j,10]<- sd(file[,1])
     matr[j,11]<- mean(file[,2])
     matr[j,12]<- sd(file[,2])
-    matr[j,13]<- mean(file[,3])
-    matr[j,14]<- sd(file[,3])
-    matr[j,15]<- mean(file[,4])
-    matr[j,16]<- sd(file[,4])
+    matr[j,13]<- mean(file[,3]^2)
+    matr[j,14]<- sd(file[,3]^2)
+    matr[j,15]<- mean(file[,4]^2)
+    matr[j,16]<- sd(file[,4]^2)
     matr[j,17]<- mean(file[,5])
     matr[j,18]<- sd(file[,5])
     matr[j,19]<- mean(file[,6])
