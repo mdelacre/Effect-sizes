@@ -13,7 +13,7 @@ for (i in seq_len(length(Folder))){
   sample <- 1:2
   estimator <- c("Average_","Stdev_")
   columns_names=expand.grid(estimator,sample,indic_param)
-  colnames(matr) <- c("n1","n2","m1","m2","sd1","sd2","skew","kurt",paste0(columns_names[,1],columns_names[,3],columns_names[,2]))
+  colnames(matr) <- c("n1","n2","m1","m2","var1","var2","skew","kurt",paste0(columns_names[,1],columns_names[,3],columns_names[,2]))
 
   for (j in seq_len(length(list.files(Folder[i])))){
 
@@ -29,10 +29,7 @@ for (i in seq_len(length(Folder))){
     skewness <- as.numeric(param[[1]][2])
     kurtosis <- as.numeric(param[[1]][4])
 
-    # Compute bias
-    
-    colnames(matr) <- c("n1","n2","m1","m2","var1","var2","skew","kurt",paste0(columns_names[,1],columns_names[,3],columns_names[,2]))
-    
+    # compute average and sd of different parameters
     matr[j,1]<- n1
     matr[j,2]<- n2
     matr[j,3]<- m1
