@@ -17,7 +17,7 @@ for (i in seq_len(length(Folder))){
     
     filepath = paste0(Folder[i],"/",list.files(Folder[i])[j])
     file=readRDS(filepath)
-    param <- str_extract_all(list.files(Folder)[j], "[[:digit:]]+\\.*[[:digit:]]*")
+    param <- str_extract_all(list.files(Folder[i])[j], "[[:digit:]]+\\.*[[:digit:]]*")
     n1 <- as.numeric(param[[1]][5])
     n2 <- as.numeric(param[[1]][6])
     m1 <- as.numeric(param[[1]][7])
