@@ -101,8 +101,6 @@ library(stringr)
       G1 <- as.numeric(param[[1]][2])
       G2 <- as.numeric(param[[1]][4])
       
-      res.bias
-      
       png(file=paste0("bias_eff,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=2500,height=1700, units = "px", res = 300)  
       
       
