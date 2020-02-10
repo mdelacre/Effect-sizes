@@ -57,22 +57,19 @@ Such an approach has faced many criticisms among which the most relevant to our 
 
 Facing this argument, it has become an adviced practice to report the *p*-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimental effect [@Fan_2001; @Hays_1963;@Cohen_1965]. This practice is also highly endorsed by the American Psychological Association (APA) and the American Educational Research Association (AERA) [@APA_2010;@AERA_2006]. However, limited studies properly report effect size in the last several decades. 
 
-First, there is a high confusion between the effect size and other related concepts such as the clininal significance [SEE NOTE LATER] of a result (i.e. the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in a specific context. 
-
-Second, when used for inference, the main measures of effect sizes (i.e. Cohen's *d* and point-biserial *r*) are submitted to a range of assumptions (i.e. normality and heteroscedasticity) and these assumptions are known to be unrealistic in many research designs [@Cain_et_al_2017; @Micceri_1989; @Yuan_et_al_2004; @Erceg-Hurn_Mirosevich_2008;@Grissom_2000; @Glass_et_al_1972]. As consequences many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. In the context of comparing two groups based on their means, Cohen's $d_{s}$ is the dominant effect size measure used by researchers [@Peng_et_al_2013;@Shieh_2013]. We will argue that, like Student's *t*-test, this measure rely on the often untenable assumptions of normality and homogeneity of variances [@Kelley_2005; @Grissom_and_kim_2005;@Cumming_2013;@Shieh_2013]. While it is becoming more common in statistical software to present Welch's *t*-test by default, when  performing a *t*-test (i.e., R, Minitab),  similar issues for the measures of effect sizes has received less attention [@Shieh_2013] and Cohen's $d_{s}$ remains persistent \footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}.
-
-In sum the aim of this paper is threefold:   
+First, there is a high confusion between the effect size and other related concepts such as the [TROUVER UN TERME] significance (e.g. clinical, personnal, social, professionnal) of a result (i.e. the relevance of an effect in real life). Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in a specific context. The first aim of this paper is therefore twofold:   
 1. Clearly define what is (and what is not) a measure of effect size;  
-2. Listing the different situations that call for effect sizes measure and reviewing which measure is appropriate in which circumstance;  
-3. Define different properties of a good effect size estimator and discuss the impact of assumptions violations on the robustness of the measures of effect size, based on simulations.
-  
+2. Listing the different situations that call for effect sizes measure and define required properties as a function of the situations;
+
+Second, many differents estimators of effect sizes are available in literature and it is not always easy to know which measures is appropriate in which circumstance. We will limit our study to “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means. More specifically, we will focus on the standardized mean difference, called the *d*-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means. We will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult (or even impossible) to find a measure which optimally serves all the purposes of an effect size measure. For example, interpretability is obtained at the expense of inferential properties and vice versa. The second aim of this paper is therefore to review the most famous estimators of this family next to the role they serve.
+
 # Measure of effect size: what it is, what it is not 
 
 The effect size is commonly refered to the practical significance of a test. @Grissom_and_kim_2005 define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from [e.g. the mean; @Peng_and_Chen_2014] or as the magnitude of the relation between one dichotomous factor and one dependent variable [@AERA_2006]. Both definitions refers to as the most famous families of measures of effect sizes [Rosenthal_1994]: respectively the *d*-family and the *r*-family.
 
 Very often, the contribution of the measures of effect size is overestimated. 
 
-First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not [@Stout_Ruble_1995]. The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of an effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world [@Andersen_et_al_2007]. For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g. 30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the *clinical significance* [@Bothe_Richardson_2011]. [I DON'T LIKE THE WORD "CLINICAL" BECAUSE IT'S NOT GENERAL ENOUGH.A MEANINGFUL SIGNIFICANCE COULD BE SOCIAL, PERSONAL, CLINICAL, PROFESIONNAL... ANY IDEA OF A MORE GENERAL WORD?]. It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between *practical* and *clinical* significance is more a theoretical argument than a statistical one. 
+First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not [@Stout_Ruble_1995]. The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of an effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world [@Andersen_et_al_2007]. For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g. 30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the *??? significance* [@Bothe_Richardson_2011]. It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between *practical* and *???* significance is more a theoretical argument than a statistical one. 
  
 Second, in the context of the comparison of two groups based on their means, it should not replace the null hypothesis testing. Statistical testing allows the researcher to determine whether the oberved departure from H0 occured by chance or not [@Stout_Ruble_1995] while effect size estimators allow to assess the practical signficance of an effect, and as reminds @Fan_2001 "a practically meaningful outcome may also have occured by chance, and consequently, is not trustworthy". For this reason, the use of confidence intervals around the effect size estimate is highly recommended [@Bothe_Richardson_2011].
 
@@ -88,7 +85,6 @@ Measures of effect size can also be used for *comparative* purposes, i.e. to ass
 
 Finally, effect size measures can be used for *interpretive* purposes: in order to assess the practical significance of a result [beyond statistical significance; @Lakens_2013;@Prentice_Miller_1992;@APA_2010]  
 
-When used for *inference*, effect size measures should meet some mathematical properties (see next section). According to the statistical properties of Welch's statistic, in the context of heteroscedasticity, it does not seem possible to define a proper measure of effect size without taking the specificity of the design (and more specifically the sample size allocation ratio) into account in the calculation of the group variance [@Shieh_2013]. On the other side, generality is required for comparative and interpretive purposes [@Cumming_2013].  
 
 # Robust measures
 
@@ -127,7 +123,7 @@ axis(side=1,at=seq(-6,10,2),col="white",labels=c(rep("",3),expression(paste(delt
 plot(function(x) dnorm(x,mean=-2,sd=2),-10, 6,xlab="",ylab="",main ="",axes=F,lty=1,xlim=c(-10,6),ylim=c(0,.2),lwd=1,cex.lab=1.2)
 segments(-2,0,-2,dnorm(2,mean=2,sd=2))
 segments(0,0,0,dnorm(0,mean=2,sd=2),lty=2,lwd=2)
-axis(side=1,at=seq(-6,10,2),labels=c(rep("",2),expression(delta),expression(paste("E(",hat(delta),")")),rep("",5)),col="white")
+axis(side=1,at=seq(-6,10,2),labels=c(rep("",2),expression(paste("E(",hat(delta),")")),expression(delta),rep("",5)),col="white")
 
 ```
 
@@ -160,6 +156,9 @@ Finally, the last property if a good point estimator is **consistency**: consist
 
 **Interpretability**
 
+
 ## Simulations
+
+
 
 
