@@ -5,6 +5,7 @@ for (package in c("PearsonDS","gsl")) {
   }
 }
 
+
 ##### Function to load packages
 
 # Note: when kurtosis = 3 and skewness = 0, one has a normal distribution
@@ -90,7 +91,10 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     
     # Shieh's d after correction
     nratio <- n1/n2
-    shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*((nratio+1)/sqrt(nratio))
+    sigma_bal <- sqrt((sdev1^2+sdev2^2)/2)
+    sigma_unbal <- sqrt((1-q1)*sdev1^2+(1-q2)*sdev2^2) # we give more weight to the variance of the smallest group
+  
+    shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio))) # what value of Cohen would be obtain if n1=n2?
     
     ES[i,9:14] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,shieh_d,shieh_d_corr)
     
@@ -110,6 +114,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
 
 #### Normal case
 
+# Big n
 n1 <- c(20,50,100)
 n2 <- c(20,50,100)
 m1 <- seq(0,4,1)
@@ -134,9 +139,28 @@ for (i in seq_len(length(Simu[,1]))){
   get_simu(nSims=100000,n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
 }
 
+# Small n
+
+n1 <- c(10,20,30)
+n2 <- c(10,20,30)
+m1 <- seq(0,4,1)
+m2 <- 0
+Kurt <- 0 # when asymetry, kurtosis > 0, always!
+Skew <- 0
+sd1 <- 1
+sd2 <- c(.1,.25,.5,1,2,4,10)
+
+Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
+colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
+
+# performing simulations  
+for (i in seq_len(length(Simu[,1]))){
+  get_simu(nSims=100000,n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+}
 
 #### Abnormal cases
 
+# Big n
 n1 <- c(20,50,100)
 n2 <- c(20,50,100)
 m1 <- seq(0,4,1)
@@ -156,10 +180,11 @@ for (j in seq_len(length(fold[,1]))){
   dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
 }
 
-View(Simu)
+#View(Simu)
 
 # performing simulations  
   for (i in seq_len(length(Simu[,1]))){ 
     get_simu(nSims=100000,n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
   }
 
+# Small n
