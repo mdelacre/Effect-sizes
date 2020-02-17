@@ -38,7 +38,7 @@ for (i in seq_len(length(Folder))){
     nratio=n1/n2
     sigma_unbal <- sqrt((1-n1/(n1+n2))*sd1^2 + (1-n2/(n1+n2))*sd2^2)    
     sigma_bal <-   sqrt((sd1^2+sd2^2)/2)
-    shieh_delta_corr <- shieh_delta*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio)))  
+    shieh_delta_corr <- shieh_delta*(((nratio+1)*sigma_unbal)/(2*sigma_bal*sqrt(nratio)))  
     
     # Compute bias
     bias_cohen <- mean(file[,9]) - cohen_delta
