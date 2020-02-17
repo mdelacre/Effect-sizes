@@ -94,7 +94,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     sigma_bal <- sqrt((sdev1^2+sdev2^2)/2)
     sigma_unbal <- sqrt((1-q1)*sdev1^2+(1-q2)*sdev2^2) # we give more weight to the variance of the smallest group
   
-    shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio))) # what value of Cohen would be obtain if n1=n2?
+    shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*(((nratio+1)*sigma_unbal)/(2*sigma_bal*sqrt(nratio))) # what value of Shieh's delta would be obtain if n1=n2?
     
     ES[i,9:14] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,shieh_d,shieh_d_corr)
     

@@ -214,7 +214,7 @@ $$\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n
 Finally, because of formula \ref{eq:cohenshieh}, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
 
 \begin{equation} 
-\delta_{Cohen}= \delta_{Shieh} \times \frac{(nratio/1) \times \sigma_{n_1 \neq n_2}}{\sigma_{n_1=n_2} \times \sqrt{nratio}}
+\delta_{Cohen}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{\sigma_{n_1=n_2} \times \sqrt{nratio}}
 (\#eq:shiehvsbaldesign2)
 \end{equation} 
 
