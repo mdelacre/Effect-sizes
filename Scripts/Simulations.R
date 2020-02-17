@@ -128,11 +128,11 @@ Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 # create subfolders
-fold<-expand.grid(Skew,Kurt)
-for (j in seq_len(length(fold[,1]))){
-  setwd("C:/Users/Marie/Documents/ES MEASURES")
-  dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
-}
+#fold<-expand.grid(Skew,Kurt)
+#for (j in seq_len(length(fold[,1]))){
+#  setwd("C:/Users/Marie/Documents/ES MEASURES")
+#  dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
+#}
 
 # performing simulations  
 for (i in seq_len(length(Simu[,1]))){
@@ -151,6 +151,7 @@ sd1 <- 1
 sd2 <- c(.1,.25,.5,1,2,4,10)
 
 Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
+length(Simu[,1])
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 # performing simulations  
@@ -174,13 +175,15 @@ Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 # create subfolders
-fold<-expand.grid(Skew,Kurt)
-for (j in seq_len(length(fold[,1]))){  
-  setwd("C:/Users/Marie/Documents/ES MEASURES")
-  dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
-}
+#fold<-expand.grid(Skew,Kurt)
+#for (j in seq_len(length(fold[,1]))){  
+#  setwd("C:/Users/Marie/Documents/ES MEASURES")
+#  dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
+#}
 
 #View(Simu)
+
+setwd("C:/Users/Marie/Documents/ES MEASURES/G1=0,G2=95.75")
 
 # performing simulations  
   for (i in seq_len(length(Simu[,1]))){ 
