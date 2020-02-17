@@ -1,0 +1,42 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH1-1.pdf}
+\caption{\label{fig:SHIEH1}Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and sigma 1 and sigma 2 both equals 2}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH2-1.pdf}
+\caption{\label{fig:SHIEH2}Comparison of Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and delta 1 = delta 2 = 2}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH3-1.pdf}
+\caption{\label{fig:SHIEH3}Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and sigma 1 and sigma 2 are respectively 4 and 2 (left) or 2 and 4 (right)}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH4-1.pdf}
+\caption{\label{fig:SHIEH4}Comparison of Shieh's d (black dots) and Cohen's d (grey dots) when mu1 - mu2 = 1, N = 200 and sigma 1 and sigma 2 are respectively 4 and 2 (left) or 2 and 4 (right)}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH5-1.pdf}
+\caption{\label{fig:SHIEH5}At which nratio the largest value of Shieh's d is achieved, as a function of the sigma-ratio (= sigma1/sigma2)}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Appendix1_files/figure-latex/SHIEH6-1.pdf}
+\caption{\label{fig:SHIEH6}At which nratio the largest value of Shieh's d is achieved, as a function of the sigma-ratio (= sigma1/sigma2)}
+\end{figure*}

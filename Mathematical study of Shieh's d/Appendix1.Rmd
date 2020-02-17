@@ -1,6 +1,40 @@
 ---
-title: "Shieh's d vs Cohen's d"
-output: pdf_document
+title             : "Relation between Shieh's delta and Cohen's delta"
+
+shorttitle        : "Shieh's delta vs. Cohen's delta"
+
+author: 
+  - name          : "Marie Delacre" 
+    affiliation   : "1"
+    corresponding : yes    
+    address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
+    email         : "marie.delacre@ulb.ac.be"
+
+affiliation:
+  - id            : "1"
+    institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
+    
+authornote: |
+
+abstract: |
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output:
+  papaja::apa6_pdf:
+    includes:
+      fig_caption       : FALSE
 ---
 **Cohen's $\delta$** is the difference between both groups means, divided by a pooled error term:
 
