@@ -36,7 +36,9 @@ for (i in seq_len(length(Folder))){
     q2 <- n2/(n1+n2)
     shieh_delta <- (m1-m2)/sqrt(sd1^2/q1+sd2^2/q2)       
     nratio=n1/n2
-    shieh_delta_corr <- shieh_delta*((nratio+1)/sqrt(nratio))       
+    sigma_unbal <- sqrt((1-n1/(n1+n2))*sd1^2 + (1-n2/(n1+n2))*sd2^2)    
+    sigma_bal <-   sqrt((sd1^2+sd2^2)/2)
+    shieh_delta_corr <- shieh_delta*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio)))  
     
     # Compute bias
     bias_cohen <- mean(file[,9]) - cohen_delta
@@ -125,10 +127,11 @@ for (i in seq_len(length(Folder))){
 # If sdSD & bal or SDsd & bal: no correlation between n and sd (rnull)
 
 
+setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Graphs")
+
 for (j in seq_len(length(list.files(Path)))){
   Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of measures/"
-  setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Graphs")
-  
+
   File=read.table(paste0(Path,list.files(Path)[j]),header=T,sep=";",dec=",")  
   
   # Subdivise file into five categories
