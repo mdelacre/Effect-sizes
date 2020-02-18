@@ -89,10 +89,12 @@ As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\d
 First, when sample sizes are equal across groups, one can observe that Shieh's $\delta$ is half of the value of Cohen's $\delta$. Shieh's $\delta$ equals `r max(rep$shieh)` when nratio is `r rep$nratio[rep$shieh==max(rep$shieh)]`, and Cohen's $\delta$ equals `r rep$cohen[rep$nratio==1]`:
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2} = \frac{\delta_{Cohen}}{2}
+\delta_{Shieh,n_1=n_2} = \frac{\delta_{Cohen,n_1=n_2}}{2}
 \leftrightarrow \delta_{Shieh,n_1=n_2}= \frac{\mu_1-\mu_2}{2 \times \hat{\sigma}} 
 (\#eq:cohenshieh)
 \end{equation} 
+
+Note that when variances are equal between groups, Cohen's $\delta$ is constant whatever groupe sample sizes are equal or not (i.e. Cohen's $\delta_{n1=n2}$ = Cohen's $\delta_{n1 \neq n2}$). This equality will no longer be true when variances are unequal between groups. We use therefore $\delta_{Cohen, n_1=n_2}$ in Formula \ref{eq:cohenshieh}, in order that equality is still applicable when variances are unequal between groups (see later).
 
 Moreover, when both sample sizes are equal between groups, Shieh's $\delta$ achieves its maximum value. When plotting both parameters against the log of the nratio, one can more easily observe that the Shieh's $\delta$ departs symmetrically from it's maximum value as long as the nratio moves away from 1 (i.e. when log(nratio) = 0; see Figure \ref{fig:SHIEH2}). 
 
@@ -104,7 +106,7 @@ When variances are equal between groups, $\hat{\sigma}$ will be the same for all
 (\#eq:shiehvsmax)
 \end{equation} 
 
-Finally, because of formula \ref{eq:cohenshieh}, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
+Finally, because of formula \ref{eq:cohenshieh} and because we know that Cohen's $\delta$ is constant for all nratio, when variances are equal between groups, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
 
 \begin{equation} 
 \delta_{Cohen}= \delta_{Shieh} \times \frac{nratio+1}{\sqrt(nratio)}
@@ -211,7 +213,7 @@ As a consequence of different $\hat{\sigma}$ for all nratio's, the relation betw
 With $$\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}$$ and 
 $$\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}$$
 
-Finally, because of formula \ref{eq:cohenshieh}, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
+Finally, because of formula \ref{eq:cohenshieh}, one can conclude that the relation between the Cohen's $\delta$ we would obtain if sample sizes were equal between groups and Shieh's $\delta$ can be expressed as following:
 
 \begin{equation} 
 \delta_{Cohen}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{\sigma_{n_1=n_2} \times \sqrt{nratio}}
