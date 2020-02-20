@@ -206,7 +206,7 @@ As a consequence of different $\hat{\sigma}$ for all nratio's, the relation betw
 
 \begin{equation} 
 \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{\frac{\mu_1-\mu_2}{2 \times \sigma_{(n_1=n_2)}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \sigma_{(n_1\neq n_2)}}}
-\leftrightarrow \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times sqrt(nratio)}
+\leftrightarrow \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
 (\#eq:shiehvsbaldesign)
 \end{equation} 
 
