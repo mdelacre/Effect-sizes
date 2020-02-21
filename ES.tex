@@ -29,6 +29,7 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -126,7 +127,7 @@ First, there is a high confusion between the effect size and other related conce
 1. Clearly define what is (and what is not) a measure of effect size;\\
 2. Listing the different situations that call for effect sizes measure and define required properties as a function of the situations;
 
-Second, many differents estimators of effect sizes are available in literature and it is not always easy to know which measures is appropriate in which circumstance. We will limit our study to \enquote{between-subject} designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means. More specifically, we will focus on the standardized mean difference, called the \emph{d}-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013). We will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult (or even impossible) to find a measure which optimally serves all the purposes of an effect size measure. For example, interpretability is obtained at the expense of inferential properties and vice versa. The second aim of this paper is therefore to review the most famous estimators of this family next to the role they serve.
+Second, many differents estimators of effect sizes are available in literature and it is not always easy to know which measures is appropriate in which circumstance. We will limit our study to \enquote{between-subject} designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means. More specifically, we will focus on the standardized mean difference, called the \emph{d}-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013). We will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult to find a measure which optimally serves all the purposes of an effect size measure. For example, interpretability is obtained at the expense of inferential properties and vice versa. The second aim of this paper is therefore to review the most famous estimators of this family next to the role they serve.
 
 \hypertarget{measure-of-effect-size-what-it-is-what-it-is-not}{%
 \section{Measure of effect size: what it is, what it is not}\label{measure-of-effect-size-what-it-is-what-it-is-not}}
@@ -146,7 +147,7 @@ Effect size measures can be used for \emph{inferential} purposes:\\
 - The effect sizes from previous studies can be used in a priori power analysis when planning a new study (Lakens, 2013; Prentice \& Miller, 1990; Stout \& Ruble, 1995; Sullivan \& Feinn, 2012; Wilkinson \& the Task Force on Statistical Inference, 1999)\\
 - To compute confidence intervals (Shieh, 2013)
 
-When used for inference, effect size measures are generally submitted to a range of assumptions (e.g.~normality and equality of variances). When these assumptions are not met, many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions.
+When used for inference, effect size measures are generally submitted to a range of assumptions (e.g.~independent and identically distributed residuals are normal and have equal variances between groups). When these assumptions are not met, many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions.
 
 Measures of effect size can also be used for \emph{comparative} purposes, i.e.~to assess the stability of results across designs, analysis, samples sizes (Wilkinson \& the Task Force on Statistical Inference, 1999). It includes:\\
 - To compare results of 2 or more studies (Prentice \& Miller, 1990)\\
@@ -205,12 +206,18 @@ MSE(\hat{\delta})=\hat{\delta}_{efficiency}+\hat{\delta}_{bias}^2
 \label{eq:MSE2}
 \end{equation}
 
-Finally, the last property if a good point estimator is \textbf{consistency}: consistency means that the bigger the sample size, the closer the estimate of the population parameter. In other words, the estimates \emph{converge} to the true population parameter.
+Finally, the last property of a good point estimator is \textbf{consistency}: consistency means that the bigger the sample size, the closer the estimate of the population parameter. In other words, the estimates \emph{converge} to the true population parameter.
 
 \hypertarget{properties-of-a-good-effect-size-estimator-for-comparative-and-interpretive-purposes}{%
 \subsection{Properties of a good effect size estimator (for comparative and interpretive purposes)}\label{properties-of-a-good-effect-size-estimator-for-comparative-and-interpretive-purposes}}
 
-\textbf{Interpretability}
+\textbf{Generality}
+
+According to (Cumming, 2013), an effect size estimator need to have a constant value across designs in order to be easily interpretable and to be included in meta-analysis.
+
+At first glance, this quality is incompatible with the mathematical properties required for an inferential purpose. For example, according to the statistical properties of Welch's statistic, in the context of heteroscedasticity, it seems required to take the sample size allocation ratio into account in order to define a proper inferential measure of effect size ({\textbf{???}}). It would mean that for the same amount of differences between two means, same standard deviations and \(\sigma\)-ratio, a proper effect size estimator would vary as a function of the sample sizes allocation ratio, which would make it very dependent on the characteristics of the design and therefore very difficult to interpret.
+
+In the following section, we will review the most popular effect size measures in the \emph{d} family. In this section, we will also propose an original transformation of the Shieh's \(\delta\). This transformation should help at bridging the imperatives of generality and need to take the specificities of the design into account.
 
 \hypertarget{different-measures-of-effect-sizes}{%
 \section{Different measures of effect sizes}\label{different-measures-of-effect-sizes}}
@@ -294,8 +301,33 @@ Because the SD of the experimental group has no impact on the computed Glass's \
 \hypertarget{simulations}{%
 \subsection{Simulations}\label{simulations}}
 
-\#When used for \emph{inference}, effect size measures should meet some mathematical properties that will be explained in the next section. In the context of \#heteroscedasticity, it does not seem possible to meet these properties without taking the specificity of the design into account (Shieh, 2013). On the other side, \#generality is required for comparative and interpretive purposes (Cumming, 2013).\\
-\#and discuss the impact of assumptions violations on the robustness of the measures of effect size, based on simulations.
+We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of the 6 measures of effect sizes described in previous section: Cohen's \(d_s\), Hedge's \(g_s\), Glass's \(d_s\) using respectively the sample standard deviation of the first or second group as a standardizer, Shieh's \(d_s\) and our transformed measure of Shieh's \(d_s\). 100 000 datasets were generated for 1260 scenarios (in 315 scenarios, samples are extracted from a normal population distribution).
+
+Population parameter values were chosen in order to illustrate the consequences of factors known to play a key role on goodness of estimators. We manipulated the sample sizes, the sample size ratio (\emph{n}-ratio = \(\frac{n_k}{n_j}\)), the \emph{SD}-ratio (\emph{SD}-ratio = \(\frac{\sigma_1}{\sigma_2}\)), and the sample size and variance pairing.
+
+In our scenarios, the mean of the second sample was always 0 and the mean of the first sample varied from 0 to 4, in step of 1 (so does the mean difference between groups). Moreover, the standard deviation of the first group is always 1, and the standard deviation of the second group is .1, .25, .5, 1, 2, 4 or 10 (so does the \emph{SD}-ratio). The simulations for which the \emph{SD} of both samples equals 1 are the particular case of homoscedasticity (i.e.~equal variances across groups). Sample size of both groups were 20, 50 or 100. When sample sizes of both groups are equal, the \emph{n}-ratio equals 1 (it is known as a balanced design). All possible combinations of \emph{n}-ratio and \emph{SD}-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest \emph{SD}), negative pairings (the group with the smallest sample size is extracted from the population with the smallest \emph{SD}), and no pairing (sample sizes and/or population \emph{SD} are equal across all groups). All these conditions were tested with normal and non-normal distributions. We used the article of Cain et al. (2017) in order to determine realistic population parameters values (i.e.~skewness and kurtosis) for non normal distributions: \#\#RAJOUTER LE DETAIL ET VOIR ANNEXE POU RLA TRANSFO DE G1 ET G2\#\#
+
+In sum, the simulations grouped over different sample sizes yield 5 conditions based on the \emph{n}-ratio, \emph{SD}-ratio, and sample size and variance pairing, as summarized in Table 1.
+
+Table 1.
+\emph{5 conditions based on the n-ratio, SD-ratio, and sample size and variance pairing}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+& & & \textbf{\emph{n}-ratio} &\tabularnewline
+\midrule
+\endhead
+& & \textbf{1} & \textbf{\textgreater1} & \textbf{\textless1}\tabularnewline
+& & ------------ & ------------- & -------------\tabularnewline
+& \textbf{1} & a & b & b\tabularnewline
+& & & &\tabularnewline
+\textbf{\emph{SD}-ratio} & \textbf{\textgreater1} & c & d & e\tabularnewline
+& & & &\tabularnewline
+& \textbf{\textless1} & c & e & d\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Note.} The \emph{n}-ratio is the sample size of the last group divided by the sample size of the first group. When all sample sizes are equal across groups, the \emph{n}-ratio equals 1. When the sample size of the last group is higher than the sample size of the first group, \emph{n}-ratio \textgreater{} 1, and when the sample size of the last group is smaller than the sample size of the first group, \emph{n}-ratio \textless{} 1. \emph{SD}-ratio is the population \emph{SD} of the first group divided by the population \emph{SD} of the second group. When all samples are extracted from populations with the same \emph{SD}, the \emph{SD}-ratio equals 1. When the last group is extracted from a population with a larger \emph{SD} than all other groups, the \emph{SD}-ratio \textgreater{} 1. When the last group is extracted from a population with a smaller \emph{SD} than all other groups, the \emph{SD}-ratio \textless{} 1.
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-AERA_2006}{}%
