@@ -213,7 +213,7 @@ Finally, the last property of a good point estimator is \textbf{consistency}: co
 
 \textbf{Generality}
 
-According to (Cumming, 2013), an effect size estimator need to have a constant value across designs in order to be easily interpretable and to be included in meta-analysis.
+According to Cumming (2013), an effect size estimator need to have a constant value across designs in order to be easily interpretable and to be included in meta-analysis.
 
 At first glance, this quality is incompatible with the mathematical properties required for an inferential purpose. For example, according to the statistical properties of Welch's statistic, in the context of heteroscedasticity, it seems required to take the sample size allocation ratio into account in order to define a proper inferential measure of effect size ({\textbf{???}}). It would mean that for the same amount of differences between two means, same standard deviations and \(\sigma\)-ratio, a proper effect size estimator would vary as a function of the sample sizes allocation ratio, which would make it very dependent on the characteristics of the design and therefore very difficult to interpret.
 
@@ -243,25 +243,36 @@ Cohen's d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1)
 \label{eq:Cohends}
 \end{equation}
 
-The reasoning behind this measure is that considering both sample as extracted from a common population variance (n.d.), we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size (\(max(n_j)\)). Unfortunately, even under the assumption of normality and equality of variances, Cohen's \(d_s\) is known to be positively biased {[}Thompson, 2006, cited by Lakens, 2013{]} and for this reason, Hedges and Olkin (1985) has defined a bias-corrected version, which is referred to:
+The reasoning behind this measure is that considering both sample as extracted from a common population variance (n.d.), we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size (\(max(n_j)\)). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's \(d_s\) is known to be positively biased {[}Thompson, 2006, cited by Lakens, 2013{]} and for this reason, Hedges and Olkin (1985) has defined a bias-corrected version, which is referred to:
 
 \begin{equation} 
 Hedge's \space g_s = Cohen's \space d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
 \label{eq:Hedgesgs}
 \end{equation}
 
-The pooled SD is the best choice when variances are equal between groups (Grissom \& Kim, 2001) but they may not be well advised for use with data that violates this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). In case of a positive pairing (i.e.~the group with the larger sample size also has the larger variance), the variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e.~the group with the larger sample size has the smaller variance), the estimator will be larger as it should be. However, this assumption is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre, Lakens, \& Leys, 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004).
+The pooled SD is the best choice when variances are equal between groups (Grissom \& Kim, 2001) but they may not be well advised for use with data that violates this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). In case of a positive pairing (i.e.~the group with the larger sample size also has the larger variance), the variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e.~the group with the larger sample size has the smaller variance), the estimator will be larger as it should be. However, this assumption is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre, Lakens, \& Leys, 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004). For this reason, both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of a robust alternative to unequal variances.
 
 \hypertarget{alternatives-when-variances-are-unequal-between-groups}{%
 \subsection{Alternatives when variances are unequal between groups}\label{alternatives-when-variances-are-unequal-between-groups}}
 
-While it is becoming more common in statistical software to present Welch's \emph{t}-test by default, when performing a \emph{t}-test (i.e., R, Minitab), similar issues for the measures of effect sizes has received less attention (Shieh, 2013) and Cohen's \(d_s\) remains persistent \footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}. One possible reason is that researchers cannot find a consensus on which alternative should be in use (Shieh, 2013). In his review, Shieh (2013) mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates, the Shieh's \(d_s\) (B) and the Glass's \(d_s\) (C).
+While it is becoming more common in statistical software to present Welch's \emph{t}-test by default, when performing a \emph{t}-test (i.e., R, Minitab), similar issues for the measures of effect sizes has received less attention (Shieh, 2013) and Cohen's \(d_s\) remains persistent \footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}. One possible reason is that researchers cannot find a consensus on which alternative should be in use (Shieh, 2013). In his review, Shieh (2013) mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's \(d_s\) (B) and the Shieh's \(d_s\) (C).
 
 The \textbf{sample mean difference, divided by the non pooled average of both variance estimates} (A) was suggested by Cohen (1988). We immediately exclude this alternative because it suffers of many limitations:\\
-- it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001)\\
-- unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013)\\
-- unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate (Note: Huynh, 1989, propose un estimateur ajusté).\\
-Formule trouvée sur un forum : \url{https://stats.stackexchange.com/questions/210352/do-cohens-d-and-hedges-g-apply-to-the-welch-t-test}
+- it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001);
+- unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013);\\
+- unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate.
+
+\hypertarget{glasss-d_s}{%
+\subsubsection{\texorpdfstring{Glass's \(d_s\)}{Glass's d\_s}}\label{glasss-d_s}}
+
+When comparing one control group with one experimental group, Glass, McGav, and Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by (Cumming, 2013), because according to him, it is what makes the most sense, conceptually speaking.
+
+\begin{equation} 
+Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
+\label{eq:Glassds}
+\end{equation}
+
+Because the SD of the experimental group has no impact on the computed Glass's \(d_s\), one could advice to report both mean differences divided by the SD of the control group and mean differences divided by the SD of the experimental groups. However, it could induces large ambiguity because both measures could be substantially different (Shieh, 2013).
 
 \hypertarget{shiehs-d}{%
 \subsubsection{Shieh's d}\label{shiehs-d}}
@@ -273,7 +284,7 @@ Shieh's \space d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
 \label{eq:Shiehds}
 \end{equation}
 
-According to the statistical properties of Welch's statistic, in the context of heteroscedasticity, it seems required to take the sample size allocation ratio into account in order to define a proper inferential measure of effect size (Shieh, 2013). At the same time, the lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: \url{http://127.0.0.1:4350/}). Fortunately, it can be shown that there is a relationship between the Shieh's \(d_s\) value when samples sizes are equal between groups (i.e.~\(\delta_{Shieh, n1=n2}\)) and Shieh's \(d_s\) values for all other sample sizes allocation ratios
+We already mentioned that such a standardizer is required for inferential purposes, in the context of heteroscedasticity. At the same time, the lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: http: //127.0.0.1:3461/). This paradox would be resolved if it were possible to answer the following question: \enquote{for any sample sizes allocation ratio, is it possible to transform Shieh's \(d_s\) value in order to know what value of Shieh's \(d_s\) would have been obtained if design were balanced (i.e.~\(n_1 = n_2\))?} Fortunately, such a transformation is possible. It can be shown that there is a relationship between the Shieh's \(d_s\) value when samples sizes are equal between groups (i.e.~\(\delta_{Shieh, n1=n2}\)) and Shieh's \(d_s\) values for all other sample sizes allocation ratios
 
 \begin{equation} 
 \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{\frac{\mu_1-\mu_2}{2 \times \sigma_{(n_1=n_2)}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \sigma_{(n_1\neq n_2)}}}
@@ -284,19 +295,7 @@ According to the statistical properties of Welch's statistic, in the context of 
 With \[\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\] and
 \[\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
 
-Results in equation \ref{eq:shiehvsbaldesign} could be interpreted as \enquote{which Shieh's d value would we obtain if design of our study was balanced (i.e.~\(n_{1} = n_{2}\))?}. Thanks to this equation, Shieh's \(\delta\) can have a practical significance, independently of the sample sizes allocation ratio.
-
-\hypertarget{glasss-d_s}{%
-\subsubsection{\texorpdfstring{Glass's \(d_s\)}{Glass's d\_s}}\label{glasss-d_s}}
-
-When comparing one control group with one experimental group, Glass, Smith, \& McGaw (1981) recommend using the SD of the control group as standardizer. It is also advocated by (Cumming, 2013), because according to him, it is what makes the most sense, conceptually speaking.
-
-\begin{equation} 
-Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
-\label{eq:Glassds}
-\end{equation}
-
-Because the SD of the experimental group has no impact on the computed Glass's \(d_s\), one could advice to report both mean differences divided by the SD of the control group and mean differences divided by the SD of the experimental groups. However, it could induces large ambiguity because both measures could be substantially different (Shieh, 2013).
+Thanks to this equation, Shieh's \(\delta\) can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.
 
 \hypertarget{simulations}{%
 \subsection{Simulations}\label{simulations}}
@@ -362,6 +361,9 @@ Erceg-Hurn, D. M., \& Mirosevich, V. M. (2008). Modern robust statistical method
 
 \leavevmode\hypertarget{ref-Fan_2001}{}%
 Fan, X. (2001). Statistical significance and effect size in education research: Two sides of a coin. \emph{Journal of Educational Research}, \emph{94}(5), 275--282. doi:\href{https://doi.org/10.1080/00220670109598763}{10.1080/00220670109598763}
+
+\leavevmode\hypertarget{ref-Glass_et_al_1981}{}%
+Glass, G. V., McGav, B., \& Smith, M. L. (2005). \emph{Meta-analysis in social research} (Sage.). Beverly Hills, CA.
 
 \leavevmode\hypertarget{ref-Glass_et_al_1972}{}%
 Glass, G. V., Peckham, P. D., \& Sanders, J. R. (1972). Consequences of failure to meet assumptions underlying the fixed effects analyses of variance and covariance. \emph{Review of Educational Research}, \emph{42}(3), 237--288. doi:\href{https://doi.org/10.3102/00346543042003237}{10.3102/00346543042003237}
