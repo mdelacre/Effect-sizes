@@ -242,16 +242,32 @@ Thanks to this equation, Shieh's $\delta$ can be compared across two different s
     
 ## Simulations
 
-We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of the 6 measures of effect sizes described in previous section: Cohen's $d_s$, Hedge's $g_s$, Glass's $d_s$ using respectively the sample standard deviation of the first or second group as a standardizer, Shieh's $d_s$ and our transformed measure of Shieh's $d_s$. 100 000 datasets were generated for 1260 scenarios (in 315 scenarios, samples are extracted from a normal population distribution). 
+We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of the 6 measures of effect sizes described in previous section: Cohen's $d_s$, Hedge's $g_s$, Glass's $d_s$ using respectively the sample standard deviation of the first or second group as a standardizer, Shieh's $d_s$ and our transformed measure of Shieh's $d_s$, that we will note later $d_s^*$. 
 
-Population parameter values were chosen in order to illustrate the consequences of factors known to play a key role on goodness of estimators. We manipulated the sample sizes, the sample size ratio (*n*-ratio = $\frac{n_k}{n_j}$), the *SD*-ratio (*SD*-ratio = $\frac{\sigma_1}{\sigma_2}$), and the sample size and variance pairing. 
-
-In our scenarios, the mean of the second sample was always 0 and the mean of the first sample varied from 0 to 4, in step of 1 (so does the mean difference between groups). Moreover, the standard deviation of the first group is always 1, and the standard deviation of the second group is .1, .25, .5, 1, 2, 4 or 10 (so does the *SD*-ratio). The simulations for which the *SD* of both samples equals 1 are the particular case of homoscedasticity (i.e. equal variances across groups). Sample size of both groups were 20, 50 or 100. When sample sizes of both groups are equal, the *n*-ratio equals 1 (it is known as a balanced design). All possible combinations of *n*-ratio and *SD*-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest *SD*), negative pairings (the group with the smallest sample size is extracted from the population with the  smallest *SD*), and no pairing (sample sizes and/or population *SD* are equal across all groups). All these conditions were tested with normal and non-normal distributions. We used the article of @Cain_et_al_2017 in order to determine realistic population parameters values (i.e. skewness and kurtosis) for non normal distributions: ##RAJOUTER LE DETAIL ET VOIR ANNEXE POU RLA TRANSFO DE G1 ET G2##
-
-In sum, the simulations grouped over different sample sizes yield 5 conditions based on the *n*-ratio, *SD*-ratio, and sample size and variance pairing, as summarized in Table 1. 
-
+100 000 datasets were generated for 1260 scenarios. In 315 scenarios, samples were extracted from a normal population distribution and in 945 scenarios, samples were extracted from non normal population distributions. In order to assess the goodness of estimators under realistic deviations from the normality assumption, we referred to the review of @Cain_et_al_2017. Based on their investigation \footnote{Cain et al. (2017) investigated 1,567 univariate distributions from 194 studies published by authors in *Psychological Science* (from January 2013 to June 2014) and the *American Education Research Journal* (from January 2010 to June 2014). For each distribution, they computed the Fisher's skewness (G1) and kurtosis (G2). }, @Cain_et_al_2017 found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution, i.e. G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution, i.e. respectively G1 = -2.08 and G1 = 6.32. We also simulated null population parameter values (i.e. G1 = 0), in order to assess the main effect of high kurtosis on the goodness of estimators. All possible combinations of skewness and kurtosis and the number of scenarios for each combination are summarized in Table 1.
 
 Table 1.
+*Number of Combinations of skewness and kurtosis in our simulations*
+
+|                         |               |               | __Kurtosis__ |               
+| :---------------------: | :-----------: |:-------------:|:------------:|:-------------:|
+|                         |               |     0         |   95.75      |    **TOTAL**    |
+|                         |               |---------------|--------------|---------------|
+|                         |        0      |     315       |     315      |     **630**     | 
+|                         |               |               |              |               |
+|      __Skewness__       |      -2.08    |      /        |     315      |     **315**     |
+|                         |               |               |              |               |
+|                         |      6.32     |        /      |     315      |     **315**     |
+|                         |               |               |              |               |
+|                         |    **TOTAL**    |    **315**      |    **945**     |    **1260**     |
+
+*Note.* Fisher's skewness (G1) and kurtosis (G2) are presented in Table 1. The 315 combinations where both G1 and G2 equal 0 correspond to the normal case. 
+
+For the 4 resulting combinations of skewness and kurtosis (see Table 1), all other population parameter values were chosen in order to illustrate the consequences of factors known to play a key role on goodness of estimators. We manipulated the sample sizes, the sample size ratio (*n*-ratio = $\frac{n_1}{n_2}$), the *SD*-ratio (*SD*-ratio = $\frac{\sigma_1}{\sigma_2}$), and the sample size and variance pairing. In our scenarios, $\mu_2$ was always 0 and $\mu_1$ varied from 0 to 4, in step of 1 (so does $\mu_1-\mu_2$). Moreover, $\sigma_1$ always equals 1, and $\sigma_2$ equals .1, .25, .5, 1, 2, 4 or 10 (so does the *SD*-ratio). The simulations for which both $\sigma_1$ and $\sigma_2$ equal 1 are the particular case of homoscedasticity (i.e. equal variances across groups). Sample size of both groups ($n_1$ and $n_2$) were 20, 50 or 100. When sample sizes of both groups are equal, the *n*-ratio equals 1 (it is known as a balanced design). All possible combinations of *n*-ratio and *SD*-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest *SD*), negative pairings (the group with the smallest sample size is extracted from the population with the smallest *SD*), and no pairing (sample sizes and/or population *SD* are equal across all groups). 
+
+In sum, the simulations grouped over different sample sizes yield 5 conditions based on the *n*-ratio, *SD*-ratio, and sample size and variance pairing, as summarized in Table 2. 
+
+Table 2.
 *5 conditions based on the n-ratio, SD-ratio, and sample size and variance pairing*
 
 |                               |             |             |__*n*-ratio__|             |
@@ -264,4 +280,4 @@ Table 1.
 |                               |             |             |             |             |
 |                               |   **<1**    |      c      |      e      |      d      |
 
-*Note.* The *n*-ratio is the sample size of the last group divided by the sample size of the first group. When all sample sizes are equal across groups, the *n*-ratio equals 1. When the sample size of the last group is higher than the sample size of the first group, *n*-ratio > 1, and when the sample size of the last group is smaller than the sample size of the first group, *n*-ratio < 1. *SD*-ratio is the population *SD* of the first group divided by the population *SD* of the second group. When all samples are extracted from populations with the same *SD*, the *SD*-ratio equals 1. When the last group is extracted from a population with a larger *SD* than all other groups, the *SD*-ratio > 1. When the last group is extracted from a population with a smaller *SD* than all other groups, the *SD*-ratio < 1. 
+*Note.* The *n*-ratio is the sample size of the first group ($n_1$) divided by the sample size of the second group ($n_2$). When all sample sizes are equal across groups, the *n*-ratio equals 1. When $n_1 > n_2$, *n*-ratio > 1, and when $n_1 < n_2$, *n*-ratio < 1. *SD*-ratio is the population *SD* of the first group ($\sigma_1$) divided by the population *SD* of the second group ($\sigma_2$). When $\sigma_1=\sigma_2$, *SD*-ratio = 1. When $\sigma_1>\sigma_2$, *SD*-ratio > 1. Finally, when $\sigma_1<\sigma_2$, *SD*-ratio < 1.
