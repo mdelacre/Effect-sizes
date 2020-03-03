@@ -1,3 +1,11 @@
+for (package in "rootSolve") {
+  if (!require(package, character.only=T, quietly=T)) {
+    install.packages(package)
+    library(package, character.only=T)
+  }
+}
+
+
 #########################################
 ##  Simulation - Confidence intervals  ##
 #########################################
@@ -38,6 +46,9 @@ Cohen.CI <- function(Group.1, Group.2,alpha)
   result <- c(delta.low, delta.upp) 
   return(result)
 }
+
+
+
 
 
 
