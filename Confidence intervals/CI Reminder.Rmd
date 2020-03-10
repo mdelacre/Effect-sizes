@@ -185,7 +185,7 @@ samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
   
 }
 
-samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=10)
+samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=100000)
 ```
 
 Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level (see the first example for more details):
@@ -254,7 +254,7 @@ samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
   legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
 }
 
-samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=10)
+samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=100000)
 ```
 
 Consider the following quantity: 
