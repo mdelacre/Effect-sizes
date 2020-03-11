@@ -84,7 +84,7 @@ rep <-data.frame(t(sapply(seq(1,n-1,1),shieh)))
 colnames(rep)=c("n1","n2","nratio","shieh","cohen")
 ```
 
-As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\delta$ are calculated for different configurations where the observed mean difference ($\mu_{1}-\mu_{2}$) is `r mu1-mu2`, the total sample size is `r n` and standard deviations $\sigma_{1}$ and $\sigma_{2}$ both equals `r sd1`. 
+As a first example, in Figure \ref{fig:SHIEH1}, Cohen's $\delta$ and Shieh's $\delta$ are calculated for different configurations where the observed mean difference ($\mu_{1}-\mu_{2}$) is `r mu1-mu2`, the total sample size is `r n` and standard deviations $\sigma_{1}$ and $\sigma_{2}$ both equals `r sd1`\footnote{Note that we chose a mean difference of 1 for convenience, however the mean difference does not impact the relation between both effect size measures}. 
 
 First, when sample sizes are equal across groups, one can observe that Shieh's $\delta$ is half of the value of Cohen's $\delta$. Shieh's $\delta$ equals `r max(rep$shieh)` when nratio is `r rep$nratio[rep$shieh==max(rep$shieh)]`, and Cohen's $\delta$ equals `r rep$cohen[rep$nratio==1]`:
 
@@ -106,7 +106,7 @@ When variances are equal between groups, $\hat{\sigma}$ will be the same for all
 (\#eq:shiehvsmax)
 \end{equation} 
 
-Finally, because of formula \ref{eq:cohenshieh} and because we know that Cohen's $\delta$ is constant for all nratio, when variances are equal between groups, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
+Note that because of formula \ref{eq:cohenshieh} and because we know that Cohen's $\delta$ is constant for all nratio, when variances are equal between groups, one can conclude that the relation between Cohen's $\delta$ and Shieh's $\delta$ can be expressed as following:
 
 \begin{equation} 
 \delta_{Cohen}= \delta_{Shieh} \times \frac{nratio+1}{\sqrt(nratio)}
