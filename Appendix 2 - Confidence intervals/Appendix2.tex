@@ -1,0 +1,280 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Reminder about Confidence Intervals},
+  pdfauthor={Marie Delacre},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\shorttitle{CI REMINDER}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} ULB}
+\keywords{keywords\newline\indent Word count: X}
+\usepackage{csquotes}
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
+
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+
+\usepackage{lineno}
+
+\linenumbers
+
+\title{Reminder about Confidence Intervals}
+\author{Marie Delacre\textsuperscript{1}}
+\date{}
+
+\authornote{
+
+Correspondence concerning this article should be addressed to Marie Delacre, Postal address. E-mail: \href{mailto:marie.delacre@ulb.ac.be}{\nolinkurl{marie.delacre@ulb.ac.be}}}
+
+\abstract{
+
+}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction-how-to-compute-a-confidence-interval-around-mu_1-mu_2}{%
+\subsubsection{\texorpdfstring{Introduction: How to compute a confidence interval around \(\mu_1-\mu_2\)}{Introduction: How to compute a confidence interval around \textbackslash mu\_1-\textbackslash mu\_2}}\label{introduction-how-to-compute-a-confidence-interval-around-mu_1-mu_2}}
+
+When computing a (supposed normal) centered variable, divided by the standard error (i.e.~an independant variable closely related with the \(\chi^2\) distribution), then computed quantity will follow a central \emph{t}-distribution. This quantity is called a pivotal quantity (PQ), i.e.~a quantity that is very interesting because its sampling distribution is not a function of the parameter we want to estimate. We can therefore use it, in order to define confidence limits for any parameter({\textbf{???}}).
+
+The method consists in four steps:\\
+1) Compute a pivotal quantity (PQ) of the general form: (Estimator - parameter)/SE;\\
+2) Determining the distribution of PQ;\\
+3) Computing the confidence limits of PQ: determine a range of values, centered around 0, such as (1-alpha)\% of the area under the distribution of PQ falls in this range;\\
+4) Pivote in order to obtain the confidence interval around the parameter of interest.
+
+As a first example, consider the case of 2 means difference, assuming normality and homoscedasticity. The pivotal quantity is defined as follows:
+
+\begin{equation} 
+PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
+\label{eq:PQstudent}
+\end{equation}
+
+With \(SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) and \(\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}\)
+
+This quantity follows a \emph{t}- distribution with \(n_1+n_2-2\) degrees of freedom (therefore, it depends only on \(n_1\) and \(n_2\), it does NOT depend on the parameter of interest, i.e.~\(\mu_1-\mu_2\); {\textbf{???}}).
+
+\begin{figure}
+\centering
+\includegraphics{Appendix2_files/figure-latex/SAMPLMEANDIFF1-1.pdf}
+\caption{\label{fig:SAMPLMEANDIFF1}Sampling distribution of the pivotal quantity under the assumptions of normality and homoscedasticity}
+\end{figure}
+
+Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level:
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2}(\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
+\label{eq:conflev1}
+\end{equation}
+
+Because the \emph{t}-distribution is symmetrically centered around 0, one can deduce that \(t_{n_1+n_2-2}(\frac{\alpha}{2})=-t_{n_1+n_2-2}(1-\frac{\alpha}{2})\), and therefore:
+
+\begin{equation} 
+Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
+\label{eq:conflev2}
+\end{equation}
+
+In pivoting the inequation, one can deduce that:
+
+\begin{equation} 
+Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < (\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2) < t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE] = 1-\alpha
+\label{eq:conflev3}
+\end{equation}
+
+\begin{equation} 
+\leftrightarrow Pr[-(\bar{X_1}-\bar{X_2}) -t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE <
+-(\mu_1-\mu_2) 
+< -(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+\label{eq:conflev4}
+\end{equation}
+
+\begin{equation} 
+\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE > \mu_1-\mu_2 > (\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+\label{eq:conflev5}
+\end{equation}
+
+\begin{equation} 
+\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+\label{eq:conflev6}
+\end{equation}
+
+As a second example, consider the case of 2 means difference, assuming normality and heteroscedasticity. The pivotal quantity is defined as follows:
+
+\begin{equation} 
+PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
+\label{eq:PQwelch}
+\end{equation}
+
+With \(SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}\)
+
+This quantity follows a \emph{t}- distribution with \(\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}\) degrees of freedom (therefore, it depends on \(n_1\) and \(n_2\), \(S_1\) and \(S_2\), and does NOT depend on the parameter of interest, i.e.~\(\mu_1-\mu_2\)).
+
+\begin{figure}
+\centering
+\includegraphics{Appendix2_files/figure-latex/SAMPLMEANDIFF2-1.pdf}
+\caption{\label{fig:SAMPLMEANDIFF2}Sampling distribution of the pivotal quantity under the assumptions of normality and heteroscedasticity}
+\end{figure}
+
+Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level (see the first example for more details):
+
+\begin{equation} 
+Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+\label{eq:conflev6}
+\end{equation}
+
+With SE = \(\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}\)
+
+We may also think of confidence limits as the most extreme values of \(\mu_1-\mu_2\) that we could define as null hypothesis and that would not lead to rejecting the null hypothesis. In other words, we could define the lower limit \((\mu_1-\mu_2)_L\) such as \(\bar{X_1}-\bar{X_2}\) exactly equals the quantile (1-\(\frac{\alpha}{2}\)) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L\), and the upper limit \((\mu_1-\mu_2)_U\) such as \(\bar{X_1}-\bar{X_2}\) exactly equals the quantile \(\frac{\alpha}{2}\) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U\):
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+\label{eq:plausiblelimit1}
+\end{equation}
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+\label{eq:plausiblelimit2}
+\end{equation}
+
+This second vision of the problem helps to understand how we calculate the confidence intervals around the effect size measures, as explained below ({\textbf{???}}).
+
+\hypertarget{how-to-compute-a-confidence-interval-around-cohens-delta}{%
+\subsubsection{\texorpdfstring{How to compute a confidence interval around Cohen's \(\delta\)}{How to compute a confidence interval around Cohen's \textbackslash delta}}\label{how-to-compute-a-confidence-interval-around-cohens-delta}}
+
+\begin{figure}
+\centering
+\includegraphics{Appendix2_files/figure-latex/SAMPLMEANDIFF3-1.pdf}
+\caption{\label{fig:SAMPLMEANDIFF3}Sampling distribution of centered mean difference divided by SE (in grey, i.e.~pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity.}
+\end{figure}
+
+Consider the following quantity:
+\begin{equation} 
+t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+\label{eq:plausiblelimit2}
+\end{equation}
+
+With \(SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\), \(\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}\), and \((\mu_1-\mu_2)_0\) is the means difference under the null hypothesis. If the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the \(\chi^2\). Therefore, as previously mentioned, it will follow a central \emph{t}-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral \emph{t}-distribution will arise ({\textbf{???}}), as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}.
+
+Noncentral \emph{t}-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call \(\Delta\); {\textbf{???}}), the last being a function of \(\delta\) and sample sizes \(n_1\) and \(n_2\):
+
+\begin{equation}
+\Delta = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
+\label{eq:ncp}
+\end{equation}
+
+It is therefore possible to compute confidence limits for \(\Delta\), and divide them by \(\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}\) in order to have confidence limits for \(\delta\). In other word, we first need to determine the noncentrality parameters of the \emph{t}-distributions for which \(t_{Student}\) corresponds respectively to the \(1-\frac{\alpha}{2}\) and to the \(\frac{\alpha}{2}\) th. quantile:
+
+\[P[t_{df, \Delta_L} \geq t_{Student}] = \frac{\alpha}{2} \]
+
+\[P[t_{df, \Delta_U} \leq t_{Student}] = \frac{\alpha}{2} \]
+
+With \(df = n_1+n_2-2\). Second, we divide \(\Delta_L\) and \(\Delta_U\) by \(\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}\) in order to define \(\delta_L\) and \(\delta_U\):
+
+\[\delta_L = \frac{\Delta_L}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}\]
+
+\[\delta_U = \frac{\Delta_U}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}\]
+
+\hypertarget{how-to-determine-the-confidence-interval-around-shiehs-delta}{%
+\section{\texorpdfstring{How to determine the confidence interval around Shieh's \(\delta*\)}{How to determine the confidence interval around Shieh's \textbackslash delta*}}\label{how-to-determine-the-confidence-interval-around-shiehs-delta}}
+
+Consider the following quantity:
+\begin{equation} 
+t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+\label{eq:plausiblelimit2}
+\end{equation}
+
+With \(SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}\) and \((\mu_1-\mu_2)_0\) is the means difference under the null hypothesis. As with \(t_{Student}\), if the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the \(\chi^2\). It will therefore follow a central \emph{t}-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral \emph{t}-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}.
+
+\begin{figure}
+\centering
+\includegraphics{Appendix2_files/figure-latex/SAMPLMEANDIFF4-1.pdf}
+\caption{\label{fig:SAMPLMEANDIFF4}Sampling distribution of centered mean difference divided by SE (in grey, i.e.~pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity.}
+\end{figure}
+
+The noncentrality parameter \(\Delta*\) is a function of \(\delta*\) and total sample size \(N = n_1 + n_2\) ({\textbf{???}})
+
+\begin{equation}
+\Delta* = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}
+\label{eq:ncp}
+\end{equation}
+
+Again, it is therefore possible to compute confidence limits for \(\Delta*\), and divide them by \(\sqrt{N}\) in order to have confidence limits for \(\delta*\). We first need to determine the noncentrality parameters of the distributions for which \(t_{Welch}\) corresponds respectively to the \(1-\frac{\alpha}{2}\) and to the \(\frac{\alpha}{2}\) th. quantile.
+\[P[t_{v, \Delta*_L} \geq t_{Welch}] = \frac{\alpha}{2} \] and
+\[P[t_{v, \Delta*_U} \leq t_{Welch}] = \frac{\alpha}{2} \].
+
+With \emph{v} approximated by \(\hat{v} = \frac{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})^2}{\frac{(\frac{S_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{S_2^2}{n_2})^2}{n_2-1}}\) ({\textbf{???}})
+
+Second, we divide \(\Delta*_L\) and \(\Delta*_U\) by \(\sqrt{N}\) in order to have \(\delta*_L\) and \(\delta*_U\) (i.e.~confidences limits for Shieh's \(\delta*\)).
+
+\end{document}

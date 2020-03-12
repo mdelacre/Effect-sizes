@@ -1,0 +1,349 @@
+---
+title             : "Reminder about Confidence Intervals"
+shorttitle        : "CI REMINDER"
+
+author: 
+  - name          : "Marie Delacre"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "marie.delacre@ulb.ac.be"
+
+affiliation:
+  - id            : "1"
+    institution   : "ULB"
+
+authornote: |
+
+abstract: |
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+library("moments")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+## Reference
+
+Cumming, G., & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervales that  are based on central and noncentral distributions. Educational and Psychological Measurement, 61(532). 
+
+# How to determine the CI around a parameter
+
+## Method 1: method based on the use of a pivotal quantity
+
+When computing a (supposed normal) centered variable, divided by the standard error (i.e. an independant variable closely related with the $\chi^2$ distribution), then computed quantity will follow a central *t*-distribution. This quantity is called a pivotal quantity (PQ), i.e. a quantity that is very interesting because its sampling distribution is not a function of the parameter we want to estimate (Cox & Hinkley, 1974 cited by Cumming and Finch, 2001). We can therefore use it, in order to define confidence limits for any parameter.
+
+The method consists in four steps:  
+1) Compute a pivotal quantity (PQ) of the general form: (Estimator - parameter)/SE;  
+2) Determining the distribution of PQ;  
+3) Computing the confidence limits of PQ: determine a range of values, centered around 0, such as (1-alpha)% of the area under the distribution of PQ falls in this range;    
+4) Pivote in order to obtain the confidence interval around the parameter of interest.    
+
+As a first example, consider the case of 2 means difference, assuming normality and homoscedasticity. The pivotal quantity is defined as follows: 
+
+\begin{equation} 
+PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
+(\#eq:PQstudent)
+\end{equation} 
+
+With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ and $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$
+
+This quantity follows a *t*- distribution with $n_1+n_2-2$ degrees of freedom (therefore, it depends only on $n_1$ and $n_2$, it does NOT depend on the parameter of interest, i.e. $\mu_1-\mu_2$).
+
+```{r, SAMPLMEANDIFF1, fig.cap= "Sampling distribution of the pivotal quantity under the assumptions of normality and homoscedasticity"}
+samplingtest <- function(n1,n2,nsim){
+  
+  for (i in seq_len(nsim)){
+    A <- rnorm(n1,mean=4)
+    B <- rnorm(n2,mean=2)
+    if (i==1){
+      av <- mean(A)-mean(B)  
+      sd1 <- sd(A)
+      sd2 <- sd(B)
+      
+    } else {
+      av <- c(av,mean(A)-mean(B))
+      sd1 <- c(sd1,sd(A))
+      sd2 <- c(sd2,sd(B))
+    }
+    
+  }
+  
+  pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+  pq <- (av-(4-2))/(pooled_sd*sqrt(1/n1+1/n2))
+  
+  1-pt(.025,df=n1+n2-2)
+  plot(density(pq),main="Sampling distribution of PQ",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
+  legend("top",col=c("black","red"),legend=c("empirical distribution (based on simulations)","t-distribution with n1+n2-2 degrees of freedom"),lty=c(2,2),bty="n")
+  
+  df <- n1+n2-2
+  sq <- seq(-4,4,.01) 
+  lines(sq,dt(sq,df=df),lty=2,pch=9,cex=.5,col="red")
+  
+}
+
+samplingtest(n1=50,n2=60,nsim=10)
+
+```
+
+Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level:
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2}(\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
+(\#eq:conflev1)
+\end{equation} 
+
+Because the *t*-distribution is symmetrically centered around 0, one can deduce that $t_{n_1+n_2-2}(\frac{\alpha}{2})=-t_{n_1+n_2-2}(1-\frac{\alpha}{2})$, and therefore:
+
+\begin{equation} 
+Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
+(\#eq:conflev2)
+\end{equation} 
+
+In pivoting the inequation, one can deduce that:
+
+\begin{equation} 
+Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < (\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2) < t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE] = 1-\alpha
+(\#eq:conflev3)
+\end{equation} 
+
+\begin{equation} 
+\leftrightarrow Pr[-(\bar{X_1}-\bar{X_2}) -t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE <
+-(\mu_1-\mu_2) 
+< -(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+(\#eq:conflev4)
+\end{equation} 
+
+\begin{equation} 
+\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE > \mu_1-\mu_2 > (\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+(\#eq:conflev5)
+\end{equation} 
+
+\begin{equation} 
+\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+(\#eq:conflev6)
+\end{equation} 
+
+As a second example, consider the case of 2 means difference, assuming normality and heteroscedasticity. The pivotal quantity is defined as follows:
+
+\begin{equation} 
+PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
+(\#eq:PQwelch)
+\end{equation} 
+
+With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$
+
+This quantity follows a *t*- distribution with $\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}$ degrees of freedom (therefore, it depends on $n_1$ and $n_2$, $S_1$ and $S_2$, and does NOT depend on the parameter of interest, i.e. $\mu_1-\mu_2$).
+
+```{r, SAMPLMEANDIFF2, fig.cap= "Sampling distribution of the pivotal quantity under the assumptions of normality and heteroscedasticity"}
+samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
+  
+  for (i in seq_len(nsim)){
+    A <- rnorm(n1,mean=4,sd=sigma1)
+    B <- rnorm(n2,mean=2,sd=sigma2) 
+    if (i==1){
+      av <- mean(A)-mean(B)  
+      sd1 <- sd(A)
+      sd2 <- sd(B)
+      
+    } else { 
+      av <- c(av,mean(A)-mean(B))
+      sd1 <- c(sd1,sd(A))
+      sd2 <- c(sd2,sd(B))
+    }
+    
+  }
+  
+  pq <- (av-(4-2))/sqrt(sd1^2/n1+sd2^2/n2) 
+  plot(density(pq),main="Sampling distribution of PQ",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
+  legend("top",col=c("black","red"),legend=c("empirical distribution (based on simulations)","t-distribution with df degrees of freedom"),lty=c(2,2),bty="n")
+
+  df <- (sigma1^2/n1+sigma2^2/n2)^2/(((sigma1^2/n1)^2)/(n1-1)+((sigma2^2/n2)^2)/(n2-1)) 
+  sq <- seq(-4,4,.01) 
+  lines(sq,dt(sq,df=df),lty=2,pch=9,cex=.5,col="red")
+  
+}
+
+samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=10)
+```
+
+Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level (see the first example for more details):
+
+\begin{equation} 
+Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
+(\#eq:conflev6)
+\end{equation} 
+
+With SE = $\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}$
+
+## Method 2
+
+We can also think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis. In other words, we could define the lower limit $(\mu_1-\mu_2)_L$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2} >= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit1)
+\end{equation} 
+
+\begin{equation} 
+Pr[t_{n_1+n_2-2} <= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit2)
+\end{equation} 
+
+This concept of the problem helps to understand how we calculate the confidence intervals around the effect size measures, as explained below.
+
+# How to determine the CI around Cohen's $\delta$
+
+```{r, SAMPLMEANDIFF3, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
+samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
+  
+  for (i in seq_len(nsim)){
+    A <- rnorm(n1,mean=mu1,sd=sigma)
+    B <- rnorm(n2,mean=mu2,sd=sigma) 
+    if (i==1){
+      av <- mean(A)-mean(B)  
+      sd1 <- sd(A)
+      sd2 <- sd(B)
+      
+    } else { 
+      av <- c(av,mean(A)-mean(B))
+      sd1 <- c(sd1,sd(A))
+      sd2 <- c(sd2,sd(B))
+    }
+    
+  }
+  
+  pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+  pq <- (av-(mu1-mu2))/(pooled_sd*sqrt(1/n1+1/n2)) # *1*: centered variable, divided by SE 
+  plot(density(pq),xlim=c(-15,15),col="grey",main="Sampling distribution \n (not) centered variable divided by SE",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
+  
+  # symmetric around 0
+  lines(seq(-100,100,.01),dt(seq(-100,100,.01),df=n1+n2-2),lty=2)
+  
+  q2 <- (av)/(pooled_sd*sqrt(1/n1+1/n2)) # *2*: NOT centered variable, divided by SE
+  lines(density(q2),lty=2,col="red",lwd=1.5) # plotting the sampling distribution of the pivotal quantity
+  round(skewness(q2),3)  # not symmetric around mean(q2)
+  
+  pooled_sigma <-  sigma
+  delta <- (mu1-mu2)/pooled_sigma
+  NCP <- delta*sqrt((n1*n2)/(n1+n2))
+  
+  lines(density(rt(1000000,df=n1+n2-2,ncp=NCP)),lty=2)
+  
+  legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
+}
+
+samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=10)
+```
+
+Consider the following quantity: 
+\begin{equation} 
+t_{Student,obs}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+(\#eq:plausiblelimit2)
+\end{equation} 
+
+With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$, and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. If the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. Therefore, as previously mentioned, it will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
+
+Noncentral *t*-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call $\lambda$). $\lambda$ is a function of $\delta$ and sample sizes:
+ 
+\begin{equation}
+\lambda = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
+(\#eq:ncp)
+\end{equation} 
+
+Like we did in second method to determine a confidence interval around the mean difference, we could try to determine the *t*-distributions for which $t_{obs}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile:  because we know that degrees of freedom will equal $n_1+n_2-2$, the unknown parameter of the *t*-distributions to be determined is $\lambda$. In other word, we should determine the non centrality parameter ($\lambda_L$) of distributions such as $$P[t_{n_1+n_2-2, \lambda_L} >= t_{obs}] = \frac{\alpha}{2} $$ and the non centrality parameter ($\lambda_U$) of distributions such as $$P[t_{n_1+n_2-2, \lambda_U} <= t_{obs}] = \frac{\alpha}{2} $$. Once we have defined confidence limits for $\lambda$, one can divide them by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to have confidence limits for Cohen's $\delta$. 
+
+# How to determine the CI around Shieh's $\delta$
+
+```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
+samplingtest4 <- function(n1,n2,mu1,mu2,sigma1,sigma2,nsim){
+  
+  for (i in seq_len(nsim)){
+    A <- rnorm(n1,mean=mu1,sd=sigma1)
+    B <- rnorm(n2,mean=mu2,sd=sigma2) 
+    if (i==1){
+      av <- mean(A)-mean(B)  
+      sd1 <- sd(A)
+      sd2 <- sd(B)
+      
+    } else { 
+      av <- c(av,mean(A)-mean(B))
+      sd1 <- c(sd1,sd(A))
+      sd2 <- c(sd2,sd(B))
+    }
+    
+  }
+  
+  pq <- (av-(mu1-mu2))/sqrt(sd1^2/n1+sd2^2/n2)
+  plot(density(pq),xlim=c(-15,15),col="grey",main="Sampling distribution \n (not) centered variable divided by SE",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
+  
+  DF <- (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))  
+  # symmetric around 0
+  
+  DF_theo <- (sigma1^2/n1 + sigma2^2/n2)^2 / ((sigma1^2/n1)^2/(n1-1) + (sigma2^2/n2)^2/(n2-1))  
+  lines(seq(-100,100,.01),dt(seq(-100,100,.01),df=DF_theo),lty=2)
+  
+  q2 <- (av)/sqrt(sd1^2/n1+sd2^2/n2) # *2*: NOT centered variable, divided by SE
+  lines(density(q2),lty=2,col="red",lwd=1.5) # plotting the sampling distribution of the pivotal quantity
+  round(skewness(q2),3)  # not symmetric around mean(q2)
+
+  delta <- (mu1-mu2)/sqrt(sigma1^2/(n1/(n1+n2))+sigma2^2/(n2/(n1+n2))) # theoretical shieh
+  NCP <- delta*sqrt(n1+n2)
+  
+#  lines(density(rt(1000000,df=DF_theo,ncp=NCP)),lty=2)
+  
+  legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
+}
+
+samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=10)
+```
+
+Consider the following quantity: 
+\begin{equation} 
+t_{Welch,obs}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+(\#eq:plausiblelimit2)
+\end{equation} 
+
+With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$ and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. Like when we used the statistic assuming normality and homoscedasticity (cf. previous section about confidence interval around Cohen's $\delta$), if the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. Therefore, as previously mentioned, it will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}. 
+
+As for constructing a confidence interval around Cohen's $\delta$, we first need to determine the *t*-distributions for which $t_{obs}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile. According to Shieh (2013), the distribution of $t_{welch,obs}$ can be approximated as follows: t $t(v, \Delta*)$
+
+It can be shown with the same theoretical arguments and
+analytic derivations as those in Welch (1938) that the statistic
+V has the general approximate distribution
+
+
+
+Degrees of freedom of the *t*-distributions can be approximated as follows:
+
+$DF = \frac{(\frac{sd_1^2}{n_1}+\frac{sd_2^2}{n_2})^2}{\frac{(\frac{sd_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{sd_2^2}{n_2})^2}{n_2-1}}$
+
+As *t*-distributions are a function of degrees of freedom and noncentrality parameters ($\lambda$), one need to find ($\lambda_L$) and ($\lambda_U$) such as
+
+$$P[t_{DF, \lambda_L} >= t_{obs}] = \frac{\alpha}{2} $$ and 
+
+
+$$P[t_{DF, \lambda_U} <= t_{obs}] = \frac{\alpha}{2} $$. 
+
+Once we have defined confidence limits for $\lambda$, one can divide them by $\sqrt{n_1+n_2}$ in order to have confidence limits for Shieh's $\delta$. 
