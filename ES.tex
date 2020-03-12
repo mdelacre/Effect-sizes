@@ -1,35 +1,56 @@
-\documentclass[man]{apa6}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={What measure of effect size when comparing two groups based on their means?},
-            pdfauthor={Marie Delacre~\& Christophe Leys},
-            pdfkeywords={keywords},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={What measure of effect size when comparing two groups based on their means?},
+  pdfauthor={Marie Delacre~\& Christophe Leys},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -39,35 +60,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-
-  \title{What measure of effect size when comparing two groups based on their means?}
-    \author{Marie Delacre\textsuperscript{1}~\& Christophe Leys\textsuperscript{1}}
-    \date{}
-  
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \shorttitle{Effect size}
 \affiliation{
 \vspace{0.5cm}
@@ -103,6 +103,10 @@
 
 \linenumbers
 
+\title{What measure of effect size when comparing two groups based on their means?}
+\author{Marie Delacre\textsuperscript{1}~\& Christophe Leys\textsuperscript{1}}
+\date{}
+
 \authornote{
 
 Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.ac.be}{\nolinkurl{marie.delacre@ulb.ac.be}}}
@@ -130,15 +134,15 @@ First, there is a high confusion between the effect size and other related conce
 
 Second, many differents estimators of effect sizes are available in literature and it is not always easy to know which measures is appropriate in which circumstance. We will limit our study to \enquote{between-subject} designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means. More specifically, we will focus on the standardized mean difference, called the \emph{d}-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013). We will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult to find a measure which optimally serves all the purposes of an effect size measure. For example, interpretability is obtained at the expense of inferential properties and vice versa. The second aim of this paper is therefore to review the most famous estimators of this family next to the role they serve.
 
-STILL TO ADD:
-- MENTIONNER QUE STOP D DE COHEN TT LE TEMPS (=identifier les shortcomings)
-- COMPARER LES ALTERNATIVES A TRAVERS DES SIMULATIONS
+STILL TO ADD:\\
+- MENTIONNER QUE STOP D DE COHEN TT LE TEMPS (=identifier les shortcomings)\\
+- COMPARER LES ALTERNATIVES A TRAVERS DES SIMULATIONS\\
 - AMENER DES RECOMMENDATIONS
 
 \hypertarget{measure-of-effect-size-what-it-is-what-it-is-not}{%
 \section{Measure of effect size: what it is, what it is not}\label{measure-of-effect-size-what-it-is-what-it-is-not}}
 
-The effect size is commonly refered to the practical significance of a test. Grissom and Kim (2005) define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from (e.g.~the mean; Peng \& Chen, 2014) or as the magnitude of the relation between one dichotomous factor and one dependent variable (American Educational Research Association, 2006). Both definitions refers to as the most famous families of measures of effect sizes {[}Rosenthal\_1994{]}: respectively the \emph{d}-family and the \emph{r}-family.
+The effect size is commonly refered to the practical significance of a test. Grissom \& Kim (2005) define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from (e.g.~the mean; Peng \& Chen, 2014) or as the magnitude of the relation between one dichotomous factor and one dependent variable (American Educational Research Association, 2006). Both definitions refers to as the most famous families of measures of effect sizes {[}Rosenthal\_1994{]}: respectively the \emph{d}-family and the \emph{r}-family.
 
 Very often, the contribution of the measures of effect size is overestimated. First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not (Stout \& Ruble, 1995). The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of an effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world (Andersen, McCullagh, \& Wilson, 2007). For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g.~30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the \emph{Applied significance} (Bothe \& Richardson, 2011). It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between \emph{practical} and \emph{Applied} significance is more a theoretical argument than a statistical one.
 
@@ -241,7 +245,7 @@ Cohen's d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1)
 \label{eq:Cohends}
 \end{equation}
 
-The reasoning behind this measure is that considering both samples as extracted from a common population variance (n.d.), we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size (\(max(n_j)\)). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's \(d_s\) is known to be positively biased {[}Thompson, 2006, cited by Lakens, 2013{]} and for this reason, Hedges and Olkin (1985) has defined a bias-corrected version, which is referred to:
+The reasoning behind this measure is that considering both samples as extracted from a common population variance (n.d.), we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size (\(max(n_j)\)). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's \(d_s\) is known to be positively biased {[}Thompson, 2006, cited by Lakens, 2013{]} and for this reason, Hedges \& Olkin (1985) has defined a bias-corrected version, which is referred to:
 
 \begin{equation} 
 Hedge's \space g_s = Cohen's \space d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
@@ -263,7 +267,7 @@ The \textbf{sample mean difference, divided by the non pooled average of both va
 \hypertarget{glasss-d_s}{%
 \subsubsection{\texorpdfstring{Glass's \(d_s\)}{Glass's d\_s}}\label{glasss-d_s}}
 
-When comparing one control group with one experimental group, Glass, McGav, and Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by (Cumming, 2013), because according to him, it is what makes the most sense, conceptually speaking.
+When comparing one control group with one experimental group, Glass, McGav, \& Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by (Cumming, 2013), because according to him, it is what makes the most sense, conceptually speaking.
 
 \begin{equation} 
 Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
@@ -463,5 +467,152 @@ Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling wi
 \leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
 (n.d.).
 
+\leavevmode\hypertarget{ref-AERA_2006}{}%
+American Educational Research Association. (2006). Standards for reporting on empirical social science research in aera publications. \emph{Educational Researcher}, \emph{35}, 33--40. doi:\href{https://doi.org/10.3102/0013189X035006033}{10.3102/0013189X035006033}
+
+\leavevmode\hypertarget{ref-APA_2010}{}%
+American Psychological Association. (2010). \emph{Publication manual of the american psychological association {[}apa{]} (6 ed.)} (American Psychological Association.). Washington, DC:
+
+\leavevmode\hypertarget{ref-Andersen_et_al_2007}{}%
+Andersen, M. B., McCullagh, P., \& Wilson, G. J. (2007). But what do the numbers really tell us? Arbitrary metrics and effect size reporting in sport psychology research. \emph{Journal of Sport \& Exercise Psychology}, \emph{29}, 664--672.
+
+\leavevmode\hypertarget{ref-Bothe_Richardson_2011}{}%
+Bothe, A. K., \& Richardson, J. D. (2011). Statistical, practical, clinical, and personal significance: Definitions and applications in speech-language pathology. \emph{American Journal of Speech-Language Pathology}, \emph{20}, 233--242.
+
+\leavevmode\hypertarget{ref-Cain_et_al_2017}{}%
+Cain, M. K., Zhang, Z., \& Yuan, K.-H. (2017). Univariate and multivariate skewness and kurtosis for measuring nonnormality: Prevalence, influence and estimation. \emph{Behavior Research Methods}, \emph{49}(5), 1716--1735. doi:\href{https://doi.org/10.3758/s13428-016-0814-1}{10.3758/s13428-016-0814-1}
+
+\leavevmode\hypertarget{ref-Cohen_1965}{}%
+Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
+
+\leavevmode\hypertarget{ref-Cumming_2013}{}%
+Cumming, G. (2013). Cohen's d needs to be readily interpretable: Comment on shieh (2013). \emph{Behavior Research Methods}, \emph{45}, 968--971. doi:\href{https://doi.org/10.3758/s13428-013-0392-4}{10.3758/s13428-013-0392-4}
+
+\leavevmode\hypertarget{ref-Delacre_et_al_2017}{}%
+Delacre, M., Lakens, D., \& Leys, C. (2017). Why psychologists should by default use welch's t-test instead of student's t-test. \emph{International Review of Social Psychology}, \emph{30}(1), 92--101. doi:\href{https://doi.org/10.5334/irsp.82}{10.5334/irsp.82}
+
+\leavevmode\hypertarget{ref-Delacre_et_al_2019}{}%
+Delacre, M., Leys, C., Mora, Y. L., \& Lakens, D. (2019). Taking parametric assumptions seriously: Arguments for the use of welch's f-test instead of the classical f-test in one-way anova. \emph{International Review of Social Psychology}, \emph{32}(1), 1--12. doi:\href{https://doi.org/http://doi.org/10.5334/irsp.198}{http://doi.org/10.5334/irsp.198}
+
+\leavevmode\hypertarget{ref-Erceg-Hurn_Mirosevich_2008}{}%
+Erceg-Hurn, D. M., \& Mirosevich, V. M. (2008). Modern robust statistical methods: An easy way to maximize the accuracy and power of your research. \emph{American Psychologist}, \emph{63}(7), 591--601. doi:\href{https://doi.org/10.1037/0003-066X.63.7.591}{10.1037/0003-066X.63.7.591}
+
+\leavevmode\hypertarget{ref-Fan_2001}{}%
+Fan, X. (2001). Statistical significance and effect size in education research: Two sides of a coin. \emph{Journal of Educational Research}, \emph{94}(5), 275--282. doi:\href{https://doi.org/10.1080/00220670109598763}{10.1080/00220670109598763}
+
+\leavevmode\hypertarget{ref-Glass_et_al_1981}{}%
+Glass, G. V., McGav, B., \& Smith, M. L. (2005). \emph{Meta-analysis in social research} (Sage.). Beverly Hills, CA.
+
+\leavevmode\hypertarget{ref-Glass_et_al_1972}{}%
+Glass, G. V., Peckham, P. D., \& Sanders, J. R. (1972). Consequences of failure to meet assumptions underlying the fixed effects analyses of variance and covariance. \emph{Review of Educational Research}, \emph{42}(3), 237--288. doi:\href{https://doi.org/10.3102/00346543042003237}{10.3102/00346543042003237}
+
+\leavevmode\hypertarget{ref-Grissom_2000}{}%
+Grissom, R. J. (2000). Heterogeneity of variance in clinical data. \emph{Journal of Consulting and Clinical Psychology}, \emph{68}(1), 155--165. doi:\href{https://doi.org/10.1037//0022-006x.68.1.155}{10.1037//0022-006x.68.1.155}
+
+\leavevmode\hypertarget{ref-Grissom_Kim_2001}{}%
+Grissom, R. J., \& Kim, J. J. (2001). Review of assumptions and problems in the appropriate conceptualization of effect size. \emph{Psychological Methods}, \emph{6}(2), 135--146. doi:\href{https://doi.org/10.1037/1082-989X.6.2.135}{10.1037/1082-989X.6.2.135}
+
+\leavevmode\hypertarget{ref-Grissom_and_kim_2005}{}%
+Grissom, R. R., \& Kim, J. J. (2005). \emph{Effect size for research: A broad practical approach.} (Lawrence Erlbaum Associates, Mahwah, N.J.). London.
+
+\leavevmode\hypertarget{ref-Hays_1963}{}%
+Hays, W. L. (1963). \emph{Statistics for psychologists} (Holt, Rinehart \& Winston.). New York.
+
+\leavevmode\hypertarget{ref-Hedges_Olkin_1985}{}%
+Hedges, L. V., \& Olkin, I. (1985). \emph{Statistical methods for meta-analysis} (Academic Press.). Cambridge, Massachusetts. doi:\href{https://doi.org/10.1016/C2009-0-03396-0}{10.1016/C2009-0-03396-0}
+
+\leavevmode\hypertarget{ref-Henson_Smith_2000}{}%
+Henson, R. I., \& Smith, A. D. (2000). State of the art in statistical significance and effect size reporting: A review of the APA task force report and current trends. \emph{Journal of Research and Development in Education}, \emph{33}(4), 285--296.
+
+\leavevmode\hypertarget{ref-Kelley_2005}{}%
+Kelley, K. (2005). The effects of nonnormal distributions on confidence intervales around the standardized mean difference: Bootstrap and parametric confidence intervals. \emph{Educational and Psychological Measurement}, \emph{65}(1), 51--69. doi:\href{https://doi.org/10.1177/0013164404264850}{10.1177/0013164404264850}
+
+\leavevmode\hypertarget{ref-Kirk_2009}{}%
+Kirk, R. E. (2009). Practical significance: A concept whose time has come. \emph{Educational and Psychological Measurement}, \emph{56}(5), 746--759. doi:\href{https://doi.org/10.1177/0013164496056005002\%20}{10.1177/0013164496056005002 }
+
+\leavevmode\hypertarget{ref-Lakens_2013}{}%
+Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science: A practical primer for t-tests and ANOVAs. \emph{Frontiers in Psychology}, \emph{4}(863), 1--12. doi:\href{https://doi.org/10.3389/fpsyg.2013.00863}{10.3389/fpsyg.2013.00863}
+
+\leavevmode\hypertarget{ref-Li_2016}{}%
+Li, J. (2016). Effect size measures in a two-independent-samples case with nonnormal and nonhomogeneous data. \emph{Behavior Research Methods}, \emph{48}(4), 1560--1574. doi:\href{https://doi.org/10.3758/s13428-015-0667-z}{10.3758/s13428-015-0667-z}
+
+\leavevmode\hypertarget{ref-McBride_et_al_1993}{}%
+McBride, G. B., Loftis, J. C., \& Adkins, N. C. (1993). What do significance tests really tell us about the environment? \emph{Environmental Management}, \emph{17}(4), 423--432.
+
+\leavevmode\hypertarget{ref-Meehl_1990}{}%
+Meehl, P. E. (1990). Appraising and amending theories: The strategy of Lakatosian defense and two principles that warrant it. \emph{Psychological Inquiry}, \emph{1}(2), 108--141.
+
+\leavevmode\hypertarget{ref-Micceri_1989}{}%
+Micceri, T. (1989). The unicorn, the normal curve, and other improbable creatures. \emph{Psychological Bulletin}, \emph{105}(1), 156--166. doi:\href{https://doi.org/10.1037/0033-2909.105.1.156}{10.1037/0033-2909.105.1.156}
+
+\leavevmode\hypertarget{ref-Nakagawa_and_Cuthill_2007}{}%
+Nakagawa, S., \& Cuthill, I. C. (2007). Effect size, confidence interval and statistical significance: A practical guide for biologists. \emph{Biological Reviews}, \emph{82}, 591--605. doi:\href{https://doi.org/10.1111/j.1469-185X.2007.00027.x}{10.1111/j.1469-185X.2007.00027.x}
+
+\leavevmode\hypertarget{ref-Olejnik_Algina_2000}{}%
+Olejnik, S., \& Algina, J. (2000). Measures of effect size for comparative studies: Applications, interpretations, and limitations. \emph{Contemporary Educational Psychology}, \emph{25}, 241--286. doi:\href{https://doi.org/10.1006/ceps.2000.1040}{10.1006/ceps.2000.1040}
+
+\leavevmode\hypertarget{ref-Peng_and_Chen_2014}{}%
+Peng, C.-Y., \& Chen, L.-T. (2014). Beyond cohen's d: Alternative effect size measures for between-subject designs. \emph{THE JOURNAL OF EXPERIMENTAL EDUCATION}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
+
+\leavevmode\hypertarget{ref-Peng_et_al_2013}{}%
+Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of APA and AERA Guidelines on Effect size Reporting. \emph{Contemporary Educational Psychology}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
+
+\leavevmode\hypertarget{ref-Prentice_Miller_1992}{}%
+Prentice, D., \& Miller, D. T. (1990). When small effects are impressive. \emph{Psychological Bulletin}, \emph{112}(1), 160--164.
+
+\leavevmode\hypertarget{ref-Shieh_2013}{}%
+Shieh, G. (2013). Confidence intervals and sample size calculations for the weighted eta-squared effect sizes in one-way heteroscedastic ANOVA. \emph{Behavior Research Methods}, \emph{45}(1), 2--37. doi:\href{https://doi.org/10.3758/s13428-012-0228-7}{10.3758/s13428-012-0228-7}
+
+\leavevmode\hypertarget{ref-Steyn_2000}{}%
+Steyn, H. S. (2000). Practical significance of the difference in means. \emph{Journal of Industrial Psychology}, \emph{26}(3), 1--3.
+
+\leavevmode\hypertarget{ref-Stout_Ruble_1995}{}%
+Stout, D. D., \& Ruble, T. L. (1995). Assessing the practical signficance of empirical results in accounting education research: The use of effect size information. \emph{Journal of Accounting Education}, \emph{13}(3), 281--298.
+
+\leavevmode\hypertarget{ref-Sullivan_Feinn_2012}{}%
+Sullivan, G., \& Feinn, R. (2012). Using effect size---or why the p value is not enough. \emph{Journal of Graduate Medical Education}, 279--282. doi:\href{https://doi.org/10.4300/JGME-D-12-00156.1}{10.4300/JGME-D-12-00156.1}
+
+\leavevmode\hypertarget{ref-Wackerly_et_al_2008}{}%
+Wackerly, D. D., Mendenhall, W., \& Scheaffer, R. L. (2008). \emph{Mathematical statistics with applications (7th edition)} (Brooks/Cole, Cengage Learning.). Belmont, USA.
+
+\leavevmode\hypertarget{ref-Wilkinson_1999}{}%
+Wilkinson, L., \& the Task Force on Statistical Inference. (1999). Statistical methods in psychology journals: Guidelines and explanations. \emph{American Psychologist}, \emph{54}(8), 594--604.
+
+\leavevmode\hypertarget{ref-Yuan_et_al_2004}{}%
+Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling with heavy tailed distributions. \emph{Psychometrika}, \emph{69}(3), 421--436. doi:\href{https://doi.org/10.1007/bf02295644}{10.1007/bf02295644}
+
+\leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
+(n.d.).
+
+\clearpage
+\makeatletter
+\efloat@restorefloats
+\makeatother
+
+
+\begin{appendix}
+\section{}
+\setlength{\parindent}{0.0in}
+\setlength{\leftskip}{0.0in}
+
+\hypertarget{appendix-1-the-mathematical-study-of-shiehs-delta}{%
+\subsection{\texorpdfstring{Appendix 1: The mathematical study of
+Shieh's
+\(\delta\)}{Appendix 1: The mathematical study of Shieh's \textbackslash delta}}\label{appendix-1-the-mathematical-study-of-shiehs-delta}}
+
+Paste Appendix 1 when it will be finished
+
+\hypertarget{appendix-2-confidence-intervals}{%
+\subsection{Appendix 2: Confidence
+intervals}\label{appendix-2-confidence-intervals}}
+
+Paste Appendix 2 when it will be finished
+
+\hypertarget{appendix-3-a-priori-power-analyses}{%
+\subsection{Appendix 3: a priori power
+analyses}\label{appendix-3-a-priori-power-analyses}}
+
+Paste Appendix 3 when it will be finished
+\end{appendix}
 
 \end{document}

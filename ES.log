@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  11 MAR 2020 15:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  12 MAR 2020 15:43
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -306,16 +306,6 @@ LaTeX Info: Redefining \] on input line 2856.
 x.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fixltx2e.st
-y"
-Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
-Applying: [2015/01/01] Old fixltx2e package on input line 46.
-
-Package fixltx2e Warning: fixltx2e is not required with releases after 2015
-(fixltx2e)                All fixes are now in the LaTeX kernel.
-(fixltx2e)                See the latexrelease package for details.
-
-Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 ) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty
 "
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
@@ -327,12 +317,8 @@ ty"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks22
 \inpenc@posthook=\toks23
-)
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/upquote\upquote.st
+) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\textcomp.st
 y"
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\textcomp.sty"
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -488,7 +474,12 @@ Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
 Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-))
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/upquote\upquote.st
+y"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/microtype\microtyp
 e.sty"
 Package: microtype 2019/10/10 v2.7c Micro-typographical refinements (RS)
@@ -513,6 +504,70 @@ Package microtype Info: Loading configuration file microtype.cfg.
 e.cfg"
 File: microtype.cfg 2019/10/10 v2.7c microtype main configuration file (RS)
 ))
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/parskip\parskip.st
+y"
+Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions
+.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltxcmds
+.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvsetke
+ys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\infware
+rr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\etexcmd
+s.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+)))) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor
+.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color
+.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xurl\xurl.sty"
+Package: xurl 2020/01/24 v 0.09 modify URL breaks
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+))
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\bookmark.
+sty"
+Package: bookmark 2019/06/04 v1.27 PDF bookmarks (HO)
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdfesca
+pe.sty"
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdftexc
+mds.sty"
+Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.
 sty"
 Package: hyperref 2019/09/28 v7.00a Hypertext links for LaTeX
@@ -526,22 +581,17 @@ Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 generic.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package hobsub Info: Skipping package `ifluatex' (already loaded).
 Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package hobsub Info: Skipping package `pdfescape' (already loaded).
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
 Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
@@ -560,10 +610,6 @@ Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 ty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions
-.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-)
 \@linkdim=\dimen143
 \Hy@linkcounter=\count118
 \Hy@pagecounter=\count119
@@ -580,6 +626,13 @@ Now handling font encoding PD1 ...
 cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
+Package hyperref Info: Option `unicode' set `true' on input line 4414.
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\puenc.def
+"
+File: puenc.def 2019/09/28 v7.00a Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
 Package hyperref Info: Hyper figures OFF on input line 4540.
 Package hyperref Info: Link nesting OFF on input line 4545.
 Package hyperref Info: Hyper index ON on input line 4548.
@@ -588,10 +641,6 @@ Package hyperref Info: Backreferencing OFF on input line 4560.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4793.
 \c@Hy@tempcnt=\count121
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
-\Urlmuskip=\muskip11
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 LaTeX Info: Redefining \url on input line 5152.
 \XeTeXLinkMargin=\dimen144
 \Fld@menulength=\count122
@@ -626,15 +675,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `unicode' set `true' on input line 30.
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\puenc.def
-"
-File: puenc.def 2019/09/28 v7.00a Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
-)
-Package hyperref Info: Option `breaklinks' set `true' on input line 30.
-
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\bkm-pdfte
+x.def"
+File: bkm-pdftex.def 2019/06/04 v1.27 bookmark driver for pdfTeX (HO)
+\BKM@id=\count128
+))
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable.st
 y"
 Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
@@ -642,17 +687,23 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTright=\skip71
 \LTpre=\skip72
 \LTpost=\skip73
-\LTchunksize=\count128
+\LTchunksize=\count129
 \LTcapwidth=\dimen147
 \LT@head=\box31
 \LT@firsthead=\box32
 \LT@foot=\box33
 \LT@lastfoot=\box34
-\LT@cols=\count129
-\LT@rows=\count130
-\c@LT@tables=\count131
-\c@LT@chunks=\count132
+\LT@cols=\count130
+\LT@rows=\count131
+\c@LT@tables=\count132
+\c@LT@chunks=\count133
 \LT@p@ftn=\toks25
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/footnotehyper\foot
+notehyper.sty"
+Package: footnotehyper 2019/11/07 v1.1a hyperref aware footnote.sty (JFB)
+\FNH@notes=\box35
+\FNH@width=\dimen148
 )
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grffile.s
 ty"
@@ -662,19 +713,15 @@ Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 )
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/parskip\parskip.st
-y"
-Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
-)
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
 sty"
 Package: csquotes 2019/05/10 v5.2e context-sensitive quotations (JAW)
-\csq@reset=\count133
-\csq@gtype=\count134
-\csq@glevel=\count135
-\csq@qlevel=\count136
-\csq@maxlvl=\count137
-\csq@tshold=\count138
+\csq@reset=\count134
+\csq@gtype=\count135
+\csq@glevel=\count136
+\csq@qlevel=\count137
+\csq@maxlvl=\count138
+\csq@tshold=\count139
 \csq@ltx@everypar=\toks26
 
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
@@ -703,28 +750,28 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 sty"
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip74
-\multirow@cntb=\count139
+\multirow@cntb=\count140
 \multirow@dima=\skip75
-\bigstrutjot=\dimen148
+\bigstrutjot=\dimen149
 ) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\tabularx.s
 ty"
 Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen149
-\ar@mcellbox=\box35
-\extrarowheight=\dimen150
+\col@sep=\dimen150
+\ar@mcellbox=\box36
+\extrarowheight=\dimen151
 \NC@list=\toks27
 \extratabsurround=\skip76
 \backup@length=\skip77
-\ar@cellbox=\box36
+\ar@cellbox=\box37
 )
-\TX@col@width=\dimen151
-\TX@old@table=\dimen152
-\TX@old@col=\dimen153
-\TX@target=\dimen154
-\TX@delta=\dimen155
-\TX@cols=\count140
+\TX@col@width=\dimen152
+\TX@old@table=\dimen153
+\TX@old@col=\dimen154
+\TX@target=\dimen155
+\TX@delta=\dimen156
+\TX@cols=\count141
 \TX@ftn=\toks28
 )
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/threeparttablex\th
@@ -744,20 +791,20 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \longtablewidth=\skip79
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count141
+\linenopenalty=\count142
 \output=\toks29
-\linenoprevgraf=\count142
-\linenumbersep=\dimen156
-\linenumberwidth=\dimen157
-\c@linenumber=\count143
-\c@pagewiselinenumber=\count144
-\c@LN@truepage=\count145
-\c@internallinenumber=\count146
-\c@internallinenumbers=\count147
-\quotelinenumbersep=\dimen158
-\bframerule=\dimen159
-\bframesep=\dimen160
-\bframebox=\box37
+\linenoprevgraf=\count143
+\linenumbersep=\dimen157
+\linenumberwidth=\dimen158
+\c@linenumber=\count144
+\c@pagewiselinenumber=\count145
+\c@LN@truepage=\count146
+\c@internallinenumber=\count147
+\c@internallinenumbers=\count148
+\quotelinenumbersep=\dimen159
+\bframerule=\dimen160
+\bframesep=\dimen161
+\bframebox=\box38
 
 LaTeX Warning: Command \@parboxrestore  has changed.
                Check if current package is valid.
@@ -769,31 +816,31 @@ Package csquotes Info: ... none found.
 (ES.aux)
 \openout1 = `ES.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-14.
+18.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-4.
+8.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -835,16 +882,16 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count148
-\scratchdimen=\dimen161
-\scratchbox=\box38
-\nofMPsegments=\count149
-\nofMParguments=\count150
+\scratchcounter=\count149
+\scratchdimen=\dimen162
+\scratchbox=\box39
+\nofMPsegments=\count150
+\nofMParguments=\count151
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count151
-\MPscratchDim=\dimen162
-\MPnumerator=\count152
-\makeMPintoPDFobject=\count153
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen163
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
 \everyMPtoPDFconversion=\toks31
 )
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-
@@ -875,14 +922,14 @@ sty"
 Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 114.
+LaTeX Info: Redefining \microtypecontext on input line 118.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 114.
+LaTeX Info: Redefining \showhyphens on input line 118.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -892,8 +939,8 @@ fg"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-\AtBeginShipoutBox=\box39
-Package hyperref Info: Link coloring OFF on input line 114.
+\AtBeginShipoutBox=\box40
+Package hyperref Info: Link coloring OFF on input line 118.
 
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -903,47 +950,43 @@ Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count154
+\c@section@level=\count155
 )
-LaTeX Info: Redefining \ref on input line 114.
-LaTeX Info: Redefining \pageref on input line 114.
-LaTeX Info: Redefining \nameref on input line 114.
-(ES.out) (ES.out)
-\@outlinefile=\write5
-\openout5 = `ES.out'.
-
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-16.
+20.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-16.
+20.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-16.
+20.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-116.
+120.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-116.
+120.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 116.
+(Font)              <12> on input line 120.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 116.
+(Font)              <8> on input line 120.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 116.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 116
+(Font)              <6> on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120
 .
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -952,7 +995,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 116
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120
 .
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -968,56 +1011,286 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 
 ] [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 122.
+(Font)              <10> on input line 126.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 122.
+(Font)              <7> on input line 126.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 122.
+(Font)              <5> on input line 126.
 [3]
-Underfull \vbox (badness 2213) has occurred while \output is active []
+Underfull \vbox (badness 1577) has occurred while \output is active []
 
-[4]
-Underfull \vbox (badness 4954) has occurred while \output is active []
-
-[5] [6] [7]
+[4] [5] [6] [7]
 \openout4 = `ES.fff'.
 
 (ES.fff) [8] [9] [10] [11] [12] [13]
 \openout3 = `ES.ttt'.
 
-(ES.ttt) [14] [15] [16] [17] [18] [19] AED endfloat: Processing end Figures and
- Tables [20] (ES.ttt [21
+(ES.ttt) [14] [15] [16] [17] [18] [19]pdfTeX warning (ext4): destination with t
+he same identifier (name{ref-AERA_2006}) has been already used, duplicate ignor
+ed
+<to be read again> 
+                   \relax 
+l.470 \leavevmode\hypertarget{ref-AERA_2006}{}
+                                              %pdfTeX warning (ext4): destinati
+on with the same identifier (name{ref-APA_2010}) has been already used, duplica
+te ignored
+<to be read again> 
+                   \relax 
+l.473 \leavevmode\hypertarget{ref-APA_2010}{}
+                                             %pdfTeX warning (ext4): destinatio
+n with the same identifier (name{ref-Andersen_et_al_2007}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.476 ...de\hypertarget{ref-Andersen_et_al_2007}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Bothe_Richardson_2011}) has been alre
+ady used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.479 ...\hypertarget{ref-Bothe_Richardson_2011}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Cain_et_al_2017}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.482 ...evmode\hypertarget{ref-Cain_et_al_2017}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Cohen_1965}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.485 \leavevmode\hypertarget{ref-Cohen_1965}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Cumming_2013}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.488 \leavevmode\hypertarget{ref-Cumming_2013}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-Delacre_et_al_2017}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.491 ...ode\hypertarget{ref-Delacre_et_al_2017}{}
+                                                  % [20]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Delacre_et_al_2019}) has been al
+ready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.494 ...ode\hypertarget{ref-Delacre_et_al_2019}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has been
+ already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.497 ...rtarget{ref-Erceg-Hurn_Mirosevich_2008}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Fan_2001}) has been already used, dup
+licate ignored
+<to be read again> 
+                   \relax 
+l.500 \leavevmode\hypertarget{ref-Fan_2001}{}
+                                             %pdfTeX warning (ext4): destinatio
+n with the same identifier (name{ref-Glass_et_al_1981}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.503 ...vmode\hypertarget{ref-Glass_et_al_1981}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Glass_et_al_1972}) has been already u
+sed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.506 ...vmode\hypertarget{ref-Glass_et_al_1972}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Grissom_2000}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.509 \leavevmode\hypertarget{ref-Grissom_2000}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-Grissom_Kim_2001}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.512 ...vmode\hypertarget{ref-Grissom_Kim_2001}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Grissom_and_kim_2005}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.515 ...e\hypertarget{ref-Grissom_and_kim_2005}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Hays_1963}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.518 \leavevmode\hypertarget{ref-Hays_1963}{}
+                                              % [21]pdfTeX warning (ext4): dest
+ination with the same identifier (name{ref-Hedges_Olkin_1985}) has been already
+ used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.521 ...mode\hypertarget{ref-Hedges_Olkin_1985}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Henson_Smith_2000}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.524 ...mode\hypertarget{ref-Henson_Smith_2000}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Kelley_2005}) has been already used, 
+duplicate ignored
+<to be read again> 
+                   \relax 
+l.527 \leavevmode\hypertarget{ref-Kelley_2005}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-Kirk_2009}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.530 \leavevmode\hypertarget{ref-Kirk_2009}{}
+                                              %pdfTeX warning (ext4): destinati
+on with the same identifier (name{ref-Lakens_2013}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.533 \leavevmode\hypertarget{ref-Lakens_2013}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-Li_2016}) has been already used, duplic
+ate ignored
+<to be read again> 
+                   \relax 
+l.536 \leavevmode\hypertarget{ref-Li_2016}{}
+                                            %pdfTeX warning (ext4): destination
+ with the same identifier (name{ref-McBride_et_al_1993}) has been already used,
+ duplicate ignored
+<to be read again> 
+                   \relax 
+l.539 ...ode\hypertarget{ref-McBride_et_al_1993}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Meehl_1990}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.542 \leavevmode\hypertarget{ref-Meehl_1990}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Micceri_1989}) has been already used, du
+plicate ignored
+<to be read again> 
+                   \relax 
+l.545 \leavevmode\hypertarget{ref-Micceri_1989}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-Nakagawa_and_Cuthill_2007}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.548 ...ertarget{ref-Nakagawa_and_Cuthill_2007}{}
+                                                  % [22]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Olejnik_Algina_2000}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.551 ...de\hypertarget{ref-Olejnik_Algina_2000}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Peng_and_Chen_2014}) has been already
+ used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.554 ...ode\hypertarget{ref-Peng_and_Chen_2014}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Peng_et_al_2013}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.557 ...evmode\hypertarget{ref-Peng_et_al_2013}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Prentice_Miller_1992}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.560 ...e\hypertarget{ref-Prentice_Miller_1992}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Shieh_2013}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.563 \leavevmode\hypertarget{ref-Shieh_2013}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Steyn_2000}) has been already used, dupl
+icate ignored
+<to be read again> 
+                   \relax 
+l.566 \leavevmode\hypertarget{ref-Steyn_2000}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Stout_Ruble_1995}) has been already used
+, duplicate ignored
+<to be read again> 
+                   \relax 
+l.569 ...vmode\hypertarget{ref-Stout_Ruble_1995}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Sullivan_Feinn_2012}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.572 ...de\hypertarget{ref-Sullivan_Feinn_2012}{}
+                                                  % [23]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Wackerly_et_al_2008}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.575 ...de\hypertarget{ref-Wackerly_et_al_2008}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Wilkinson_1999}) has been already use
+d, duplicate ignored
+<to be read again> 
+                   \relax 
+l.578 ...vevmode\hypertarget{ref-Wilkinson_1999}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Yuan_et_al_2004}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.581 ...evmode\hypertarget{ref-Yuan_et_al_2004}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Keselman_et_al_2008}) has been alread
+y used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.584 ...de\hypertarget{ref-Keselman_et_al_2008}{}
+                                                  % [24] (ES.ttt [25
 
 
-]) [22
+]) [26
 
 ] (ES.fff
-<"ES_files/figure-latex/""BIAS-1".pdf, id=267, 1084.05pt x 578.16pt>
+<"ES_files/figure-latex/""BIAS-1".pdf, id=265, 1084.05pt x 578.16pt>
 File: "ES_files/figure-latex/""BIAS-1".pdf Graphic file (type pdf)
 <use "ES_files/figure-latex/""BIAS-1".pdf>
 Package pdftex.def Info: "ES_files/figure-latex/""BIAS-1".pdf  used on input li
 ne 4.
 (pdftex.def)             Requested size: 401.50575pt x 214.1364pt.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 467.
-[23
+) [27
 
- <./ES_files/figure-latex/BIAS-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 467.
+ <./ES_files/figure-latex/BIAS-1.pdf>] AED endfloat: Processing end Figures and
+ Tables [28
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 618.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 618.
 (ES.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 467.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 467.
-Package rerunfilecheck Info: File `ES.out' has not changed.
-(rerunfilecheck)             Checksum: 362F2D76DA4EAEA65B938381C2158CE0;3494.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 618.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 618.
  ) 
 Here is how much of TeX's memory you used:
- 16005 strings out of 492452
- 239727 string characters out of 3128447
- 351512 words of memory out of 3000000
- 19903 multiletter control sequences out of 15000+200000
+ 16803 strings out of 492452
+ 251402 string characters out of 3128447
+ 367053 words of memory out of 3000000
+ 20659 multiletter control sequences out of 15000+200000
  85722 words of font info for 121 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,10n,51p,1715b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,11n,51p,1715b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathe
@@ -1038,9 +1311,9 @@ grams/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Marie/AppData/Local
 /Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/Marie/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
-Output written on ES.pdf (23 pages, 322349 bytes).
+Output written on ES.pdf (28 pages, 341616 bytes).
 PDF statistics:
- 353 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
- 10358 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
+ 10382 words of extra memory for PDF output out of 12000 (max. 10000000)
 

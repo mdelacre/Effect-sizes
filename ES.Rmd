@@ -18,9 +18,7 @@ affiliation:
     institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
     
 authornote: |
-
 abstract: |
-
 keywords          : "keywords"
 wordcount         : "X"
 
@@ -31,7 +29,7 @@ figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no
+mask              : no 
 draft             : no
 
 documentclass     : "apa6"
@@ -39,11 +37,15 @@ classoption       : "man"
 output:
   papaja::apa6_pdf:
     includes:
-      fig_caption       : FALSE
+      after_body: "Appendix.tex"
 ---
 
 ```{r setup, include = FALSE}
 library("papaja")
+```
+
+```{r render_appendix, include=FALSE}
+render_appendix("Appendix.Rmd")
 ```
 
 ```{r analysis-preferences}
