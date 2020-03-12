@@ -7,11 +7,8 @@ for (package in "rootSolve") {
 
 
 #########################################
-##  Simulation - Confidence intervals  ##
+##    Compute Confidences intervals    ##
 #########################################
-
-
-
 
 #  Obtain confidence limits for mu1-mu2 (see Method 2 in CI Reminder)
 #--------------------------------------------------------------
@@ -52,6 +49,7 @@ Group.1 <- round(rnorm(15,5,2))
 Group.2 <- round(rnorm(12,4,1))
 meandiff.CI(Group.1,Group.2,.99)
 
+# Check: the method returns approximately same CI as the classical method based on pivotal quantity
 #alpha <- 1 - conf.level
 #n1 <- length(Group.1)
 #n2 <- length(Group.2)
