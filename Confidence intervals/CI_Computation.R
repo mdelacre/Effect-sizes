@@ -68,8 +68,6 @@ meandiff.CI(Group.1,Group.2,.99)
 #--------------------------------------------------------------
 #  Obtain Student confidence limits following Cohen's procedure
 #--------------------------------------------------------------
-Group.1 <- round(rnorm(15,5,2))
-Group.2 <- round(rnorm(12,4,1))
 
 Cohen.CI <- function(Group.1, Group.2,conf.level)
 { 
@@ -100,6 +98,57 @@ Cohen.CI <- function(Group.1, Group.2,conf.level)
   result <- c(delta.1, delta.2) 
   return(result)
 }
+
+Group.1 <- rnorm(20,5,2)
+Group.2 <- rnorm(24,4,1)
+Cohen.CI(Group.1, Group.2,conf.level=.95)
+  
+#--------------------------------------------------------------
+#  Obtain Welch confidence limits following Shieh's procedure
+#--------------------------------------------------------------
+ 
+Shieh.CL <- function(Group.1, Group.2,conf.level)
+{ 
+  n1 <- length(Group.1)
+  n2 <- length(Group.2)
+  s1 <- sd(Group.1)
+  s2 <- sd(Group.2)
+  
+  #  perform two-sample Welch t-test (same assumptions of Shieh's d)
+  test <- t.test(Group.1, Group.2, alternative = "two.sided", var.equal = FALSE)
+  w_obs <- test$statistic
+  #  sample estimates for degrees of freedom DF of noncentral t distribution
+  DF <- test$parameter # = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
+
+  #  find limits of lambda at pt = alpha/2 or 1-alpha/2
+  
+  # lower limit = limit of lambda such as 1-pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level)/2 = alpha/2
+  f=function(lambda,rep) 1-pt(q=w_obs, df=DF, ncp = lambda)-rep
+  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+  lambda.1 <- out$root
+  delta.1 <- lambda.1/sqrt(n1+n2)
+
+  # upper limit = limit of lambda such as pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level)/2 = alpha/2
+  f=function(lambda,rep) pt(q=w_obs, df=DF, ncp = lambda)-rep
+  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+  lambda.2 <- out$root
+  delta.2 <- lambda.2/sqrt(n1+n2)
+
+  result <- c(delta.1, delta.2) 
+  return(result)
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
