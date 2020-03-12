@@ -48,7 +48,9 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 Cumming, G., & Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervales that  are based on central and noncentral distributions. Educational and Psychological Measurement, 61(532). 
 
-# How to determine the CI around a parameter
+Shieh, G. (2013). Confidence intervals and sample size calculations for the standardized mean difference effect size between two normal populations under heteroscedasticity. Behavior Research Methods, 45,955–967
+
+# How to determine the confidence interval around a mean difference
 
 ## Method 1: method based on the use of a pivotal quantity
 
@@ -202,18 +204,18 @@ With SE = $\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}$
 We can also think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis. In other words, we could define the lower limit $(\mu_1-\mu_2)_L$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
 
 \begin{equation} 
-Pr[t_{n_1+n_2-2} >= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
 (\#eq:plausiblelimit1)
 \end{equation} 
 
 \begin{equation} 
-Pr[t_{n_1+n_2-2} <= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
 (\#eq:plausiblelimit2)
 \end{equation} 
 
-This concept of the problem helps to understand how we calculate the confidence intervals around the effect size measures, as explained below.
+This vision of the problem helps to understand how we calculate the confidence intervals around the effect size measures, as explained below.
 
-# How to determine the CI around Cohen's $\delta$
+# How to determine the confidence interval around Cohen's $\delta$
 
 ```{r, SAMPLMEANDIFF3, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
 samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
@@ -259,24 +261,34 @@ samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=10)
 
 Consider the following quantity: 
 \begin{equation} 
-t_{Student,obs}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 (\#eq:plausiblelimit2)
 \end{equation} 
 
 With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$, and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. If the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. Therefore, as previously mentioned, it will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
 
-Noncentral *t*-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call $\lambda$). $\lambda$ is a function of $\delta$ and sample sizes:
+Noncentral *t*-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call $\Delta$), the last being a function of $\delta$ and sample sizes $n_1$ and $n_2$:
  
 \begin{equation}
-\lambda = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
+\Delta = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
 (\#eq:ncp)
 \end{equation} 
 
-Like we did in second method to determine a confidence interval around the mean difference, we could try to determine the *t*-distributions for which $t_{obs}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile:  because we know that degrees of freedom will equal $n_1+n_2-2$, the unknown parameter of the *t*-distributions to be determined is $\lambda$. In other word, we should determine the non centrality parameter ($\lambda_L$) of distributions such as $$P[t_{n_1+n_2-2, \lambda_L} >= t_{obs}] = \frac{\alpha}{2} $$ and the non centrality parameter ($\lambda_U$) of distributions such as $$P[t_{n_1+n_2-2, \lambda_U} <= t_{obs}] = \frac{\alpha}{2} $$. Once we have defined confidence limits for $\lambda$, one can divide them by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to have confidence limits for Cohen's $\delta$. 
+It is therefore possible to compute confidence limits for $\Delta$, and divide them by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to have confidence limits for $\delta$. In other word, we first need to determine the noncentrality parameters of the *t*-distributions for which $t_{Student}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile: 
 
-# How to determine the CI around Shieh's $\delta$
+$$P[t_{df, \Delta_L} \geq t_{Student}] = \frac{\alpha}{2} $$ 
 
-```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
+$$P[t_{df, \Delta_U} \leq t_{Student}] = \frac{\alpha}{2} $$ 
+
+With $df = n_1+n_2-2$. Second, we divide $\Delta_L$ and $\Delta_U$ by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to define $\delta_L$ and $\delta_U$: 
+
+$$\delta_L = \frac{\Delta_L}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}$$
+
+$$\delta_U = \frac{\Delta_U}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}$$
+
+# How to determine the confidence interval around Shieh's $\delta*$
+
+```{r, include=FALSE}
 samplingtest4 <- function(n1,n2,mu1,mu2,sigma1,sigma2,nsim){
   
   for (i in seq_len(nsim)){
@@ -315,35 +327,36 @@ samplingtest4 <- function(n1,n2,mu1,mu2,sigma1,sigma2,nsim){
   
   legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
 }
-
-samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=10)
 ```
 
 Consider the following quantity: 
 \begin{equation} 
-t_{Welch,obs}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 (\#eq:plausiblelimit2)
 \end{equation} 
 
-With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$ and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. Like when we used the statistic assuming normality and homoscedasticity (cf. previous section about confidence interval around Cohen's $\delta$), if the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. Therefore, as previously mentioned, it will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}. 
+With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$ and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. As with $t_{Student}$, if the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. It will therefore follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}. 
 
-As for constructing a confidence interval around Cohen's $\delta$, we first need to determine the *t*-distributions for which $t_{obs}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile. According to Shieh (2013), the distribution of $t_{welch,obs}$ can be approximated as follows: t $t(v, \Delta*)$
+```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
 
-It can be shown with the same theoretical arguments and
-analytic derivations as those in Welch (1938) that the statistic
-V has the general approximate distribution
+samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=10)
+
+```
+
+The noncentrality parameter $\Delta*$ is a function of $\delta*$ and total sample size $N = n_1 + n_2$
+ 
+\begin{equation}
+\Delta* = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}
+(\#eq:ncp)
+\end{equation} 
+
+Again, it is therefore possible to compute confidence limits for $\Delta*$, and divide them by $\sqrt{N}$ in order to have confidence limits for $\delta*$. We first need to determine the noncentrality parameters of the distributions for which $t_{Welch}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile. 
+$$P[t_{v, \Delta*_L} \geq t_{Welch}] = \frac{\alpha}{2} $$ and 
+$$P[t_{v, \Delta*_U} \leq t_{Welch}] = \frac{\alpha}{2} $$. 
+
+With *v* approximated by $\hat{v} = \frac{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})^2}{\frac{(\frac{S_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{S_2^2}{n_2})^2}{n_2-1}}$
+
+Second, we divide $\Delta*_L$ and $\Delta*_U$ by $\sqrt{N}$ in order to have $\delta*_L$ and $\delta*_U$ (i.e. confidences limits for Shieh's $\delta*$). 
 
 
 
-Degrees of freedom of the *t*-distributions can be approximated as follows:
-
-$DF = \frac{(\frac{sd_1^2}{n_1}+\frac{sd_2^2}{n_2})^2}{\frac{(\frac{sd_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{sd_2^2}{n_2})^2}{n_2-1}}$
-
-As *t*-distributions are a function of degrees of freedom and noncentrality parameters ($\lambda$), one need to find ($\lambda_L$) and ($\lambda_U$) such as
-
-$$P[t_{DF, \lambda_L} >= t_{obs}] = \frac{\alpha}{2} $$ and 
-
-
-$$P[t_{DF, \lambda_U} <= t_{obs}] = \frac{\alpha}{2} $$. 
-
-Once we have defined confidence limits for $\lambda$, one can divide them by $\sqrt{n_1+n_2}$ in order to have confidence limits for Shieh's $\delta$. 

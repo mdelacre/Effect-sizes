@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  10 MAR 2020 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  12 MAR 2020 14:18
 entering extended mode
 **./CI-Reminder.tex
 (CI-Reminder.tex
@@ -780,6 +780,12 @@ LaTeX Warning: Label `eq:conflev6' multiply defined.
 
 LaTeX Warning: Label `eq:plausiblelimit2' multiply defined.
 
+
+LaTeX Warning: Label `eq:plausiblelimit2' multiply defined.
+
+
+LaTeX Warning: Label `eq:ncp' multiply defined.
+
 )
 \openout1 = `CI-Reminder.aux'.
 
@@ -982,16 +988,19 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{C:/Users/Marie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ] [2] [3]
-<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF1-1".pdf, id=58, 469.755pt x 32
+<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF1-1".pdf, id=59, 469.755pt x 32
 5.215pt>
 File: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF1-1".pdf Graphic file (typ
 e pdf)
 <use "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF1-1".pdf>
 Package pdftex.def Info: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF1-1".pd
-f  used on input line 142.
+f  used on input line 144.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \vbox (badness 2065) has occurred while \output is active []
+
 [4 <./CI-Reminder_files/figure-latex/SAMPLMEANDIFF1-1.pdf>]
-Overfull \hbox (27.6843pt too wide) detected at line 172
+Overfull \hbox (27.6843pt too wide) detected at line 174
 [] \OMS/lmsy/m/n/12 $ \OML/lmm/m/it/12 Pr\OT1/lmr/m/n/12 [\OMS/lmsy/m/n/12  \OT
 1/lmr/m/n/12 ([] \OMS/lmsy/m/n/12   []\OT1/lmr/m/n/12 ) \OMS/lmsy/m/n/12   \OML
 /lmm/m/it/12 t[]\OT1/lmr/m/n/12 (1 \OMS/lmsy/m/n/12   []\OT1/lmr/m/n/12 ) \OMS/
@@ -1004,44 +1013,56 @@ m/n/12   \OML/lmm/m/it/12 
  []
 
 [5]
-<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF2-1".pdf, id=85, 469.755pt x 32
+<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF2-1".pdf, id=88, 469.755pt x 32
 5.215pt>
 File: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF2-1".pdf Graphic file (typ
 e pdf)
 <use "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF2-1".pdf>
 Package pdftex.def Info: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF2-1".pd
-f  used on input line 197.
+f  used on input line 199.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [6 <./CI-Reminder_files/figure-latex/SAMPLMEANDIFF2-1.pdf>]
-<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF3-1".pdf, id=101, 469.755pt x 3
+<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF3-1".pdf, id=103, 469.755pt x 3
 25.215pt>
 File: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF3-1".pdf Graphic file (typ
 e pdf)
 <use "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF3-1".pdf>
 Package pdftex.def Info: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF3-1".pd
-f  used on input line 232.
+f  used on input line 234.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[7] [8 <./CI-Reminder_files/figure-latex/SAMPLMEANDIFF3-1.pdf>] AED endfloat: P
-rocessing end Figures and Tables [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8 <./CI-Reminder_files/figure-latex/SAMPLMEANDIFF3-1.pdf>] [9]
+<"CI-Reminder_files/figure-latex/""SAMPLMEANDIFF4-1".pdf, id=135, 469.755pt x 3
+25.215pt>
+File: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF4-1".pdf Graphic file (typ
+e pdf)
+<use "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF4-1".pdf>
+Package pdftex.def Info: "CI-Reminder_files/figure-latex/""SAMPLMEANDIFF4-1".pd
+f  used on input line 278.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10 <./CI-Reminder_files/figure-latex/SAMPLMEANDIFF4-1.pdf>] AED endfloat: Proc
+essing end Figures and Tables [11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 298.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 298.
 (CI-Reminder.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 298.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 298.
 Package rerunfilecheck Info: File `CI-Reminder.out' has not changed.
-(rerunfilecheck)             Checksum: F85AC7802CE08D3C985187AA74B5A7E5;1435.
+(rerunfilecheck)             Checksum: 4690C273AE98320266C2F7E8D57E8C58;2031.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15823 strings out of 492452
- 237689 string characters out of 3128447
- 351939 words of memory out of 3000000
- 19864 multiletter control sequences out of 15000+200000
- 49132 words of font info for 65 fonts, out of 3000000 for 9000
+ 15858 strings out of 492452
+ 238530 string characters out of 3128447
+ 353448 words of memory out of 3000000
+ 19872 multiletter control sequences out of 15000+200000
+ 50060 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,51p,928b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,11n,51p,800b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-maths
 y.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
 athit.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
@@ -1061,9 +1082,9 @@ ms/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/Marie/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie/AppData/Local
 /Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Marie/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
-Output written on CI-Reminder.pdf (9 pages, 237835 bytes).
+Output written on CI-Reminder.pdf (11 pages, 275804 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 6216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 6229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
