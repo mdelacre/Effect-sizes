@@ -10,10 +10,9 @@ for (package in "rootSolve") {
 ##    Compute Confidences intervals    ##
 #########################################
 
-#  Obtain confidence limits for mu1-mu2 under the assumption of homoscedasticity
-#-------------------------------------------------------------------------------
+#  Obtain confidence limits for mu1-mu2 
 
-meandiff.CI <- function(Group.1, Group.2,conf.level)
+meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE)
 { 
   n1 <- length(Group.1)
   n2 <- length(Group.2)
@@ -21,33 +20,58 @@ meandiff.CI <- function(Group.1, Group.2,conf.level)
   mean2 <- mean(Group.2)
   sd1 <- sd(Group.1)
   sd2 <- sd(Group.2)
-  
-  pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
-  SE <- pooled_sd*sqrt(1/n1+1/n2)
-  
 
-  # Lower limit = limit of mu1-mu2 such as 1-pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
-  # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-
-  f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
-  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
-  theo_mudiff.1 <- out$root
-  
-  # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
-  # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-  
-  f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
-  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
-  theo_mudiff.2 <- out$root
-
-  result <- c(theo_mudiff.1, theo_mudiff.2) 
+  if (var.equal==TRUE){
+    pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+    SE <- pooled_sd*sqrt(1/n1+1/n2)
+    
+    
+    # Lower limit = limit of mu1-mu2 such as 1-pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
+    # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
+    
+    f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
+    out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+    theo_mudiff.1 <- out$root
+    
+    # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
+    # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
+    
+    f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
+    out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+    theo_mudiff.2 <- out$root
+    
+    result <- c(theo_mudiff.1, theo_mudiff.2) 
+    
+  } else {
+    SE <- sqrt(sd1^2/n1+sd2^2/n2)
+    
+    test <- t.test(Group.1, Group.2, alternative = "two.sided", var.equal = FALSE)
+    DF <- test$parameter # = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
+    
+    
+    # Lower limit = limit of mu1-mu2 such as 1-pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
+    # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
+    
+    f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=DF)-rep
+    out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+    theo_mudiff.1 <- out$root
+    
+    # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
+    # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
+    
+    f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=DF)-rep
+    out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
+    theo_mudiff.2 <- out$root
+    
+    result <- c(theo_mudiff.1, theo_mudiff.2) 
+  }
   return(result)
 }
 
 # Application
 Group.1 <- round(rnorm(15,5,2))
 Group.2 <- round(rnorm(12,4,1))
-meandiff.CI(Group.1,Group.2,.99)
+meandiff.CI(Group.1,Group.2,.95,var.equal=TRUE)
 
 # Check: the method returns approximately same CI as the classical method based on pivotal quantity
 #alpha <- 1 - conf.level
@@ -59,62 +83,10 @@ meandiff.CI(Group.1,Group.2,.99)
 #sd2 <- sd(Group.2)
 #pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
 #SE <- pooled_sd*sqrt(1/n1+1/n2)
-
 #(mean1-mean2)-qt(1-alpha/2,df=n1+n2-2)*SE
 #(mean1-mean2)+qt(1-alpha/2,df=n1+n2-2)*SE
 
-#  Obtain confidence limits for mu1-mu2 under the assumption of heteroscedasticity
-#-------------------------------------------------------------------------------
-
-meandiff.CI <- function(Group.1, Group.2,conf.level)
-{ 
-  n1 <- length(Group.1)
-  n2 <- length(Group.2)
-  mean1 <- mean(Group.1)
-  mean2 <- mean(Group.2)
-  sd1 <- sd(Group.1)
-  sd2 <- sd(Group.2)
-  
-  SE <- sqrt(sd1^2/n1+sd2^2/n2)
-  
-  test <- t.test(Group.1, Group.2, alternative = "two.sided", var.equal = FALSE)
-  DF <- test$parameter # = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
-  
-
-  # Lower limit = limit of mu1-mu2 such as 1-pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
-  # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-  
-  f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=DF)-rep
-  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
-  theo_mudiff.1 <- out$root
-  
-  # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
-  # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-  
-  f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=DF)-rep
-  out=uniroot(f,c(-100,100),rep=(1-conf.level)/2)
-  theo_mudiff.2 <- out$root
-  
-  result <- c(theo_mudiff.1, theo_mudiff.2) 
-  return(result)
-}
-
-# Application
-Group.1 <- round(rnorm(15,5,2))
-Group.2 <- round(rnorm(12,4,1))
-meandiff.CI(Group.1,Group.2,.95)
-
-# Check: the method returns approximately same CI as the classical method based on pivotal quantity
-#alpha <- 1 - conf.level
-#n1 <- length(Group.1)
-#n2 <- length(Group.2)
-#mean1 <- mean(Group.1)
-#mean2 <- mean(Group.2)
-#sd1 <- sd(Group.1)
-#sd2 <- sd(Group.2)
-# DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
 #SE <- sqrt(sd1^2/n1+sd2^2/n2)
-
 #(mean1-mean2)-qt(1-alpha/2,df=DF)*SE
 #(mean1-mean2)+qt(1-alpha/2,df=DF)*SE
 
