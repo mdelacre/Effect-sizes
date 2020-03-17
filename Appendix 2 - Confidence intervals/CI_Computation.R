@@ -10,8 +10,8 @@ for (package in "rootSolve") {
 ##    Compute Confidences intervals    ##
 #########################################
 
-#  Obtain confidence limits for mu1-mu2 (see Method 2 in CI Reminder)
-#--------------------------------------------------------------
+#  Obtain confidence limits for mu1-mu2 under the assumption of homoscedasticity
+#-------------------------------------------------------------------------------
 
 meandiff.CI <- function(Group.1, Group.2,conf.level)
 { 
