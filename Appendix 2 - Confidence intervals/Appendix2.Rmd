@@ -45,26 +45,18 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 ### Introduction: How to compute a confidence interval around $\mu_1-\mu_2$ 
 
-When computing a (supposed normal) centered variable, divided by the standard error (i.e. an independant variable closely related with the $\chi^2$ distribution), then computed quantity will follow a central *t*-distribution. This quantity is called a pivotal quantity (PQ), i.e. a quantity that is very interesting because its sampling distribution is not a function of the parameter we want to estimate. We can therefore use it, in order to define confidence limits for any parameter[@Cumming_Finch_2001].
+Considering the link between confidences intervals and NHST approach, we can think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis [@Cumming_Finch_2001] (i.e that would be associated with a *p*-value that exactly equals $\frac{alpha}{2}$). 
 
-The method consists in four steps:  
-1) Compute a pivotal quantity (PQ) of the general form: (Estimator - parameter)/SE;  
-2) Determining the distribution of PQ;  
-3) Computing the confidence limits of PQ: determine a range of values, centered around 0, such as (1-alpha)% of the area under the distribution of PQ falls in this range;    
-4) Pivote in order to obtain the confidence interval around the parameter of interest.    
-
-As a first example, consider the case of 2 means difference, assuming normality and homoscedasticity. The pivotal quantity is defined as follows: 
+Under the assumption of iid normal distributions of residuals with equal variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
 
 \begin{equation} 
-PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
-(\#eq:PQstudent)
+t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+(\#eq:tstudent)
 \end{equation} 
 
-With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ and $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$
+With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ and $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$. 
 
-This quantity follows a *t*- distribution with $n_1+n_2-2$ degrees of freedom [therefore, it depends only on $n_1$ and $n_2$, it does NOT depend on the parameter of interest, i.e. $\mu_1-\mu_2$; @Cumming_Finch_2001].
-
-```{r, SAMPLMEANDIFF1, fig.cap= "Sampling distribution of the pivotal quantity under the assumptions of normality and homoscedasticity"}
+```{r, SAMPLMEANDIFF1, fig.cap= "Sampling distribution of Student's t under the assumptions of normality and homoscedasticity"}
 samplingtest <- function(n1,n2,nsim){
   
   for (i in seq_len(nsim)){
@@ -87,7 +79,7 @@ samplingtest <- function(n1,n2,nsim){
   pq <- (av-(4-2))/(pooled_sd*sqrt(1/n1+1/n2))
   
   1-pt(.025,df=n1+n2-2)
-  plot(density(pq),main="Sampling distribution of PQ",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
+  plot(density(pq),main="Sampling distribution of t",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
   legend("top",col=c("black","red"),legend=c("empirical distribution (based on simulations)","t-distribution with n1+n2-2 degrees of freedom"),lty=c(2,2),bty="n")
   
   df <- n1+n2-2
@@ -96,60 +88,23 @@ samplingtest <- function(n1,n2,nsim){
   
 }
 
-samplingtest(n1=50,n2=60,nsim=100000)
+samplingtest(n1=50,n2=60,nsim=10)
 
 ```
 
-Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level:
+Under the null hypothesis, this quantity will follow a central *t*- distribution with $n_1+n_2-2$ degrees of freedom (see Figure \ref{fig:SAMPLMEANDIFF1}) \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$}. We can therefore easily define $(\mu_1-\mu_2)_L$, the lower limit of the confidence interval, such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
 
 \begin{equation} 
-Pr[t_{n_1+n_2-2}(\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
-(\#eq:conflev1)
-\end{equation} 
-
-Because the *t*-distribution is symmetrically centered around 0, one can deduce that $t_{n_1+n_2-2}(\frac{\alpha}{2})=-t_{n_1+n_2-2}(1-\frac{\alpha}{2})$, and therefore:
-
-\begin{equation} 
-Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) < \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE} < t_{n_1+n_2-2}(1-\frac{\alpha}{2})] = 1 - \alpha
-(\#eq:conflev2)
-\end{equation} 
-
-In pivoting the inequation, one can deduce that:
-
-\begin{equation} 
-Pr[-t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < (\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2) < t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE] = 1-\alpha
-(\#eq:conflev3)
+Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit1)
 \end{equation} 
 
 \begin{equation} 
-\leftrightarrow Pr[-(\bar{X_1}-\bar{X_2}) -t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE <
--(\mu_1-\mu_2) 
-< -(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
-(\#eq:conflev4)
+Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit2)
 \end{equation} 
 
-\begin{equation} 
-\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE > \mu_1-\mu_2 > (\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
-(\#eq:conflev5)
-\end{equation} 
-
-\begin{equation} 
-\leftrightarrow Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
-(\#eq:conflev6)
-\end{equation} 
-
-As a second example, consider the case of 2 means difference, assuming normality and heteroscedasticity. The pivotal quantity is defined as follows:
-
-\begin{equation} 
-PQ= \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)}{SE}
-(\#eq:PQwelch)
-\end{equation} 
-
-With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$
-
-This quantity follows a *t*- distribution with $\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}$ degrees of freedom (therefore, it depends on $n_1$ and $n_2$, $S_1$ and $S_2$, and does NOT depend on the parameter of interest, i.e. $\mu_1-\mu_2$).
-
-```{r, SAMPLMEANDIFF2, fig.cap= "Sampling distribution of the pivotal quantity under the assumptions of normality and heteroscedasticity"}
+```{r, SAMPLMEANDIFF2, fig.cap= "Sampling distribution of Welch's t under the assumptions of normality and heteroscedasticity"}
 samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
   
   for (i in seq_len(nsim)){
@@ -178,31 +133,29 @@ samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
   
 }
 
-samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=100000)
+samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=10)
 ```
 
-Because the theoretical distribution of PQ is known, one can compute the confidence limits, for any confidence level (see the first example for more details):
+Under the assumption of iid normal distributions of residuals with unequal variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
 
 \begin{equation} 
-Pr[(\bar{X_1}-\bar{X_2}) - t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE < \mu_1-\mu_2 <(\bar{X_1}-\bar{X_2}) +t_{n_1+n_2-2}(1-\frac{\alpha}{2}) \times SE]= 1- \alpha
-(\#eq:conflev6)
+t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
+(\#eq:twelch)
 \end{equation} 
 
-With SE = $\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}$
-
-We may also think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis. In other words, we could define the lower limit $(\mu_1-\mu_2)_L$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\bar{X_1}-\bar{X_2}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
+With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$. Again, under the null hypothesis, we know that this quantity will follow  a central *t*- distribution with $DF=\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}$ degrees of freedom. (see Figure \ref{fig:SAMPLMEANDIFF2}). We can therefore easily define $(\mu_1-\mu_2)_L$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
 
 \begin{equation} 
-Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+Pr[t_{DF} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
 (\#eq:plausiblelimit1)
 \end{equation} 
 
 \begin{equation} 
-Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+Pr[t_{DF} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
 (\#eq:plausiblelimit2)
 \end{equation} 
 
-This second vision of the problem helps to understand how we calculate the confidence intervals around the effect size measures, as explained below [@Cumming_Finch_2001].
+It is not the most conventional way of computing confidences limits around any mean differences, but this approach is interesting as it helps to understand how to compute confidence limits around a measure of effect size.
 
 ### How to compute a confidence interval around Cohen's $\delta$
 
@@ -245,16 +198,10 @@ samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
   legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
 }
 
-samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=100000)
+samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=10)
 ```
 
-Consider the following quantity: 
-\begin{equation} 
-t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
-(\#eq:plausiblelimit2)
-\end{equation} 
-
-With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$, and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. If the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. Therefore, as previously mentioned, it will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
+We previously mentioned that if the null hypothesis is true,$t_{Student}$ (see equation \@ref(eq:tstudent)) will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
 
 Noncentral *t*-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter [that we will call $\Delta$; @Cumming_Finch_2001], the last being a function of $\delta$ and sample sizes $n_1$ and $n_2$:
  
@@ -263,7 +210,7 @@ Noncentral *t*-distributions are described by two parameters: degrees of freedom
 (\#eq:ncp)
 \end{equation} 
 
-It is therefore possible to compute confidence limits for $\Delta$, and divide them by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to have confidence limits for $\delta$. In other word, we first need to determine the noncentrality parameters of the *t*-distributions for which $t_{Student}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile: 
+Considering the link between $\Delta$ and $\delta$, it is possible to compute confidence limits for $\Delta$, and divide them by $\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}$ in order to have confidence limits for $\delta$. In other word, we first need to determine the noncentrality parameters of the *t*-distributions for which $t_{Student}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile: 
 
 $$P[t_{df, \Delta_L} \geq t_{Student}] = \frac{\alpha}{2} $$ 
 
@@ -318,17 +265,11 @@ samplingtest4 <- function(n1,n2,mu1,mu2,sigma1,sigma2,nsim){
 }
 ```
 
-Consider the following quantity: 
-\begin{equation} 
-t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
-(\#eq:plausiblelimit2)
-\end{equation} 
-
-With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$ and $(\mu_1-\mu_2)_0$ is the means difference under the null hypothesis. As with $t_{Student}$, if the null hypothesis is true, this quantity is a (supposed normal) centered variable, divided by an independant variable closely related with the $\chi^2$. It will therefore follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}. 
+Like $t_{Student}$, $t_{Welch}$ (see equation \@ref(eq:twelch)) will follow a central *t*-distribution only if the null hypothesis is true. If the null hypothesis is false, it will follow a noncentral *t*-distribution, as illustrated in Figure \ref{fig:SAMPLMEANDIFF4}. 
 
 ```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
 
-samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=100000)
+samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=10)
 
 ```
 
@@ -339,7 +280,7 @@ The noncentrality parameter $\Delta*$ is a function of $\delta*$ and total sampl
 (\#eq:ncp)
 \end{equation} 
 
-Again, it is therefore possible to compute confidence limits for $\Delta*$, and divide them by $\sqrt{N}$ in order to have confidence limits for $\delta*$. We first need to determine the noncentrality parameters of the distributions for which $t_{Welch}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile. 
+Considering the link between $\Delta$ and $\delta$, we can compute confidence limits for $\Delta*$, and divide them by $\sqrt{N}$ in order to have confidence limits for $\delta*$. We first need to determine the noncentrality parameters of the distributions for which $t_{Welch}$ corresponds respectively to  the $1-\frac{\alpha}{2}$ and to the $\frac{\alpha}{2}$ th. quantile. 
 $$P[t_{v, \Delta*_L} \geq t_{Welch}] = \frac{\alpha}{2} $$ and 
 $$P[t_{v, \Delta*_U} \leq t_{Welch}] = \frac{\alpha}{2} $$. 
 
