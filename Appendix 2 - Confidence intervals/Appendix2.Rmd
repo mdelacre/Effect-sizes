@@ -88,7 +88,7 @@ samplingtest <- function(n1,n2,nsim){
   
 }
 
-samplingtest(n1=50,n2=60,nsim=10)
+samplingtest(n1=50,n2=60,nsim=100000)
 
 ```
 
@@ -133,7 +133,7 @@ samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
   
 }
 
-samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=10)
+samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=100000)
 ```
 
 Under the assumption of iid normal distributions of residuals with unequal variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
@@ -143,7 +143,7 @@ t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 (\#eq:twelch)
 \end{equation} 
 
-With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$. Again, under the null hypothesis, we know that this quantity will follow  a central *t*- distribution with $DF=\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}$ degrees of freedom. (see Figure \ref{fig:SAMPLMEANDIFF2}). We can therefore easily define $(\mu_1-\mu_2)_L$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
+With $SE = \sqrt{\frac{S^2_1}{n1}+\frac{S^2_2}{n2}}$. Again, under the null hypothesis, we know that this quantity will follow  a central *t*- distribution with $DF=\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}$ degrees of freedom (see Figure \ref{fig:SAMPLMEANDIFF2}). We can therefore easily define $(\mu_1-\mu_2)_L$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
 
 \begin{equation} 
 Pr[t_{DF} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
@@ -155,7 +155,7 @@ Pr[t_{DF} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{
 (\#eq:plausiblelimit2)
 \end{equation} 
 
-It is not the most conventional way of computing confidences limits around any mean differences, but this approach is interesting as it helps to understand how to compute confidence limits around a measure of effect size.
+It is not the most conventional way of computing confidences limits around any mean differences, however this approach is interesting as it helps to understand how to compute confidence limits around a measure of effect size.
 
 ### How to compute a confidence interval around Cohen's $\delta$
 
@@ -198,7 +198,7 @@ samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
   legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),3),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),3),")")),lty=c(2,2),bty="n")
 }
 
-samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=10)
+samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=100000)
 ```
 
 We previously mentioned that if the null hypothesis is true,$t_{Student}$ (see equation \@ref(eq:tstudent)) will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
@@ -269,7 +269,7 @@ Like $t_{Student}$, $t_{Welch}$ (see equation \@ref(eq:twelch)) will follow a ce
 
 ```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
 
-samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=10)
+samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=100000)
 
 ```
 
