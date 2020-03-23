@@ -74,7 +74,7 @@ After these general adjustments, we will focus our attention on “between-subje
 
 # Measure of effect size: what it is, what it is not 
 
-The effect size is commonly refered to the practical significance of a test. @Grissom_and_kim_2005 define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from [e.g. the mean; @Peng_and_Chen_2014] or as the magnitude of the relation between one dichotomous factor and one dependent variable [@AERA_2006]. Both definitions refers to as the most famous families of measures of effect sizes [Rosenthal_1994]: respectively the *d*-family and the *r*-family.
+The effect size is commonly refered to the practical significance of a test. @Grissom_and_kim_2005 define the effect size as the extent to which results differ from what is implied by the null hypothesis. In the context of the comparison of two groups based on their mean, depending on the defined null hypothesis (considering the absence of effect as the null hypothesis), we could define the effect size either as the magnitude of differences between parameters of two populations groups are extracted from [e.g. the mean; @Peng_and_Chen_2014] or as the magnitude of the relation between one dichotomous factor and one dependent variable [@AERA_2006]. Both definitions refers to as the most famous families of measures of effect sizes [@Rosenthal_1994]: respectively the *d*-family and the *r*-family.
 
 Very often, the contribution of the measures of effect size is overestimated. First, benchmarks about what should be a small, medium or large effect size might have contribued at seeing the effect size as a measure of the importance or the relevance of an effect in real life, but it is not [@Stout_Ruble_1995]. The effect size is only a mathematical indicator of the magnitude of a difference, which depends on the way a variable is converted into numerical indicator. In order to assess the meaningfulness of an effect, we should be able to relate this effect with behaviors/meaningful consequences in the real world [@Andersen_et_al_2007]. For example, let us imagine a sample of students in serious school failure who are randomly divided into two groups: an experimental group following a training program and a control group. At the end of the training, students in the experimental group have on average significantly higher scores on a test than students in the control group, and the difference is large (e.g. 30 percents). Does it mean that students in the experimental condition will be able to pass to the next grade and to continue normal schooling? Whether the computed magnitude of difference is an important, meaningful change in everyday life refers to another construct: the *Applied significance* [@Bothe_Richardson_2011]. It refers to the interpretation of treatment outcomes and is neither statistical nor mathematical, it is related to underlying theory that posits an empirical hypothesis. In other words, the relation between *practical* and *Applied* significance is more a theoretical argument than a statistical one. 
  
@@ -83,16 +83,14 @@ Second, in the context of the comparison of two groups based on their means, it 
 # Different purposes of effect size measures
 
 Effect size measures can be used in an *inferential* perspective:   
-- The effect sizes from previous studies can be used in a priori power analysis when planning a new study [@Sullivan_Feinn_2012;@Lakens_2013;@Stout_Ruble_1995;@Prentice_Miller_1992; @Wilkinson_1999]  
-- To compute confidence intervals [@Shieh_2013]
-
-When related to inference, effect size measures are generally submitted to a range of assumptions (e.g. independent and identically distributed residuals are normal and have equal variances between groups). When these assumptions are not met, many estimations of effect size are inaccurate and alter the robustness of the statistical conclusions. 
+- The effect sizes from previous studies can be used in a priori power analysis when planning a new study [@Sullivan_Feinn_2012;@Lakens_2013;@Stout_Ruble_1995;@Prentice_Miller_1992; @Wilkinson_1999];  
+- We can also compute confidence limits around the point estimator [@Shieh_2013], in order to replace conventional hypothesis testing : if the null hypothesis area is out of the confidence interva, we can conclude that the null hypothesis is false.
 
 Measures of effect size can also be used in a *comparative* perspective, that is to assess the stability of results across designs, analysis, samples sizes [@Wilkinson_1999]. It includes:    
-- To compare results of 2 or more studies [@Prentice_Miller_1992]  
-- To incorporate results in meta-analysis [@Lakens_2013;@Wilkinson_1999;@Stout_Ruble_1995; @Nakagawa_and_Cuthill_2007;@Li_2016]  
+- To compare results of 2 or more studies [@Prentice_Miller_1992];  
+- To incorporate results in meta-analysis [@Lakens_2013;@Wilkinson_1999;@Stout_Ruble_1995; @Nakagawa_and_Cuthill_2007;@Li_2016].  
 
-Finally, effect size measures can be used for *interpretative* purposes: in order to assess the practical significance of a result [beyond statistical significance; @Lakens_2013;@Prentice_Miller_1992;@APA_2010]  
+Finally, effect size measures can be used for *interpretative* purposes: in order to assess the practical significance of a result [beyond statistical significance; @Lakens_2013;@Prentice_Miller_1992;@APA_2010].  
 
 # Properties of a good effect size estimator
 
@@ -162,16 +160,14 @@ Beyond the inferential properties, @Cumming_2013 reminds that an effect size est
 
 # Different measures of effect sizes
 
-The *d*-family effect sizes are commonly used with “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores means are compared. In this setting, the inferential purpose of effect size measure is crucial. We will therefore first focus our attention on the inferential purposes and then adress the comparative and interpretative purposes as a second step.  
-
-The population effect size is defined as follows: 
+The *d*-family effect sizes are commonly used with “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores means are compared. The population effect size is defined as follows: 
   
 \begin{equation} 
 \delta = \frac{\mu_{1}-\mu_{2}}{\delta} 
 (\#eq:Cohendelta)
 \end{equation} 
   
-They exist different estimators of this effect size measure varying as a function of the chosen standardizer ($\delta$). For all estimators, the mean difference is estimated by the difference of both sample means ($\bar{X}_1-\bar{X}_2$). When used for inference, some of them rely on both assumptions of normality and equality of variances, while others rely solely on the normality assumption.
+They exist different estimators of this effect size measure varying as a function of the chosen standardizer ($\delta$). For all estimators, the mean difference is estimated by the difference of both sample means ($\bar{X}_1-\bar{X}_2$). When used for inference, some of them rely on both assumptions of normally distributed residuals and equality of variances, while others rely solely on the normally distributed residuals assumption. 
 
 ## Alternatives when variances are equal between groups
 
@@ -182,7 +178,7 @@ Cohen's d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1)
 (\#eq:Cohends)
 \end{equation} 
 
-The reasoning behind this measure is that considering both samples as extracted from a common population variance [@Keselman_et_al_2008], we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e $SD_1$ and $SD_2$) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size ($max(n_j)$). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's $d_s$ is known to be positively biased [Thompson, 2006, cited by Lakens, 2013] and for this reason, @Hedges_Olkin_1985 has defined a bias-corrected version,  which is referred to: 
+The reasoning behind this measure is that considering both samples as extracted from a common population variance [@Keselman_et_al_2008], we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e $SD_1$ and $SD_2$) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size ($max(n_j)$). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's $d_s$ is known to be positively biased [@Lakens_2013] and for this reason, @Hedges_Olkin_1985 has defined a bias-corrected version,  which is referred to: 
 
 \begin{equation} 
 Hedge's \space g_s = Cohen's \space d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
@@ -195,13 +191,11 @@ The pooled SD is the best choice when variances are equal between groups  [@Gris
 
 In his review, @Shieh_2013 mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's $d_s$ (B) and the Shieh's $d_s$ (C).  
 
-The **sample mean difference, divided by the non pooled average of both variance estimates** (A) was suggested by Cohen (1988). We immediately exclude this alternative because it suffers of many limitations:    
+The **sample mean difference, divided by the non pooled average of both variance estimates** (A) was suggested by [Cohen_1988]. We immediately exclude this alternative because it suffers of many limitations:    
 - it results in a variance term of an artificial population and is therefore very difficult to interpret [@Grissom_Kim_2001];  
 - unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference [@Shieh_2013];    
 - unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate.  
 
-### Glass's $d_s$
-      
 When comparing one control group with one experimental group, @Glass_et_al_1981 recommend using the SD of the control group as standardizer. It is also advocated by [@Cumming_2013], because according to him, it is what makes the most sense, conceptually speaking. 
     
 \begin{equation} 
@@ -209,11 +203,8 @@ Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{contr
 (\#eq:Glassds)
 \end{equation} 
 
-Because the SD of the experimental group has no impact on the computed Glass's $d_s$, one could advice to report both mean differences divided by the SD of the control group and mean differences divided by the SD of the experimental groups. However, it could induces large ambiguity because both measures could be substantially different [@Shieh_2013]. 
-    
+Because the SD of the experimental group has no impact on the computed Glass's $d_s$, one could advice to report both mean differences divided by the SD of the control group and mean differences divided by the SD of the experimental groups. However, it could induces large ambiguity because both measures could be substantially different [@Shieh_2013]. When reporting only the mean difference divided by the SD of the control group, the measure is very stable from one design to another (e.g. Glass's delta) but have weak inferential properties (as we will illustrate in the simulation section). While we consider that all purposes are important, the inferential purpose is crucial in the setting we are studying. We therefore consider this measure to be unsuitable.
 
-### Shieh's d
-    
 Kulinskaya and Staudte (2007) adviced the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both groups. It results in a modification of the exact *SD* of the sample mean difference: 
       
 \begin{equation} 
@@ -221,7 +212,9 @@ Shieh's \space d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
 (\#eq:Shiehds)
 \end{equation} 
 
-We already mentioned that such a standardizer is required for inferential purposes, in the context of heteroscedasticity. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as $SD_1$ and $SD_2$,  Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: http: //127.0.0.1:3461/). This paradox would be resolved if it were possible to answer the following question: "for any sample sizes allocation ratio, is it possible to transform Shieh's $d_s$ value in order to know what value of Shieh's $d_s$ would have been obtained if design were balanced (i.e. $n_1 = n_2$)? " Fortunately, we found such a transformation. It can be shown that there is a relationship between the Shieh's $d_s$ value when samples sizes are equal between groups (i.e. $\delta_{Shieh, n1=n2}$) and Shieh's $d_s$ values for all other sample sizes allocation ratios
+According to the statistical properties of Welch’s statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as $SD_1$ and $SD_2$,  Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: http: //127.0.0.1:3461/). 
+
+Fortunately, this paradox can be resolved in answering the following question: "for any sample sizes ratio, what value of Shieh's $d_s$ would have been computed if design were balanced (i.e. $n_1 = n_2$), keeping constant the mean difference, $SD_1$ and $SD_2$? " It can be shown that the relationship between the Shieh's $d_s$ value when samples sizes are equal between groups (i.e. $\delta_{Shieh, n1=n2}$) and Shieh's $d_s$ values for all other sample sizes allocation ratios can be expressed as follows:
 
 \begin{equation} 
 \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
