@@ -123,21 +123,19 @@ Correspondence concerning this article should be addressed to Marie Delacre, CP1
 
 During decades, researchers in social science (Henson \& Smith, 2000) and education (Fan, 2001) have overestimated the ability of the null hypothesis (H0) testing to determine the importance of their results. The standard for researchers in social science is to define H0 as the absence of effect (Meehl, 1990). For example, when comparing the mean of two groups, researchers commonly test the H0 that there is no mean differences between groups (Steyn, 2000). Any effect that is significantly different from zero will be seen as sole support for a theory.
 
-Such an approach has faced many criticisms among which the most relevant to our concern is that the null hypothesis testing highly depends on sample size: for a given alpha level and a given difference between groups, the larger the sample size, the higher the probability of rejecting the null hypothesis (Fan, 2001; Kirk, 2009; Olejnik \& Algina, 2000; Sullivan \& Feinn, 2012). It implies that even tiny differences could be detected as statistically significant with very large sample sizes (McBride, Loftis, \& Adkins, 1993)\footnote{Tiny differences might be due to sampling error, or to other factors than the one of interest: even under the assumption of random assignent (which is a necessary but not sufficient condition), it is almost impossible to be sure that the only difference between two conditions is the one defined by the factor of interest. Other tiny factors of no theoretical interest might slighly influence results, making the probability of getting an actual zero effect very low. This is what Meehl (1990) calls 'systematic noise'}.
+Such an approach has faced many criticisms among which the most relevant to our concern is that the null hypothesis testing highly depends on sample size: for a given alpha level and a given difference between groups, the larger the sample size, the higher the probability of rejecting the null hypothesis (Fan, 2001; Kirk, 2009; Olejnik \& Algina, 2000; Sullivan \& Feinn, 2012). It implies that even tiny differences could be detected as statistically significant with very large sample sizes (McBride, Loftis, \& Adkins, 1993)\footnote{Tiny differences might be due to sampling error, or to other factors than the one of interest: even under the assumption of random assignent (which is a necessary but not sufficient condition), it is almost impossible to be sure that the only difference between two conditions is the one defined by the factor of interest. Other tiny factors of no theoretical interest might slighly influence results, making the probability of getting an actual zero effect very low. This is what Meehl (1990) calls 'systematic noise'.}.
 
 Facing this argument, it has become an adviced practice to report the \emph{p}-value assorted by a measure of the effect size, that is, a quantitative measure of the magnitude of the experimental effect (Cohen, 1965; Fan, 2001; Hays, 1963). This practice is also highly endorsed by the American Psychological Association (APA) and the American Educational Research Association (AERA) (American Educational Research Association, 2006; American Psychological Association, 2010). However, limited studies properly report effect size in the last several decades.
 
-First, there is a high confusion between the effect size and other related concepts such as the Applied significance\footnote{In our conception  Applied significance" encompass all what refers to the relevance of an effect in real life, e.g. clinical, personnal, social, professionnal}. Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in a specific context. The first aim of this paper can be declined into 3 parts:\\
+Generally, there is a high confusion between the effect size and other related concepts such as the Applied significance\footnote{In our conception  Applied significance" encompass all what refers to the relevance of an effect in real life, e.g. clinical, personnal, social, professionnal.}. Moreover, there are several situations that call for effect size measures and in the current litterature, it's not always easy to know which measure using in a specific context. We will therefore introduce this paper with 3 sections in which we will:\\
 1. Clearly define what is a measure of effect size;\\
-2. Listing the different situations that call for effect sizes measure
-3. Define required properties as a function of the situations;
+2. Listing the different situations that call for effect sizes measure;\\
+3. Define required properties as a function of the situations.
 
-Second, many differents estimators of effect sizes are available in literature and it is not always easy to know which measures is appropriate in which circumstance. We will limit our study to \enquote{between-subject} designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means. More specifically, we will focus on the standardized mean difference, called the \emph{d}-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013). We will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult to find a measure which optimally serves all the purposes of an effect size measure. For example, interpretability is obtained at the expense of inferential properties and vice versa. The second aim of this paper is therefore to review the most famous estimators of this family next to the role they serve.
-
-STILL TO ADD:\\
-- MENTIONNER QUE STOP D DE COHEN TT LE TEMPS (=identifier les shortcomings)\\
-- COMPARER LES ALTERNATIVES A TRAVERS DES SIMULATIONS\\
-- AMENER DES RECOMMENDATIONS
+After these general adjustments, we will focus our attention on \enquote{between-subject} designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means\footnote{We made this choice because *t*-tests are still the most commonly used tests in the field of Psychology.}. Because it has been widely argued that there are many fields in psychology where the assumption of equal variances between groups is ecologically unlikely (Erceg-Hurn \& Mirosevich, 2008; Grissom, 2000), it is becoming more common in statistical software to present a \emph{t}-test that does not hold on this assumption by default, namely the Welch's \emph{t}-test (e.g., R, Minitab). However, similar issues for the measures of effect sizes has received less attention (Shieh, 2013), and Cohen's \(d_s\) remains persistent\footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test.}. One possible reason is that researchers cannot find a consensus on which alternative should be in use (Shieh, 2013). We will limit our study to the standardized mean difference, called the \emph{d}-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means (Peng, Chen, Chiang, \& Chiang, 2013; Shieh, 2013), and we will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult, based on currently existing measures, to optimally serves all the purposes of en affect size measure. Throughout this section, we will:\\
+1. Present the main measures of the \emph{d}-family that are proposed in the literature,related to the purpose they serve, and introduce a new one, namely the \enquote{transformed Shieh's \emph{d}} that should help at reaching all the purposes simultaneously;\\
+2. Present and discuss the results of simulations we performed, in order to compare existing measures and the new introduced one;\\
+3. Summarize our conclusions in practical recommandations.
 
 \hypertarget{measure-of-effect-size-what-it-is-what-it-is-not}{%
 \section{Measure of effect size: what it is, what it is not}\label{measure-of-effect-size-what-it-is-what-it-is-not}}
@@ -163,13 +161,10 @@ Measures of effect size can also be used in a \emph{comparative} perspective, th
 
 Finally, effect size measures can be used for \emph{interpretative} purposes: in order to assess the practical significance of a result (beyond statistical significance; Lakens, 2013; American Psychological Association, 2010; Prentice \& Miller, 1990)
 
-\hypertarget{robust-measures}{%
-\section{Robust measures}\label{robust-measures}}
+\hypertarget{properties-of-a-good-effect-size-estimator}{%
+\section{Properties of a good effect size estimator}\label{properties-of-a-good-effect-size-estimator}}
 
-\hypertarget{properties-of-a-good-effect-size-estimator-for-inferential-purposes}{%
-\subsection{Properties of a good effect size estimator for inferential purposes}\label{properties-of-a-good-effect-size-estimator-for-inferential-purposes}}
-
-The estimate of an estimator depends on the sampling. That is to say, based on different samples extracted from the same population, one would obtain different estimates of the same estimator. The \emph{sampling distribution} of the estimator is the distribution of all estimates, based on all possible samples of size \emph{n} extracted from one population. Studying the sampling distribution is very useful, as it allows to assess the goodness of an effect size estimator and more specifically, three desirable properties of a good estimator: \textbf{unbiasedness}, \textbf{consistency} and \textbf{efficiency}.
+The estimate of an estimator depends on the sampling. That is to say, based on different samples extracted from the same population, one would obtain different estimates of the same estimator. The \emph{sampling distribution} of the estimator is the distribution of all estimates, based on all possible samples of size \emph{n} extracted from one population. Studying the sampling distribution is very useful, as it allows to assess the goodness of an effect size estimator and more specifically, three desirable properties of a good estimator for inferentiel purposes: \textbf{unbiasedness}, \textbf{consistency} and \textbf{efficiency}.
 
 An estimator is unbiased if the distribution of estimates is centered around the true population parameter. On the other hand, an estimator is positively (or negatively) biased if the distribution is centered around a value that is higher (or smaller) than the true populatione parameter (see Figure \ref{fig:BIAS}). In other words, the bias tells us if estimates are good, on average. The \emph{bias} of a point estimator \(\hat{\delta}\) can be computed as follows:
 
@@ -216,8 +211,8 @@ MSE(\hat{\delta})=\hat{\delta}_{efficiency}+\hat{\delta}_{bias}^2
 
 Finally, the last property of a good point estimator is \textbf{consistency}: consistency means that the bigger the sample size, the closer the estimate of the population parameter. In other words, the estimates \emph{converge} to the true population parameter.
 
-\hypertarget{properties-of-a-good-effect-size-estimator-for-comparative-and-interpretative-purposes}{%
-\subsection{Properties of a good effect size estimator for comparative and interpretative purposes}\label{properties-of-a-good-effect-size-estimator-for-comparative-and-interpretative-purposes}}
+\hypertarget{other-purposes}{%
+\subsection{Other purposes}\label{other-purposes}}
 
 According to Cumming (2013), an effect size estimator need to have a constant value across designs in order to be easily interpretable and to be included in meta-analysis. In other word, it should achieve the property of \textbf{generality}.
 
@@ -257,7 +252,7 @@ The pooled SD is the best choice when variances are equal between groups (Grisso
 \hypertarget{alternatives-when-variances-are-unequal-between-groups}{%
 \subsection{Alternatives when variances are unequal between groups}\label{alternatives-when-variances-are-unequal-between-groups}}
 
-While it is becoming more common in statistical software to present Welch's \emph{t}-test by default, when performing a \emph{t}-test (i.e., R, Minitab), similar issues for the measures of effect sizes has received less attention (Shieh, 2013) and Cohen's \(d_s\) remains persistent\footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test}. One possible reason is that researchers cannot find a consensus on which alternative should be in use (Shieh, 2013). In his review, Shieh (2013) mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's \(d_s\) (B) and the Shieh's \(d_s\) (C).
+In his review, Shieh (2013) mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's \(d_s\) (B) and the Shieh's \(d_s\) (C).
 
 The \textbf{sample mean difference, divided by the non pooled average of both variance estimates} (A) was suggested by Cohen (1988). We immediately exclude this alternative because it suffers of many limitations:\\
 - it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001);\\
@@ -612,7 +607,14 @@ Paste Appendix 2 when it will be finished
 \subsection{Appendix 3: a priori power
 analyses}\label{appendix-3-a-priori-power-analyses}}
 
-Paste Appendix 3 when it will be finished
+Paste Appendix 3 when it will be finished (Cumming \& Finch, 2001)
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Cumming_Finch_2001}{}%
+Cumming, G., \& Finch, S. (2001). A primer on the understanding, use,
+and calculation of confidence intervales that are based on central and
+noncentral distributions. \emph{Educational and Psychological
+Measurement}, \emph{61}(532), 532--574.
 \end{appendix}
 
 \end{document}
