@@ -171,14 +171,7 @@ An estimator is unbiased if the distribution of estimates is centered around the
 \label{eq:BIAS}
 \end{equation}
 
-Where \(E(\hat{\delta})\) is the mean expectency of the sampling distribution of the estimator and \(\delta\) is the true parameter.
-
-In order to compare the \emph{bias} of a point estimator for different true population parameters, we can compute the bias divided by \(\delta\).
-
-\begin{equation} 
-\hat{\delta}_{bias}=\frac{E(\hat{\delta})-\delta}{\delta}
-\label{eq:BIASRATE}
-\end{equation}
+Where \(E(\hat{\delta})\) is the expectency of the sampling distribution of the estimator (i.e.~the average estimate) and \(\delta\) is the true parameter.
 
 \begin{figure}
 \includegraphics[width=400px]{ES_files/figure-latex/BIAS-1} \caption{Samplig distribution for a positively biased (left), an unbiased (center) and a negatively biased estimator (right)}\label{fig:BIAS}
@@ -191,9 +184,7 @@ Bias informs us about the goodness of estimates averages, but says nothing about
 \label{eq:EFFICIENCY}
 \end{equation}
 
-Among all unbiased estimators, the more efficient will be the one with the smallest variance.
-
-Note that both unbiasedness and efficiency are very important. Remember that we hope that \emph{any} possible estimate is close of the real parameter. An unbiased estimator with such a large variance that somes estimates are extremely far from the real parameter is as undesirable as a parameter which is highly biased. In some situations, it is better to have a very slightly biased estimator with a tigh shape around the biased value, so each estimate \enquote{misses} the real parameter a little, than an unbiased estimator with a large variance {[}Ref to add: \url{https://eranraviv.com/bias-vs-consistency/}{]}. Because both \emph{unbiasedness} and \emph{efficiency} must be considered, it is interesting to compute an indicator that take simultaneously both properties into account (Wackerly, Mendenhall, \& Scheaffer, 2008). The \emph{mean square error} of a point estimator \(\hat{\delta}\) is defined as follows:
+Among all unbiased estimators, the more efficient will be the one with the smallest variance. Note that both unbiasedness and efficiency are very important. An unbiased estimator with such a large variance that somes estimates are extremely far from the real parameter is as undesirable as a parameter which is highly biased. In some situations, it is better to have a very slightly biased estimator with a tigh shape around the biased value, so each estimate remains relatively close to the true parameter, than an unbiased estimator with a large variance (Raviv, 2014). Because both \emph{unbiasedness} and \emph{efficiency} must be considered, it is interesting to compute an indicator that take simultaneously both properties into account (Wackerly, Mendenhall, \& Scheaffer, 2008). The \emph{mean square error} of a point estimator \(\hat{\delta}\) is defined as follows:
 
 \begin{equation} 
 MSE(\hat{\delta})=E[(\hat{\delta}-\delta)^2]
@@ -240,26 +231,26 @@ Hedge's \space g_s = Cohen's \space d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}
 \label{eq:Hedgesgs}
 \end{equation}
 
-The pooled SD is the best choice when variances are equal between groups (Grissom \& Kim, 2001) but they may not be well advised for use with data that violates this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). In case of a positive pairing (i.e.~the group with the larger sample size also has the larger variance), the variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e.~the group with the larger sample size has the smaller variance), the estimator will be larger as it should be. However, this assumption is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre, Lakens, \& Leys, 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004). For this reason, both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of a robust alternative to unequal variances.
+The pooled SD is the best choice when variances are equal between groups (Grissom \& Kim, 2001) but they may not be well advised for use with data that violates this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). In case of a positive pairing (i.e.~the group with the larger sample size also has the larger variance), the variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e.~the group with the larger sample size has the smaller variance), the estimator will be larger as it should be. Because the assumption of equal variances across groups is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre, Lakens, \& Leys, 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004), both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of a robust alternative to unequal variances.
 
 \hypertarget{alternatives-when-variances-are-unequal-between-groups}{%
 \subsection{Alternatives when variances are unequal between groups}\label{alternatives-when-variances-are-unequal-between-groups}}
 
 In his review, Shieh (2013) mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's \(d_s\) (B) and the Shieh's \(d_s\) (C).
 
-The \textbf{sample mean difference, divided by the non pooled average of both variance estimates} (A) was suggested by {[}Cohen\_1988{]}. We immediately exclude this alternative because it suffers of many limitations:\\
+The \textbf{sample mean difference, divided by the non pooled average of both variance estimates} (A) was suggested by (Cohen, 1988). We immediately exclude this alternative because it suffers of many limitations:\\
 - it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001);\\
 - unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013);\\
 - unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate.
 
-When comparing one control group with one experimental group, Glass, McGav, \& Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by (Cumming, 2013), because according to him, it is what makes the most sense, conceptually speaking.
+When comparing one control group with one experimental group, Glass, McGav, \& Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by Cumming (2013), because according to him, it is what makes the most sense, conceptually speaking.
 
 \begin{equation} 
 Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
 \label{eq:Glassds}
 \end{equation}
 
-Because the SD of the experimental group has no impact on the computed Glass's \(d_s\), one could advice to report both mean differences divided by the SD of the control group and mean differences divided by the SD of the experimental groups. However, it could induces large ambiguity because both measures could be substantially different (Shieh, 2013). When reporting only the mean difference divided by the SD of the control group, the measure is very stable from one design to another (e.g.~Glass's delta) but have weak inferential properties (as we will illustrate in the simulation section). While we consider that all purposes are important, the inferential purpose is crucial in the setting we are studying. We therefore consider this measure to be unsuitable.
+One argument in favour of using the standard deviation of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the \enquote{control} one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious(Coe, 2002). This could induce large ambiguity because depending of the chosen standard deviation, as standardizer, measures could be substantially diﬀerent (Shieh, 2013). Moreover, glass \(d_s\) also have limitations when used for inference. While it is a consistant measure, it can be shown that it can be highly positively biased when there are less than 300 participants (Hedges, 1981; Olejnik \& Hess, 2001), especially for small effect sizes.
 
 Kulinskaya and Staudte (2007) adviced the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both groups. It results in a modification of the exact \emph{SD} of the sample mean difference:
 
@@ -270,22 +261,37 @@ Shieh's \space d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
 
 According to the statistical properties of Welch's statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: http: //127.0.0.1:3461/).
 
-Fortunately, this paradox can be resolved in answering the following question: \enquote{for any sample sizes ratio, what value of Shieh's \(d_s\) would have been computed if design were balanced (i.e.~\(n_1 = n_2\)), keeping constant the mean difference, \(SD_1\) and \(SD_2\)?} It can be shown that the relationship between the Shieh's \(d_s\) value when samples sizes are equal between groups (i.e.~\(\delta_{Shieh, n1=n2}\)) and Shieh's \(d_s\) values for all other sample sizes allocation ratios can be expressed as follows:
+Fortunately, this paradox can be resolved. It is possible to find a modified measure of Shieh's \(d_s\) that does not depend on sample sizes ratio, in answering the following question: \enquote{whatever the real sample sizes ratio, what value of Shieh's \(d_s\) would have been computed if design were balanced (i.e.~\(n_1 = n_2\)), keeping all other parameters constant?}
+
+It can be shown that the relationship between Shieh's \(\delta_s\) when samples sizes are equal between groups (i.e.~\(\delta_{Shieh, n1=n2}\)) and Shieh's \(\delta_s\) for any other sample sizes allocation ratios can be expressed as follows:
 
 \begin{equation} 
 \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
-\label{eq:shiehvsbaldesign}
+\label{eq:shiehvsbaldesignPOP}
 \end{equation}
 
 With \[\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\] and
-\[\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
+\[SD_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
 
-Thanks to this equation, Shieh's \(\delta\) can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.
+\(\delta_{Shieh, n1=n2}\) can thefore be estimated using this equation:
 
-\hypertarget{simulations}{%
-\subsection{Simulations}\label{simulations}}
+\begin{equation} 
+Shieh's \space ds_{n_1=n_2}= Shieh's \space ds \times \frac{(nratio+1) \times SD_{n_1 \neq n_2}}{2 \times SD_{n_1=n_2} \times \sqrt{nratio}}
+\label{eq:shiehvsbaldesign}
+\end{equation}
 
-We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of the 6 measures of effect sizes described in previous section: Cohen's \(d_s\), Hedge's \(g_s\), Glass's \(d_s\) using respectively the sample standard deviation of the first or second group as a standardizer, Shieh's \(d_s\) and our transformed measure of Shieh's \(d_s\), that we will note later \(d_s^*\).
+With \[SD_{n_1=n_2}= \sqrt{\frac{SD_1^2+SD_2^2}{2}}\] and
+\[SD_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times SD_1^2+(1- \frac{n_2}{N}) \times SD_2^2}\]
+
+\(Shieh's \space ds_{n_1=n_2}\) can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.
+
+\hypertarget{monte-carlo-simulations}{%
+\subsection{Monte Carlo Simulations}\label{monte-carlo-simulations}}
+
+\hypertarget{simulation-1-assessing-the-bias-efficiency-and-consistency-of-5-estimators}{%
+\subsubsection{Simulation 1: assessing the bias, efficiency and consistency of 5 estimators}\label{simulation-1-assessing-the-bias-efficiency-and-consistency-of-5-estimators}}
+
+We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of Cohen's \(d_s\), Hedge's \(g_s\), Glass's \(d_s\) (using respectively the sample standard deviation of the first or second group as a standardizer), Shieh's \(d_s\) and our transformed measure of Shieh's \(d_s\), that we will note later \(d_s^*\).
 
 100,000 datasets were generated for 1,260 scenarios. In 315 scenarios, samples were extracted from a normal population distribution and in 945 scenarios, samples were extracted from non normal population distributions. In order to assess the goodness of estimators under realistic deviations from the normality assumption, we referred to the review of Cain et al. (2017). Based on their investigation\footnote{Cain et al. (2017) investigated 1,567 univariate distributions from 194 studies published by authors in *Psychological Science* (from January 2013 to June 2014) and the *American Education Research Journal* (from January 2010 to June 2014). For each distribution, they computed the Fisher's skewness (G1) and kurtosis (G2). }, Cain et al. (2017) found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution, i.e.~G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution, i.e.~respectively G1 = -2.08 and G1 = 6.32. We also simulated null population parameter values (i.e.~G1 = 0), in order to assess the main effect of high kurtosis on the goodness of estimators. All possible combinations of skewness and kurtosis and the number of scenarios for each combination are summarized in Table 1.
 
@@ -333,6 +339,10 @@ Table 2.
 
 \emph{Note.} The \emph{n}-ratio is the sample size of the first group (\(n_1\)) divided by the sample size of the second group (\(n_2\)). When all sample sizes are equal across groups, the \emph{n}-ratio equals 1. When \(n_1 > n_2\), \emph{n}-ratio \textgreater{} 1, and when \(n_1 < n_2\), \emph{n}-ratio \textless{} 1. \emph{SD}-ratio is the population \emph{SD} of the first group (\(\sigma_1\)) divided by the population \emph{SD} of the second group (\(\sigma_2\)). When \(\sigma_1=\sigma_2\), \emph{SD}-ratio = 1. When \(\sigma_1>\sigma_2\), \emph{SD}-ratio \textgreater{} 1. Finally, when \(\sigma_1<\sigma_2\), \emph{SD}-ratio \textless{} 1.
 
+\hypertarget{simulation-2-confidence-intervals}{%
+\subsubsection*{Simulation 2: confidence intervals}\label{simulation-2-confidence-intervals}}
+\addcontentsline{toc}{subsubsection}{Simulation 2: confidence intervals}
+
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-AERA_2006}{}%
 American Educational Research Association. (2006). Standards for reporting on empirical social science research in aera publications. \emph{Educational Researcher}, \emph{35}, 33--40. doi:\href{https://doi.org/10.3102/0013189X035006033}{10.3102/0013189X035006033}
@@ -349,8 +359,14 @@ Bothe, A. K., \& Richardson, J. D. (2011). Statistical, practical, clinical, and
 \leavevmode\hypertarget{ref-Cain_et_al_2017}{}%
 Cain, M. K., Zhang, Z., \& Yuan, K.-H. (2017). Univariate and multivariate skewness and kurtosis for measuring nonnormality: Prevalence, influence and estimation. \emph{Behavior Research Methods}, \emph{49}(5), 1716--1735. doi:\href{https://doi.org/10.3758/s13428-016-0814-1}{10.3758/s13428-016-0814-1}
 
+\leavevmode\hypertarget{ref-Coe_2002}{}%
+Coe, R. (2002). \emph{It's the effect size, stupid. What effect size is and why it is important}. Retrieved from \url{https://www.leeds.ac.uk/educol/documents/00002182.htm}
+
 \leavevmode\hypertarget{ref-Cohen_1965}{}%
 Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
+
+\leavevmode\hypertarget{ref-Cohen_1988}{}%
+Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (Routledge Academic.). New York, NY.
 
 \leavevmode\hypertarget{ref-Cumming_2013}{}%
 Cumming, G. (2013). Cohen's d needs to be readily interpretable: Comment on shieh (2013). \emph{Behavior Research Methods}, \emph{45}, 968--971. doi:\href{https://doi.org/10.3758/s13428-013-0392-4}{10.3758/s13428-013-0392-4}
@@ -385,6 +401,9 @@ Grissom, R. R., \& Kim, J. J. (2005). \emph{Effect size for research: A broad pr
 \leavevmode\hypertarget{ref-Hays_1963}{}%
 Hays, W. L. (1963). \emph{Statistics for psychologists} (Holt, Rinehart \& Winston.). New York.
 
+\leavevmode\hypertarget{ref-Hedges_1981}{}%
+Hedges, L. V. (1981). Distribution theory for glass's estimator of effect size and related estimators. \emph{Journal of Educational Statistics}, \emph{6}(2), 107--128.
+
 \leavevmode\hypertarget{ref-Hedges_Olkin_1985}{}%
 Hedges, L. V., \& Olkin, I. (1985). \emph{Statistical methods for meta-analysis} (Academic Press.). Cambridge, Massachusetts. doi:\href{https://doi.org/10.1016/C2009-0-03396-0}{10.1016/C2009-0-03396-0}
 
@@ -418,6 +437,9 @@ Nakagawa, S., \& Cuthill, I. C. (2007). Effect size, confidence interval and sta
 \leavevmode\hypertarget{ref-Olejnik_Algina_2000}{}%
 Olejnik, S., \& Algina, J. (2000). Measures of effect size for comparative studies: Applications, interpretations, and limitations. \emph{Contemporary Educational Psychology}, \emph{25}, 241--286. doi:\href{https://doi.org/10.1006/ceps.2000.1040}{10.1006/ceps.2000.1040}
 
+\leavevmode\hypertarget{ref-Olejnik_Hess_2001}{}%
+Olejnik, S., \& Hess, B. (2001). \emph{Revisiting the efficacy of glass's estimator of effect size for program impact analysis}. Retrieved from \url{https://eric.ed.gov/?id=ED452210}
+
 \leavevmode\hypertarget{ref-Peng_and_Chen_2014}{}%
 Peng, C.-Y., \& Chen, L.-T. (2014). Beyond cohen's d: Alternative effect size measures for between-subject designs. \emph{THE JOURNAL OF EXPERIMENTAL EDUCATION}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
 
@@ -426,6 +448,9 @@ Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of 
 
 \leavevmode\hypertarget{ref-Prentice_Miller_1992}{}%
 Prentice, D., \& Miller, D. T. (1990). When small effects are impressive. \emph{Psychological Bulletin}, \emph{112}(1), 160--164.
+
+\leavevmode\hypertarget{ref-Raviv}{}%
+Raviv, E. (2014). \emph{Bias vs. Consistency}. Retrieved March 25, 2020, from \url{https://eranraviv.com/bias-vs-consistency/}
 
 \leavevmode\hypertarget{ref-Rosenthal_1994}{}%
 Rosenthal, R. (1994). Parametric measures of effect size. In H. Cooper \& L. V. Hedges (Eds.), \emph{The hand-book of research synthesis} (pp. 231--244). New-York: Sage.
@@ -469,8 +494,14 @@ Bothe, A. K., \& Richardson, J. D. (2011). Statistical, practical, clinical, and
 \leavevmode\hypertarget{ref-Cain_et_al_2017}{}%
 Cain, M. K., Zhang, Z., \& Yuan, K.-H. (2017). Univariate and multivariate skewness and kurtosis for measuring nonnormality: Prevalence, influence and estimation. \emph{Behavior Research Methods}, \emph{49}(5), 1716--1735. doi:\href{https://doi.org/10.3758/s13428-016-0814-1}{10.3758/s13428-016-0814-1}
 
+\leavevmode\hypertarget{ref-Coe_2002}{}%
+Coe, R. (2002). \emph{It's the effect size, stupid. What effect size is and why it is important}. Retrieved from \url{https://www.leeds.ac.uk/educol/documents/00002182.htm}
+
 \leavevmode\hypertarget{ref-Cohen_1965}{}%
 Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
+
+\leavevmode\hypertarget{ref-Cohen_1988}{}%
+Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (Routledge Academic.). New York, NY.
 
 \leavevmode\hypertarget{ref-Cumming_2013}{}%
 Cumming, G. (2013). Cohen's d needs to be readily interpretable: Comment on shieh (2013). \emph{Behavior Research Methods}, \emph{45}, 968--971. doi:\href{https://doi.org/10.3758/s13428-013-0392-4}{10.3758/s13428-013-0392-4}
@@ -505,6 +536,9 @@ Grissom, R. R., \& Kim, J. J. (2005). \emph{Effect size for research: A broad pr
 \leavevmode\hypertarget{ref-Hays_1963}{}%
 Hays, W. L. (1963). \emph{Statistics for psychologists} (Holt, Rinehart \& Winston.). New York.
 
+\leavevmode\hypertarget{ref-Hedges_1981}{}%
+Hedges, L. V. (1981). Distribution theory for glass's estimator of effect size and related estimators. \emph{Journal of Educational Statistics}, \emph{6}(2), 107--128.
+
 \leavevmode\hypertarget{ref-Hedges_Olkin_1985}{}%
 Hedges, L. V., \& Olkin, I. (1985). \emph{Statistical methods for meta-analysis} (Academic Press.). Cambridge, Massachusetts. doi:\href{https://doi.org/10.1016/C2009-0-03396-0}{10.1016/C2009-0-03396-0}
 
@@ -538,6 +572,9 @@ Nakagawa, S., \& Cuthill, I. C. (2007). Effect size, confidence interval and sta
 \leavevmode\hypertarget{ref-Olejnik_Algina_2000}{}%
 Olejnik, S., \& Algina, J. (2000). Measures of effect size for comparative studies: Applications, interpretations, and limitations. \emph{Contemporary Educational Psychology}, \emph{25}, 241--286. doi:\href{https://doi.org/10.1006/ceps.2000.1040}{10.1006/ceps.2000.1040}
 
+\leavevmode\hypertarget{ref-Olejnik_Hess_2001}{}%
+Olejnik, S., \& Hess, B. (2001). \emph{Revisiting the efficacy of glass's estimator of effect size for program impact analysis}. Retrieved from \url{https://eric.ed.gov/?id=ED452210}
+
 \leavevmode\hypertarget{ref-Peng_and_Chen_2014}{}%
 Peng, C.-Y., \& Chen, L.-T. (2014). Beyond cohen's d: Alternative effect size measures for between-subject designs. \emph{THE JOURNAL OF EXPERIMENTAL EDUCATION}, \emph{82}(1), 22--50. doi:\href{https://doi.org/10.1080/00220973.2012.745471}{10.1080/00220973.2012.745471}
 
@@ -546,6 +583,9 @@ Peng, C.-Y., Chen, L.-T., Chiang, H.-M., \& Chiang, Y.-C. (2013). The Impact of 
 
 \leavevmode\hypertarget{ref-Prentice_Miller_1992}{}%
 Prentice, D., \& Miller, D. T. (1990). When small effects are impressive. \emph{Psychological Bulletin}, \emph{112}(1), 160--164.
+
+\leavevmode\hypertarget{ref-Raviv}{}%
+Raviv, E. (2014). \emph{Bias vs. Consistency}. Retrieved March 25, 2020, from \url{https://eranraviv.com/bias-vs-consistency/}
 
 \leavevmode\hypertarget{ref-Rosenthal_1994}{}%
 Rosenthal, R. (1994). Parametric measures of effect size. In H. Cooper \& L. V. Hedges (Eds.), \emph{The hand-book of research synthesis} (pp. 231--244). New-York: Sage.
