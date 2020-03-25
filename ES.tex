@@ -227,7 +227,7 @@ Cohen's d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1)
 The reasoning behind this measure is that considering both samples as extracted from a common population variance (n.d.), we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size (\(max(n_j)\)). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's \(d_s\) is known to be positively biased (Lakens, 2013) and for this reason, Hedges \& Olkin (1985) has defined a bias-corrected version, which is referred to:
 
 \begin{equation} 
-Hedge's \space g_s = Cohen's \space d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
+Hedge's \; g_s = Cohen's \; d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
 \label{eq:Hedgesgs}
 \end{equation}
 
@@ -246,7 +246,7 @@ The \textbf{sample mean difference, divided by the non pooled average of both va
 When comparing one control group with one experimental group, Glass, McGav, \& Smith (2005) recommend using the SD of the control group as standardizer. It is also advocated by Cumming (2013), because according to him, it is what makes the most sense, conceptually speaking.
 
 \begin{equation} 
-Glass's \space d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
+Glass's \; d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
 \label{eq:Glassds}
 \end{equation}
 
@@ -255,7 +255,7 @@ One argument in favour of using the standard deviation of the control group as s
 Kulinskaya and Staudte (2007) adviced the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both groups. It results in a modification of the exact \emph{SD} of the sample mean difference:
 
 \begin{equation} 
-Shieh's \space d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
+Shieh's \; d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
 \label{eq:Shiehds}
 \end{equation}
 
@@ -276,14 +276,14 @@ With \[\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\] and
 \(\delta_{Shieh, n1=n2}\) can thefore be estimated using this equation:
 
 \begin{equation} 
-Shieh's \space ds_{n_1=n_2}= Shieh's \space ds \times \frac{(nratio+1) \times SD_{n_1 \neq n_2}}{2 \times SD_{n_1=n_2} \times \sqrt{nratio}}
+Shieh's \; ds_{n_1=n_2}= Shieh's \; ds \times \frac{(nratio+1) \times SD_{n_1 \neq n_2}}{2 \times SD_{n_1=n_2} \times \sqrt{nratio}}
 \label{eq:shiehvsbaldesign}
 \end{equation}
 
 With \[SD_{n_1=n_2}= \sqrt{\frac{SD_1^2+SD_2^2}{2}}\] and
 \[SD_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times SD_1^2+(1- \frac{n_2}{N}) \times SD_2^2}\]
 
-\(Shieh's \space ds_{n_1=n_2}\) can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.
+\(Shieh's \; ds_{n_1=n_2}\) can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.
 
 \hypertarget{monte-carlo-simulations}{%
 \subsection{Monte Carlo Simulations}\label{monte-carlo-simulations}}
