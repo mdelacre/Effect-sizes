@@ -4,7 +4,7 @@ for (package in "rootSolve") {
     library(package, character.only=T)
   }
 }
-
+ 
 
 #########################################
 ##    Compute Confidences intervals    ##
@@ -19,7 +19,7 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
   mean2 <- mean(Group.2)
   sd1 <- sd(Group.1)
   sd2 <- sd(Group.2)
-
+  
   if(alternative=="two.sided"){
     
     if (var.equal==TRUE){
@@ -28,12 +28,12 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       
       # Lower limit = limit of mu1-mu2 such as 1-pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-  
+      
       f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
       out=uniroot(f,c(0,2),rep=(1-conf.level)/2,extendInt = "yes")
       theo_mudiff.1 <- out$root
       
-      # less limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
+      # upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
       
       f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
@@ -55,10 +55,10 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       
       f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=DF)-rep
       out=uniroot(f,c(0,2),rep=(1-conf.level)/2,extendInt = "yes")
-    
+      
       theo_mudiff.1 <- out$root
       
-      # less limit = limit of mu1-mu2 such as pt(q=t_obs, df=DF) = (1-conf.level)/2 = alpha/2
+      # upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=DF) = (1-conf.level)/2 = alpha/2
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
       # and DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
       
@@ -81,10 +81,10 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       
       f=function(theo_mudiff,rep) 1-pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
       out=uniroot(f,c(0,2),rep=1-conf.level,extendInt = "yes")
-
+      
       theo_mudiff.1 <- out$root
       
-      # less limit = +Inf
+      # upper limit = +Inf
       
       theo_mudiff.2 <- Inf
       
@@ -104,7 +104,7 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       out=uniroot(f,c(0,2),rep=1-conf.level,extendInt = "yes")
       theo_mudiff.1 <- out$root
       
-      # less limit = +Inf
+      # Upper limit = +Inf
       
       theo_mudiff.2 <-  Inf
       
@@ -123,9 +123,9 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       
       theo_mudiff.1 <- -Inf
       
-      # less limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level) = alpha
+      # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level) = alpha
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
-
+      
       f=function(theo_mudiff,rep) pt(q=((mean1-mean2)-(theo_mudiff))/SE, df=n1+n2-2)-rep
       out=uniroot(f,c(0,2),rep=1-conf.level,extendInt = "yes")
       theo_mudiff.2 <- out$root
@@ -142,7 +142,7 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95,var.equal=FALSE,alternat
       
       theo_mudiff.1 <- -Inf
       
-      # less limit = limit of mu1-mu2 such as pt(q=t_obs, df=DF) = (1-conf.level) = alpha
+      # Upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=DF) = (1-conf.level) = alpha
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE
       # and DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))
       
@@ -197,7 +197,7 @@ Cohen.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided") #alter
     delta.1 <- lambda.1*sqrt(1/n1+1/n2)   # See explanation for delta.2
     
     
-    # less limit = limit of lambda such as pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level)/2 = alpha/2
+    # upper limit = limit of lambda such as pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level)/2 = alpha/2
     f=function(lambda,rep) pt(q=t_obs, df=n1+n2-2, ncp = lambda)-rep
     out=uniroot(f,c(0,2),rep=(1-conf.level)/2,extendInt = "yes")
     lambda.2 <- out$root
@@ -219,7 +219,7 @@ Cohen.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided") #alter
     lambda.1 <- out$root
     delta.1 <- lambda.1*sqrt(1/n1+1/n2)   # See explanation for delta.2
     
-    # less limit = +Inf
+    # upper limit = +Inf
     delta.2 <- +Inf
     result <- c(delta.1, delta.2) 
     
@@ -231,7 +231,7 @@ Cohen.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided") #alter
     # lower limit = -Inf
     delta.1 <- -Inf
     
-    # less limit = limit of lambda such as pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level) = alpha
+    # upper limit = limit of lambda such as pt(q=t_obs, df=n1+n2-2, ncp = lambda) = (1-conf.level) = alpha
     f=function(lambda,rep) pt(q=t_obs, df=n1+n2-2, ncp = lambda)-rep
     out=uniroot(f,c(0,2),rep=1-conf.level,extendInt = "yes")
     lambda.2 <- out$root
@@ -272,7 +272,7 @@ Shieh.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided")
     lambda.1 <- out$root
     delta.1 <- lambda.1/sqrt(n1+n2)
     
-    # less limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level)/2 = alpha/2
+    # upper limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level)/2 = alpha/2
     # with DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))    
     
     f=function(lambda,rep) pt(q=w_obs, df=DF, ncp = lambda)-rep
@@ -299,7 +299,7 @@ Shieh.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided")
     lambda.1 <- out$root
     delta.1 <- lambda.1/sqrt(n1+n2)
     
-    # less limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level) = alpha
+    # upper limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level) = alpha
     # with DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))    
     
     delta.2 <- +Inf
@@ -319,7 +319,7 @@ Shieh.CI <- function(Group.1, Group.2,conf.level,alternative="two.sided")
     
     delta.1 <- -Inf
     
-    # less limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level) = alpha
+    # upper limit = limit of lambda such as pt(q=t_obs, df=DF, ncp = lambda) = (1-conf.level) = alpha
     # with DF = (sd1^2/n1 + sd2^2/n2)^2 / ((sd1^2/n1)^2/(n1-1) + (sd2^2/n2)^2/(n2-1))    
     
     f=function(lambda,rep) pt(q=w_obs, df=DF, ncp = lambda)-rep
