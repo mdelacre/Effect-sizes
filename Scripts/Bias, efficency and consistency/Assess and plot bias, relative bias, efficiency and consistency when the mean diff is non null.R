@@ -294,13 +294,12 @@ for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
 
     # plot for the relative bias
     
-    if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
+    if (j==1){ylabelbias=expression(paste("(E(" , hat(delta) , ") -",delta,")/",delta ))
     } else {ylabelbias=""}
     
     barplot(res.relbias, 
             col = c("black","grey25","grey50","grey70","grey90","white"),
             beside = TRUE,
-            main=paste0("G1=",G1,"; G2=",G2),
             xaxt="n",
             cex.lab=1.5,
             cex.main=1.5,
