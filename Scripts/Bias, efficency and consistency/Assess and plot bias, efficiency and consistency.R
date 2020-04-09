@@ -140,10 +140,10 @@ legend("center",
 dev.off()
 
 Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/"
-for (j in seq_len(length(list.files(Path,pattern = ".*.txt")))){
+for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
   
 
-  File=read.table(paste0(Path,list.files(Path,pattern = ".*.txt")[j]),header=T,sep=";",dec=",")  
+  File=read.table(paste0(Path,list.files(Path,pattern = ".*good_mes.txt")[j]),header=T,sep=";",dec=",")  
   
   # Subdivise file into five categories
   # "Hom_bal", "Hom_unbal", "Het_bal","Het_rpos","Het_rneg"
@@ -273,8 +273,8 @@ for (j in seq_len(length(list.files(Path,pattern = ".*.txt")))){
             xaxt="n",
             cex.lab=1.5,
             args.legend = list(
-              x = length(res.bias)*1.2,
-              y = max(res.bias)+.5,
+              x = length(res.eff)*1.2,
+              y = max(res.eff)+.5,
               bty="n"
             ))
     
@@ -290,8 +290,8 @@ for (j in seq_len(length(list.files(Path,pattern = ".*.txt")))){
             xlab = "n1 : n2",
             cex.lab=1.5,
             args.legend = list(
-              x = length(res.bias)*1.2,
-              y = max(res.bias)+.5,
+              x = length(res.MSE)*1.2,
+              y = max(res.MSE)+.5,
               bty="n"
             ))
     
