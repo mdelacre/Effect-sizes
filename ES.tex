@@ -353,11 +353,10 @@ Among all effect size indicators, glass's \(d_s\) shows least precision and high
 
 \begin{equation} 
 \delta_{Shieh,n_1=n_2} = \frac{\delta_{Cohen,n_1=n_2}}{2}
-\leftrightarrow \delta_{Shieh,n_1=n_2}= \frac{\mu_1-\mu_2}{2 \times \hat{\sigma}} 
 \label{eq:cohenshieh}
 \end{equation}
 
-Moreover, details in Supplemental Material reveals that in our simulations, effect size estimators tend to be more biased and variable when the difference between two groups means enlarges.
+Moreover, details in Supplemental Material reveals that in our simulations, all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges. However, the relative bias (i.e.~the size of the bias in comparison with the real effect size value) of all estimators is quite stable, except for the glass's \(d_s\) when distribution are highly skewed (\(G_1 \neq 0\)): in that case, the relative bias of glass's \(d_s\) using sd1 decreases when the mean difference enlarges, and the relative bias of glass's \(d_s\) using sd2 increases when the mean difference enlarges (when \(\mu_1-\mu2\) varies from 1 to 4, one can observe variations as big as approximately .130 with 20 subjects per group).
 
 \begin{sidewaysfigure}
 
@@ -368,7 +367,11 @@ Moreover, details in Supplemental Material reveals that in our simulations, effe
 \caption{Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are equal across groups}\label{fig:idHombal}
 \end{sidewaysfigure}
 
-Figure \ref{fig:idHomrnull} shows that when variances are equal but sample sizes are unequal between groups, \ldots{}
+Figure \ref{fig:idHomrnull} shows that when variances are equal but sample sizes are unequal between groups, as when sample sizes were equal, glass's \(d_s\) is more biased and variable that all other estimators. As previously, the bias of Shieh's \(d_s\) is smaller than the Cohen's \(d_s\) one. However, the difference is much smaller than previously. Remember that Shieh's \(d_s\) always returns smaller value than Cohen's \(d_s\) and this explain the lower bias and variance (See Appendix 1); in fact, one could notice that the relative bias of Shieh's \(d_s\) is larger than the relative bias of Cohen's \(d_s\). (cf.~notes en vue de la réunion avec Christophe à ce sujet).
+
+Moreover, our transformed Shieh's \(d^*_s\) is on average less biased than original Shieh's \(d_s\), but slighly more variable in order that the mean square error of both estimators are quite similar.
+
+Details in Supplemental Material reveals that in our simulations, all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges (this is especially true for the Glass \(d_s\) when one chooses the SD of the smallest group as a standardizer). However, the relative bias of all estimators is quite stable, except for the glass's \(d_s\) (and in a lesser extent for Shieh's \(d_s\)) when distribution are highly skewed (\(G_1 \neq 0\)).The relative bias of glass's \(d_s\) using sd1 decreases when the mean difference enlarges, and the relative bias of glass's \(d_s\) using sd2 increases when the mean difference enlarges. When \(\mu_1-\mu_2\) varies from 1 to 4, one can observe variations as big as approximately .130 when \(n_{stdizer} = 20\). About Shieh's \(d_s\), one observes variations until approximately .06.
 
 \begin{sidewaysfigure}
 
