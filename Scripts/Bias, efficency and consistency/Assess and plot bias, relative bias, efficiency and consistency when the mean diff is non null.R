@@ -111,7 +111,10 @@ for (i in seq_len(length(Folder))){
   setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures")
   
   shapeparam<-str_extract_all(Folder[i], "[[:digit:]]+\\.*[[:digit:]]*")
-  sub<-paste0("G1=",shapeparam[[1]][2],",G2=",shapeparam[[1]][4]) # Sign is not extracted but it's not a big deal
+  if(shapeparam[[1]][2]==2.08){
+    skewness <- -as.numeric(shapeparam[[1]][2])
+  } else (skewness <- shapeparam[[1]][2])
+  sub<-paste0("G1=",skewness,",G2=",shapeparam[[1]][4]) # Sign is not extracted but it's not a big deal
   write.table(good_mes,paste0(sub,",good_mes.txt"),sep=";",dec=",")
   
 }
@@ -264,7 +267,9 @@ for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
     colnames(res.relbias) <- paste0(res4[,1],":",res4[,2])
     
     param <- str_extract_all(list.files(Path,pattern=".*good_mes.txt")[j], "[[:digit:]]+\\.*[[:digit:]]*")
-    G1 <- as.numeric(param[[1]][2])
+    if(param[[1]][2]==2.08){
+      G1 <- -as.numeric(param[[1]][2])
+    } else (G1 <- as.numeric(param[[1]][2]))
     G2 <- as.numeric(param[[1]][4])
     
      setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs")
