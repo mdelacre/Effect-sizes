@@ -1,34 +1,47 @@
-\documentclass[man]{apa6}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Relation between Shieh's delta and Cohen's delta},
-            pdfauthor={Marie Delacre},
-            pdfkeywords={keywords},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Relation between Shieh's delta and Cohen's delta},
+  pdfauthor={Marie Delacre},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -38,35 +51,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-
-  \title{Relation between Shieh's delta and Cohen's delta}
-    \author{Marie Delacre\textsuperscript{1}}
-    \date{}
-  
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \shorttitle{Shieh's delta vs. Cohen's delta}
 \affiliation{
 \vspace{0.5cm}
@@ -102,6 +94,10 @@
 
 \linenumbers
 
+\title{Relation between Shieh's delta and Cohen's delta}
+\author{Marie Delacre\textsuperscript{1}}
+\date{}
+
 \authornote{
 
 Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.ac.be}{\nolinkurl{marie.delacre@ulb.ac.be}}}
@@ -116,22 +112,21 @@ Correspondence concerning this article should be addressed to Marie Delacre, CP1
 \textbf{Cohen's \(\delta\)} is the difference between both groups means, divided by a pooled error term:
 
 \begin{equation} 
-\delta_{Cohen}= \frac{\mu_{1}-\mu_{2}}{\sqrt{\frac{(n_{1}-1) \times \sigma^2_{1} + (n_{2}-1) \times \sigma^2_{2}}{n_{1}+n_{2}-2}}}
+Cohen's \; \delta= \frac{\mu_{1}-\mu_{2}}{\sqrt{\frac{(n_{1}-1) \times \sigma^2_{1} + (n_{2}-1) \times \sigma^2_{2}}{n_{1}+n_{2}-2}}}
 \label{eq:cohend}
 \end{equation}
 
 \textbf{Shieh's \(\delta\)} is the difference between both groups means, divided by an unpooled error term (Shieh, 2013):
 
 \begin{equation} 
-\delta_{Shieh}= \frac{\mu_{1}-\mu_{2}} {\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}}
+Shieh's \; \delta= \frac{\mu_{1}-\mu_{2}} {\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}}
 \label{eq:shiehs}
 \end{equation}
 
 Unlike the classical Cohen's \(\delta\), Shieh's \(\delta\) depends on the sample size ratio (i.e.~\(\frac{n_1}{n_2}\) that I will call later nratio). For the same amount of differences between two means, same standard deviations and \(\sigma\)-ratio, Shieh's \(\delta\) will vary as a function of the nratio. Shieh's \(\delta\) can therefore be expressed as a function of the nratio:
 
 \begin{equation} 
-\delta_{Shieh}= \frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \hat{\sigma}}
-,\hat{\sigma} = \sqrt{(1-\frac{n_1}{N}) \times \sigma_1^2+(1-\frac{n_2}{N}) \times \sigma_2^2}. 
+Shieh's \; \delta= \frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \hat{\sigma}},\hat{\sigma} = \sqrt{(1-\frac{n_1}{N}) \times \sigma_1^2+(1-\frac{n_2}{N}) \times \sigma_2^2}
 \label{eq:shieh}
 \end{equation}
 
@@ -145,8 +140,8 @@ As a first example, in Figure \ref{fig:SHIEH1}, Cohen's \(\delta\) and Shieh's \
 First, when sample sizes are equal across groups, one can observe that Shieh's \(\delta\) is half of the value of Cohen's \(\delta\). Shieh's \(\delta\) equals 0.25 when nratio is 1, and Cohen's \(\delta\) equals 0.50:
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2} = \frac{\delta_{Cohen,n_1=n_2}}{2}
-\leftrightarrow \delta_{Shieh,n_1=n_2}= \frac{\mu_1-\mu_2}{2 \times \hat{\sigma}} 
+Shieh's \; \delta_{n_1=n_2} = \frac{Cohen's \; \delta_{n_1=n_2}}{2}
+\leftrightarrow Shieh's \; \delta_{n_1=n_2}= \frac{\mu_1-\mu_2}{2 \times \hat{\sigma}} 
 \label{eq:cohenshieh}
 \end{equation}
 
@@ -157,15 +152,15 @@ Moreover, when both sample sizes are equal between groups, Shieh's \(\delta\) ac
 When variances are equal between groups, \(\hat{\sigma}\) will be the same for all nratio (\(\hat{\sigma}=\sigma_1=\sigma_2\); i.e.~\(\hat{\sigma}\) in Figure \ref{eq:shieh} = \(\hat{\sigma}\) in Figure \ref{eq:cohenshieh}), one can deduce that the relation between Shieh's \(\delta\) value when nratio=1 and its value for all other nratio can be expressed as follows:
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{\frac{\mu_1-\mu_2}{2 \times \hat{\sigma}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \hat{\sigma}}}
-\leftrightarrow \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{nratio+1}{2 \times \sqrt{nratio}}
+Shieh's \; \delta_{n_1=n_2} = Shieh's \; \delta \times \frac{\frac{\mu_1-\mu_2}{2 \times \hat{\sigma}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \hat{\sigma}}}
+\leftrightarrow Shieh's \; \delta_{n_1=n_2} = Shieh's \; \delta \times \frac{nratio+1}{2 \times \sqrt{nratio}}
 \label{eq:shiehvsmax}
 \end{equation}
 
 Note that because of formula \ref{eq:cohenshieh} and because we know that Cohen's \(\delta\) is constant for all nratio, when variances are equal between groups, one can conclude that the relation between Cohen's \(\delta\) and Shieh's \(\delta\) can be expressed as following:
 
 \begin{equation} 
-\delta_{Cohen}= \delta_{Shieh} \times \frac{nratio+1}{\sqrt(nratio)}
+Cohen's \; \delta= Shieh's \; \delta \times \frac{nratio+1}{\sqrt{nratio}}
 \label{eq:shiehvsmax}
 \end{equation}
 
@@ -204,8 +199,8 @@ While it remains true that when \(n_{1}=n_{2}\), the Cohen's \(\delta\) is exact
 As a consequence of different \(\hat{\sigma}\) for all nratio's, the relation between Shieh's \(\delta\) value when nratio=1 and its value for all other nratio cannot be as simplifed as it was when variances were equal:
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{\frac{\mu_1-\mu_2}{2 \times \sigma_{(n_1=n_2)}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \sigma_{(n_1\neq n_2)}}}
-\leftrightarrow \delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
+Shieh's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{\frac{\mu_1-\mu_2}{2 \times \sigma_{(n_1=n_2)}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \sigma_{(n_1\neq n_2)}}}
+\leftrightarrow Shieh's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
 \label{eq:shiehvsbaldesign}
 \end{equation}
 
@@ -215,7 +210,7 @@ With \[\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\] and
 Finally, because of formula \ref{eq:cohenshieh}, one can conclude that the relation between the Cohen's \(\delta\) we would obtain if sample sizes were equal between groups and Shieh's \(\delta\) can be expressed as following:
 
 \begin{equation} 
-\delta_{Cohen}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{\sigma_{n_1=n_2} \times \sqrt{nratio}}
+Cohen's \; \delta= Shieh's \; \delta \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{\sigma_{n_1=n_2} \times \sqrt{nratio}}
 \label{eq:shiehvsbaldesign2}
 \end{equation}
 
@@ -238,6 +233,5 @@ Formula \ref{eq:shiehvsbaldesign2} gives us the general relation between Shieh's
 \includegraphics{Appendix1_files/figure-latex/SHIEH6-1.pdf}
 \caption{\label{fig:SHIEH6}At which nratio the largest value of Shieh's d is achieved, as a function of the sigma-ratio (= sigma1/sigma2)}
 \end{figure}
-
 
 \end{document}
