@@ -1,29 +1,23 @@
 ---
 title             : "What measure of effect size when comparing two groups based on their means?"
-
 shorttitle        : "Effect size"
-
 author: 
   - name          : "Marie Delacre" 
     affiliation   : "1"
     corresponding : yes    
     address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
     email         : "marie.delacre@ulb.ac.be"
-
   - name          : "Christophe Leys"
     affiliation   : "1"
-
 affiliation:
+    
   - id            : "1"
     institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
-    
 authornote: |
 abstract: |
 keywords          : "keywords"
 wordcount         : "X"
-
 bibliography      : ["r-references.bib"]
-
 floatsintext      : yes
 figurelist        : no
 tablelist         : no
@@ -31,14 +25,12 @@ footnotelist      : no
 linenumbers       : yes
 mask              : no 
 draft             : no
-
 documentclass     : "apa6"
 classoption       : "man"
 output:
   papaja::apa6_pdf:
     includes:
       after_body: "Appendix.tex"
-
 header-includes:
   - \usepackage{rotating}
   - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}      
@@ -72,7 +64,7 @@ Generally, there is a high confusion between the effect size and other related c
 2. Listing the different situations that call for effect sizes measure;  
 3. Define required properties as a function of the situations.
 
-After these general adjustments, we will focus our attention on “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means\footnote{We made this choice because *t*-tests are still the most commonly used tests in the field of Psychology.}. Because it has been widely argued that there are many fields in psychology where the assumption of equal variances between groups is ecologically unlikely [@Erceg-Hurn_Mirosevich_2008; @Grissom_2000], it is becoming more common in statistical software to present a *t*-test that does not hold on this assumption by default, namely the Welch’s *t*-test (e.g., R, Minitab). However, similar issues for the measures of effect sizes has received less attention [@Shieh_2013], and Cohen’s $d_s$ remains persistent\footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test.}. One possible reason is that researchers cannot find a consensus on which alternative should be in use [@Shieh_2013]. We will limit our study to the standardized mean difference, called the *d*-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means [@Peng_et_al_2013; @Shieh_2013], and we will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult, based on currently existing measures, to optimally serves all the purposes of en affect size measure. Throughout this section, we will:  
+After these general adjustments, we will focus our attention on “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores are compared based on their means\footnote{We made this choice because *t*-tests are still the most commonly used tests in the field of Psychology.}. Because it has been widely argued that there are many fields in psychology where the assumption of equal variances between two populations is ecologically unlikely [@Erceg-Hurn_Mirosevich_2008; @Grissom_2000; @Delacre_et_al_2017], it is becoming more common in statistical software to present a *t*-test that does not hold on this assumption by default, namely the Welch’s *t*-test (e.g., R, Minitab). However, similar issues for the measures of effect sizes has received less attention [@Shieh_2013], and Cohen’s $d_s$ remains persistent\footnote{For example, in Jamovi, Cohen's ds is provided, whatever one performs Student's or Welch's t-test.}. One possible reason is that researchers cannot find a consensus on which alternative should be in use [@Shieh_2013]. We will limit our study to the standardized mean difference, called the *d*-family, because it is the dominant family of estimators of effect size when comparing two groups based on their means [@Peng_et_al_2013; @Shieh_2013], and we will see that even in this very specific context, there is little agreement between researchers as to which is the most suitable estimator. According to us, the main reason is that it is difficult, based on currently existing measures, to optimally serves all the purposes of en affect size measure. Throughout this section, we will:  
 1. Present the main measures of the *d*-family that are proposed in the literature,related to the purpose they serve, and introduce a new one, namely the "transformed Shieh's *d*" that should help at reaching all the purposes simultaneously;  
 2. Present and discuss the results of simulations we performed, in order to compare existing measures and the new introduced one;    
 3. Summarize our conclusions in practical recommandations.   
@@ -89,7 +81,7 @@ Second, in the context of the comparison of two groups based on their means, it 
 
 Effect size measures can be used in an *inferential* perspective:   
 - The effect sizes from previous studies can be used in a priori power analysis when planning a new study [@Sullivan_Feinn_2012;@Lakens_2013;@Stout_Ruble_1995;@Prentice_Miller_1992; @Wilkinson_1999];  
-- We can also compute confidence limits around the point estimator [@Shieh_2013], in order to replace conventional hypothesis testing : if the null hypothesis area is out of the confidence interva, we can conclude that the null hypothesis is false.
+- We can also compute confidence limits around the point estimator [@Shieh_2013], in order to replace conventional hypothesis testing : if the null hypothesis area is out of the confidence interval, we can conclude that the null hypothesis is false.
 
 Measures of effect size can also be used in a *comparative* perspective, that is to assess the stability of results across designs, analysis, samples sizes [@Wilkinson_1999]. It includes:    
 - To compare results of 2 or more studies [@Prentice_Miller_1992];  
@@ -99,7 +91,8 @@ Finally, effect size measures can be used for *interpretative* purposes: in orde
 
 # Properties of a good effect size estimator
 
-The estimate of an estimator depends on the sampling. That is to say, based on different samples extracted from the same population, one would  obtain different estimates of the same estimator. The *sampling distribution* of the estimator is the distribution of all estimates, based on all possible samples of size *n* extracted from one population. Studying the sampling distribution is very useful, as it allows to assess the goodness of an effect size estimator and more specifically, three desirable properties of a good estimator for inferential purposes: **unbiasedness**, **consistency** and **efficiency**.
+SUPPRIMER LES NOTES SUR MSE, AJOUTER NOTES SUR LE BIAIS RELATIF
+The estimate of an estimator depends on the sampling. That is to say, based on different samples extracted from the same population, one would  obtain different estimates of the same estimator. The *sampling distribution* of the estimator is the distribution of all estimates, based on all possible samples of size *n* extracted from one population. Studying the sampling distribution is very useful, as it allows to assess the goodness of an effect size estimator and more specifically, three desirable properties of a good estimator for inferential purposes: **unbiasedness**, **consistency** and **efficiency** [@Wackerly_et_al_2008].
 
 An estimator is unbiased if the distribution of estimates is centered around the true population parameter. On the other hand, an estimator is positively (or negatively) biased if the distribution is centered around a value that is higher (or smaller) than the true populatione parameter (see Figure \ref{fig:BIAS}). In other words, the bias tells us if estimates are good, on average. The *bias* of a point estimator $\hat{\delta}$ can be computed as follows:
 
@@ -153,94 +146,95 @@ Finally, the last property of a good point estimator is **consistency**: consist
 
 Beyond the inferential properties, @Cumming_2013 reminds that an effect size estimator need to have a constant value across designs in order to be easily interpretable and to be included in meta-analysis. In other word, it should achieve the property of **generality**.
 
-# Different measures of effect sizes TOUCHER UN MOT SUR L'IMPACR DE LA DIFFERENCE DE MOYENNE.
+# Different measures of effect sizes
 
 The *d*-family effect sizes are commonly used with “between-subject” designs where individuals are randomly assigned into one of two independant groups and groups scores means are compared. The population effect size is defined as follows: 
   
 \begin{equation} 
-\delta = \frac{\mu_{1}-\mu_{2}}{\delta} 
+\delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
 (\#eq:Cohendelta)
 \end{equation} 
-  
-They exist different estimators of this effect size measure varying as a function of the chosen standardizer ($\delta$). For all estimators, the mean difference is estimated by the difference of both sample means ($\bar{X}_1-\bar{X}_2$). When used for inference, some of them rely on both assumptions of normally distributed residuals and equality of variances, while others rely solely on the normally distributed residuals assumption. 
+
+Where both populations follow a normal distribution with the mean $\mu_j$ in the $j^{th}$ population (j=1,2) and standard deviation $\sigma$. They exist different estimators of this effect size measure varying as a function of the chosen standardizer ($\sigma$). For all estimators, the mean difference is estimated by the difference of both sample means ($\bar{X}_1-\bar{X}_2$). When used for inference, some of them rely on both assumptions of normally distributed residuals and equality of variances, while others rely solely on the normally distributed residuals assumption. 
 
 ## Alternatives when variances are equal between groups
 
 The most common estimator of $\delta$ is Cohen's $d_{s}$ where the sample mean difference is divided by a pooled error term [@Cohen_1965]: 
 
 \begin{equation} 
-Cohen's d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1) \times SD_2}{n_1+n_2-2}}} 
+Cohen's \; d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1) \times SD_2}{n_1+n_2-2}}} 
 (\#eq:Cohends)
 \end{equation} 
 
-The reasoning behind this measure is that considering both samples as extracted from a common population variance [@Keselman_et_al_2008], we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e $SD_1$ and $SD_2$) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size ($max(n_j)$). Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's $d_s$ is known to be positively biased [@Lakens_2013] and for this reason, @Hedges_Olkin_1985 has defined a bias-corrected version,  which is referred to: 
+Where $SD_j$ is the standard deviation of the $j^{th}$ sample and $n_j$, the sample size of the $j^{th}$ sample (j=1,2). The reasoning behind this measure is that considering both samples as extracted from a common population variance [@Keselman_et_al_2008], we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e $SD_1$ and $SD_2$) and because the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size. Unfortunately, even under the assumptions that residuals are independant and identically normally distributed with the same variance across groups, Cohen's $d_s$ is known to be positively biased [@Lakens_2013] and for this reason, @Hedges_Olkin_1985 has defined a bias-corrected version,  which is referred to: 
 
 \begin{equation} 
 Hedge's \; g_s = Cohen's \; d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
 (\#eq:Hedgesgs)
 \end{equation} 
 
-The pooled SD is the best choice when variances are equal between groups  [@Grissom_Kim_2001] but they may not be well advised for use with data that violates this assumption [@Kelley_2005;@Grissom_Kim_2001; @Cumming_2013; @Grissom_and_kim_2005; @Kelley_2005; @Shieh_2013]. In case of a positive pairing (i.e. the group with the larger sample size also has the larger variance), the variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e. the group with the larger sample size has the smaller variance), the estimator will be larger as it should be. Because the assumption of equal variances across groups is very rare in practice [@Glass_et_al_1972; @Cain_et_al_2017; @Micceri_1989; @Yuan_et_al_2004; @Erceg-Hurn_Mirosevich_2008;@Grissom_2000; @Delacre_et_al_2017; @Delacre_et_al_2019], both Cohen's $d_s$ and Hedge's $g_s$ should be abandoned in favor of a robust alternative to unequal variances.
+The pooled error term is the best choice when variances are equal between groups  [@Grissom_Kim_2001] but they may not be well advised for use with data that violates this assumption [@Kelley_2005;@Grissom_Kim_2001; @Cumming_2013; @Grissom_and_kim_2005; @Kelley_2005; @Shieh_2013]. In case of a positive pairing (i.e. the group with the larger sample size is extracted from the population with the larger variance), the population variance will be over-estimated and therefore, the estimator will be lower as it should be. On the other side, in case of negative pairing (i.e. the group with the larger sample size is extracted from the population with the smaller variance), the estimator will be larger as it should be. Because the assumption of equal variances across populations is very rare in practice [@Glass_et_al_1972; @Cain_et_al_2017; @Micceri_1989; @Yuan_et_al_2004; @Erceg-Hurn_Mirosevich_2008;@Grissom_2000; @Delacre_et_al_2017; @Delacre_et_al_2019], both Cohen's $d_s$ and Hedge's $g_s$ should be abandoned in favor of a robust alternative to unequal population variances.
 
-## Alternatives when variances are unequal between groups
+## Alternatives when variances are unequal between populations
 
 In his review, @Shieh_2013 mention three alternative available in the literature: the sample mean difference, divided by the non pooled average of both variance estimates (A), the Glass's $d_s$ (B) and the Shieh's $d_s$ (C).  
 
-The **sample mean difference, divided by the non pooled average of both variance estimates** (A) was suggested by [@Cohen_1988]. We immediately exclude this alternative because it suffers of many limitations:    
+The sample mean difference, divided by the non pooled average of both variance estimates (A) was suggested by @Cohen_1988. We immediately exclude this alternative because it suffers of many limitations:    
 - it results in a variance term of an artificial population and is therefore very difficult to interpret [@Grissom_Kim_2001];  
 - unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference [@Shieh_2013];    
 - unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate.  
 
-When comparing one control group with one experimental group, @Glass_et_al_1981 recommend using the SD of the control group as standardizer. It is also advocated by @Cumming_2013, because according to him, it is what makes the most sense, conceptually speaking. 
+When comparing one control group with one experimental group, @Glass_et_al_1981 recommend using the $SD$ of the control group as standardizer. It is also advocated by @Cumming_2013, because according to him, it is what makes the most sense, conceptually speaking. 
 
 \begin{equation} 
 Glass's \; d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
 (\#eq:Glassds)
 \end{equation} 
 
-One argument in favour of using the standard deviation of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the "control" one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious[@Coe_2002]. This could induce large ambiguity because depending of the chosen standard deviation, as standardizer, measures could be substantially diﬀerent [@Shieh_2013]. Moreover, glass $d_s$ also have limitations when used for inference. While it is a consistant measure, it can be shown that it can be highly positively biased when there are less than 300 participants [@Hedges_1981; @Olejnik_Hess_2001], especially for small effect sizes. 
+One argument in favour of using the $SD$ of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the "control" one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious [@Coe_2002]. This could induce large ambiguity because depending of the chosen $SD$, as standardizer, measures could be substantially diﬀerent [@Shieh_2013].  Glass $d_s$ also have limitations when used for inference. The standardizer is estimated based on a smaller sample size (since only one group is taken into accoung in variance estimation), which might potentially reduce accuracy, and while it is a consistant measure, it can be shown that it can be highly positively biased when there are less than 300 participants [@Hedges_1981; @Olejnik_Hess_2001], especially for small effect sizes. 
 
-Kulinskaya and Staudte (2007) adviced the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both groups. It results in a modification of the exact *SD* of the sample mean difference: 
+Kulinskaya and Staudte (2007) adviced the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both samples. It results in a modification of the exact *SD* of the sample mean difference: 
       
 \begin{equation} 
-Shieh's \; d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}
+Shieh's \; d_s = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{SD_1^2/q_1+SD_2^2/q_2}}; \;\;\; q_j=\frac{n_j}{N} (j=1,2)
 (\#eq:Shiehds)
 \end{equation} 
 
-According to the statistical properties of Welch’s statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference as well as $SD_1$ and $SD_2$,  Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: http: //127.0.0.1:3461/). 
+Where $N = n_1+n_2$. According to the statistical properties of Welch’s statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference ($\bar{X_1}-\bar{X_2}$) as well as $SD_1$ and $SD_2$, Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: https://mdelacre.shinyapps.io/improve-the-interpretability-of-shieh-s-d-shiny-app/).
 
 Fortunately, this paradox can be resolved. It is possible to find a modified measure of Shieh's $d_s$ that does not depend on sample sizes ratio, in answering the following question: "whatever the real sample sizes ratio, what value of Shieh's $d_s$ would have been computed if design were balanced (i.e. $n_1 = n_2$), keeping all other parameters constant? " 
 
-It can be shown that the relationship between Shieh's $\delta_s$ when samples sizes are equal between groups (i.e. $\delta_{Shieh, n1=n2}$) and Shieh's $\delta_s$ for any other sample sizes allocation ratios can be expressed as follows:
+It can be shown that the relationship between Shieh's $\delta$ when samples sizes are equal between groups and Shieh's $\delta$ for any other sample sizes allocation ratios can be expressed as follows:
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2}= \delta_{Shieh} \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
+Shieh's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
 (\#eq:shiehvsbaldesignPOP)
 \end{equation} 
 
-With $$\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}$$ and 
-$$SD_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}$$
+With $$nratio= \frac{n_1}{n_2}$$
+$$\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}$$  
+$$\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}$$
 
-$\delta_{Shieh, n1=n2}$ can thefore be estimated using this equation:
+$Shieh's \; \delta_{n_1=n_2}$ can thefore be estimated using this equation:
 
 \begin{equation} 
-Shieh's \; ds_{n_1=n_2}= Shieh's \; ds \times \frac{(nratio+1) \times SD_{n_1 \neq n_2}}{2 \times SD_{n_1=n_2} \times \sqrt{nratio}}
+Shieh's \; d^*_s= Shieh's \; d_s \times \frac{(nratio+1) \times SD_{n_1 \neq n_2}}{2 \times SD_{n_1=n_2} \times \sqrt{nratio}}
 (\#eq:shiehvsbaldesign)
 \end{equation} 
 
 With $$SD_{n_1=n_2}= \sqrt{\frac{SD_1^2+SD_2^2}{2}}$$ and 
 $$SD_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times SD_1^2+(1- \frac{n_2}{N}) \times SD_2^2}$$
 
-$Shieh's \; ds_{n_1=n_2}$ can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.  
+$Shieh's \; d^*_s$ can be compared across two different studies using different sample sizes allocation ratio and could be included in meta-analysis.  
     
 ## Monte Carlo Simulations
 
 ### Simulation 1: assessing the bias, efficiency and consistency of 5 estimators
 
 #### Method
-We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of Cohen's $d_s$, Hedge's $g_s$, Glass's $d_s$ (using respectively the sample standard deviation of the first or second group as a standardizer), Shieh's $d_s$ and our transformed measure of Shieh's $d_s$, that we will note later $d_s^*$. 
+We performed Monte Carlo simulations using R (version 3.5.0) to assess the bias, efficiency and consistency of Cohen's $d_s$, Hedge's $g_s$, Glass's $d_s$ (using respectively the sample $SD$ of the first or second group as a standardizer), Shieh's $d_s$ and our transformed measure of Shieh's $d_s$, that we will note later $d_s^*$. 
 
-100,000 datasets were generated for 1,260 scenarios. In 315 scenarios, samples were extracted from a normal population distribution and in 945 scenarios, samples were extracted from non normal population distributions. In order to assess the goodness of estimators under realistic deviations from the normality assumption, we referred to the review of @Cain_et_al_2017. Based on their investigation\footnote{Cain et al. (2017) investigated 1,567 univariate distributions from 194 studies published by authors in *Psychological Science* (from January 2013 to June 2014) and the *American Education Research Journal* (from January 2010 to June 2014). For each distribution, they computed the Fisher's skewness (G1) and kurtosis (G2). }, @Cain_et_al_2017 found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution, i.e. G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution, i.e. respectively G1 = -2.08 and G1 = 6.32. We also simulated null population parameter values (i.e. G1 = 0), in order to assess the main effect of high kurtosis on the goodness of estimators. All possible combinations of skewness and kurtosis and the number of scenarios for each combination are summarized in Table 1.
+A set of 100,000 datasets were generated for 1,260 scenarios as a function of different criterions that will be explained below. In 315 scenarios, samples were extracted from a normally distributed population and in 945 scenarios, samples were extracted from non normal population distributions. In order to assess the goodness of estimators under realistic deviations from the normality assumption, we referred to the review of @Cain_et_al_2017. Based on their investigation\footnote{Cain et al. (2017) investigated 1,567 univariate distributions from 194 studies published by authors in *Psychological Science* (from January 2013 to June 2014) and the *American Education Research Journal* (from January 2010 to June 2014). For each distribution, they computed the Fisher's skewness (G1) and kurtosis (G2). }, @Cain_et_al_2017 found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution, i.e. G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution, i.e. respectively G1 = -2.08 and G1 = 6.32. We also simulated null population parameter values (i.e. G1 = 0), in order to assess the main effect of high kurtosis on the goodness of estimators. All possible combinations of population skewness and kurtosis and the number of scenarios for each combination are summarized in Table 1.
 
 Table 1.
 *Number of Combinations of skewness and kurtosis in our simulations*
@@ -259,7 +253,10 @@ Table 1.
 
 *Note.* Fisher's skewness (G1) and kurtosis (G2) are presented in Table 1. The 315 combinations where both G1 and G2 equal 0 correspond to the normal case. 
 
-For the 4 resulting combinations of skewness and kurtosis (see Table 1), all other population parameter values were chosen in order to illustrate the consequences of factors known to play a key role on goodness of estimators. We manipulated the population mean difference ($\mu_1-\mu_2$), the sample sizes (*n*), the sample size ratio (*n*-ratio = $\frac{n_1}{n_2}$), the *SD*-ratio (*SD*-ratio = $\frac{\sigma_1}{\sigma_2}$), and the sample size and variance pairing. In our scenarios, $\mu_2$ was always 0 and $\mu_1$ varied from 0 to 4, in step of 1 (so does $\mu_1-\mu_2$). Moreover, $\sigma_1$ always equals 1, and $\sigma_2$ equals .1, .25, .5, 1, 2, 4 or 10 (so does the *SD*-ratio). The simulations for which both $\sigma_1$ and $\sigma_2$ equal 1 are the particular case of homoscedasticity (i.e. equal variances across groups). Sample size of both groups ($n_1$ and $n_2$) were 20, 50 or 100. When sample sizes of both groups are equal, the *n*-ratio equals 1 (it is known as a balanced design). All possible combinations of *n*-ratio and *SD*-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest *SD*), negative pairings (the group with the smallest sample size is extracted from the population with the smallest *SD*), and no pairing (sample sizes and/or population *SD* are equal across all groups). In sum, the simulations grouped over different sample sizes yield 5 conditions based on the *n*-ratio, *SD*-ratio, and sample size and variance pairing, as summarized in Table 2. 
+For the 4 resulting combinations of skewness and kurtosis (see Table 1), all other parameter values were chosen in order to illustrate the consequences of factors known to play a key role on goodness of estimators. We manipulated the population mean difference ($\mu_1-\mu_2$), the sample sizes (*n*), the sample size ratio (*n*-ratio = $\frac{n_1}{n_2}$), the population *SD*-ratio (i.e. $\frac{\sigma_1}{\sigma_2}$), and the sample size and population variance pairing. In our scenarios, $\mu_2$ was always 0 and $\mu_1$ varied from 0 to 4, in step of 1 (so does $\mu_1-\mu_2$). Moreover, $\sigma_1$ always equals 1, and $\sigma_2$ equals .1, .25, .5, 1, 2, 4 or 10 (so does the $\frac{\sigma_1}{\sigma_2}$*SD*-ratio). The simulations for which both $\sigma_1$ and $\sigma_2$ equal 1 are the particular case of homoscedasticity (i.e. equal population variances across groups). Sample size of both groups ($n_1$ and $n_2$) were 20, 50 or 100. When sample sizes of both groups are equal, the *n*-ratio equals 1 (it is known as a balanced design). All possible combinations of *n*-ratio and population *SD*-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest *SD*), negative pairings (the group with the smallest sample size is extracted from the population with the smallest *SD*), and no pairing (sample sizes and/or population *SD* are equal across all groups). In sum, the simulations grouped over different sample sizes yield 5 conditions based on the *n*-ratio, population *SD*-ratio, and sample size and population variance pairing, as summarized in Table 2. 
+
+#### Preliminary note
+We will only present results of simulations when $\mu_1-\mu_2 \neq 0$, in order to discuss about the relative bias and variances. Indeed, these estimators of goodness cannot be computed when the population effect size is zero, because the ratio would result in an infinite value.
 
 Table 2.
 *5 conditions based on the n-ratio, SD-ratio, and sample size and variance pairing*
@@ -276,63 +273,88 @@ Table 2.
 
 *Note.* The *n*-ratio is the sample size of the first group ($n_1$) divided by the sample size of the second group ($n_2$). When all sample sizes are equal across groups, the *n*-ratio equals 1. When $n_1 > n_2$, *n*-ratio > 1, and when $n_1 < n_2$, *n*-ratio < 1. *SD*-ratio is the population *SD* of the first group ($\sigma_1$) divided by the population *SD* of the second group ($\sigma_2$). When $\sigma_1=\sigma_2$, *SD*-ratio = 1. When $\sigma_1>\sigma_2$, *SD*-ratio > 1. Finally, when $\sigma_1<\sigma_2$, *SD*-ratio < 1.
 
-#### Results
 
-In all Figures presented below, averaged results for each sub-condition are presented under five different configurations of distributions, using the legend described in Figure \ref{fig:legend}.
+#### Results
+Before detailing estimators comparison for each condition, it might be interesting to make some general comments. 
+
+1) When the normality assumption is met (i.e. when G1 and G2 = 0, left in Figures 3 to 7), bias and variance of all estimators is so small that any detected differences are marginal. However, the further from the normality assumption (i.e. when moving from left to right in Figures 3 to 7), the larger the value of all envisaged indicators of goodness (i.e. bias, relative bias and efficiency). Note that in a purpose of readability, the ordinate axis is not on the same scale depending on the combination G1/G2.  However, if the distribution shape influences all our indicators of goodness, in most of the cases, there is no appearant interaction effect between estimators and distribution shape: the general appearance of barplots is almost always the same for all combinations of skewness and kurtosis (there are few exceptions that will be described later). As a conclusion, the further from the normality assumption, the larger the below mentioned differences between estimators.
+
+2) The fact that the bias of all estimators is very small when the normality assumption is met does not mean that all estimators are relevant in any conditions when the normality assumption is met. Because of the pooled error term, Cohen's $d_s$ and Hedge's $d_g$ should be avoided when population variances and sample sizes are unequal across groups. However, because the pooled standard deviation will be badly estimated, both at sample and population levels, this cannot be seen throughout the size of the bias (i.e. bias = $E(d)-\delta$ and both $E(d)$ and $\delta$ are badly estimated).
+
+3) Throughout this section, we will **compare** the goodness of different estimators. We chose very extreme (although realistic) conditions, and we know that none of the parametric measures of effect size will be robust against such extreme conditions. Our goal is therefore to study the robustness of the estimators against normality violations only in comparison with the robustness of other indicators, but not in absolute terms. 
+
+4) We will not neither discuss nor report the MSE because it does not bring any supplemental insights to our interpretations (MSE and efficiency are always very consistent). 
+
+After these general remarks, we will analyze each condition separately. In all Figures presented below, averaged results for each sub-condition are presented under five different configurations of distributions, using the legend described in Figure \ref{fig:legend}.
 
 ```{r "legend", echo=FALSE, fig.width = 100,fig.height=100,out.width = '400px',fig.cap = "Legend"}
 knitr::include_graphics("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
-Figure \ref{fig:idHombal} shows that when variances and sample sizes are equal between groups, estimator bias tends to decrease and precision is also improved with increasing sample sizes, meaning that all estimators are consistent. 
+Figures \ref{fig:idHombal} and \ref{fig:idHetbal} show that for all configurations where sample sizes are equal between groups (conditions a and c), estimator bias tends to decrease and precision is also improved with increasing sample sizes, meaning that all estimators are consistent. 
 
-Among all effect size indicators, glass's $d_s$ shows least precision and highest bias rates. Shieh's $d_s$ and Shieh's $d^*_s$ are identical (because $n_1=n_2$) and perform the lowest bias rates and precision. We can easily demonstrate that their bias is exactly half the size of Cohen's $d_s$, and that their variance is exactly four times smaller than Cohen's $d_s$. Due to the relation described in  equation \ref{eq:cohenshieh},when sample sizes are equal between groups, one can deduce from these proportions that relative to their respective true effect size, Cohen's $d_s$, Shieh's $d_s$ and $d^*_s$ perform all as well (see the second row in Figure \ref{fig:idHombal}). 
+Among all effect size indicators, glass's $d_s$ shows least precision and highest bias rates, because the standardizer is estimated based on  half of the sample.\footnote{When looking at Figure 4, one could believe that the bias is more important when choosing SD2 as a standardizer. It is only an artefact of simulations. In truth, the bias is always more important when choosing the sample extracted from the smaller population SD as standardiser, because it results in a larger effect size estimate, and the larger the effect size estimate, the larger the raw bias. In our simulations, while the population SD of the first group always equals 1, in half of the simulations in condition c, the population SD of the second group is lower than 1 (meaning that the more biased Glass's estimate will occure when choosing SD2 < 1 as standardiser), and in the other half, the population SD of the second group is larger than 1 (meaning that the more biased Glass's estimate will occure when choosing SD1 as standardizer). Of course, for X, a constant mean difference and z, the standardizer, X/z will always result in a larger effect size measure when z < 1. This is confirmed by the identical average relative bias for both measures of Glass's ds.}.
+
+REM.. FOOTNOTE: VRAI SEULEMENT QD DISTRIBUTIONS SYMETRIQUES. VOIR MYSTERE PERSISTANT: INTERACTION ENTRE SENS DE L ASYMETRIE ET LE GROUPE AYANT LA PLUS GRANDE MOYENNE, CAS HOM_BAL (cf. notes GLASS éléments inexpliqués dans Dropbox)
+
+Shieh's $d_s$ and Shieh's $d^*_s$ are identical, because our transformation is operant only when the sample sizes ratio differs from 1. We  can demonstrate that their bias is exactly half the size of Cohen's $d_s$, and that their variance is exactly four times smaller than Cohen's $d_s$. Due to the relation described in equation \ref{eq:cohenshieh} when sample sizes are equal between groups, such proportions mean that relative to their respective true effect size, Cohen's $d_s$, Shieh's $d_s$ and $d^*_s$ perform all as well, as we can see in the second and fourth rows in Figures \ref{fig:idHombal} and \ref{fig:idHetbal}. These two rows also reveal that the relative bias and variance of Hedges's $g_s$ is also identical to the three prementioned ones. 
 
 \begin{equation} 
-\delta_{Shieh,n_1=n_2} = \frac{\delta_{Cohen,n_1=n_2}}{2}
+Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
 (\#eq:cohenshieh)
 \end{equation} 
 
-Moreover, details in Supplemental Material reveals that in our simulations, all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges. However, the relative bias (i.e. the size of the bias relative to the true effect size) is quite stable, except for the glass's $d_s$ when distribution are highly skewed ($G_1 = 6.32$): in that case, keeping all other parameters constant, the relative bias of glass's $d_s$ using $sd_1$ as standardizer decreases when the mean difference enlarges, and the relative bias of glass's $d_s$ using $sd_2$ as standardizer increases when the mean difference enlarges (when $\mu_1-\mu_2$  varies from 1 to 4, one can observe variations as big as approximately 13% with 20 subjects per group).
-
-```{r "idHombal",fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are equal across groups",fig.width = 15,fig.height=8,out.width="20%",fig.show='hold',fig.align='center'}
+```{r "idHombal", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are equal across groups (condition a)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
 
-Figure \ref{fig:idHomrnull} shows that when variances are equal but sample sizes are unequal between groups, as when sample sizes were equal, glass's $d_s$ is more biased and variable that all other estimators. As previously, the bias of Shieh's $d_s$ is smaller than the Cohen's $d_s$ one. However, the difference is much smaller than previously. Remember that when sample sizes differ between groups, Shieh's $d_s$ is always more than twice smaller than Cohen's $d_s$ (see Appendix 1 for more details). As a consequence, if both Cohen's $d_s$ and Shieh's $d_s$ performed as well, the bias of Shieh's $d_s$ should be more than twice smaller than Cohen's $d_s$ bias, but it's not. It's confirmed by the second row in Figure \ref{fig:idHomrnull}  where we can see that the relative bias of Shieh's $d_s$  is larger than the relative bias of Cohen's $d_s$. (cf. notes en vue de la réunion avec Christophe à ce sujet).
+```{r "idHetbal", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal", pattern = "bias_eff", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
 
-Moreover, our transformed Shieh's $d^*_s$ is on average less biased than original Shieh's $d_s$, both if raw and relative terms, but slighly more variable in order that the mean square error of both estimators are quite similar. 
+Figure \ref{fig:idHomrnull} shows that when population variances are equal but sample sizes are unequal between groups, as when sample sizes were equal, glass's $d_s$ is more biased and variable that all other estimators. Again, this is due to the fact that the standardizer is estimated based on  part of the total sample and unsurprisingly, the bias is even larger when choosing the $SD$ of the smallest group as a standardizer.
 
-Details in Supplemental Material reveals that in our simulations, all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges (this is especially true for the Glass $d_s$ when one chooses the *sd* of the smallest group as a standardizer). However, the relative bias of all estimators is quite stable, except for the glass's $d_s$, and in a lesser extent for Shieh's $d_s$ when distribution are highly skewed ($G_1 \neq 0$). The relative bias of glass's $d_s$ using $sd_1$ as standardizer decreases when the mean difference enlarges, and the relative bias of glass's $d_s$ using $sd_2$ as standardizer increases when the mean difference enlarges: when $\mu_1-\mu_2$ varies from 1 to 4, one can observe variations as big as approximately 13% when the standardizer is computed based on 20 subjects (i.e. when $n_{stdizer} = 20$). About Shieh's $d_s$, one observes variations until approximately 6%.
+As previously, the bias of Shieh's $d_s$ is smaller than the Cohen's $d_s$ one (as well as the Hedge's $g_s$ one). However, the difference is smaller than previously. Remember that when sample sizes differ between groups, Shieh's $d_s$ is always more than twice smaller than Cohen's $d_s$ (see Appendix 1 for more details). As a consequence, if both Cohen's $d_s$ and Shieh's $d_s$ performed as well, the bias of Shieh's $d_s$ should be more than twice smaller than Cohen's $d_s$ bias (and the variance of Shieh's $d_s$ should be more than four time smaller than Cohen's $d_s$ bias), but it's not. It's confirmed by the second and fourth rows in Figure \ref{fig:idHomrnull} where we can see that the relative bias and variance of Shieh's $d_s$  are larger than the relative bias and variance of Cohen's $d_s$, that remains the best indicator in terms of bias. However, it is very interesting to note that our transformed Shieh's $d^*_s$ is on average less biased and variable than original Shieh's $d_s$, both if raw and relative terms. This measure seems to perform almost as well as Cohen's $d_s$.
 
 ```{r "idHomrnull", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances are equal across groups and sample sizes are unequal",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
 
-Figure \ref{fig:idHetbal} shows that when variances are unequal but sample sizes are equal between groups, ...
+Figure \ref{fig:idHetrpos} and \ref{fig:idHetrneg} refer to conditions where there is a pairing between population variances and sample sizes. We know that in these configurations, the pooled variance will be poorly estimated, as explained in a previous section (see "Different measures of effect sizes"): there is an overestimation when there is negative pairing and an underestimation when there is a positive pairing. Because both estimated pooled variance in samples and population pooled variance will be poorly estimated, so are Cohen's $d_s$ and Cohen's $\delta$ (as well as Hedge's $g_s$ and Hedge's $\gamma$). Therefore, in equation \ref{eq:BIAS} both E($\delta$) and $\delta$ are biased in the same direction and this bias will not be visible. This will be taken into account in the interpretation section.
 
-Again, because $n_1=n_2$the bias and variance of Shieh's $d_s$ and $d^*_s$ are respectively two times and for times smaller than bias and variance of Cohen's $d_s$
-
-```{r "idHetbal", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances are unequal across groups and sample sizes are equal",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
-myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal", pattern = "bias_eff", full.names = TRUE)
-knitr::include_graphics(myimages)
-```
-
-Figure \ref{fig:idHetrpos} shows that when variances are unequal, and the largest group is associated with largest variance, ...
+Figure \ref{fig:idHetrpos} shows that when variances are unequal, and the largest group is associated with largest variance, all estimators performs similarly except for the Glass's $d_s$ when choosing the standard deviation of the smallest group as standardizer. Because the smallest group is also the group associated with the smallest population variance, both the effect of the sample size and the population variance size are in counterfavor of the Glass's $d_s$. Moreover, we can keep in mind that an invisible strong bias artificially overestimates the performance of Cohen's $d_s$. In sum, both Shieh's $d_s$ and $d_s^*$ perform better than other estimators.
 
 ```{r "idHetrpos", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are unequal across groups, with positive correlation between them",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
 
-Figure \ref{fig:idHetrneg} shows that when variances are unequal, and the largest group is associated with smallest variance, ...
+Figure \ref{fig:idHetrneg} shows that contrary to all other configurations, when variances are unequal, and the largest group is associated with smallest variance, Glass's $d_s$ seems to perform better than all other estimators. Le glass qui utilise la plus grande variance comme standardizer est tj le meilleur indicateur de tous. Ensuite, le d de Cohen est un peu plus performant que le Shieh, et le pire c'est le cas qui utilise la plus petite variance comme standardizer. Cependant, il faut tenir compte de la remarque concernant le biais invisible qui dans ce cas, rend à coup sûr le d de Cohen tout à fait inadéquat. En conclusion, le cas particulier où la condition contrôle correspondrait à la plus grande variance et qui aurait un échantillon de taille correct, alors le glass est meilleur, mais dans tous les autres cas, pas. Du coup,il y a une dimensino fort aléatoire dans le choix du Glass et on recommande le Shieh (c'est le moins risky voir le plus pertinent). 
 
 ```{r "idHetrneg", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are unequal across groups, with negative correlation between them",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rneg", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Moreover, details in Supplemental Material reveals biases variations as a function of mean differences and $sd$-ratio.
+
+Hom_BAL:For all configurations where both variances and sample sizes are equal between groups, all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges, but Glass's $d_s$ seems more impacted. While the "raw" bias varies as a function of the mean difference, the relative bias (i.e. the size of the bias relative to the true effect size) is quite stable, except for the glass's $d_s$ when distribution are highly skewed ($G_1 = 6.32$; with differences as large as 13%, with 20 subjects per groups, when $\mu_1-\mu_2$ varies from 1 to 4):  when the mean difference is divided by the $SD$ of the group with lower mean, glass's $d_s$ decreases when the mean difference enlarges and when the mean difference is divided by the $SD$ of the group with larger mean, glass's $d_s$ increases when the mean difference enlarges (OPPOSITE WHEN G1=2.08: voir mes notes et graphiques avec Christophe).
+
+HET_BAL:For all configurations where only sample sizes are equal between groups, while all effect size estimators tend to be more biased and variable when the difference between two groups means enlarges, the impact of mean difference on bias is larger for the Glass $d_s$ when one chooses the smallest *sd* as a standardizer (CF NOTE: BCP BCP PLUS MARQUE AVEC SD2=LE GROUPE AVEC LA PLUS PETITE MOYENNE). While the "raw" bias varies as a function of the mean difference, the relative bias of all estimators is very stable as long as distributions are symmetric. On the other side, when distributions are skewed (VOIR VEC CHRISTOPHE, JE GALERE: voir plots 13--> 24 pour la variance relative de Het_bal). 
+
+- ici faudra observer les variations en fonction de la différence de moyenne, mais aussi en fonction du sd-ratio (plus chiant)
+
+HOM_RNUL:Dall effect size estimators tend to be more biased and variable when the difference between two groups means enlarges (this is especially true for the Glass $d_s$ when one chooses the *sd* of the smallest group as a standardizer). However, the relative bias of all estimators is quite stable, except for the glass's $d_s$, and in a lesser extent for Shieh's $d_s$ when distribution are highly skewed ($G_1 \neq 0$). The relative bias of glass's $d_s$ using $sd_1$ as standardizer decreases when the mean difference enlarges, and the relative bias of glass's $d_s$ using $sd_2$ as standardizer increases when the mean difference enlarges: when $\mu_1-\mu_2$ varies from 1 to 4, one can observe variations as big as approximately 13% when the standardizer is computed based on 20 subjects (i.e. when $n_{stdizer} = 20$). About Shieh's $d_s$, one observes variations until approximately 6%.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 #### Conclusion
