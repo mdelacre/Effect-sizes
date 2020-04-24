@@ -91,7 +91,6 @@ Finally, effect size measures can be used for *interpretative* purposes: in orde
 
 # Properties of a good effect size estimator
 
-SUPPRIMER LES NOTES SUR MSE, AJOUTER NOTES SUR LE BIAIS RELATIF
 The estimate of an estimator depends on the sampling. That is to say, based on different samples extracted from the same population, one would  obtain different estimates of the same estimator. The *sampling distribution* of the estimator is the distribution of all estimates, based on all possible samples of size *n* extracted from one population. Studying the sampling distribution is very useful, as it allows to assess the goodness of an effect size estimator and more specifically, three desirable properties of a good estimator for inferential purposes: **unbiasedness**, **consistency** and **efficiency** [@Wackerly_et_al_2008].
 
 An estimator is unbiased if the distribution of estimates is centered around the true population parameter. On the other hand, an estimator is positively (or negatively) biased if the distribution is centered around a value that is higher (or smaller) than the true populatione parameter (see Figure \ref{fig:BIAS}). In other words, the bias tells us if estimates are good, on average. The *bias* of a point estimator $\hat{\delta}$ can be computed as follows:
@@ -108,39 +107,38 @@ plot(function(x) dnorm(x,mean=2,sd=2),-6, 10,xlab="",ylab="",main ="",axes=F,lty
 segments(2,0,2,dnorm(2,mean=2,sd=2))
 segments(0,0,0,dnorm(0,mean=2,sd=2),lty=2,lwd=2)
 axis(side=1,at=seq(-6,10,2),labels=c(rep("",3),expression(delta),expression(paste("E(",hat(delta),")")),rep("",4)),col="white",cex=2)
-
 plot(function(x) dnorm(x,mean=0,sd=2),-8, 8,xlab="",ylab="",main ="",axes=F,lty=1,xlim=c(-8,8),ylim=c(0,.2),lwd=1,cex.lab=1.2)
 segments(0,0,0,dnorm(0,mean=0,sd=2))
 segments(0,0,0,dnorm(0,mean=0,sd=2),lty=2,lwd=2)
 axis(side=1,at=seq(-6,10,2),col="white",labels=c(rep("",3),expression(paste(delta,"=E(",hat(delta),")")),rep("",5)))
-
 plot(function(x) dnorm(x,mean=-2,sd=2),-10, 6,xlab="",ylab="",main ="",axes=F,lty=1,xlim=c(-10,6),ylim=c(0,.2),lwd=1,cex.lab=1.2)
 segments(-2,0,-2,dnorm(2,mean=2,sd=2))
 segments(0,0,0,dnorm(0,mean=2,sd=2),lty=2,lwd=2)
 axis(side=1,at=seq(-6,10,2),labels=c(rep("",2),expression(paste("E(",hat(delta),")")),expression(delta),rep("",5)),col="white")
-
 ```
 
-Bias informs us about the goodness of estimates averages, but says nothing about individual estimates. Imagine a situation where the distribution of estimates is centered around the real parameter but with such a large variance that some point estimates are very far from the center. It would be problematic, as long as we have only one estimate, the one based on our sample, and we don't know how far is this estimate from the center of the sampling distribution. We hope that *all* possible estimates are close enough of the true population parameter, in order to be sure that for *any* estimate, one has a correct estimation of the real parameter. In other words, we expect the variability of estimates around the true population parameter to be as small as possible. It refers to the **efficiency** of the point estimator ($\hat{\delta}$) and can be computed as follows:
+Moreover, since there is a strong relationship between the bias and the size of any estimator (the larger an estimator, the larger the bias), it might be interesting to also define the *relative bias* as the ratio between the bias and the population estimator:
+
+\begin{equation} 
+\hat{\delta}_{relative \; bias}=\frac{E(\hat{\delta})-\delta}{\delta}
+(\#eq:RELBIAS)
+\end{equation} 
+
+Bias informs us about the goodness of estimates averages, but says nothing about individual estimates. Imagine a situation where the distribution of estimates is centered around the real parameter but with such a large variance that some point estimates are very far from the center. It would be problematic, as long as we have only one estimate, the one based on our sample, and we don't know how far is this estimate from the center of the sampling distribution. We hope that *all* possible estimates are close enough of the true population parameter, in order to be sure that for *any* estimate, one has a correct estimation of the real parameter. In other words, we expect the variability of estimates around the true population parameter to be as small as possible. It refers to the **efficiency** of the point estimator and can be computed as follows:
 
 \begin{equation} 
 \hat{\delta}_{efficiency}=Var(\hat{\delta})
 (\#eq:EFFICIENCY)
 \end{equation} 
 
-Among all unbiased estimators, the more efficient will be the one with the smallest variance. Note that both unbiasedness and efficiency are very important. An unbiased estimator with such a large variance that somes estimates are extremely far from the real parameter is as undesirable as a parameter which is highly biased. In some situations, it is better to have a very slightly biased estimator with a tigh shape around the biased value, so each estimate remains relatively close to the true parameter, than an unbiased estimator with a large variance [@Raviv]. Because both *unbiasedness* and *efficiency* must be considered, it is interesting to compute an indicator that take simultaneously both properties into account [@Wackerly_et_al_2008]. The *mean square error* of a point estimator $\hat{\delta}$ is defined as follows:
+Where $Var(\hat{\delta})$ is the variance of the sampling distribution of the estimator. Among all unbiased estimators, the more efficient will be the one with the smallest variance. Again, the variance of an estimator is a function of its size (the larger the estimator, the larger the variance) and therefore, we might be interested in computing the *relative variance* as the ratio between the variance and the square of the population estimator:
 
 \begin{equation} 
-MSE(\hat{\delta})=E[(\hat{\delta}-\delta)^2]
-(\#eq:MSE1)
+\hat{\delta}_{relative \; variance}=\frac{Var(\hat{\delta})}{\delta^2}
+(\#eq:RELBIAS)
 \end{equation} 
 
-It can be proven that the *mean square error* is a function of the bias and the variance of $\hat{\delta}$ :
-
-\begin{equation} 
-MSE(\hat{\delta})=\hat{\delta}_{efficiency}+\hat{\delta}_{bias}^2
-(\#eq:MSE2)
-\end{equation} 
+Note that both unbiasedness and efficiency are very important. An unbiased estimator with such a large variance that somes estimates are extremely far from the real parameter is as undesirable as a parameter which is highly biased. In some situations, it is better to have a very slightly biased estimator with a tigh shape around the biased value, so each estimate remains relatively close to the true parameter, than an unbiased estimator with a large variance [@Raviv]. 
 
 Finally, the last property of a good point estimator is **consistency**: consistency means that the bigger the sample size, the closer the estimate of the population parameter. In other words, the estimates *converge* to the true population parameter. 
 
