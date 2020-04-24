@@ -281,8 +281,6 @@ Before detailing estimators comparison for each condition, it might be interesti
 
 3) Throughout this section, we will **compare** the goodness of different estimators. We chose very extreme (although realistic) conditions, and we know that none of the parametric measures of effect size will be robust against such extreme conditions. Our goal is therefore to study the robustness of the estimators against normality violations only in comparison with the robustness of other indicators, but not in absolute terms. 
 
-4) We will not neither discuss nor report the MSE because it does not bring any supplemental insights to our interpretations (MSE and efficiency are always very consistent). 
-
 After these general remarks, we will analyze each condition separately. In all Figures presented below, averaged results for each sub-condition are presented under five different configurations of distributions, using the legend described in Figure \ref{fig:legend}.
 
 ```{r "legend", echo=FALSE, fig.width = 100,fig.height=100,out.width = '400px',fig.cap = "Legend"}
