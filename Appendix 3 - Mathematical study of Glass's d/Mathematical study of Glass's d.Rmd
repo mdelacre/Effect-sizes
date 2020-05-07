@@ -1,0 +1,154 @@
+---
+title             : "Mathematical study of Glass's d"
+shorttitle        : "Glass's d"
+
+author: 
+  - name          : "Marie Delacre" 
+    affiliation   : "1"
+    corresponding : yes    
+    address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
+    email         : "marie.delacre@ulb.ac.be"
+
+affiliation:
+  - id            : "1"
+    institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
+
+authornote: |
+  
+  I would like to thank Matt Williams and Thom Baguley for their helpful insights in order to undertand the phenomenon explained in this appendix.
+
+abstract: |
+
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("PearsonDS")
+```
+
+```{r glass test,echo=FALSE}
+test=function(sd,nSims=10000,m1,m2,n,skew,kurt=95.75,title,ylim){
+   
+   glasspos1<-rep(0,nSims)
+   glasspos2<-rep(0,nSims)
+   
+   sd1<-rep(0,nSims)
+   sd2<-rep(0,nSims)
+   meandiff<-rep(0,nSims)
+   mean1<-rep(0,nSims)
+   mean2<-rep(0,nSims)
+   
+   for (i in 1:nSims){
+
+      y1 <- rpearson(n,moments=c(m1,sd^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurtosis=(kurt*(n-2)*(n-3)-6*(n-1))/(n^2-1)+3))  
+      y2 <- rpearson(n,moments=c(m2,sd^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurtosis=(kurt*(n-2)*(n-3)-6*(n-1))/(n^2-1)+3))  
+
+      sd1[i] <- sd(y1)
+      sd2[i] <- sd(y2)
+      meandiff[i] <- mean(y1)-mean(y2)
+      mean1[i] <- mean(y1)
+      mean2[i] <- mean(y2)
+      
+      glasspos1[i] <- (mean(y1)-mean(y2))/sd(y1)
+      glasspos2[i] <- (mean(y1)-mean(y2))/sd(y2)
+      
+   }
+   
+   plot(density(glasspos1),col="blue",lty=1,xlim=c(-10,10),main=title,xlab="glass's ds",ylim=ylim)
+   lines(density(glasspos2),col="red",lty=2)
+   
+   #legend("topright",legend=c("glass with sd1","glass with sd2"),lty=c(1,2),col=c("blue","red"),bty="n")
+   return(cbind(sd1,sd2,meandiff,glasspos1,glasspos2,mean1,mean2))
+}
+```
+
+# When two samples are extracted from distributions with identical shapes, with **$\sigma_1= \sigma_2$** and **$n_1=n_2$**
+
+When population distributions are symmetric (i.e. $\gamma_1=0$), the sampling distribution of glass's $d_s$ is the same, whatever one chooses $s_1$ or $s_2$ as standardizer. As an example, in Figure \ref{fig:glass1}, we plotted the sampling distribution of both measures of glass's $d_s$ when two samples of 20 subjects are extracted from two symmetric distributions where $\gamma_1=0$,$\gamma_2=95.75$, $\sigma_1=\sigma_2=1$ and $\mu_2=0$. $\mu_1$ is either 0 or 1, depending on the plot. One can see that in the two plots, distributions of glass's $d_S$ using $s_1$ and $s_2$ as standardiser are superimposed.
+
+```{r glass1, fig.cap = "Comparison of Glass's ds when choosing either s1 (blue line) or s2 (red dotted line) as standardizer, with s1=standard deviation of the first sample and s2=standard deviation of the second sample, when n1=n2=20 and both samples are extracted from a distribution where G1 =0, G2=95.75 and sigma=1", echo=FALSE}
+par(mfrow=c(1,2),mar=c(2,2,7,2))
+A=test(sd=1,m1=0,m2=0,skew=0,n=20,title="mu1-mu2=0",ylim=c(0,1.2)) # symmetric distribution
+B=test(sd=1,m1=1,m2=0,skew=0,n=20,title="mu1-mu2=1",ylim=c(0,1.2)) # symmetric distribution
+par(xpd=TRUE)
+```
+
+However, when population distributions are skewed (i.e. $\gamma_1 \neq 0$), the sampling distribution of glass's $d_s$ varies as a function of the chosen standardizer, as illustrated in Figure \ref{fig:glass2}. 
+
+```{r glass2, fig.cap = "Comparison of Glass's ds when choosing either sd1 (blue line) or sd2 (red dotted line) as standardizer when n1=n2=20 and both samples are extracted from a distribution where sigma=1, G2=95.75, G1 is either -6.32 (left) or 6.32 (right). In all cases, the second sample is extracted from a population distribution where mu2=0. First sample is extracted from a population distribution where mu1 is either 0 (top) of 1 (bottom)", echo=FALSE}
+par(mfrow=c(2,2),mar=c(2,2,7,2))
+mu1=1
+mu2=0
+C=test(sd=1,m1=0,m2=0,skew=-6.32,n=20,title="Left-skewed distributions \n mu1-mu2=0",ylim=c(0,1.5)) # symmetric distribution
+D=test(sd=1,m1=0,m2=0,skew=6.32,n=20,title="Right-skewed distributions \n mu1-mu2=0",ylim=c(0,1.5)) # symmetric distribution
+E=test(sd=1,m1=mu1,m2=mu2,skew=-6.32,n=20,title="Left-skewed distributions \n mu1-mu2=1",ylim=c(0,.8)) # symmetric distribution
+F=test(sd=1,m1=mu1,m2=mu2,skew=6.32,n=20,title="Right-skewed distributions \n mu1-mu2=1",ylim=c(0,.8)) # symmetric distribution
+```
+
+It might seem surprising, or even counter-intuitive, as $s_1$ and $s_2$ are both estimates of the same population standard deviation ($\sigma$), based on the same number of observations (as $n_1=n_2$), but this phenomenon can be mathematically explained. In the following section, we will provides detailed informations to understand the results plotted in Figure \ref{fig:glass2}.
+
+## When distribution is right-skewed, and **$\mu_1-\mu_2=0$** (top right plot in Figure \ref{fig:glass2})
+
+We will first study the configuration where both samples are extracted from a right-skewed distribution where $\mu=0$, $\sigma=1$, $\gamma_1=6.32$ and $\gamma_2=95.75$. Because this distributions is right-skewed, the sampling distributions of $\bar{X_1}$ and $\bar{X_2}$ will also be right-skewed. However, because $\bar{X_1}$ and $\bar{X_2}$ are identically distributed, $\bar{X_1}-\bar{X_2}$ will follow a symmetric distribution, as illustrated in Figure \ref{fig:sampldist1} (right plot). Moreover, it will be centered around $\mu_1-\mu_2=0$, meaning that 50 percent of the mean difference estimates will be positive (i.e. $\bar{X_1}-\bar{X_2} > 0$; see green area) and the other 50 percent will be negative (i.e. $\bar{X_1}-\bar{X_2} < 0$; see blue area). 
+
+Because we compute the mean difference as the mean estimate of the first sample minus the mean estimate of the second sample, there is a positive correlation between $\bar{X_1}$ and $\bar{X_1}-\bar{X_2}$, and a negative correlation between $\bar{X_2}$ and $\bar{X_1}-\bar{X_2}$ (correlations would be trivially reversed if we computed $\bar{X_2}-\bar{X_1}$ instead of $\bar{X_1}-\bar{X_2}$).
+
+```{r sampldist1, fig.cap = "Sampling distribution of m1 (blue line in left plot), m2 (red dotted line in left plot), and m1-m2 (right plot), when m1 and m2 are estimates of the mean of a population distribution where mu=0, sigma=1,G1=6.32 and G2=95.75, with n1=n2=20", echo=FALSE}
+par(mfrow=c(1,2),mar=c(2,2,7,2))
+plot(density(D[,6]),col="blue",main="sampling distribution \n of m1 and m2",ylim=c(0,2.5)) # sd1
+lines(density(D[,7]),col="red",lty=2) # sd1
+
+plot(density(D[,3]),main="sampling distribution \n of m1-m2",ylim=c(0,2)) # m1
+abline(v=0) 
+Dens=density(D[,3])
+polygon(c(0,Dens$x[Dens$x<=0]),c(Dens$y[Dens$x<=0],0), col="lightblue")
+polygon(c(Dens$x[Dens$x>=0],0),c(Dens$y[Dens$x>=0],0), col="lightgreen")
+``` 
+
+The sampling distributions of $s_1$ and $s_2$ are right-skewed, because estimates of the standard deviation are bounded: they can be very large, but never below 0. Moreover, as $s_1$ and $s_2$ are estimates of the same population standard deviation $\sigma$, based on the same sample size, of course, the sampling distributions of $s_1$ and $s_2$ will be identical, as illustrated in Figure \ref{fig:sampldist2}. 
+
+```{r sampldist2, fig.cap = "Sampling distribution of s1 (blue line) and s2 (red dotted line), when s1 and s2 are estimates of the standard deviation of a population distribution where mu=0, sigma=1,G1=6.32 and G2=95.75, with n1=n2=20", echo=FALSE}
+par(mfrow=c(1,1),mar=c(2,2,7,2))
+plot(density(D[,1]),col="blue",main="sampling distribution \n of s1 and s2",ylim=c(0,1.2)) # sd1
+lines(density(D[,2]),col="red",lty=2) # sd1
+```
+
+Therefore, how to explain the different sampling distributions of glass's $d_s$, as a function of the standardizer? This is due to the fact that when distributions are skewed, there is a non-nul correlation between $\bar{X}$ and s (see Zhang, 2007). More specifically, when distributions are right-skewed, there is a **positive** correlation between $\bar{X}$ and s. 
+
+First, consider the glass's $d_s$ estimate using $s_1$ as standardiser. We already mentioned that there is a *positive* correlation between $\bar{X_1}$ and $\bar{X_1}-\bar{X_2}$ ($cor(\bar{X_1},\bar{X_1}-\bar{X_2})>0$). Because there is also a positive correlation between $\bar{X_1}$ and $s_1$ ($cor(\bar{X_1},s_1)>0$), it results in a **positive** correlation between $\bar{X_1}-\bar{X_2}$ and $s_1$ ($cor(\bar{X_1}-\bar{X_2},s_1)>0$): when moving from the left to the right in the right plot in Figure \ref{fig:sampldist1}, $s_1$ get larger. As a consequence, the mean difference estimates in the left tail of the plot (i.e. the most extreme negative estimates) will be divided by a smaller positive value (resulting in a larger ratio) than the mean difference estimates in the right tail of the plot (i.e. the most extreme positive estimates), resulting in a left-skewed sampling distribution of glass's $d_S$. Importantly, while the median of the sampling distribution of glass's $d_s$ is `r round(median(D[,4],2))`, as expected (because the sampling distributions of $\bar{X_1}-\bar{X_1}$ is centered around 0),  the mean will be a little lower (i.e. `r round(mean(D[,4]),2)`), meaning that glass's $d_s$ is negatively biased.
+
+When considering $s_2$ as standardiser, because there is a *negative* correlation between $\bar{X_2}$ and $\bar{X_1}-\bar{X_2}$., there is also a **negative** correlation between $\bar{X_1}-\bar{X_2}$ and $s_2$: when moving from the left to the right in the right plot in Figure \ref{fig:sampldist1}, $s_2$ get lower. In other word, the mean difference estimates in the left tail of the plot will be divided by a larger positive value (resulting in a smaller ratio) than the mean difference estimates in the right tail of the plot, resulting in a right-skewed sampling distribution of glass's $d_S$.  This time, while the median of the sampling distribution of glass's $d_s$ is still `r round(median(D[,5],2))`, the mean will be a little larger (i.e. `r round(mean(D[,5]),2)`), meaning that glass's $d_s$ is positively biased.
+
+## When distribution is left-skewed, and **$\mu_1-\mu_2=0$** (top left plot in Figure \ref{fig:glass2})
+
+When distributions are left-skewed, there is a **negative** correlation between $\bar{X}$ and s and therefore, when moving from the left to the right in the right plot in Figure \ref{fig:sampldist1}, $s_1$ get lower ($cor(\bar{X_1},s_1) < 0 \; and \; cor(\bar{X_1},\bar{X_1}-\bar{X_2}>0)  \rightarrow cor(\bar{X_1}-\bar{X_2},s_1)<0$) and $s_2$ get larger ($cor(\bar{X_2},s_2) < 0 \; and \; cor(\bar{X_2},\bar{X_1}-\bar{X_2}<0)  \rightarrow cor(\bar{X_1}-\bar{X_2},s_2)>0$). As a consequence, when dividing the mean difference by $s_1$, the estimates of $\mu_1-\mu_2$ in the left tail of the right plot in Figure \ref{fig:sampldist1} (i.e. the most extreme negative estimates) will be divided by a larger positive value (resulting in a smaller ratio) than the ones in the right tail. On the other side, when the mean difference is divided by $s_2$, the estimates in the left tail of the plot will be divided by a smaller positive value (resulting in a larger ratio) than the ones in the right tail. Unlike what occured when samples were extracted from a right-skewed distribution, when they are extracted from a left-skewed distribution, glass's $d_S$ will be positively biased when using $s_1$ as a standardiser, and negatively biased when using $s_2$ as a standardiser.
+
+## When distribution is skewed, and **$\mu_1-\mu_2=1$** (bottom pslot in Figure \ref{fig:glass2})
+
+We will first consider the example where both samples are extracted from right-skewed distributions with $\mu_1$ and $\mu_2$ being respectively `r mu1` and `r mu2`, and other moments of the population distributions being equal: $\sigma=1$, $\gamma_1=6.32$ and $\gamma_2=95.75$ (see bottom right plot in Figure \ref{fig:glass2}). 
+
+Of course, the sampling distributions of $\bar{X_1}$ and $\bar{X_2}$ are not superimposed anymore, because $\bar{X_1}$ will be centered around $\mu_1=1$, and $\bar{X_2}$ will be centered around $\mu_2=0$. However, except for the mean, all other moments of both distributions (i.e. $\gamma_1$, $\gamma_2$ and $\sigma$) remain identical (see left plot in Figure \ref{fig:sampldist4}) and therefore, the sampling distribution of $\bar{X_1}-\bar{X_2}$ still follow  a symmetric distribution, as illustrated in right plot in Figure \ref{fig:sampldist4}. 
+
+In previous examples where $\mu_1-\mu_2$ was nul, because the sampling distribution of $\bar{X_1}-\bar{X_2}$ was symmetrically centered around 0, the magnitude of the mean difference estimates were the same in both tails. More generally, for a constant k, $|(\mu_1-\mu_2)-k|=|(\mu_1-\mu_2)+k|$. Comparing the magnitude of glass's $d_s$ when $\bar{X_1}-\bar{X_2} = (\mu_1-\mu_2) \pm k$ was therefore only a function of the denominator. When $\mu_1-\mu_2 \neq 0$, comparing the magnitude of glass's $d_s$ when $\bar{X_1}-\bar{X_2} = (\mu_1-\mu_2) \pm k$ is a function of both  numerator and denominator.
+
+When $\mu_1-\mu_2=1$, only about `r round(sum(F[,3]<0)/length(F[,3])*100,2)`% of the mean estimates are negative, meaning that almost all mean difference estimates will be positive (so will be glass's $d_s$ estimates). 
+
+When distributions are extracted from a left-skewed distribution (bettom left in Figure \ref{fig:glass2}), this is exactly the opposite.
+
+# When two samplesare extracted from distributions with identical shapes, and $n_1 \neq n_2$
