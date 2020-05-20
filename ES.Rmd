@@ -265,11 +265,11 @@ Table 2.
 | :---------------------------: | :---------: |:----------: |:-----------:|:-----------:|
 |                               |             |    **1**    |    **>1**   |    **<1**   |
 |                               |             |------------ |-------------|-------------|
-|                               |    **1**    |      a      |      b      |      b      | 
+|                               |    **1**    |      a      |      b1     |      b2     | 
 |                               |             |             |             |             |
-|      __*SD*-ratio__           |   **>1**    |      c      |      d      |      e      |
+|      __*SD*-ratio__           |   **>1**    |      c1     |      d1     |      e1     |
 |                               |             |             |             |             |
-|                               |   **<1**    |      c      |      e      |      d      |
+|                               |   **<1**    |      c2     |      e2     |      d2     |
 
 *Note.* The *n*-ratio is the sample size of the first group ($n_1$) divided by the sample size of the second group ($n_2$). When all sample sizes are equal across groups, the *n*-ratio equals 1. When $n_1 > n_2$, *n*-ratio > 1, and when $n_1 < n_2$, *n*-ratio < 1. *SD*-ratio is the population *SD* of the first group ($\sigma_1$) divided by the population *SD* of the second group ($\sigma_2$). When $\sigma_1=\sigma_2$, *SD*-ratio = 1. When $\sigma_1>\sigma_2$, *SD*-ratio > 1. Finally, when $\sigma_1<\sigma_2$, *SD*-ratio < 1.
 
@@ -289,19 +289,6 @@ After these general remarks, we will analyze each condition separately. In all F
 knitr::include_graphics("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
-Figures \ref{fig:idHombal} and \ref{fig:idHetbal} show that for all configurations where sample sizes are equal between groups (conditions a and c), estimator bias tends to decrease and precision is also improved with increasing sample sizes, meaning that all estimators are consistent. Moreover, Shieh's $d_s$ and Shieh's $d^*_s$ are identical, because our transformation is operant only when the sample sizes ratio differs from 1. We can demonstrate that the bias of Shieh's $d_s$ and Shieh's $d_s^*$ is exactly half the size of Cohen's $d_s$, and that their variance is exactly four times smaller than Cohen's $d_s$. Due to the relation described in equation \ref{eq:cohenshieh} when sample sizes are equal between groups, such proportions mean that relative to their respective true effect size, Cohen's $d_s$, Shieh's $d_s$ and Shieh's $d^*_s$ perform all as well, as we can see in the second and fourth rows in Figures \ref{fig:idHombal} and \ref{fig:idHetbal}. These two rows also reveal that the relative bias and variance of Hedges's $g_s$ is also identical to the three prementioned ones. 
-
-\begin{equation} 
-Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
-(\#eq:cohenshieh)
-\end{equation} 
-
-Glass's $d_s$ does not behave identically, depending on whether population variances are equal across groups (Figure \ref{fig:idHombal}) or not (Figure \ref{fig:idHetbal}). In Figure \ref{fig:idHombal}, glass's $d_s$ shows least precision and highest bias rates, in comparison with all other measures, which is not surprising, as the standardizer is estimated based on half the sample size. As long as distributions are symmetric, both glass's $d_s$ estimates (i.e. using $SD_1$ and $SD_2$) show similar performances. However, it does not hold when distributions are skewed because of a non null correlation between the sample mean and standard deviation (resulting in a non null correlation between $\bar{X_1}-\bar{X_2}$ and respectively $SD_1$ and $SD_2$). Because the population mean difference is positive in all our simulations (i.e. $\mu_1-\mu_2>0$), Glass's $d_s$ is always more biased and variable when choosing as standardizer the SD that is negatively correlated with $\bar{X_1}-\bar{X_2}$ (i.e. $SD_2$ when distributions are right-skewed and $SD_1$ when distributions are left-skewed; for interested reader, see the Appendix 3). \footnote{When the population mean difference is negative (i.e. $\mu_1-\mu_2<0$), Glass's $d_s$ will always be more biased and variable when choosing as standardizer the SD that is positively correlated with $\bar{X_1}-\bar{X_2}$ (i.e. $SD_1$ when distributions are right-skewed and $SD_2$ when distributions are left-skewed).}
-
-In Figure \ref{fig:idHetbal} ... (décrire le glass dans ce cas). As previously, both glass's $d_s$ estimates (i.e. using $SD_1$ and $SD_2$) show similar bias rate when distribution are symmetric.\footnote{When looking at Figure 4, one could believe that the bias is always more important when choosing SD2 as a standardizer. It is only an artefact of simulations. The bias is always more important when choosing the sample extracted from the smaller population SD as standardiser, because it results in a larger effect size estimate, and the larger the effect size estimate, the larger the raw bias. In our simulations, while the population SD of the first group always equals 1, in half of the simulations in condition c, the population SD of the second group is lower than 1 (meaning that the more biased Glass's estimate will occure when choosing SD2 < 1 as standardiser), and in the other half, the population SD of the second group is larger than 1 (meaning that the more biased Glass's estimate will occure when choosing SD1 as standardizer). Of course, for X, a constant mean difference and z, the standardizer, X/z will always result in a larger effect size measure when z < 1. This is confirmed by the identical average relative bias for both measures of Glass's ds.}. However, when distributions are skewed...LA, PARFOIS GLASS EST LE MEILLEUR, PARFOIS C EST LE PIRE. ETUDIER CA EN DETAIL.
-
-Rem: par contre, se passe un truc au niveau de la variance relative quand distribution heavy-tailed: étudier ça!
-
 ```{r "idHombal", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are equal across groups (condition a)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
@@ -311,6 +298,40 @@ knitr::include_graphics(myimages)
 myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal", pattern = "bias_eff", full.names = TRUE)
 knitr::include_graphics(myimages)
 ```
+
+Figures \ref{fig:idHombal} and \ref{fig:idHetbal} show that for all configurations where sample sizes are equal between groups (conditions a and c), estimator bias tends to decrease and precision is also improved with increasing sample sizes, meaning that all estimators are consistent. Moreover, Shieh's $d_s$ and Shieh's $d^*_s$ are identical, because our transformation is operant only when the sample sizes ratio differs from 1. We can demonstrate that the bias of Shieh's $d_s$ and Shieh's $d_s^*$ is exactly half the size of the bias of Cohen's $d_s$, and that their variance is exactly four times smaller than the variance of Cohen's $d_s$. Due to the relation described in equation \ref{eq:cohenshieh} when sample sizes are equal between groups, such proportions mean that relative to their respective true effect size, Cohen's $d_s$, Shieh's $d_s$ and Shieh's $d^*_s$ perform all as well, as we can see in the second and fourth rows in Figures \ref{fig:idHombal} and \ref{fig:idHetbal}. These two rows also reveal that the relative bias and variance of Hedges's $g_s$ is also identical to the three prementioned ones. 
+
+\begin{equation} 
+Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
+(\#eq:cohenshieh)
+\end{equation} 
+
+When samples are extracted from symmetric ditributions (the two first columns in Figures \ref{fig:idHombal} and \ref{fig:idHetbal}), both glass's $d_s$ estimates (i.e. using $SD_1$ and $SD_2$) show least precision and highest bias rates, in comparison with all other measures, which is not surprising, as the standardizer is estimated based on half the sample size. In terms of relative bias, Glass's $d_s$ shows similar performances when using either $SD_1$ or $SD_2$ as standardizer\footnote{When looking at the raw bias in Figure 4, one could believe that the bias is always more important when choosing SD2 as a standardizer. It is only an artefact of simulations. The bias is always more important when choosing the sample extracted from the smaller population SD as standardiser, because it results in a larger effect size estimate, and the larger the effect size estimate, the larger the raw bias. In our simulations, while the population SD of the first group always equals 1, in half of the simulations in condition c, the population SD of the second group is lower than 1 (meaning that the more biased Glass's estimate will occure when choosing SD2 < 1 as standardiser), and in the other half, the population SD of the second group is larger than 1 (meaning that the more biased Glass's estimate will occure when choosing SD1 as standardizer). Of course, for X, a constant mean difference and z, the standardizer, X/z will always result in a larger effect size measure when z < 1. This is confirmed by the identical average relative bias for both measures of Glass's ds.}, however, when population variances differ across groups, the relative variances are unequal (Figure \ref{fig:idHetbal}). It is well known that in equation \ref{eq:Glassds}, the variance of the numerator estimate (i.e. $\bar{X_1}-\bar{X_2}$) depends on both $\sigma_1$ and $\sigma_2$, as reminded in equation \ref{eq:sdmeandiff}:
+
+\begin{equation} 
+\sigma^2_{\bar{X}_1-\bar{X}_2}=\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}
+(\#eq:sdmeandiff)
+\end{equation} 
+
+On the other side, $\sigma$ is estimated based on only one sample SD (either $SD_1$ or $SD_2$). When computing the Glass's $d_s$ with the estimate of the smaller population SD as standardizer (i.e. $SD_2$ in Figure \ref{fig:idHetbal2}, and $SD_1$ in Figure \ref{fig:idHetbal3}), the estimate of the larger population SD will increase the variance of the numerator in equation \ref{eq:Glassds} but will not impact the variance of the denominator, resulting in a more variable estimator. When choosing the estimate of the larger population SD as standardizer, the estimate of the smaller population SD will decrease the variance of the numerator in equation \ref{eq:Glassds} but will not impact the variance of the denominator, resulting in a less variable estimator. CA SEMBLE ETRE LE CONTRAIRE QD DISTRIBUTION NORMALE...BIZARRE?\footnote{Remind that in our simulations, the first population SD always equal 1, and the second population SD varies from .1 to 10. The difference in terms of relative variance is more important when comparing SD1=1 and SD2=10 as standardizer than when comparing SD1=1 and SD2=.1 as standardizer, explaining why the difference between both Glass's estimators seems more important in FIgure 6 than in Figure 5} 
+
+```{r "idHetbal2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is larger than SD2 (condition c1)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal", pattern = "SDsd", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
+
+```{r "idHetbal3", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is lower than SD2 (condition c2)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal", pattern = "sdSD", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
+
+When samples are extracted from skewed distributions, both glass's $d_s$ estimators (i.e. using $SD_1$ and $SD_2$) remain the more biased and variable when variances are equal across groups. When variances are unequal across groups, glass's $d_s$ is sometimes more biased and variable than all other estimators, and sometimes less biased and variable. The explanation lies in two concepts:  
+- a non null correlation between the sample means and standard deviations;  
+- the number of observations based on which the standardizer is computed.  
+
+When samples are extracted from skewed distributions, there is a non null correlation between the sample means and sample standard deviations, resulting in a non null correlation of opposite sign between $\bar{X_1}-\bar{X_2}$ and respectively $SD_1$ and $SD_2$.\footnote{when distributions are right-skewed, the correlation between sample means and standard deviation is positive. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a positive (negative) correlation between SD1 (SD2) and the mean difference. when distributions are left-skewed, the correlation between sample means and standard deviation is negative. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a negative (positive) correlation between SD1 (SD2) and the mean difference.}). When the population mean difference $\mu_1-\mu_2$ is positive (like in our simulations), Glass's $d_s$ is always more biased and variable when choosing as standardizer the $SD$ that is negatively correlated with $\bar{X_1}-\bar{X_2}$ (i.e. $SD_2$ when distributions are right-skewed and $SD_1$ when distributions are left-skewed). When the population mean difference is negative, the reverse is true. For interested reader, this is detailed and explained in Appendix 3. 
+
+When the standardizer takes both $SD_1$ and $SD_2$ into account (i.e. all estimators but Glass's $d_s$), the correlation between standardizer and mean difference will be null, as long as population variances are equal across groups. However, when population variances are unequal across groups, the sign of the correlation between the standardizer and the mean difference will be the same as the one of the correlation between the mean difference and the estimates of the larger population variance (e.g. if samples are extracted from right-skewed distributions and $\sigma_2>\sigma_1$, there will be a negative correlation between the sample mean differences and standardizer). And so.... CONCLURE CE TRUC.
 
 Figure \ref{fig:idHomrnull} shows that when population variances are equal but sample sizes are unequal between groups, as when sample sizes were equal, while estimators are consistent, glass's $d_s$ is generally more biased and variable that all other estimators. Again, this is due to the fact that the standardizer is estimated based on part of the total sample and unsurprisingly, the bias is even larger when choosing the $SD$ of the smallest group as a standardizer. As long as samples are extracted from symmetric distributions, the bias and variance of glass's $d_s$ is only a function of the sample size of the group from which standardizer is computed (because $\sigma_1=\sigma_2$). However, when samples are extracted from skewed distribution, because of the correlation between sample mean and sample SD, glass's $d_s$ becomes even more biased and variable when the chosen standardizer is negatively correlated with the mean difference and associated with the smaller sample size (i.e. when choosing $SD_2$ as standardizer, with $n_1 > n_2$ when distributions are right-skewed; and when choosing $SD_1$ as standardizer, with $n_1 < n_2$ when distributions are left-skewed). \footnote{Again, we should remind that in all our simulations, the population mean difference is positive. If mean difference were negative, glass's $d_s$ would be more biased and variable when the chosen standardizer is positively correlated with the mean difference and associated with the smaller sample size.}.
 
@@ -340,41 +361,25 @@ knitr::include_graphics(myimages)
 
 In summary, Cohen's $d_s$ and Hedge's $d_s$ remain the best measure when the asssumption of equal variances is met. When variances are unequal across populations, Cohen's $d_s$ and Hedge's $g_s$ perform exactly as well as Shieh's $d_s$ and transformed Shieh's $d^*_s$, as long as sample sizes are equal across groups. However, when variances and sample sizes are both unequal across groups, Cohen's $d_s$ and Hedge's $g_s$ become irrelevant. Glass's $d_s$ is most of the time the more biased and variable measure. We presume this could be explained by the estimation of the $SD$ based on a subsample, because the bias is larger when standardizer is estimated based on the smallest group. Only under very specific conditions (when there is a negative correlation between sample sizes and variances and the sample size of the control group is larger than the sample size of the experimental group), Glass's $d_s$ performs the best in comparison with all other estimators.
 
-------------------------------------------------------------------------------------------------
-
-# Variations as a function of the mean difference:
-For ALL conditions, 
-- When distributions are symmetric
-
----the larger the mean difference, the larger the bias, 
-
-HOWEVER, the relative bias is constant for all mean differences
-
----the larger the mean difference, the larger the variance: relativement faible (surtout pour Shieh et trahsformed Shieh's) SAUF pour le glass sous certaine conditions (là ça devient plus marqué):
---> si on prend comme standardiseur le plus petit n 
---> si on prend comme standardiseur le plus petit sd 
---> Les deux facteurs semblent jouer de la même manière puisqu'on trouve à peu près les memes ratios pour Het_bal, Hom_rnull et Het_rneg. Par contre, leur effet peut se cumuler, car le cas où on trouve les ratios les plus élevés, c'est Het_rpos quand on prend simultanément le plus petit n avec le plus petit sd.
-
-Détail: à nouveau on dirait que c'est pire quand sd2 est pris mais c'est dû à la note de bas de page de l'article (quand sd1 est le plus petit, il faut toujours 1. ALors que quand sd2 est le plus petit, il peut descendre jusque .1).
-
-HOWEVER, the larger the mean difference, the LOWER the relative variance (pas vraiment de différence entre les estimateurs, les droites sont //). Le ratio est surtout élevé quand il y a hétéroscédasticité, surtout quand sdratio = .1 (donc exactement le contraire que pour la variance).
-
-- When distributions are skewed (à voir quand j'aurai compris les bizarreries avec Christophe)
-
-# Variations as a function of the sdratio (à faire):
 
 #### Conclusion
 
-SUMMARY GLASS: il y a 2 facteurs "aggravants" quand distribution symétriques, et 3 facteurs "aggravants" quand distributions asymétriques:  
-- SD calculé sur base du plus petit n (--> mesure plus variable et biaisée car distributions plus asymétrique)  
-- SD négativement corrélé avec la différence de moyenne quand mu1-mu2 > 0 (= choix de SD2 quand asymétrie positive, et de SD1 quand asymétrie négative, vu qu'on calcule m1-m2) OU SD positivement corrélé avec la différence de moyenne quand mu1-mu2 < 0 (= choix de SD1 quand asymétrie positive, et de SD2 quand asymétrie négative, vu qu'on calcule m1-m2).  
-- sigma? -> reste à voir!
+SUMMARY GLASS: il y a plusieurs facteurs "aggravants":  
+Pour le biais:
+(1) SD calculé sur base du plus petit n (--> mesure plus variable et biaisée car distributions plus asymétrique) --> vrai pour toute distribution
+(2) SD négativement corrélé avec la différence de moyenne quand mu1-mu2 > 0 (= choix de SD2 quand asymétrie positive, et de SD1 quand asymétrie négative, vu qu'on calcule m1-m2) OU SD positivement corrélé avec la différence de moyenne quand mu1-mu2 < 0 (= choix de SD1 quand asymétrie positive, et de SD2 quand asymétrie négative, vu qu'on calcule m1-m2). --> vrai seulement quand distributions asymétriques
+
+Pour la variance:
+(1) et (2) jouent, mais il y a en plus:
+(3) SD calculé sur base du plus petit sigma
+
+
 
 
 Shieh's $d_s$ and our transformed Shieh's $d^*_S$ are the only measure that have an acceptable bias and variance in all configurations. Considering the fact that our transformed Shieh's $d^*_s$ is much more generalizable (and therefore interpretable) than Shieh $d_s$, we would recommend the use of this measure in all situations, unless we have very good reason to believe that variances are the same across populations.
 
 ### Simulation 2: confidence intervals
-VOIR SI ON GARDE OU PAS.
+TO DO
 #### Method
 ### Results
 #### Conclusion
