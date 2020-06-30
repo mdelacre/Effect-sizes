@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  20 MAY 2020 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  30 JUN 2020 12:52
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -832,11 +832,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-(ES.aux
-
-LaTeX Warning: Label `eq:RELBIAS' multiply defined.
-
-)
+(ES.aux)
 \openout1 = `ES.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
@@ -1042,7 +1038,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 122.
 [3] [4] [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7308) has occurred while \output is active []
 
 [6] [7]
 <"ES_files/figure-latex/""BIAS-1".pdf, id=62, 1084.05pt x 578.16pt>
@@ -1051,315 +1047,337 @@ File: "ES_files/figure-latex/""BIAS-1".pdf Graphic file (type pdf)
 Package pdftex.def Info: "ES_files/figure-latex/""BIAS-1".pdf  used on input li
 ne 175.
 (pdftex.def)             Requested size: 401.50575pt x 214.1364pt.
-[8 <./ES_files/figure-latex/BIAS-1.pdf>] [9]
-Underfull \vbox (badness 1062) has occurred while \output is active []
-
-[10] [11] [12]
-Underfull \vbox (badness 5741) has occurred while \output is active []
-
-[13] [14] [15] [16] [17] [18]
+[8 <./ES_files/figure-latex/BIAS-1.pdf>] [9] [10] [11] [12] [13] [14] [15] [16]
+[17] [18] [19]
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/""legend".png, id=158, 361.35pt x 240.9pt>
+ of ES measures/Graphs/""legend".png, id=168, 361.35pt x 240.9pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/""legend".png Graphic file (type png)
 <use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
 lity of ES measures/Graphs/""legend".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/""legend".png  used on input lin
-e 368.
+e 370.
 (pdftex.def)             Requested size: 361.36014pt x 240.90674pt.
 \openout4 = `ES.fff'.
 
-(ES.fff) [19] [20 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Script
-s outputs/Quality of ES measures/Graphs/legend.png>] [21] [22]
-Underfull \vbox (badness 1117) has occurred while \output is active []
+(ES.fff) [20 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/legend.png>]
 
-[23] [24] [25] [26] [27] [28] [29]pdfTeX warning (ext4): destination with the s
-ame identifier (name{ref-Altman_2005}) has been already used, duplicate ignored
+LaTeX Warning: Reference `fig:idHetbal2' on page 21 undefined on input line 405
+.
 
+
+LaTeX Warning: Reference `fig:idHetbal3' on page 21 undefined on input line 405
+.
+
+[21]
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
+[22] [23] [24] [25] [26] [27] [28] [29] [30]pdfTeX warning (ext4): destination 
+with the same identifier (name{ref-Altman_2005}) has been already used, duplica
+te ignored
 <to be read again> 
                    \relax 
-l.635 \leavevmode\hypertarget{ref-Altman_2005}{}
-                                                % [30]pdfTeX warning (ext4): de
-stination with the same identifier (name{ref-AERA_2006}) has been already used,
- duplicate ignored
+l.628 \leavevmode\hypertarget{ref-Altman_2005}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-AERA_2006}) has been already used, dupl
+icate ignored
 <to be read again> 
                    \relax 
-l.638 \leavevmode\hypertarget{ref-AERA_2006}{}
+l.631 \leavevmode\hypertarget{ref-AERA_2006}{}
                                               %pdfTeX warning (ext4): destinati
 on with the same identifier (name{ref-APA_2010}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.641 \leavevmode\hypertarget{ref-APA_2010}{}
+l.634 \leavevmode\hypertarget{ref-APA_2010}{}
                                              %pdfTeX warning (ext4): destinatio
 n with the same identifier (name{ref-Andersen_et_al_2007}) has been already use
 d, duplicate ignored
 <to be read again> 
                    \relax 
-l.644 ...de\hypertarget{ref-Andersen_et_al_2007}{}
+l.637 ...de\hypertarget{ref-Andersen_et_al_2007}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Bothe_Richardson_2011}) has been alre
 ady used, duplicate ignored
 <to be read again> 
                    \relax 
-l.647 ...\hypertarget{ref-Bothe_Richardson_2011}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Cain_et_al_2017}) has been already us
-ed, duplicate ignored
+l.640 ...\hypertarget{ref-Bothe_Richardson_2011}{}
+                                                  % [31]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Cain_et_al_2017}) has been alrea
+dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.650 ...evmode\hypertarget{ref-Cain_et_al_2017}{}
+l.643 ...evmode\hypertarget{ref-Cain_et_al_2017}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Coe_2002}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.653 \leavevmode\hypertarget{ref-Coe_2002}{}
+l.646 \leavevmode\hypertarget{ref-Coe_2002}{}
                                              %pdfTeX warning (ext4): destinatio
 n with the same identifier (name{ref-Cohen_1965}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.656 \leavevmode\hypertarget{ref-Cohen_1965}{}
+l.649 \leavevmode\hypertarget{ref-Cohen_1965}{}
                                                %pdfTeX warning (ext4): destinat
 ion with the same identifier (name{ref-Cohen_1988}) has been already used, dupl
 icate ignored
 <to be read again> 
                    \relax 
-l.659 \leavevmode\hypertarget{ref-Cohen_1988}{}
+l.652 \leavevmode\hypertarget{ref-Cohen_1988}{}
                                                %pdfTeX warning (ext4): destinat
 ion with the same identifier (name{ref-Cumming_2013}) has been already used, du
 plicate ignored
 <to be read again> 
                    \relax 
-l.662 \leavevmode\hypertarget{ref-Cumming_2013}{}
-                                                 % [31]pdfTeX warning (ext4): d
-estination with the same identifier (name{ref-Delacre_et_al_2017}) has been alr
-eady used, duplicate ignored
+l.655 \leavevmode\hypertarget{ref-Cumming_2013}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-Delacre_et_al_2017}) has been already 
+used, duplicate ignored
 <to be read again> 
                    \relax 
-l.665 ...ode\hypertarget{ref-Delacre_et_al_2017}{}
+l.658 ...ode\hypertarget{ref-Delacre_et_al_2017}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Delacre_et_al_2019}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.668 ...ode\hypertarget{ref-Delacre_et_al_2019}{}
+l.661 ...ode\hypertarget{ref-Delacre_et_al_2019}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Ellis_2015}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.671 \leavevmode\hypertarget{ref-Ellis_2015}{}
-                                               %pdfTeX warning (ext4): destinat
-ion with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has been al
-ready used, duplicate ignored
+l.664 \leavevmode\hypertarget{ref-Ellis_2015}{}
+                                               % [32]pdfTeX warning (ext4): des
+tination with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has be
+en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.674 ...rtarget{ref-Erceg-Hurn_Mirosevich_2008}{}
+l.667 ...rtarget{ref-Erceg-Hurn_Mirosevich_2008}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Fan_2001}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.677 \leavevmode\hypertarget{ref-Fan_2001}{}
+l.670 \leavevmode\hypertarget{ref-Fan_2001}{}
                                              %pdfTeX warning (ext4): destinatio
 n with the same identifier (name{ref-Glass_et_al_1981}) has been already used, 
 duplicate ignored
 <to be read again> 
                    \relax 
-l.680 ...vmode\hypertarget{ref-Glass_et_al_1981}{}
+l.673 ...vmode\hypertarget{ref-Glass_et_al_1981}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Glass_et_al_1972}) has been already u
 sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.683 ...vmode\hypertarget{ref-Glass_et_al_1972}{}
+l.676 ...vmode\hypertarget{ref-Glass_et_al_1972}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Grissom_2000}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.686 \leavevmode\hypertarget{ref-Grissom_2000}{}
+l.679 \leavevmode\hypertarget{ref-Grissom_2000}{}
                                                  %pdfTeX warning (ext4): destin
 ation with the same identifier (name{ref-Grissom_Kim_2001}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.689 ...vmode\hypertarget{ref-Grissom_Kim_2001}{}
-                                                  % [32]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Grissom_and_kim_2005}) has been 
-already used, duplicate ignored
+l.682 ...vmode\hypertarget{ref-Grissom_Kim_2001}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Grissom_and_Kim_2012}) has been alrea
+dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.692 ...e\hypertarget{ref-Grissom_and_kim_2005}{}
+l.685 ...e\hypertarget{ref-Grissom_and_Kim_2012}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Grissom_and_kim_2005}) has been alrea
+dy used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.688 ...e\hypertarget{ref-Grissom_and_kim_2005}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Hays_1963}) has been already used, du
 plicate ignored
 <to be read again> 
                    \relax 
-l.695 \leavevmode\hypertarget{ref-Hays_1963}{}
+l.691 \leavevmode\hypertarget{ref-Hays_1963}{}
                                               %pdfTeX warning (ext4): destinati
 on with the same identifier (name{ref-Hedges_1981}) has been already used, dupl
 icate ignored
 <to be read again> 
                    \relax 
-l.698 \leavevmode\hypertarget{ref-Hedges_1981}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Hedges_Olkin_1985}) has been already us
-ed, duplicate ignored
+l.694 \leavevmode\hypertarget{ref-Hedges_1981}{}
+                                                % [33]pdfTeX warning (ext4): de
+stination with the same identifier (name{ref-Hedges_Olkin_1985}) has been alrea
+dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.701 ...mode\hypertarget{ref-Hedges_Olkin_1985}{}
+l.697 ...mode\hypertarget{ref-Hedges_Olkin_1985}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Henson_Smith_2000}) has been already 
 used, duplicate ignored
 <to be read again> 
                    \relax 
-l.704 ...mode\hypertarget{ref-Henson_Smith_2000}{}
+l.700 ...mode\hypertarget{ref-Henson_Smith_2000}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Kelley_2005}) has been already used, 
 duplicate ignored
 <to be read again> 
                    \relax 
-l.707 \leavevmode\hypertarget{ref-Kelley_2005}{}
+l.703 \leavevmode\hypertarget{ref-Kelley_2005}{}
                                                 %pdfTeX warning (ext4): destina
 tion with the same identifier (name{ref-Kirk_2009}) has been already used, dupl
 icate ignored
 <to be read again> 
                    \relax 
-l.710 \leavevmode\hypertarget{ref-Kirk_2009}{}
+l.706 \leavevmode\hypertarget{ref-Kirk_2009}{}
                                               %pdfTeX warning (ext4): destinati
 on with the same identifier (name{ref-Lakens_2013}) has been already used, dupl
 icate ignored
 <to be read again> 
                    \relax 
-l.713 \leavevmode\hypertarget{ref-Lakens_2013}{}
+l.709 \leavevmode\hypertarget{ref-Lakens_2013}{}
                                                 %pdfTeX warning (ext4): destina
 tion with the same identifier (name{ref-Li_2016}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.716 \leavevmode\hypertarget{ref-Li_2016}{}
-                                            % [33]pdfTeX warning (ext4): destin
-ation with the same identifier (name{ref-McBride_et_al_1993}) has been already 
-used, duplicate ignored
+l.712 \leavevmode\hypertarget{ref-Li_2016}{}
+                                            %pdfTeX warning (ext4): destination
+ with the same identifier (name{ref-McBride_et_al_1993}) has been already used,
+ duplicate ignored
 <to be read again> 
                    \relax 
-l.719 ...ode\hypertarget{ref-McBride_et_al_1993}{}
+l.715 ...ode\hypertarget{ref-McBride_et_al_1993}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Meehl_1990}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.722 \leavevmode\hypertarget{ref-Meehl_1990}{}
+l.718 \leavevmode\hypertarget{ref-Meehl_1990}{}
                                                %pdfTeX warning (ext4): destinat
 ion with the same identifier (name{ref-Micceri_1989}) has been already used, du
 plicate ignored
 <to be read again> 
                    \relax 
-l.725 \leavevmode\hypertarget{ref-Micceri_1989}{}
-                                                 %pdfTeX warning (ext4): destin
-ation with the same identifier (name{ref-Nakagawa_and_Cuthill_2007}) has been a
-lready used, duplicate ignored
+l.721 \leavevmode\hypertarget{ref-Micceri_1989}{}
+                                                 % [34]pdfTeX warning (ext4): d
+estination with the same identifier (name{ref-Nakagawa_and_Cuthill_2007}) has b
+een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.728 ...ertarget{ref-Nakagawa_and_Cuthill_2007}{}
+l.724 ...ertarget{ref-Nakagawa_and_Cuthill_2007}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Olejnik_Algina_2000}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.731 ...de\hypertarget{ref-Olejnik_Algina_2000}{}
+l.727 ...de\hypertarget{ref-Olejnik_Algina_2000}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Olejnik_Hess_2001}) has been already 
 used, duplicate ignored
 <to be read again> 
                    \relax 
-l.734 ...mode\hypertarget{ref-Olejnik_Hess_2001}{}
+l.730 ...mode\hypertarget{ref-Olejnik_Hess_2001}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Peng_and_Chen_2014}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.737 ...ode\hypertarget{ref-Peng_and_Chen_2014}{}
+l.733 ...ode\hypertarget{ref-Peng_and_Chen_2014}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Peng_et_al_2013}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.740 ...evmode\hypertarget{ref-Peng_et_al_2013}{}
+l.736 ...evmode\hypertarget{ref-Peng_et_al_2013}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Prentice_Miller_1992}) has been alrea
 dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.743 ...e\hypertarget{ref-Prentice_Miller_1992}{}
-                                                  % [34]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Raviv}) has been already used, d
-uplicate ignored
+l.739 ...e\hypertarget{ref-Prentice_Miller_1992}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Raviv}) has been already used, duplic
+ate ignored
 <to be read again> 
                    \relax 
-l.746 \leavevmode\hypertarget{ref-Raviv}{}
+l.742 \leavevmode\hypertarget{ref-Raviv}{}
                                           %pdfTeX warning (ext4): destination w
 ith the same identifier (name{ref-Rosenthal_1994}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.749 ...vevmode\hypertarget{ref-Rosenthal_1994}{}
+l.745 ...vevmode\hypertarget{ref-Rosenthal_1994}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Shieh_2013}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.752 \leavevmode\hypertarget{ref-Shieh_2013}{}
-                                               %pdfTeX warning (ext4): destinat
-ion with the same identifier (name{ref-Steyn_2000}) has been already used, dupl
-icate ignored
+l.748 \leavevmode\hypertarget{ref-Shieh_2013}{}
+                                               % [35]pdfTeX warning (ext4): des
+tination with the same identifier (name{ref-Steyn_2000}) has been already used,
+ duplicate ignored
 <to be read again> 
                    \relax 
-l.755 \leavevmode\hypertarget{ref-Steyn_2000}{}
+l.751 \leavevmode\hypertarget{ref-Steyn_2000}{}
                                                %pdfTeX warning (ext4): destinat
 ion with the same identifier (name{ref-Stout_Ruble_1995}) has been already used
 , duplicate ignored
 <to be read again> 
                    \relax 
-l.758 ...vmode\hypertarget{ref-Stout_Ruble_1995}{}
+l.754 ...vmode\hypertarget{ref-Stout_Ruble_1995}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Sullivan_Feinn_2012}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.761 ...de\hypertarget{ref-Sullivan_Feinn_2012}{}
+l.757 ...de\hypertarget{ref-Sullivan_Feinn_2012}{}
                                                   %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Wackerly_et_al_2008}) has been alread
-y used, duplicate ignored
+nation with the same identifier (name{ref-Thompson_2002}) has been already used
+, duplicate ignored
 <to be read again> 
                    \relax 
-l.764 ...de\hypertarget{ref-Wackerly_et_al_2008}{}
+l.760 \leavevmode\hypertarget{ref-Thompson_2002}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Tyler_1931}) has been already used, d
+uplicate ignored
+<to be read again> 
+                   \relax 
+l.763 \leavevmode\hypertarget{ref-Tyler_1931}{}
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Wackerly_et_al_2008}) has been already u
+sed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.766 ...de\hypertarget{ref-Wackerly_et_al_2008}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Wilkinson_1999}) has been already use
 d, duplicate ignored
 <to be read again> 
                    \relax 
-l.767 ...vevmode\hypertarget{ref-Wilkinson_1999}{}
+l.769 ...vevmode\hypertarget{ref-Wilkinson_1999}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Yuan_et_al_2004}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.770 ...evmode\hypertarget{ref-Yuan_et_al_2004}{}
+l.772 ...evmode\hypertarget{ref-Yuan_et_al_2004}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Keselman_et_al_2008}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.773 ...de\hypertarget{ref-Keselman_et_al_2008}{}
-                                                  % [35] (ES.fff
+l.775 ...de\hypertarget{ref-Keselman_et_al_2008}{}
+                                                  % [36] (ES.fff
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=0;id_Hom_bal".png, id=37
-9, 216.81pt x 409.53pt>
+ of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=0;id_Hom_bal".png, id=38
+5, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=0;id_Hom_bal".png G
 raphic file (type png)
@@ -1368,10 +1386,10 @@ lity of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=0;id_Hom_bal".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=
 0;id_Hom_bal".png  used on input line 3.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=95.75;id_Hom_bal".png, i
-d=380, 216.81pt x 409.53pt>
+d=386, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=95.75;id_Hom_bal".p
 ng Graphic file (type png)
@@ -1381,10 +1399,10 @@ g>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=0 & G2=
 95.75;id_Hom_bal".png  used on input line 3.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=2.08 & G2=95.75;id_Hom_bal".png
-, id=381, 216.81pt x 409.53pt>
+, id=387, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=2.08 & G2=95.75;id_Hom_bal
 ".png Graphic file (type png)
@@ -1394,10 +1412,10 @@ lity of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=2.08 & G2=95.75;id_Hom_bal"
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=2.08 & 
 G2=95.75;id_Hom_bal".png  used on input line 3.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=6.32 & G2=95.75;id_Hom_bal".png
-, id=382, 216.81pt x 409.53pt>
+, id=388, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=6.32 & G2=95.75;id_Hom_bal
 ".png Graphic file (type png)
@@ -1407,8 +1425,8 @@ lity of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=6.32 & G2=95.75;id_Hom_bal"
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_bal/""bias_eff,G1=6.32 & 
 G2=95.75;id_Hom_bal".png  used on input line 3.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[36 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
+[37 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
 ity of ES measures/Graphs/id_Hom_bal/bias_eff,G1=0 & G2=0;id_Hom_bal.png> <C:/U
 sers/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES
  measures/Graphs/id_Hom_bal/bias_eff,G1=0 & G2=95.75;id_Hom_bal.png> <C:/Users/
@@ -1418,7 +1436,7 @@ rie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measur
 es/Graphs/id_Hom_bal/bias_eff,G1=6.32 & G2=95.75;id_Hom_bal.png>]
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=0;id_Het_bal".png, id=39
-1, 216.81pt x 409.53pt>
+8, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=0;id_Het_bal".png G
 raphic file (type png)
@@ -1427,10 +1445,10 @@ lity of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=0;id_Het_bal".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=
 0;id_Het_bal".png  used on input line 13.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=95.75;id_Het_bal".png, i
-d=392, 216.81pt x 409.53pt>
+d=399, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=95.75;id_Het_bal".p
 ng Graphic file (type png)
@@ -1440,23 +1458,10 @@ g>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=0 & G2=
 95.75;id_Het_bal".png  used on input line 13.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/id_Het_bal/""bias_eff,G1=2.08 & G2=95.75;id_Het_bal".png
-, id=393, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=2.08 & G2=95.75;id_Het_bal
-".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/id_Het_bal/""bias_eff,G1=2.08 & G2=95.75;id_Het_bal"
-.png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=2.08 & 
-G2=95.75;id_Het_bal".png  used on input line 13.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_bal/""bias_eff,G1=6.32 & G2=95.75;id_Het_bal".png
-, id=394, 216.81pt x 409.53pt>
+, id=400, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=6.32 & G2=95.75;id_Het_bal
 ".png Graphic file (type png)
@@ -1466,140 +1471,16 @@ lity of ES measures/Graphs/id_Het_bal/""bias_eff,G1=6.32 & G2=95.75;id_Het_bal"
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/""bias_eff,G1=6.32 & 
 G2=95.75;id_Het_bal".png  used on input line 13.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[37 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
+[38 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
 ity of ES measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=0;id_Het_bal.png> <C:/U
 sers/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES
  measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=95.75;id_Het_bal.png> <C:/Users/
 Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES meas
-ures/Graphs/id_Het_bal/bias_eff,G1=2.08 & G2=95.75;id_Het_bal.png> <C:/Users/Ma
-rie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measur
-es/Graphs/id_Het_bal/bias_eff,G1=6.32 & G2=95.75;id_Het_bal.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_SDsd_bal2
-".png, id=404, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_SDsd
-_bal2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_SDsd_
-bal2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=0 & G2=0;id_SDsd_bal2".png  used on input line 23.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_SDsd_
-bal2".png, id=405, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_
-SDsd_bal2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_S
-Dsd_bal2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=0 & G2=95.75;id_SDsd_bal2".png  used on input line 23.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;id_SD
-sd_bal2".png, id=406, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;
-id_SDsd_bal2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;i
-d_SDsd_bal2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=2.08 & G2=95.75;id_SDsd_bal2".png  used on input line 23.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;id_SD
-sd_bal2".png, id=407, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;
-id_SDsd_bal2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;i
-d_SDsd_bal2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=6.32 & G2=95.75;id_SDsd_bal2".png  used on input line 23.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[38 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=0;id_SDsd_bal
-2.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Q
-uality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=95.75;id_S
-Dsd_bal2.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts ou
-tputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=2.08 & G2=
-95.75;id_SDsd_bal2.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/
-Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=
-6.32 & G2=95.75;id_SDsd_bal2.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_sdSD_bal1
-".png, id=416, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_sdSD
-_bal1".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=0;id_sdSD_
-bal1".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=0 & G2=0;id_sdSD_bal1".png  used on input line 33.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_sdSD_
-bal1".png, id=417, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_
-sdSD_bal1".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=0 & G2=95.75;id_s
-dSD_bal1".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=0 & G2=95.75;id_sdSD_bal1".png  used on input line 33.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;id_sd
-SD_bal1".png, id=418, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;
-id_sdSD_bal1".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=2.08 & G2=95.75;i
-d_sdSD_bal1".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=2.08 & G2=95.75;id_sdSD_bal1".png  used on input line 33.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;id_sd
-SD_bal1".png, id=419, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;
-id_sdSD_bal1".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/subconditions/hetBal/""bias_eff,G1=6.32 & G2=95.75;i
-d_sdSD_bal1".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/""bias_eff,
-G1=6.32 & G2=95.75;id_sdSD_bal1".png  used on input line 33.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[39 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=0;id_sdSD_bal
-1.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Q
-uality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=95.75;id_s
-dSD_bal1.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts ou
-tputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=2.08 & G2=
-95.75;id_sdSD_bal1.png> <C:/Users/Marie/Documents/Github_projects/Effect-sizes/
-Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=
-6.32 & G2=95.75;id_sdSD_bal1.png>]
+ures/Graphs/id_Het_bal/bias_eff,G1=6.32 & G2=95.75;id_Het_bal.png>]
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=0;id_Hom_rnull".png, i
-d=428, 216.81pt x 409.53pt>
+d=408, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=0;id_Hom_rnull".p
 ng Graphic file (type png)
@@ -1608,11 +1489,11 @@ lity of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=0;id_Hom_rnull".pn
 g>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G
-2=0;id_Hom_rnull".png  used on input line 43.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+2=0;id_Hom_rnull".png  used on input line 23.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=95.75;id_Hom_rnull".pn
-g, id=429, 216.81pt x 409.53pt>
+g, id=409, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=95.75;id_Hom_rnul
 l".png Graphic file (type png)
@@ -1621,24 +1502,11 @@ lity of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G2=95.75;id_Hom_rnull
 ".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=0 & G
-2=95.75;id_Hom_rnull".png  used on input line 43.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=2.08 & G2=95.75;id_Hom_rnull"
-.png, id=430, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=2.08 & G2=95.75;id_Hom_r
-null".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=2.08 & G2=95.75;id_Hom_rn
-ull".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=2.08 
-& G2=95.75;id_Hom_rnull".png  used on input line 43.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+2=95.75;id_Hom_rnull".png  used on input line 23.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=6.32 & G2=95.75;id_Hom_rnull"
-.png, id=431, 216.81pt x 409.53pt>
+.png, id=410, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=6.32 & G2=95.75;id_Hom_r
 null".png Graphic file (type png)
@@ -1647,20 +1515,17 @@ lity of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=6.32 & G2=95.75;id_Hom_rn
 ull".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/""bias_eff,G1=6.32 
-& G2=95.75;id_Hom_rnull".png  used on input line 43.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[40 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
+& G2=95.75;id_Hom_rnull".png  used on input line 23.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
+[39 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
 ity of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=0;id_Hom_rnull.png> <
 C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality o
 f ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=95.75;id_Hom_rnull.png> <C
 :/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of
- ES measures/Graphs/id_Hom_rnull/bias_eff,G1=2.08 & G2=95.75;id_Hom_rnull.png> 
-<C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality 
-of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=6.32 & G2=95.75;id_Hom_rnull.png
->]
+ ES measures/Graphs/id_Hom_rnull/bias_eff,G1=6.32 & G2=95.75;id_Hom_rnull.png>]
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=0;id_Het_rpos".png, id=
-440, 216.81pt x 409.53pt>
+418, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=0;id_Het_rpos".png
  Graphic file (type png)
@@ -1669,11 +1534,11 @@ lity of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=0;id_Het_rpos".png>
 
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2
-=0;id_Het_rpos".png  used on input line 53.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+=0;id_Het_rpos".png  used on input line 33.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=95.75;id_Het_rpos".png,
- id=441, 216.81pt x 409.53pt>
+ id=419, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=95.75;id_Het_rpos"
 .png Graphic file (type png)
@@ -1682,24 +1547,11 @@ lity of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2=95.75;id_Het_rpos".
 png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=0 & G2
-=95.75;id_Het_rpos".png  used on input line 53.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=2.08 & G2=95.75;id_Het_rpos".p
-ng, id=442, 216.81pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=2.08 & G2=95.75;id_Het_rp
-os".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=2.08 & G2=95.75;id_Het_rpo
-s".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=2.08 &
- G2=95.75;id_Het_rpos".png  used on input line 53.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+=95.75;id_Het_rpos".png  used on input line 33.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=6.32 & G2=95.75;id_Het_rpos".p
-ng, id=443, 216.81pt x 409.53pt>
+ng, id=420, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=6.32 & G2=95.75;id_Het_rp
 os".png Graphic file (type png)
@@ -1708,19 +1560,17 @@ lity of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=6.32 & G2=95.75;id_Het_rpo
 s".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/""bias_eff,G1=6.32 &
- G2=95.75;id_Het_rpos".png  used on input line 53.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-[41 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
+ G2=95.75;id_Het_rpos".png  used on input line 33.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
+[40 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
 ity of ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=0;id_Het_rpos.png> <C:
 /Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of 
 ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=95.75;id_Het_rpos.png> <C:/Us
 ers/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
-measures/Graphs/id_Het_rpos/bias_eff,G1=2.08 & G2=95.75;id_Het_rpos.png> <C:/Us
-ers/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/id_Het_rpos/bias_eff,G1=6.32 & G2=95.75;id_Het_rpos.png>]
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=0;id_Het_rneg".png, id=
-452, 216.81pt x 409.53pt>
+428, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=0;id_Het_rneg".png
  Graphic file (type png)
@@ -1729,11 +1579,11 @@ lity of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=0;id_Het_rneg".png>
 
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2
-=0;id_Het_rneg".png  used on input line 63.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+=0;id_Het_rneg".png  used on input line 43.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=95.75;id_Het_rneg".png,
- id=453, 216.81pt x 409.53pt>
+ id=429, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=95.75;id_Het_rneg"
 .png Graphic file (type png)
@@ -1742,11 +1592,11 @@ lity of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2=95.75;id_Het_rneg".
 png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=0 & G2
-=95.75;id_Het_rneg".png  used on input line 63.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+=95.75;id_Het_rneg".png  used on input line 43.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=2.08 & G2=95.75;id_Het_rneg".p
-ng, id=454, 216.81pt x 409.53pt>
+ng, id=430, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=2.08 & G2=95.75;id_Het_rn
 eg".png Graphic file (type png)
@@ -1755,11 +1605,11 @@ lity of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=2.08 & G2=95.75;id_Het_rne
 g".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=2.08 &
- G2=95.75;id_Het_rneg".png  used on input line 63.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
+ G2=95.75;id_Het_rneg".png  used on input line 43.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
 <"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
  of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=6.32 & G2=95.75;id_Het_rneg".p
-ng, id=455, 216.81pt x 409.53pt>
+ng, id=431, 240.9pt x 409.53pt>
 File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=6.32 & G2=95.75;id_Het_rn
 eg".png Graphic file (type png)
@@ -1768,9 +1618,9 @@ lity of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=6.32 & G2=95.75;id_Het_rne
 g".png>
 Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
 /Scripts outputs/Quality of ES measures/Graphs/id_Het_rneg/""bias_eff,G1=6.32 &
- G2=95.75;id_Het_rneg".png  used on input line 63.
-(pdftex.def)             Requested size: 130.0903pt x 245.72614pt.
-) [42 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
+ G2=95.75;id_Het_rneg".png  used on input line 43.
+(pdftex.def)             Requested size: 130.08772pt x 221.14915pt.
+) [41 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
 ality of ES measures/Graphs/id_Het_rneg/bias_eff,G1=0 & G2=0;id_Het_rneg.png> <
 C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality o
 f ES measures/Graphs/id_Het_rneg/bias_eff,G1=0 & G2=95.75;id_Het_rneg.png> <C:/
@@ -1782,10 +1632,8 @@ eX warning (ext4): destination with the same identifier (name{refs}) has been a
 lready used, duplicate ignored
 <to be read again> 
                    \relax 
-l.806 \hypertarget{refs}{}
-                           AED endfloat: Processing end Figures and Tables [43
-
-
+l.808 \hypertarget{refs}{}
+                           AED endfloat: Processing end Figures and Tables [42
 
 
 
@@ -1794,23 +1642,23 @@ l.806 \hypertarget{refs}{}
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 814.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 814.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 816.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 816.
 (ES.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 814.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 814.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 816.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 816.
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17193 strings out of 492452
- 278256 string characters out of 3128447
- 372349 words of memory out of 3000000
- 20979 multiletter control sequences out of 15000+200000
- 86452 words of font info for 129 fonts, out of 3000000 for 9000
+ 17133 strings out of 492452
+ 268818 string characters out of 3128447
+ 372415 words of memory out of 3000000
+ 20914 multiletter control sequences out of 15000+200000
+ 86660 words of font info for 131 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,2131b,528s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,2130b,528s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
 t.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-r
@@ -1833,9 +1681,9 @@ cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Marie/AppDat
 a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/Marie/App
 Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie
 /AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
-Output written on ES.pdf (43 pages, 764181 bytes).
+Output written on ES.pdf (42 pages, 658000 bytes).
 PDF statistics:
- 620 PDF objects out of 1000 (max. 8388607)
- 167 named destinations out of 1000 (max. 500000)
- 10519 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 168 named destinations out of 1000 (max. 500000)
+ 10464 words of extra memory for PDF output out of 12000 (max. 10000000)
 

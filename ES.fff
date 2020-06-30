@@ -10,7 +10,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=0;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=2.08 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=6.32 & G2=95.75;id_Het_bal}
+{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=0;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=0 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_bal/bias_eff,G1=6.32 & G2=95.75;id_Het_bal}
 
 }
 
@@ -20,27 +20,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=0;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=2.08 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=6.32 & G2=95.75;id_SDsd_bal2}
-
-}
-
-\caption{Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is larger than SD2 (condition c1)}\label{fig:idHetbal2}
-\end{sidewaysfigure}
-\efloatseparator
- 
-\begin{sidewaysfigure}
-
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=0;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=0 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=2.08 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetBal/bias_eff,G1=6.32 & G2=95.75;id_sdSD_bal1}
-
-}
-
-\caption{Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is lower than SD2 (condition c2)}\label{fig:idHetbal3}
-\end{sidewaysfigure}
-\efloatseparator
- 
-\begin{sidewaysfigure}
-
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=0;id_Hom_rnull} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=95.75;id_Hom_rnull} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=2.08 & G2=95.75;id_Hom_rnull} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=6.32 & G2=95.75;id_Hom_rnull}
+{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=0;id_Hom_rnull} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=0 & G2=95.75;id_Hom_rnull} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Hom_rnull/bias_eff,G1=6.32 & G2=95.75;id_Hom_rnull}
 
 }
 
@@ -50,7 +30,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=0;id_Het_rpos} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=95.75;id_Het_rpos} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=2.08 & G2=95.75;id_Het_rpos} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=6.32 & G2=95.75;id_Het_rpos}
+{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=0;id_Het_rpos} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=0 & G2=95.75;id_Het_rpos} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/id_Het_rpos/bias_eff,G1=6.32 & G2=95.75;id_Het_rpos}
 
 }
 
