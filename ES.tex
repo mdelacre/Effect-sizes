@@ -220,19 +220,22 @@ The \emph{d}-family effect sizes are commonly used with \enquote{between-subject
 \label{eq:Cohendelta}
 \end{equation}
 
-where both populations follow a normal distribution with mean \(\mu_j\) in the \(j^{th}\) population (j=1,2) and common standard deviation \(\sigma\). They exist different estimators of this effect size measure varying as a function of the chosen standardizer (\(\sigma\)). For all estimators, the mean difference is estimated by the difference \(\bar{X}_1-\bar{X}_2\) of both sample means. When used for inferential purposes, some estimators require both the assumptions of normally distributed data and the equality of variances, while others rely solely on the assumption of normality.
+where both populations follow a normal distribution with mean \(\mu_j\) in the \(j^{th}\) population (j=1,2) and common standard deviation \(\sigma\). They exist different estimators of this effect size measure varying as a function of the chosen standardizer (\(\sigma\)). For all estimators, the mean difference is estimated by the difference \(\bar{X}_1-\bar{X}_2\) of both sample means. When used for inferential purposes, some estimators require both the assumptions of normally distributed data and the equality of variances, while others rely
+solely on the assumption of normality. Throughout this section, we will present some of these estimators, separately depending on whether they rely on the assumption of equality of variances or not. For each of them, we will provide information about their theoretical bias, variance and consistency.
 
 \hypertarget{alternatives-when-variances-are-equal-between-groups}{%
 \subsection{Alternatives when variances are equal between groups}\label{alternatives-when-variances-are-equal-between-groups}}
 
-When we have good reasons to assume equality of variances between groups, then the most common estimator of \(\delta\) is Cohen's \(d_{s}\) where the sample mean difference is divided by a pooled error term (Cohen, 1965):
+\hypertarget{cohens-d_s}{%
+\subsubsection{\texorpdfstring{Cohen's \(d_s\)}{Cohen's d\_s}}\label{cohens-d_s}}
 
+When we have good reasons to assume equality of variances between groups, then the most common estimator of \(\delta\) is Cohen's \(d_{s}\) where the sample mean difference is divided by a pooled error term (Cohen, 1965):
 \begin{equation} 
 Cohen's \; d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times SD_1+(n_2-1) \times SD_2}{n_1+n_2-2}}} 
 \label{eq:Cohends}
 \end{equation}
 
-Where \(SD_j\) is the standard deviation and \(n_j\) the sample size of the \(j^{th}\) sample (j=1,2). The reasoning behind this measure is to make use of the fact that both samples share the same population variance (n.d.), hence we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)). Since the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size.
+Where \(SD_j\) is the standard deviation and \(n_j\) the sample size of the \(j^{th}\) sample (j=1,2). The reasoning behind this measure is to make use of the fact that both samples share the same population variance (Keselman, Algina, Lix, Deering, \& Wilcox, 2008), hence we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(SD_1\) and \(SD_2\)). Since the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size.
 
 Cohen's \(d_{s}\) is directly related with Student's \emph{t}-test:
 
@@ -241,20 +244,60 @@ Cohen's \; d_s = t_{student} \times \sqrt{\frac{n_1+n_2}{n_1n_2}} \leftrightarro
 \label{eq:Cohenvsstudent}
 \end{equation}
 
-The relationship described in equation \ref{eq:Cohenvsstudent} between Cohen's \(d_s\) and the Student's \emph{t} statistic, whose distribution is well known, allows us to theoretically determine the sampling distribution of Cohen's \(d_s\), and therefore, its theoretical expectency, bias and variance under the assumption of normality and equality of variances. As one can deduce from Table 1, with \(n_1+n_2 \ge 4\), the bias is always positive (IF N=2, NEGATIVE BIAS, AND IF N=3, INFINITE BIAS). While the bias tends to zero with large sample size, it is substantial with small sample size, even under the assumptions of normality and equal variances (Lakens, 2013) and, for this reason, Hedges \& Olkin (1985) has defined a bias-corrected version:
+The relationship described in equation \ref{eq:Cohenvsstudent} between Cohen's \(d_s\) and the Student's \emph{t} statistic, whose distribution is well known, allows us to theoretically determine the sampling distribution of Cohen's \(d_s\), and therefore, its theoretical expectency, bias and variance. All equations are provided in Table 1. In summary:
+
+\begin{itemize}
+\tightlist
+\item
+  When Cohen's \(\delta_s\) is null, the bias is null. In all other configurations, the \textbf{bias} of Cohen's \(d_s\) is a function of total sample size (N) and the population effect size (Cohen's \(\delta_s\)):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The larger the population effect size, the more Cohen's \(d_s\) will overestimate Cohen's \(\delta_s\).\footnote{Because  $\frac{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})}{\Gamma(\frac{N-2}{2})} > 0$}\\
+  \item
+    The larger the sample sizes, the lower the bias. The bias tends to zero when sample sizes tend to infinity.
+  \end{itemize}
+\item
+  The \textbf{variance} of Cohen's \(d_s\) is a function of the population effect size (Cohen's \(\delta_s\)), total sample size and sample sizes allocation ratio :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The larger the population effect size, the larger the variance.
+  \item
+    The larger the sample sizes, the lower the variance. The variance tends to zero when sample sizes tend to infinity.\\
+  \item
+    All other parameters beeing equal, the variance is minimized when sample sizes are equal across groups. The larger the sample size allocation ratio, the larger the variance.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{hedges-g_s}{%
+\subsubsection{\texorpdfstring{Hedge's \(g_s\)}{Hedge's g\_s}}\label{hedges-g_s}}
+
+While Cohen's \(d_s\) is a consistent estimator, its bias and variance are substantial with small sample sizes, even under the assumptions of normality and equal variances (Lakens, 2013). For this reason, Hedges \& Olkin (1985) has defined a bias-corrected version:
 
 \begin{equation} 
-Hedge's \; g_s = Cohen's \; d_s \times (1-\frac{3}{4 \times (n_1+n_2)-9}) 
+Hedge's \; g_s = Cohen's \; d_s \times \left( \frac{\Gamma(\frac{N-2}{2})}{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})} \right)^2
 \label{eq:Hedgesgs}
 \end{equation}
 
-Not only is this corrected estimator unbiased, but also has a smaller variance than Cohen's \(d_s\), especially with small sample size. While the pooled error term is the best choice when variances are equal between groups (Grissom \& Kim, 2001), it may not be well advised for use with data that violate this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). When variances are unequal between groups, the expression in equation \ref{eq:Cohendelta} is no longer valid because both groups don't share a common population variance. If we pool the estimates of two unequal population variances, the estimator of effect size will be lower as it should be in case of positive pairing (i.e.~the group with the larger sample size is extracted from the population with the larger variance) and larger as it should be in case of negative pairing (i.e.~the group with the larger sample size is extracted from the population with the smaller variance). Because the assumption of equal variances across populations is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre et al., 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004), both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of a robust alternative to unequal population variances.
+This equation can be estimated as follows:
+
+\begin{equation} 
+Hedge's \; g_s = Cohen's \; d_s \times \left( 1- \frac{3}{4 \times (n_1+n_2) -9} \right)
+\label{eq:Hedgesgsapprox}
+\end{equation}
+
+Hedge's \(g_s\) is theoretically unbiased. Like Cohen's \(d_s\), the variance of Hedge's \(g_s\) increases when the sample size allocation ratio and/or the population effect size increases, and decreases when the total sample size increases. However, due to the correction, Hedge's \(g_s\) has a smaller variance than Cohen's \(d_s\), especially with small sample size.\footnote{The larger the total sample size, the smaller the differene between the variance of Cohen's $d_s$ and Hedge's $g_s$, because $\left(\frac{\Gamma(\frac{N-2}{2})}{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})} \right)^2$ tends to 1 when N gets larger.}.
+
+While the pooled error term is the best choice when variances are equal between groups (Grissom \& Kim, 2001), it may not be well advised for use with data that violate this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). When variances are unequal between groups, the expression in equation \ref{eq:Cohendelta} is no longer valid because both groups don't share a common population variance. If we pool the estimates of two unequal population variances, the estimator of effect size will be lower as it should be in case of positive pairing (i.e.~the group with the larger sample size is extracted from the population with the larger variance) and larger as it should be in case of negative pairing (i.e.~the group with the larger sample size is extracted from the population with the smaller variance). Because the assumption of equal variances across populations is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre et al., 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004), both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of a robust alternative to unequal population variances.
 
 \newpage
 \begin{landscape}
 
 Table 1.
-\emph{Expentency, bias and variance of different estimators}
+\emph{Expentency, bias and variance of different estimators when the assumption tests are met}
 
 \begin{longtable}[]{@{}lccc@{}}
 \toprule
@@ -330,7 +373,7 @@ Variance\strut
 \end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
 \tiny\(\delta_{glass} \times \left( \frac{\sqrt{\frac{n_c-1}{2}} \times \Gamma(\frac{n_c-2}{2})}{\Gamma(\frac{n_c-1}{2})}-1 \right)\)\strut
 \end{minipage} & \begin{minipage}[t]{0.40\columnwidth}\centering
-\tiny\(\frac{n_c-1}{(n_c-3) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{glass}^2\right) -\delta_{glass}^2 \times \left[\frac{\sqrt{\frac{n_c-1}{2}} \times \Gamma(\frac{n_c-2}{2})}{\Gamma(\frac{n_c-1}{2})}\right]^2\)\strut
+\tiny\(\frac{n_c-1}{(n_c-3) \times \frac{n_cn_{exp}}{N}} \times \left(1+\frac{n_cn_{exp}}{N} \times \delta_{glass}^2\right) -\delta_{glass}^2 \times \left[\frac{\sqrt{\frac{n_c-1}{2}} \times \Gamma(\frac{n_c-2}{2})}{\Gamma(\frac{n_c-1}{2})}\right]^2\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.08\columnwidth}\raggedright
 \strut
@@ -371,7 +414,8 @@ Variance\strut
 \bottomrule
 \end{longtable}
 
-\emph{Note.} N is the total sample size (n1+n2). Equations to compute expectency, bias and variances of Cohen's ds, Hedge's gs and Glass's ds require the assumptions of normality and equal variances. SHOULD I ALSO MENTION THE LIMIT WHEN N TENDS TO INFINITY IN ORDER TO DEFINE CONSISTENCY?
+\emph{Note.} N is the total sample size (n1+n2). Equations returns theoretical expectency, bias and variance of Cohen's ds, Hedge's gs and Glass's ds under the assumptions that independent residuals are normally distributed with equal variances across groups, as well as theoretical expectency, bias and variance of Shieh's ds under the assumptions that independent residuals are normally distributed.
+\emph{Note.} SPECIFY THAT SOME EQUATIONS ARE UNDEFINED WITH TOO SMALL N. COMPUTING BIAS OF COHEN'S DS REQUIRES THAT N\textgreater=4 (COMPUTING VARIANCES OF COHEN'S DS and HEDGE'S GS REQUIRES THAT N \textgreater=5).
 
 \end{landscape}
 
@@ -387,6 +431,9 @@ The sample mean difference, divided by the non pooled average of both variance e
 - unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013);\\
 - unless the mean difference is null, the measure is biased. Moreover, the bigger the sample size, the larger the variance around the estimate.
 
+\hypertarget{glasss-d_s}{%
+\subsubsection{\texorpdfstring{Glass's \(d_s\)}{Glass's d\_s}}\label{glasss-d_s}}
+
 When comparing one control group with one experimental group, Glass, McGav, \& Smith (2005) recommend using the standard deviation \(SD\) of the control group as standardizer. It is also advocated by Cumming (2013), because, according to him, it is what makes the most sense, conceptually speaking. This yields
 
 \begin{equation} 
@@ -394,7 +441,34 @@ Glass's \; d_s = \frac{\bar{X}_{experimental} - \bar{X}_{control}}{SD_{control}}
 \label{eq:Glassds}
 \end{equation}
 
-One argument in favour of using the \(SD\) of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the \enquote{control} one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious (Coe, 2002). This could induce large ambiguity because depending of the chosen \(SD\) as standardizer, measures could be substantially diﬀerent (Shieh, 2013). The Glass \(d_s\) also has limitations when used for inference. The standardizer is estimated from only a part of the sample (since only one group is taken into account in variance estimation), which might potentially reduce accuracy (think of the desirable property of consistency). While being a consistant measure, Glass's \(d_s\) can be shown to be highly positively biased when there are less than 300 participants (Hedges, 1981; Olejnik \& Hess, 2001), especially for small effect sizes.
+One argument in favour of using the \(SD\) of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the \enquote{control} one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious (Coe, 2002). This could induce large ambiguity because depending of the chosen \(SD\) as standardizer, measures could be substantially diﬀerent (Shieh, 2013). Moreover, while being a consistent measure, Glass's \(d_s\) can be shown to be highly positively biased when there are less than 300 participants (Hedges, 1981; Olejnik \& Hess, 2001). Table 1 provides details about the expectency, bias and variance of Glass's \(d_s\). In summary:
+
+\begin{itemize}
+\tightlist
+\item
+  When Glass's \(\delta_s\) is null, the bias is null. In all other configurations, the \textbf{bias} of Glass's \(d_s\) is a function of the sample size of the control group (\(n_c\)) and the population effect size (Cohen's \(\delta_s\)):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The larger the population effect size, the more Glass's \(d_s\) will overestimate Glass's \(\delta_s\).\footnote{Because  $\frac{\sqrt{\frac{n_c-1}{2}} \times \Gamma(\frac{n_c-2}{2})}{\Gamma(\frac{n_c-1}{2})}-1 > 0$}
+  \item
+    The bias does not depend either on the size of the experimental group or on the total sample size. However, the larger the sample size of the control group, the lower the bias. The bias tends to zero when the sample size of the control group tend to infinity.
+  \end{itemize}
+\item
+  The \textbf{variance} of Glass's \(d_s\) is a function of the population effect size (Cohen's \(\delta_s\)), the size of the control group but also on the total sample size and the sample sizes allocation ratio:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The larger the population effect size, the larger the variance.
+  \item
+    The larger the total sample size, the lower the variance. Moreover, for a constant total sample size, the more there are subjects in the control group, the lower the variance (it is therefore more efficient, in order to reduce the variance, to add subjects in the control group than in the experimental group).
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{shiehs-d_s}{%
+\subsubsection{\texorpdfstring{Shieh's \(d_s\)}{Shieh's d\_s}}\label{shiehs-d_s}}
 
 Kulinskaya \& Staudte (2007) were the first to advice the use of a standardizer that take the sample sizes allocation ratios into account, in addition to the variance of both samples. Shieh (2013), following Kulinskaya \& Staudte (2007), proposed a modification of the exact \emph{SD} of the sample mean difference:
 
@@ -410,10 +484,31 @@ Shieh's \; d_s = \frac{t_{welch}}{\sqrt{n_1+n_2}} \leftrightarrow t_{welch} = Sh
 \label{eq:shiehvswelch}
 \end{equation}
 
-The exact distribution of Welch's \emph{t} statistic is more complicated than the exact distribution of Student's \emph{t} statistic, but it can be approximated (Shieh, 2013; Welch, 1938).
-Again, it allows us to theoretically determine the sampling distribution of Shieh's \(d_s\), and therefore, its theoretical expectency, bias and variance under the assumption of normality (see Table 1).
+The exact distribution of Welch's \emph{t} statistic is more complicated than the exact distribution of Student's \emph{t} statistic, but it can be approximated (Shieh, 2013; Welch, 1938). Again, it allows us to theoretically determine the sampling distribution of Shieh's \(d_s\), and therefore, its theoretical expectency, bias and variance under the assumption of normality (see Table 1). It can be demonstrasted that when variances and sample sizes are equal across groups, that the bias of Shieh's \(d_s\) is exactly half the bias of Cohen's \(d_s\), and its variance is exactly four time smaller than the variance of Cohen's \(d_s\). It means that the bias and variance of both estimators depends on the same parameter (reader can refer to the summary provided in the section relative to Cohen's \(d_s\)). Except for this very specific configuration:
 
-As one can deduce from Table 1, with \(n_1+n_2 \ge 4\), the bias is always positive (IF N=2, NEGATIVE BIAS, AND IF N=3, INFINITE BIAS). While the bias tends to zero with large sample size, it is substantial with small sample size, even under the assumptions of normality and equal variances (Lakens, 2013) and, for this reason, Hedges \& Olkin (1985) has defined a bias-corrected version. Not only is this corrected estimator unbiased, but also has a smaller variance than Cohen's \(d_s\), especially with small sample sizes.
+\begin{itemize}
+\tightlist
+\item
+  Bias
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \ldots{}\\
+  \item
+    \ldots{}\\
+  \end{itemize}
+\item
+  Variance
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \ldots{}\\
+  \item
+    \ldots{}
+  \end{itemize}
+\end{itemize}
 
 According to the statistical properties of Welch's statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference (\(\bar{X_1}-\bar{X_2}\)) as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is detailed and illustrated in Appendix 1, and also in the following shiny application: \url{https://mdelacre.shinyapps.io/improve-the-interpretability-of-shieh-s-d-shiny-app/}).
 
@@ -734,6 +829,9 @@ Henson, R. I., \& Smith, A. D. (2000). State of the art in statistical significa
 \leavevmode\hypertarget{ref-Kelley_2005}{}%
 Kelley, K. (2005). The effects of nonnormal distributions on confidence intervales around the standardized mean difference: Bootstrap and parametric confidence intervals. \emph{Educational and Psychological Measurement}, \emph{65}(1), 51--69. doi:\href{https://doi.org/10.1177/0013164404264850}{10.1177/0013164404264850}
 
+\leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
+Keselman, H. J., Algina, J., Lix, L. M., Deering, K. N., \& Wilcox, R. R. (2008). A generally robust approach for testing hypotheses and setting confidence intervals for effect sizes. \emph{Psychological Methods}, \emph{13}(2), 110--129. doi:\href{https://doi.org/10.1037/1082-989X.13.2.110}{10.1037/1082-989X.13.2.110}
+
 \leavevmode\hypertarget{ref-Kirk_2009}{}%
 Kirk, R. E. (2009). Practical significance: A concept whose time has come. \emph{Educational and Psychological Measurement}, \emph{56}(5), 746--759. doi:\href{https://doi.org/10.1177/0013164496056005002\%20}{10.1177/0013164496056005002 }
 
@@ -808,9 +906,6 @@ Wilkinson, L., \& the Task Force on Statistical Inference. (1999). Statistical m
 
 \leavevmode\hypertarget{ref-Yuan_et_al_2004}{}%
 Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling with heavy tailed distributions. \emph{Psychometrika}, \emph{69}(3), 421--436. doi:\href{https://doi.org/10.1007/bf02295644}{10.1007/bf02295644}
-
-\leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
-(n.d.).
 
 \leavevmode\hypertarget{ref-Altman_2005}{}%
 Altman, G. D. (2005). Why we need confidence intervals. \emph{World Journal of Surgery}, \emph{29}, 554--556. doi:\href{https://doi.org/10.1007/s00268-005-7911-0}{10.1007/s00268-005-7911-0}
@@ -890,6 +985,9 @@ Henson, R. I., \& Smith, A. D. (2000). State of the art in statistical significa
 \leavevmode\hypertarget{ref-Kelley_2005}{}%
 Kelley, K. (2005). The effects of nonnormal distributions on confidence intervales around the standardized mean difference: Bootstrap and parametric confidence intervals. \emph{Educational and Psychological Measurement}, \emph{65}(1), 51--69. doi:\href{https://doi.org/10.1177/0013164404264850}{10.1177/0013164404264850}
 
+\leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
+Keselman, H. J., Algina, J., Lix, L. M., Deering, K. N., \& Wilcox, R. R. (2008). A generally robust approach for testing hypotheses and setting confidence intervals for effect sizes. \emph{Psychological Methods}, \emph{13}(2), 110--129. doi:\href{https://doi.org/10.1037/1082-989X.13.2.110}{10.1037/1082-989X.13.2.110}
+
 \leavevmode\hypertarget{ref-Kirk_2009}{}%
 Kirk, R. E. (2009). Practical significance: A concept whose time has come. \emph{Educational and Psychological Measurement}, \emph{56}(5), 746--759. doi:\href{https://doi.org/10.1177/0013164496056005002\%20}{10.1177/0013164496056005002 }
 
@@ -964,9 +1062,6 @@ Wilkinson, L., \& the Task Force on Statistical Inference. (1999). Statistical m
 
 \leavevmode\hypertarget{ref-Yuan_et_al_2004}{}%
 Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling with heavy tailed distributions. \emph{Psychometrika}, \emph{69}(3), 421--436. doi:\href{https://doi.org/10.1007/bf02295644}{10.1007/bf02295644}
-
-\leavevmode\hypertarget{ref-Keselman_et_al_2008}{}%
-(n.d.).
 
 \clearpage
 \makeatletter
