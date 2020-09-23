@@ -29,7 +29,6 @@ for (i in seq_len(length(Folder))){
     sd2 <- as.numeric(param[[1]][10])
     
     cohen_delta <- (m1-m2)/sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
-    hedge_delta <- cohen_delta* (1-3/(4*(n1+n2-9)))
     glass_delta1 <- (m1-m2)/sd1
     glass_delta2 <- (m1-m2)/sd2
     q1 <- n1/(n1+n2)
@@ -42,7 +41,7 @@ for (i in seq_len(length(Folder))){
     
     # Compute bias
     bias_cohen <- mean(file[,9]) - cohen_delta
-    bias_hedge <- mean(file[,10]) - hedge_delta
+    bias_hedge <- mean(file[,10]) - cohen_delta # hedge's g_s is a corrected estimate of cohen's delta!
     bias_glass1 <- mean(file[,11]) - glass_delta1 
     bias_glass2 <- mean(file[,12]) - glass_delta2
     bias_shieh <- mean(file[,13]) - shieh_delta
@@ -50,13 +49,13 @@ for (i in seq_len(length(Folder))){
     
     # Compute relative bias
     relbias_cohen <- (mean(file[,9]) - cohen_delta)/cohen_delta
-    relbias_hedge <- (mean(file[,10]) - hedge_delta)/hedge_delta
+    relbias_hedge <- (mean(file[,10]) - cohen_delta)/cohen_delta
     relbias_glass1 <- (mean(file[,11]) - glass_delta1)/glass_delta1 
     relbias_glass2 <- (mean(file[,12]) - glass_delta2)/glass_delta2
     relbias_shieh <- (mean(file[,13]) - shieh_delta)/shieh_delta
     relbias_shieh_corr <- (mean(file[,14]) - shieh_delta_corr)/shieh_delta_corr
     
-    # Compute Efficiency
+    # Compute variance
     eff_cohen <- var(file[,9])
     eff_hedge <- var(file[,10])
     eff_glass1 <- var(file[,11])
@@ -64,17 +63,9 @@ for (i in seq_len(length(Folder))){
     eff_shieh <- var(file[,13])
     eff_shieh_corr <- var(file[,14])
     
-    # MSE
-    #MSE_cohen <- eff_cohen + bias_cohen^2
-    #MSE_hedge <- eff_hedge + bias_hedge^2
-    #MSE_glass1 <- eff_glass1 + bias_glass1^2
-    #MSE_glass2 <- eff_glass2 + bias_glass2^2
-    #MSE_shieh <- eff_shieh + bias_shieh^2
-    #MSE_shieh_corr <- eff_shieh_corr + bias_shieh_corr^2
-    
-    # Compute relative Efficiency
+    # Compute relative variance
     releff_cohen <- var(file[,9])/cohen_delta^2
-    releff_hedge <- var(file[,10])/hedge_delta^2
+    releff_hedge <- var(file[,10])/cohen_delta^2
     releff_glass1 <- var(file[,11])/glass_delta1^2 
     releff_glass2 <- var(file[,12])/glass_delta2^2
     releff_shieh <- var(file[,13])/shieh_delta^2
@@ -125,7 +116,7 @@ for (i in seq_len(length(Folder))){
 }
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#     GRAPH: PLOTTING bias, relative bias, and EFFICIENCY
+#     GRAPH: PLOTTING bias, relative bias, and variance
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # First of all, I'm going to make different graph for each category
@@ -149,7 +140,7 @@ for (i in seq_len(length(Folder))){
 # If sdSD & Nn or SDsd & nN: negative correlation between n and sd (rneg)
 # If sdSD & bal or SDsd & bal: no correlation between n and sd (rnull)
 
-
+library(stringr)
 setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/")
 png(file="legend.png",width=1500,height=1000, units = "px", res = 300)  
 
@@ -284,7 +275,7 @@ for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
     setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/",names(Conditions_id)[i]))
     png(file=paste0("bias_eff,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
     
-    par(xpd = F,mar = c(4,5,1.5,0),mfrow = c(4,1))   
+    par(mar = c(4,5,1.5,0),mfrow = c(4,1))   
     
     
     # plot for the bias
@@ -342,10 +333,12 @@ for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
             beside = TRUE,
             ylab = ylabeleff,
             cex.lab=1.5,
+            cex.names=.8,
             args.legend = list(
               x = length(res.eff)*1.2,
               y = max(res.eff)+.5,
               bty="n"
+              
             ))
     
     dev.off()
