@@ -72,12 +72,12 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     
     ### Effect sizes measures
     
-    # Cohen's d
+    # Cohen's d 
     pooled_sd <-sqrt(((n1-1)*sdev1^2+(n2-1)*sdev2^2)/(n1+n2-2))
     cohen_d <- (mean1-mean2)/pooled_sd
     
     # Hedges's g
-    hedge_g <- cohen_d*(1-3/(4*(n1+n2-9)))   
+    hedge_g <- cohen_d*(1-3/(4*(n1+n2)-9))   
     
     # Glass's delta
     glass_sd1 <- (mean1-mean2)/sdev1
@@ -124,6 +124,7 @@ sd1 <- 1
 sd2 <- c(.1,.25,.5,1,2,4,10)
 
 Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
+length(Simu[,1])
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 #length(Simu[,1])
@@ -152,6 +153,7 @@ sd1 <- 1
 sd2 <- c(.1,.25,.5,1,2,4,10)
 
 Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
+length(Simu[,1])
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 #length(Simu[,1])
