@@ -4,7 +4,7 @@
 
 }
 
-\caption{Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are equal across groups (condition a)}\label{fig:idHombal}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are equal across groups (condition a)}\label{fig:idHombal}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -14,7 +14,7 @@
 
 }
 
-\caption{Bias and efficiency of five estimator of standardized mean difference, when variances are equal across groups and sample sizes are unequal}\label{fig:idHomrnull}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances are equal across groups and sample sizes are unequal (condition b)}\label{fig:idHomrnull}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -24,7 +24,7 @@
 
 }
 
-\caption{Bias and efficiency of five estimator of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c)}\label{fig:idHetbal}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c)}\label{fig:idHetbal}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -34,7 +34,7 @@
 
 }
 
-\caption{Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is larger than SD2 (condition c1)}\label{fig:idHetbal2}
+\caption{Bias and efficiency of estimators, when sample sizes are equal across groups and population variances are unequal, when SD1 is larger than SD2 (condition c1)}\label{fig:idHetbal2}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -44,7 +44,7 @@
 
 }
 
-\caption{Bias and efficiency of Glass's ds, when sample sizes are equal across groups and population variances are unequal, when SD1 is lower than SD2 (condition c2)}\label{fig:idHetbal3}
+\caption{Bias and efficiency of estimators, when sample sizes are equal across groups and population variances are unequal, when SD1 is lower than SD2 (condition c2)}\label{fig:idHetbal3}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -54,7 +54,7 @@
 
 }
 
-\caption{Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are unequal across groups, with positive correlation between them}\label{fig:idHetrpos}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups, with positive correlation between them (condition d)}\label{fig:idHetrpos}
 \end{sidewaysfigure}
 \efloatseparator
  
@@ -64,5 +64,5 @@
 
 }
 
-\caption{Bias and efficiency of five estimator of standardized mean difference, when variances and sample sizes are unequal across groups, with negative correlation between them}\label{fig:idHetrneg}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups, with negative correlation between them (condition e)}\label{fig:idHetrneg}
 \end{sidewaysfigure}
