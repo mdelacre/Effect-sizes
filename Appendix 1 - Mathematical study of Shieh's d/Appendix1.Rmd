@@ -97,7 +97,7 @@ Note that when variances are equal between groups, Cohen's $\delta$ is constant 
 
 Moreover, when both sample sizes are equal between groups, Shieh's $\delta$ achieves its maximum value. When plotting both parameters against the log of the nratio, one can more easily observe that the Shieh's $\delta$ departs symmetrically from it's maximum value as long as the nratio moves away from 1 (i.e. when log(nratio) = 0; see Figure \ref{fig:SHIEH2}). 
 
-When variances are equal between groups, $\hat{\sigma}$ will be the same for all nratio ($\hat{\sigma}=\sigma_1=\sigma_2$; i.e. $\hat{\sigma}$ in Figure \ref{eq:shieh} = $\hat{\sigma}$ in Figure \ref{eq:cohenshieh}), one can deduce that the relation between Shieh's $\delta$ value when nratio=1 and its value for all other nratio can be expressed as follows:
+When variances are equal between groups, $\hat{\sigma}$ will be the same for all nratio ($\hat{\sigma}=\sigma_1=\sigma_2$; i.e. $\hat{\sigma}$ in Equation \ref{eq:shieh} = $\hat{\sigma}$ in Equation \ref{eq:cohenshieh}), one can deduce that the relation between Shieh's $\delta$ value when nratio=1 and its value for all other nratio can be expressed as follows:
 
 \begin{equation} 
 Shieh's \; \delta_{n_1=n_2} = Shieh's \; \delta \times \frac{\frac{\mu_1-\mu_2}{2 \times \hat{\sigma}}}{\frac{(\mu_1-\mu_2) \times \sqrt{nratio}}{(nratio+1) \times \hat{\sigma}}}
