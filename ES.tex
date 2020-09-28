@@ -220,7 +220,7 @@ The \emph{d}-family effect sizes are commonly used with \enquote{between-subject
 \label{eq:Cohendelta}
 \end{equation}
 
-where both populations follow a normal distribution with mean \(\mu_j\) in the \(j^{th}\) population (j=1,2) and common standard deviation \(\sigma\). They exist different estimators of this effect size measure varying as a function of the chosen standardizer (\(\sigma\)). For all estimators, the mean difference is estimated by the difference \(\bar{X}_1-\bar{X}_2\) of both sample means. When used for inferential purposes, some estimators require both the assumptions of normally distributed data and the equality of variances, while others rely
+where both populations follow a normal distribution with mean \(\mu_j\) in the \(j^{th}\) population (j=1,2) and common standard deviation \(\sigma\) {[}mais alors, ne marche que quand sigma1=sigma2? formulation maladroite, non?{]}. They exist different estimators of this effect size measure varying as a function of the chosen standardizer (\(\sigma\)). For all estimators, the mean difference is estimated by the difference \(\bar{X}_1-\bar{X}_2\) of both sample means. When used for inferential purposes, some estimators require both the assumptions of normally distributed data and the equality of variances, while others rely
 solely on the assumption of normality. Throughout this section, we will present some of these estimators, separately depending on whether they rely on the assumption of equality of variances or not. For each of them, we will provide information about their theoretical bias, variance and consistency.
 
 \hypertarget{alternatives-when-variances-are-equal-between-groups}{%
@@ -317,11 +317,11 @@ Variance\strut
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \tiny\(Cohen's \; d_s\)\strut
 \end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{cohen} \times \frac{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})}{\Gamma(\frac{N-2}{2})}\)\strut
+\tiny\(\delta_{cohen} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta_{cohen} \times \left( \frac{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})}{\Gamma(\frac{N-2}{2})}-1 \right)\)\strut
+\tiny\(\delta_{cohen} \times \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1 \right)\)\strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\frac{N-2}{(N-4) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})}{\Gamma(\frac{N-2}{2})}\right]^2\)\strut
+\tiny\(\frac{df}{(df-2) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \strut
@@ -330,7 +330,16 @@ Variance\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
 \tiny\(\approx \delta_{Cohen} \left[\frac{1}{\left(1-\frac{3}{4N-9}\right)}-1\right]\)\strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\approx\frac{N-2}{(N-4) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{1}{\left(1-\frac{3}{4N-9}\right)}\right]^2\)\strut
+\tiny\(\approx\frac{df}{(df-2) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{1}{\left(1-\frac{3}{4N-9}\right)}\right]^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\tiny\(with \; df =N-2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \strut
@@ -342,13 +351,13 @@ Variance\strut
 \strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
-\tiny\(Hedges's \; d_s\)\strut
+\tiny\(Hedges's \; g_s\)\strut
 \end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
 \tiny\(\delta_{Cohen}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
 /\strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(Var(Cohen's \; d_s) \times \left[ \frac{\Gamma(\frac{N-2}{2})}{\sqrt{\frac{N-2}{2}} \times \Gamma(\frac{N-3}{2})} \right]^2\)\strut
+\tiny\(Var(Cohen's \; d_s) \times \left[ \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right]^2\)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \strut
@@ -366,16 +375,34 @@ Variance\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
 \strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\tiny\(with \; df =N-2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \tiny\(Glass's \; d_s\)\strut
 \end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{glass} \times \frac{\sqrt{\frac{n_{c}-1}{2}} \times \Gamma(\frac{n_{c}-2}{2})}{\Gamma(\frac{n_{c}-1}{2})}\)\strut
+\tiny\(\delta_{glass} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta_{glass} \times \left( \frac{\sqrt{\frac{n_{c}-1}{2}} \times \Gamma(\frac{n_{c}-2}{2})}{\Gamma(\frac{n_{c}-1}{2})}-1 \right)\)\strut
+\tiny\(\delta_{glass} \times \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1 \right)\)\strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\frac{n_{c}-1}{n_c-3} \times \left( \frac{1}{n_c} + \frac{\sigma^2_e}{n_e\sigma^2_c} + \delta^2_{glass}\right) -\delta_{glass}^2 \times \left[\frac{\sqrt{\frac{n_{c}-1}{2}} \times \Gamma(\frac{n_{c}-2}{2})}{\Gamma(\frac{n_{c}-1}{2})}\right]^2\)\strut
+\tiny\(\frac{df}{df-2} \times \left( \frac{1}{n_c} + \frac{\sigma^2_e}{n_e\sigma^2_c} + \delta^2_{glass}\right) -\delta_{glass}^2 \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\tiny\(with \; df =n_c-1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \strut
@@ -398,7 +425,7 @@ Variance\strut
 \begin{minipage}[t]{0.06\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\strut
+\tiny\(with \; df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
 \strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
@@ -409,7 +436,7 @@ Variance\strut
 \end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
 \strut
 \end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(with \; df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
+\strut
 \end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
@@ -544,13 +571,13 @@ Fortunately, this apparent paradox can be resolved. It is possible to find a mod
 It can be shown that the relationship between Shieh's \(\delta\) when samples sizes are equal between groups and Shieh's \(\delta\) for any other sample sizes allocation ratios can be expressed as follows:
 
 \begin{equation} 
-Shieh's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{(nratio+1) \times \sigma_{n_1 \neq n_2}}{2 \times \sigma_{n_1=n_2} \times \sqrt{nratio}}
+Shieh's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{(nratio+1) \times \hat{\sigma}_{n_1 \neq n_2}}{2 \times \hat{\sigma}_{n_1=n_2} \times \sqrt{nratio}}
 \label{eq:shiehvsbaldesignPOP}
 \end{equation}
 
 with \[nratio= \frac{n_1}{n_2}\]
-\[\sigma_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\]\\
-\[\sigma_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
+\[\hat{\sigma}_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\]\\
+\[\hat{\sigma}_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
 
 \(Shieh's \; \delta_{n_1=n_2}\) can thefore be estimated using this equation:
 
@@ -677,11 +704,11 @@ After these general remarks, we will analyze each condition separately. In all F
 \caption{Bias and efficiency of estimators of standardized mean difference, when variances are equal across groups and sample sizes are unequal (condition b)}\label{fig:idHomrnull}
 \end{sidewaysfigure}
 
-Figures \ref{fig:idHombal} and \ref{fig:idHomrnull} represent configurations where the equality of variances assumption is met. Figure \ref{fig:idHombal} shows that when sample sizes are equal between groups (condition a), bias tends to decrease and precision is also improved with increasing sample sizes for all estimators, meaning that they are all consistent. Shieh's \(d_s\) and Shieh's \(d^*_s\) are identical, because our transformation is operant only when the sample sizes ratio differs from 1. We already knew from equations \ref{eq:biascohenshieh}, \ref{eq:varcohenshieh} and \ref{eq:cohenshieh} that when both assumptions of normality and equality of variances are met, the relative bias and variance of Cohen's \(d_s\) and Shieh's \(d_s\) are identical. Columns 2 to 4 in Figure \ref{fig:idHombal} reveal that this remains true for any departures from the normality assumptions. In accordance with our theoretical expectations, under samples are extracted from normal distributions (first column in in Figure \ref{fig:idHombal}), Hedge's \(g_s\) is less biased and slighly less variable than Cohen's \(d_s\). Columns 2 to 4 in Figure \ref{fig:idHombal} reveal that this remains true when samples are extracted from non normal distributions, even if the further from the normal distribution, the lower the difference between both estimators.
+Figures \ref{fig:idHombal} and \ref{fig:idHomrnull} represent configurations where the equality of variances assumption is met. Figure \ref{fig:idHombal} shows that when sample sizes are equal between groups (condition a), bias tends to decrease and precision is also improved with increasing sample sizes for all estimators, meaning that they are all consistent. Shieh's \(d_s\) and Shieh's \(d^*_s\) are identical, because our transformation is operant only when the sample sizes ratio differs from 1. We already knew from equations \ref{eq:biascohenshieh}, \ref{eq:varcohenshieh} and \ref{eq:cohenshieh} that when both assumptions of normality and equality of variances are met, the relative bias and variance of Cohen's \(d_s\) and Shieh's \(d_s\) are identical. Columns 2 to 4 in Figure \ref{fig:idHombal} reveal that this remains true for any departures from the normality assumptions. In accordance with our theoretical expectations, when samples are extracted from normal distributions (first column in Figure \ref{fig:idHombal}), Hedge's \(g_s\) is less biased and slighly less variable than Cohen's \(d_s\). Columns 2 to 4 in Figure \ref{fig:idHombal} reveal that this remains true when samples are extracted from non normal distributions, even if the further from the normal distribution, the lower the difference between both estimators.
 
 Both glass's \(d_s\) estimates (i.e.~using \(SD_1\) and \(SD_2\)) show least precision and highest bias rates, in comparison with all other measures. When samples are extracted from symmetric ditributions (the two first columns in Figure \ref{fig:idHombal}), Glass's \(d_s\) shows similar performances when using either \(SD_1\) or \(SD_2\) as standardizer. On the other side, when samples are extracted from skewed distributions, it shows unequal performances as a function of the chosen standardizer, because there is a non null correlation between the sample means and sample standard deviations, resulting in a non null correlation of opposite sign between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\) and \(SD_2\).\footnote{When distributions are right-skewed, the correlation between sample means and standard deviation is positive. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a positive (negative) correlation between SD1 (SD2) and the mean difference. when distributions are left-skewed, the correlation between sample means and standard deviation is negative. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a negative (positive) correlation between SD1 (SD2) and the mean difference.  When the population mean difference $\mu_1-\mu_2$ is positive (like in our simulations), Glass's $d_s$ is always more biased and variable when choosing as standardizer the $SD$ that is negatively correlated with $\bar{X_1}-\bar{X_2}$ (i.e. $SD_2$ when distributions are right-skewed and $SD_1$ when distributions are left-skewed). When the population mean difference is negative, the reverse is true. For interested reader, this is detailed and explained in Appendix 3.}.
 
-Figure \ref{fig:idHomrnull} shows that when sample sizes are unequal between groups, Glass's \(d_s\) and Shieh's \(d_s\) are sometimes unconsistent, meaning that their bias and variance will remain identical or even increase when the total sample size increases. We know from Table 1 that under the assumptions of normality, the bias of Glass's \(d_s\) does not depend either on the size of the experimental group or on the total sample size. Our simulations reveal that it remains true for any departures from the normality assumption. The only way to decrease the bias of Glass's \(d_s\) is therefore to add subjects in the control group. One can see, for example, that when there are 50 subjects in the control group, the bias will remain identical when there are respectively 20 and 100 subjects in the experimental group. On the other side, the variance of Glass's \(d_s\) depends on the sample size of both control and experimental groups, however, Glass's \(d_s\) will be less variable when there are more subjects in the control group than when there are more subjects in the experimental group {[}A NOTER QU UN TROP GRAND NRATIO N EST PAS BON NON PLUS\ldots{} VOIR FICHIER REFLEXION TEST1 ET TEST2\ldots{]}. Finally, as previously observed in Figure \ref{fig:idHombal}, the bias and variances of Glass's estimates also depends on the correlation between \(\bar{X_1}-\bar{X_2}\) and the standardizer, when distribution are skewed. In our simulations, the worst configuration will occure when the standardizer is computed with the smaller group and is negatively correlated with the sample means difference (i.e.~when choosing SD2 when distributions are right-skewed, and when choosing SD1 when distributions are left-skewed).\footnote{Again, we should remind that in all our simulations, the population mean difference is positive. If mean difference were negative, glass's $d_s$ would be more biased and variable when the chosen standardizer is positively correlated with the mean difference and associated with the smaller sample size.}
+Figure \ref{fig:idHomrnull} shows that when sample sizes are unequal between groups, Glass's \(d_s\) and Shieh's \(d_s\) are sometimes unconsistent, meaning that their bias and variance will remain identical or even increase when the total sample size increases. We know from Table 1 that under the assumptions of normality, the bias of Glass's \(d_s\) does not depend either on the size of the experimental group or on the total sample size. Our simulations reveal that it remains true for any departures from the normality assumption. The only way to decrease the bias of Glass's \(d_s\) is therefore to add subjects in the control group. One can see, for example, that when there are 50 subjects in the control group, the bias will remain identical when there are respectively 20 and 100 subjects in the experimental group. On the other side, the variance of Glass's \(d_s\) depends on the sample size of both control and experimental groups, however, Glass's \(d_s\) will be less variable when there are more subjects in the control group than when there are more subjects in the experimental group {[}A NOTER QU UN TROP GRAND NRATIO N EST PAS BON NON PLUS\ldots{} VOIR FICHIER REFLEXION TEST1 ET TEST2\ldots{]}. Finally, as previously observed in Figure \ref{fig:idHombal}, the bias and variances of Glass's estimates also depends on the correlation between \(\bar{X_1}-\bar{X_2}\) and the standardizer, when distribution are skewed. \footnote{In our simulations, the worst configuration will occure when the standardizer is computed with the smaller group and is negatively correlated with the sample means difference (i.e. when choosing SD2 when distributions are right-skewed, and when choosing SD1 when distributions are left-skewed). Again, we should remind that in all our simulations, the population mean difference is positive. If mean difference were negative, glass's $d_s$ would be more biased and variable when the chosen standardizer is positively correlated with the mean difference and associated with the smaller sample size.}
 
 Increasing sample size will decrease the bias and variance of Shieh's \(d_s\) only when the sample sizes ratio remains close to 1. For example, one can observe that when there are 100 subjects in the first group, the bias and variance of Shieh's \(d_s\) are smaller when there are 50 subjects in the second group than when there are only 20 subjects, because the sample size ratio decreases. On the other side, when there are 20 subjects in the first group, the bias and variance of Shieh's \(d_s\) are larger when there are 100 subjects in the second group than when there are only 50 subjects in the second group, because despite the increasing total sample size, the sample size ratio increases.{[}REGARDER AVEC CHRISTOPHE LES GRAPHIQUES, DC MON DOC DE REFLEXION: Quest-ce qui compte le plus? le N ou le NRATIO? Au départ, ajouter du N diminue le biais mais assez vite, la tendance s'inverse. Nuance nécessaire à préciser?{]}
 
@@ -703,7 +730,7 @@ In conclusion, Glass's \(d_s\) should always be avoided when the equality of var
 
 Figure \ref{fig:idHetbal} shows that all estimators are consistent, even when variances are unequal between groups, as long as sample sizes are equal across groups (condition c). Shieh's \(d_s\) and Shieh's \(d^*_s\) are identical, because our transformation is operant only when the sample sizes ratio differs from 1. Figure \ref{fig:idHombal} previously revealed that the relative performances of Cohen's \(d_s\) and Shieh's \(d_s\) remained identical for any departures from the normality assumption. Figure \ref{fig:idHetbal} now reveals that this remains unchanged when there is heteroscedasticity, meaning that anytime sample sizes are equal across groups, Cohen's \(d_s\) and Shieh's \(d_s\) are equally performant. As previously, Hedge's \(g_s\) is less biased and slighly more efficient (i.e.~less variable) than Cohen's \(d_s\), Shieh's \(d_s\) and Shieh's \(d^*_s\).
 
-When the normality assumption is met, both Glass's estimators are more biased than all other estimators. When distributions are symmetric with heavy-tailed distributions, both Glass's estimators are more biased and variable than all other estimators. In terms of relative bias, Glass's \(d_s\) shows similar performances when using either \(SD_1\) or \(SD_2\) as standardizer\footnote{When looking at the raw bias in Figure 4, one could believe that the bias is always more important when choosing SD2 as a standardizer. It is only an artefact of simulations. The bias is always more important when choosing the sample extracted from the smaller population SD as standardiser, because it results in a larger effect size estimate, and the larger the effect size estimate, the larger the raw bias. In our simulations, while the population SD of the first group always equals 1, in half of the simulations in condition c, the population SD of the second group is lower than 1 (meaning that the more biased Glass's estimate will occure when choosing SD2 < 1 as standardiser), and in the other half, the population SD of the second group is larger than 1 (meaning that the more biased Glass's estimate will occure when choosing SD1 as standardizer). Of course, for X, a constant mean difference and z, the standardizer, X/z will always result in a larger effect size measure when z < 1. This is confirmed by the identical average relative bias for both measures of Glass's ds.}. However, the relative variances is larger when computing the standardizer based on the sample extracted from the less variable population, as shown in Figures \ref{fig:idHetbal2} and \ref{fig:idHetbal3}. {[}POURQUOI PAS VRAI QD DISTRIBUTIONS NORMALES ALORS QUE D APRES LA FORMULE DE LA VARIANCE DU GLASS CA DEVRAIT ETRE LE CAS TT LE TPS?{]}.
+When the normality assumption is met, both Glass's estimators are more biased than all other estimators. When distributions are symmetric with heavy-tailed distributions, both Glass's estimators are more biased and variable than all other estimators. In terms of relative bias, Glass's \(d_s\) shows similar performances when using either \(SD_1\) or \(SD_2\) as standardizer\footnote{When looking at the raw bias in Figure 4, one could believe that the bias is always more important when choosing SD2 as a standardizer. It is only an artefact of simulations. The bias is always more important when choosing the sample extracted from the smaller population SD as standardiser, because it results in a larger effect size estimate, and the larger the effect size estimate, the larger the raw bias. In our simulations, while the population SD of the first group always equals 1, in half of the simulations in condition c, the population SD of the second group is lower than 1 (meaning that the more biased Glass's estimate will occure when choosing SD2 < 1 as standardiser), and in the other half, the population SD of the second group is larger than 1 (meaning that the more biased Glass's estimate will occure when choosing SD1 as standardizer). Of course, for X, a constant mean difference and z, the standardizer, X/z will always result in a larger effect size measure when z < 1. This is confirmed by the identical average relative bias for both measures of Glass's ds.}. However, the relative variance is larger when computing the standardizer based on the sample extracted from the less variable population, as shown in Figures \ref{fig:idHetbal2} and \ref{fig:idHetbal3}. {[}POURQUOI PAS VRAI QD DISTRIBUTIONS NORMALES ALORS QUE D APRES LA FORMULE DE LA VARIANCE DU GLASS CA DEVRAIT ETRE LE CAS TT LE TPS?{]}.
 
 When samples are extracted from skewed distributions, as previously, Glass's \(d_s\) using either \(SD_1\) or \(SD_2\) as standardizer show unequal performances, due to correlations of opposite sign between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\) and \(SD_2\). While Glass's \(d_s\) estimates were always less performant than all other estimators when variances were equal across groups, these are sometimes more biased and variable, and sometimes less biased and variable than all other estimators when population variances are unequal across groups. The explanation also lies in the correlation between \(\bar{X_1}-\bar{X_2}\) and standardizers: as long as population variances are equal across groups, standardizers taking both \(SD_1\) and \(SD_2\) into account are uncorrelated with \(\bar{X_1}-\bar{X_2}\). However, when population variances are unequal across groups, the sign of the correlation between the standardizer and the mean difference will be the same as the one of the correlation between the mean difference and the estimates of the larger population variance, as summarized in Table 4. It explains why Glass's \(d_s\) is sometimes more, sometimes less performant than other estimators. {[}EXCEPTION: BIAIS RELATIF QUAND SD1\textgreater SD2? ET DISTRIBUTIONS ARE LEFT-SKEWED. Marche dans tous les autres cas.{]}
 
@@ -754,7 +781,7 @@ When \(\sigma_1<\sigma_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negativ
 \caption{Bias and efficiency of estimators, when sample sizes are equal across groups and population variances are unequal, when SD1 is lower than SD2 (condition c2)}\label{fig:idHetbal3}
 \end{sidewaysfigure}
 
-Figure \ref{fig:idHetrpos} and \ref{fig:idHetrneg} refer to conditions where there is a pairing between population variances and sample sizes. We know that in these configurations, the pooled variance will be poorly estimated (see the second remark at the beginning of the result section), and therefore, we will not discuss the Cohen's \(d_s\) and Hedge's \(g_s\).We will only compare the quality of Glass's \(d_s\), Shieh's \(d_s\) and Shieh's \(d^*_s\).
+Figure \ref{fig:idHetrpos} and \ref{fig:idHetrneg} refer to conditions where there is a pairing between population variances and sample sizes. We know that in these configurations, computing a pooled variance term does not make sense (see the second remark at the beginning of the result section), and therefore, we will not discuss the Cohen's \(d_s\) and Hedge's \(g_s\).We will only compare the performances of Glass's \(d_s\), Shieh's \(d_s\) and Shieh's \(d^*_s\).
 
 Figure \ref{fig:idHetrpos} shows that when variances are unequal, and the largest group is associated with largest variance, the more biased and variable estimator is Glass's \(d_s\) when choosing the standard deviation of the smallest group as standardizer.
 REM: AGAIN ONE OBSERVE THE SAME INTERACTION EFFECT BETWEEN STANDARDISER IN GLASS MEASURE AND SENSE OF ASYMMETRY AS OBSERVED FOR FIGURE 3 (IN SAME DIRECTION: WITH NEGATIVE SKEWNESS, WORST WHEN CHOOSING SD1 AND WHEN POSITIVE SKEWNESS, WORST WHEN CHOOSING SD2). Glass's \(d_s\) when choosing the standard deviation of the largest group as standardizer, Shieh's \(d_s\) and transformed Shieh's \(d^*_s\) perform very similarly, both in terms of bias and efficiency.
