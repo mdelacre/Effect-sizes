@@ -19,7 +19,7 @@ for (i in seq_len(length(Folder))){
     for (j in seq_len(length(list.files(Folder[i])))){
     
     filepath = paste0(Folder[i],"/",list.files(Folder[i])[j])
-    file=readRDS(filepath)
+    file=readRDS(filepath) 
     param <- str_extract_all(list.files(Folder[i])[j], "[[:digit:]]+\\.*[[:digit:]]*")
     n1 <- as.numeric(param[[1]][5])
     n2 <- as.numeric(param[[1]][6])
@@ -273,7 +273,10 @@ for (j in seq_len(length(list.files(Path,pattern = ".*good_mes.txt")))){
     #dir.create(names(Conditions_id)[i])
     
     setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/",names(Conditions_id)[i]))
-    png(file=paste0("bias_eff,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
+    if(G1==-2.08){
+      g1=2.08
+    } else {g1=G1}
+    png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
     
     par(mar = c(4,5,1.5,0),mfrow = c(4,1))   
     
