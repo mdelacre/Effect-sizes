@@ -37,9 +37,9 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
                          m1=1,m2=0){
 
   # set up empty container for all estimated parameters
-  ES <-matrix(0,nSims,6+4*2) # Six colums to store the Cohen's d, Shieh's d and modified shieh's d measures
+  ES <-matrix(0,nSims,8+4*2) # Six colums to store the Cohen's d, Shieh's d and modified shieh's d measures
   # 8 columns to store de mean, sd, skewness and kurtosis of each measures
-  estimator <- c("Cohen's d","Hedge's d","Glass's sd1","Glass's sd2","Shieh's d", "Shieh's d corr")
+  estimator <- c("Cohen's d","Hedge's g","Glass's sd1","Glass's sd2","Unbiased Glass1","Unbiased Glass2","Shieh's d", "Shieh's d corr")
   descr=expand.grid(paste(1:2),c("mean","sd", "skewness","kurtosis"))
   colnames(ES) <- c(paste0(descr[,2],descr[,1]),estimator)
   
@@ -82,6 +82,10 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     # Glass's delta
     glass_sd1 <- (mean1-mean2)/sdev1
     glass_sd2 <- (mean1-mean2)/sdev2
+
+    # Unbiased Glass's delta
+    unbiased_glass_sd1 <- glass_sd1*gamma((n1-1)/2)/(sqrt((n1-1)/2)*gamma((n1-2)/2))
+    unbiased_glass_sd2 <- glass_sd2*gamma((n2-1)/2)/(sqrt((n2-1)/2)*gamma((n2-2)/2))
     
     # Shieh's d
     N <- n1+n2
@@ -96,7 +100,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
   
     shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*(((nratio+1)*sigma_unbal)/(2*sigma_bal*sqrt(nratio))) # what value of Shieh's delta would be obtain if n1=n2?
     
-    ES[i,9:14] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,shieh_d,shieh_d_corr)
+    ES[i,9:16] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,unbiased_glass_sd1,unbiased_glass_sd2,shieh_d,shieh_d_corr)
     
   }
   
