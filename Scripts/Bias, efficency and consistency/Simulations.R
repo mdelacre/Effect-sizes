@@ -77,7 +77,8 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     cohen_d <- (mean1-mean2)/pooled_sd
     
     # Hedges's g
-    hedge_g <- cohen_d*(1-3/(4*(n1+n2)-9))   
+    N <- n1+n2
+    hedge_g <- cohen_d*gamma((N-2)/2)/(sqrt((N-2)/2)*gamma((N-3)/2)) #(1-3/(4*(n1+n2)-9))   
     
     # Glass's delta
     glass_sd1 <- (mean1-mean2)/sdev1
@@ -88,7 +89,6 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     unbiased_glass_sd2 <- glass_sd2*gamma((n2-1)/2)/(sqrt((n2-1)/2)*gamma((n2-2)/2))
     
     # Shieh's d
-    N <- n1+n2
     q1 <- n1/N
     q2 <- n2/N
     shieh_d <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)       
