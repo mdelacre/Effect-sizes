@@ -1,0 +1,68 @@
+##### Pour le BIAIS relatif du glass: #####
+
+Quand G1=0
+- plus n du standardiseur est petit, plus la mesure est biaisée. peu importe la différence entre sigma1 soit le plus petit où le plus grand, 
+la différence reste identique donc c'est vraiment juste une question de n
+
+Quand G1 > 0: 
+
+-quand sigma1 < sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation négative entre SD2 et la différence de moyenne sera d'amplitude bcp plus forte que la corrélation positive entre SD1 et la 
+différence de moyenne, car sigma2 > sigma1.
+
+-quand sigma1 > sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation négative entre SD2 et la différence de moyenne sera d'amplitude bcp plus faible que la corrélation positive entre SD1 et la 
+différence de moyenne, car sigma1 > sigma2.
+
+Quand G1 < 0: 
+
+- quand sigma 1 < sigma 2: la corrélation joue un plus grand rôle que le n. Quoi qu'il arrive, le pire, c'est quand la corrélation est négative (mais forcément, le pire, 
+c'est quand la corrélation négative est associée au plus petit n)
+
+Remarque: la corrélation positive entre SD2 et la différence de moyenne sera d'amplitude bcp plus forte que la corrélation négative entre SD1 et la 
+différence de moyenne, car sigma2 > sigma1.
+
+-quand sigma1 > sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation positive entre SD2 et la différence de moyenne sera d'amplitude bcp plus faible que la corrélation négative entre SD1 et la 
+différence de moyenne, car sigma1 > sigma1.
+
+##### Pour la VARIANCE du glass: #####
+
+Quand G1=0
+- j'observe la remarque que j avais fait dans mon draft: en cas de distribution normale, la variance du glass est pire quand on prend comme 
+stdiseur le sigma du plus grand n, soit le contraire de ce que je dis dans mon draft pour le cas G2=95.75
+Donc en fait: 
+*quand distribution normale: pire de prendre l'estimation du plus grand delta
+*quand distributions heavy-tailed: pire de prendre l'estimation du plus petit delta
+
+Quand G1 > 0: EXACTEMETN LE MM CONSTAT QUE PR LE BIAIS
+-quand sigma1 < sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation négative entre SD2 et la différence de moyenne sera d'amplitude bcp plus forte que la corrélation positive entre SD1 et la 
+différence de moyenne, car sigma2 > sigma1.
+
+-quand sigma1 > sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation négative entre SD2 et la différence de moyenne sera d'amplitude bcp plus faible que la corrélation positive entre SD1 et la 
+différence de moyenne, car sigma1 > sigma2.
+
+Quand G1 < 0: EXACTEMETN LE MM CONSTAT QUE PR LE BIAIS
+- quand sigma 1 < sigma 2: la corrélation joue un plus grand rôle que le n. Quoi qu'il arrive, le pire, c'est quand la corrélation est négative (mais forcément, le pire, 
+c'est quand la corrélation négative est associée au plus petit n)
+
+Remarque: la corrélation positive entre SD2 et la différence de moyenne sera d'amplitude bcp plus forte que la corrélation négative entre SD1 et la 
+différence de moyenne, car sigma2 > sigma1.
+
+-quand sigma1 > sigma2: le n joue un plus grand rôle que la corrélation. Quoi qu'il arrive, le pire, c'est quand le n est le plus petit (mais forcément, 
+le pire c'est quand le plus petit n est associé à la corrélation négative, dans ce cas, la différence entre les 2 glass est BCP plus marquée).
+
+Remarque: la corrélation positive entre SD2 et la différence de moyenne sera d'amplitude bcp plus faible que la corrélation négative entre SD1 et la 
+différence de moyenne, car sigma1 > sigma1.
