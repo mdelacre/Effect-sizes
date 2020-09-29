@@ -108,7 +108,7 @@ for (i in seq_len(length(Folder))){
 }
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#     GRAPH: PLOTTING bias, relative bias, and variance
+#     GRAPH: PLOTTING bias, relative bias, variance and relative variance
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # First of all, I'm going to make different graph for each category
@@ -327,6 +327,182 @@ for (j in seq_len(length(list.files(Path)))){
             ylab = ylabeleff,
             cex.lab=1.5,
             cex.names=.8,
+            args.legend = list(
+              x = length(res.eff)*1.2,
+              y = max(res.eff)+.5,
+              bty="n"
+              
+            ))
+    
+    dev.off()
+    
+  }
+  
+}
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#     GRAPH: PLOTTING bias, relative bias, variance and relative variance of subconditions
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
+
+for (j in seq_len(length(list.files(Path)))){
+  
+  
+  File=read.table(paste0(Path,list.files(Path)[j]),header=T,sep=";",dec=",")  
+  
+  # We can subdivise all categories when there is heteroscedasticity
+  # Depending on which group is extracted from the largest population SD
+  # And then, making plot as we did previously (for relative bias and relative variance)
+  
+  # Heteroscedasticity, balanced designs ("Het_bal")
+  id_sdSD_bal1=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==20)&(File$sd1.sd2 < 1),]))
+  id_SDsd_bal2=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==20)&(File$sd1.sd2 > 1),]))
+  # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
+  id_sdSD_nN1=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
+  id_SDsd_Nn2=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
+  # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
+  id_SDsd_nN3=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+  id_sdSD_Nn4=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+  
+  # Study each condition separately
+  Conditions_id <- list(id_sdSD_bal1=id_sdSD_bal1,
+                        id_SDsd_bal2=id_SDsd_bal2,
+                        id_sdSD_nN1=id_sdSD_nN1,
+                        id_SDsd_Nn2=id_SDsd_Nn2,
+                        id_SDsd_nN3=id_SDsd_nN3,
+                        id_sdSD_Nn4=id_sdSD_Nn4)
+  
+  for (i in seq_len(length(Conditions_id))){ 
+    
+    Sel <- File[Conditions_id[[i]],]
+    
+    n2val <- as.numeric(levels(factor(Sel$n2)))
+    n1val<- as.numeric(levels(factor(Sel$n1)))
+    combi <- expand.grid(n1val, n2val)
+    
+    # Matrix containing relative biases information
+    K=length(combi[,1])
+    res <- matrix(0,K,7)  
+    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
+    res[,1:2] <- cbind(combi[,1],combi[,2])
+    res[,3] <- tapply(Sel$relbias_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,7] <- tapply(Sel$relbias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    # Select only rows with no "NA"  
+    res <- subset(res,res[,3] != "NA") 
+    # Select only bias columns
+    res.relbias <- t(res[,3:7])
+    if (K==1){
+      rownames(res.relbias) <- paste0(res[,1],":",res[,2])
+    } else {
+      colnames(res.relbias) <- paste0(res[,1],":",res[,2])
+    }
+    
+    param <- str_extract_all(list.files(Path)[j], "[[:digit:]]+\\.*[[:digit:]]*")
+    if(param[[1]][2]=="2.08"){
+      G1 <- -as.numeric(param[[1]][2])
+    } else (G1 <- as.numeric(param[[1]][2]))
+    G2 <- as.numeric(param[[1]][4])
+    
+    # Matrix containing MSE information
+    res2 <- matrix(0,K,7)  
+    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
+    res2[,1:2] <- cbind(combi[,1],combi[,2])
+    res2[,3] <- tapply(Sel$releff_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,7] <- tapply(Sel$releff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    # Select only rows with no "NA"  
+    res2 <- subset(res2,res2[,3] != "NA") 
+    # Select only bias columns
+    res.releff <- t(res2[,3:7])
+    if (K==1){
+      rownames(res.releff) <- paste0(res2[,1],":",res2[,2])
+    } else {
+      colnames(res.releff) <- paste0(res2[,1],":",res2[,2])
+    }
+    
+    cond <- names(Conditions_id)  
+    if (i==1|i==2){
+      cond <- "hetBal/"
+    } else if (i==3|i==4){
+      cond <- "hetrpos/"
+    } else if (i==5|i==6){cond <- "hetrneg/"}
+    
+    setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/subconditions/",cond))
+    
+    png(file=paste0("bias_var,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
+    
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
+    
+    # plot for the relative bias
+    
+    if (j==1){ylabelbias=expression(paste("(E(" , hat(delta) , ") -",delta,")/",delta ))
+    } else {ylabelbias=""}
+    
+    if (i==1|i==2){
+      Space=rep(0,5)
+      Names.arg=rep("",5)
+      if (j==4){
+        ylim1=c(0,1.2)
+        ylim2=c(0,7)
+      } else if(j==1){
+        ylim1=c(-.05,0.05)
+        ylim2=c(0,.8)            
+      } else {
+        ylim1=c(0,0.12)
+        ylim2=c(0,1.2)
+      }
+    } else {Space=NULL
+    Names.arg=NULL
+    
+    if (j==1){
+      ylim1=c(0,0.04)
+      ylim2=c(0,0.8)
+    } else if (j==2|j==3){
+      ylim1=c(0,0.2)
+      ylim2=c(0,.8)
+    } else if (j==4){
+      ylim1=c(0,1.5)
+      ylim2=c(0,7)
+    }
+    
+    } 
+    
+    barplot(res.relbias, 
+            col = c("black","grey40","grey60","grey80","white"),
+            main=paste0("G1=",G1,"; G2=",G2),
+            beside = TRUE,
+            space=Space,
+            xaxt="n",
+            cex.lab=1,
+            cex.main=1,
+            ylab=ylabelbias,
+            ylim=ylim1
+    )
+    
+    # plot the the relative variance
+    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
+    } else {ylabeleff=""}
+    
+    if (i==1|i==2){xlab="20:20"
+    } else {xlab=""}
+    
+    barplot(res.releff, 
+            col = c("black","grey40","grey60","grey80","white"),
+            beside = TRUE,
+            ylab = ylabeleff,
+            xlab=xlab,
+            names.arg=Names.arg,
+            cex.lab=1,
+            space=Space,
+            ylim=ylim2,
             args.legend = list(
               x = length(res.eff)*1.2,
               y = max(res.eff)+.5,
