@@ -139,7 +139,7 @@ png(file="legend.png",width=1500,height=1000, units = "px", res = 300)
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
-       legend=c("Cohen's d","Glass's delta (delta = sd1)","Glass's delta (delta = sd2)","Shieh's d","Corrected Shieh's d"),
+       legend=c("Cohen's ds","Glass's ds (delta = sd1)","Glass's ds (delta = sd2)","Shieh's ds","Corrected Shieh's ds"),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n"
 )
