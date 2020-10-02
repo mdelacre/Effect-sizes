@@ -278,7 +278,7 @@ t \sim t_{df,ncp}
 (\#eq:tdist)
 \end{equation} 
 
-Where $df = n_{c}-1$ and $ncp = \frac{\mu_{c}-\mu_{e}}{\sigma_{c} \times \sqrt{\frac{1}{n_{c}} + \frac{\sigma_{e}^2}{n_{e} \times \sigma^2_{c}}}}.$ The relationship described in equation \ref{eq:glassvst} and the theoretical distribution of the *t*-statistic, described in equation \ref{eq:tdist},  allow us to theoretically determine the sampling distribution of Glass's $d_s$, and therefore, its theoretical expectency, bias and variance when the assumptions of normalityis met. All equations are provided in Table 3. In summary, we can deduce from these equations that: 
+Where $df = n_{c}-1$ and $ncp = \frac{\mu_{c}-\mu_{e}}{\sigma_{c} \times \sqrt{\frac{1}{n_{c}} + \frac{\sigma_{e}^2}{n_{e} \times \sigma^2_{c}}}}.$ The relationship described in equation \ref{eq:glassvst} and the theoretical distribution of the *t*-statistic, described in equation \ref{eq:tdist},  allow us to theoretically determine the sampling distribution of Glass's $d_s$, and therefore, its theoretical expectency, bias and variance when the assumptions of normality is met. All equations are provided in Table 3. In summary, we can deduce from these equations that: 
 
 * When Glass's $\delta_s$ is null, the bias is null. In all other configurations, the **bias** of Glass's $d_s$ is a function of the sample size of the control group ($n_c$) and the population effect size ($\delta_{glass}$):     
 
@@ -334,7 +334,7 @@ t_{welch} = Shieh's \; d_s \times \sqrt{N}
 (\#eq:shiehvswelch)
 \end{equation} 
 
-The exact distribution of Welch's *t*-statistic is more complicated than the exact distribution of Student's *t*-statistic, but it can be approximated [@Welch_1938; @Shieh_2013] as follows, under the assumption of normality:
+The exact distribution of Welch's *t*-statistic is more complicated than the exact distribution of Student's *t*-statistic, but it can be approximated as follows, under the assumption of normality [@Welch_1938; @Shieh_2013]:
 
 \begin{equation} 
 t_{welch} = Shieh's \; d_s \times \sqrt{N} \sim t_{df,ncp}
@@ -385,7 +385,7 @@ Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
 (\#eq:cohenshieh)
 \end{equation} 
 
-Except for this very specific situation, according to the statistical properties of Welch’s statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference ($\bar{X_1}-\bar{X_2}$) as well as $SD_1$ and $SD_2$, Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is illustratedin the following shiny application:  https://mdelacre.shinyapps.io/ShiehvsCohen/).
+Except for this very specific situation, according to the statistical properties of Welch’s statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference ($\bar{X_1}-\bar{X_2}$) as well as $SD_1$ and $SD_2$, Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is illustrated in the following shiny application:  https://mdelacre.shinyapps.io/ShiehvsCohen/).
 
 Fortunately, this apparent paradox can be resolved. It is possible to find a modified measure of Shieh's $d_s$ that does not depend on sample sizes ratio, namely by answering the following question: "whatever the real sample sizes ratio, what value of Shieh's $d_s$ would have been computed if design were balanced (i.e. $n_1 = n_2$), keeping all other parameters constant? ". After having answered this question, we can multiply the resulting value by 2, in order to take equation \ref{eq:cohenshieh} into account and to have a measure that can be interpreted using the same benchmarks as for Cohen's $d_s$. It can be shown that the relationship between Cohen's $\delta$ when samples sizes are equal between groups and Shieh's $\delta$ for any sample sizes allocation ratios can be expressed as follows:
 
@@ -408,9 +408,9 @@ Shieh's \; d^*_s= Shieh's \; d_s \times \frac{(nratio+1) \times S_{n_1 \neq n_2}
 with $$S_{n_1=n_2}= \sqrt{\frac{S_1^2+S_2^2}{2}}$$ and 
 $$S_{n_1 \neq n_2} = \sqrt{(1- \frac{n_1}{N}) \times S_1^2+(1- \frac{n_2}{N}) \times S_2^2}$$
 
-$Shieh's \; d^*_s$ can be compared across two different studies using different sample sizes allocation ratio and could thus be included in meta-analysis.  As we are the first to propose this solution, we will test its proporties through Monte Carlo simulations.
+$Shieh's \; d^*_s$ can be compared across two different studies using different sample sizes allocation ratio and could thus be included in meta-analysis.  As we are the first to propose this solution, we will test its properties through Monte Carlo simulations.
 
-[I NEED TO FIND THE THEOREITCAL EQUATION OF EXPECTENCY, BIAS AND VARIANCE].
+[I NEED TO FIND THE THEOREITCAL EQUATION OF EXPECTENCY, BIAS AND VARIANCE OF TRANSFORMED SHIEH'S $d^*_s$].
 
 ## Monte Carlo Simulations
 
