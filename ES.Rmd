@@ -7,20 +7,23 @@ author:
     corresponding : yes    
     address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
     email         : "marie.delacre@ulb.ac.be"
-  - name          : "Christophe Ley"
-    affiliation   : "2"
   - name          : "Daniel Lakens"
+    affiliation   : "2"
+  - name          : "Christophe Ley"
+    affiliation   : "3"
+  - name          : "Limin Liu"
     affiliation   : "3"
   - name          : "Christophe Leys"
     affiliation   : "1"
+    
 affiliation:
     
   - id            : "1"
     institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
   - id            : "2"
-    institution   : "Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics,4 Gent, Belgium"
-  - id            : "3"
     institution   : "Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands"
+  - id            : "3"
+    institution   : "Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics,4 Gent, Belgium"
 
 authornote: |
 abstract: |
