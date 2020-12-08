@@ -39,7 +39,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
   # set up empty container for all estimated parameters
   ES <-matrix(0,nSims,18+4*2) # Six colums to store the Cohen's d, Shieh's d and modified shieh's d measures
   # 8 columns to store de mean, sd, skewness and kurtosis of each measures
-  estimator <- c("Cohen's d","Hedge's g","Glass's sd1","Glass's sd2","Unbiased Glass1","Unbiased Glass2","Shieh's d", "Unbiased Shieh's d","Shieh's d corr","unbiased Shieh's d corr")
+  estimator <- c("Cohen's d","Hedge's g","Glass's sd1","Glass's sd2","Unbiased Glass1","Unbiased Glass2","Shieh's d", "Unbiased Shieh's d","cohen's d'","unbiased cohen's d'")
   descr=expand.grid(paste(1:2),c("mean","sd", "skewness","kurtosis"))
   colnames(ES) <- c(paste0(descr[,2],descr[,1]),estimator)
   
@@ -98,17 +98,13 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     correction <- gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
     unbiased_shieh <- shieh_d*correction
 
-    # Our transformed Shieh's d
-    nratio <- n1/n2
-    sigma_bal <- sqrt((sdev1^2+sdev2^2)/2)
-    sigma_unbal <- sqrt((1-q1)*sdev1^2+(1-q2)*sdev2^2) # we give more weight to the variance of the smallest group
-    
-    shieh_d_corr <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio))) # what value of Cohen's delta would be obtain if n1=n2?
+    # Cohen's d's
 
+    cohen_d_prime <- (mean1-mean2)/sqrt((sdev1^2+sdev2^2)/2)
     df <- (sdev1^2/n1+sdev2^2/n2)^2/((sdev1^2/n1)^2/(n1-1)+(sdev2^2/n2)^2/(n2-1))
-    unbiased_shieh_d_corr <- shieh_d_corr*gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
+    unbiased_cohen_d_prime <- shieh_d_corr*gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
 
-    ES[i,9:18] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,unbiased_glass_sd1,unbiased_glass_sd2,shieh_d,unbiased_shieh,shieh_d_corr,unbiased_shieh_d_corr)
+    ES[i,9:18] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,unbiased_glass_sd1,unbiased_glass_sd2,shieh_d,unbiased_shieh,cohen_d_prime,unbiased_cohen_d_prime)
     
   }
   
