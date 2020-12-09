@@ -108,7 +108,7 @@ for (i in seq_len(length(Folder))){
 }
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#     GRAPH: PLOTTING bias, relative bias, variance and relative variance
+#     GRAPH: PLOTTING raw bias and variance 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # First of all, I'm going to make different graph for each category
@@ -139,7 +139,8 @@ png(file="legend.png",width=1500,height=1000, units = "px", res = 300)
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
-       legend=c("Cohen's ds","Glass's ds (delta = sd1)","Glass's ds (delta = sd2)","Shieh's ds","Corrected Shieh's ds"),
+       legend=c(expression(paste("Hedge's ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
+                expression(paste("Cohen's ",g[s],"'"))),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n"
 )
@@ -204,6 +205,125 @@ for (j in seq_len(length(list.files(Path)))){
     res.bias <- t(res[,3:7])
     colnames(res.bias) <- paste0(res[,1],":",res[,2])
     
+    param <- str_extract_all(list.files(Path)[j], "[[:digit:]]+\\.*[[:digit:]]*")
+    if(param[[1]][2]==2.08){
+      G1 <- -as.numeric(param[[1]][2])
+    } else (G1 <- as.numeric(param[[1]][2]))
+    G2 <- as.numeric(param[[1]][4])
+    
+    # Matrix containing variances information
+    res3 <- matrix(0,9,7)  
+    names<-expand.grid("var_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
+    res3[,1:2] <- cbind(combi[,1],combi[,2]) 
+    res3[,3] <- tapply(Sel$eff_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,6] <- tapply(Sel$eff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,7] <- tapply(Sel$eff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    # Select only rows with no "NA"  
+    res3 <- subset(res3,res3[,3] != "NA") 
+    # Select only bias columns
+    res.eff <- t(res3[,3:7])
+    colnames(res.eff) <- paste0(res3[,1],":",res3[,2])
+    
+    setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/")
+    #dir.create(names(Conditions_id)[i])
+    
+    setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
+    if(G1==-2.08){
+      g1=2.08
+    } else {g1=G1}
+    png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
+    
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
+    
+    
+    # plot for the bias
+    
+    if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
+    } else {ylabelbias=""}
+
+    barplot(res.bias, 
+            col = c("black","grey40","grey60","grey80","white"),
+            beside = TRUE,
+            main=paste0("G1=",G1,"; G2=",G2),
+            xaxt="n",
+            cex.lab=1.5,
+            cex.main=1.5,
+            ylab=ylabelbias
+    )
+    
+    # plot for the variance
+    
+    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+    } else {ylabeleff=""}
+    
+    barplot(res.eff, 
+            col = c("black","grey40","grey60","grey80","white"),
+            beside = TRUE,
+            ylab = ylabeleff,
+            cex.lab=1.5,
+            xaxt="n",
+            args.legend = list(
+              x = length(res.eff)*1.2,
+              y = max(res.eff)+.5,
+              bty="n"
+            ))
+    
+    dev.off()
+    
+  }
+  
+}
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#     GRAPH: PLOTTING relative bias and variance 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+
+
+for (j in seq_len(length(list.files(Path)))){
+  
+  
+  File=read.table(paste0(Path,list.files(Path)[j]),header=T,sep=";",dec=",")  
+  
+  # Subdivise file into five categories
+  # "Hom_bal", "Hom_unbal", "Het_bal","Het_rpos","Het_rneg"
+  
+  ### Conditions id 
+  
+  # Homoscedasticity, balanced designs ("Hom_bal")
+  id_Hom_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$sd1.sd2 == 1),]))
+  # Homoscedasticity, unbalanced designs ("Hom_unbal")  
+  id_Hom_nN=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 == 1),]))
+  id_Hom_Nn=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 == 1),]))
+  # Heteroscedasticity, balanced designs ("Het_bal")
+  id_sdSD_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$sd1.sd2 < 1),]))
+  id_SDsd_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$sd1.sd2 > 1),]))
+  # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
+  id_sdSD_nN=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
+  id_SDsd_Nn=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
+  # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
+  id_SDsd_nN=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+  id_sdSD_Nn=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+  
+  # Study each condition separately
+  Conditions_id <- list(id_Hom_bal=id_Hom_bal,
+                        id_Hom_rnull=c(id_Hom_nN,id_Hom_Nn),
+                        id_Het_bal=c(id_sdSD_bal,id_SDsd_bal), 
+                        id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),
+                        id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+  
+  for (i in seq_len(length(Conditions_id))){ 
+    
+    Sel <- File[Conditions_id[[i]],]
+    
+    n2val <- as.numeric(levels(factor(Sel$n2)))
+    n1val<- as.numeric(levels(factor(Sel$n1)))
+    combi <- expand.grid(n2val, n1val)
+    
     # Matrix containing relative biases information
     res2 <- matrix(0,9,7)  
     names<-expand.grid("relbias_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
@@ -227,23 +347,7 @@ for (j in seq_len(length(list.files(Path)))){
     G2 <- as.numeric(param[[1]][4])
     
     
-    # Matrix containing variances information
-    res3 <- matrix(0,9,7)  
-    names<-expand.grid("var_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
-    colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
-    res3[,1:2] <- cbind(combi[,1],combi[,2]) 
-    res3[,3] <- tapply(Sel$eff_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,6] <- tapply(Sel$eff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,7] <- tapply(Sel$eff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
-    # Select only rows with no "NA"  
-    res3 <- subset(res3,res3[,3] != "NA") 
-    # Select only bias columns
-    res.eff <- t(res3[,3:7])
-    colnames(res.eff) <- paste0(res3[,1],":",res3[,2])
-    
-    # Matrix containing MSE information
+    # Matrix containing relative variance information
     res4 <- matrix(0,9,7)  
     names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
     colnames(res4) <- c("n1","n2",paste0(names[,1],names[,2]))
@@ -259,33 +363,18 @@ for (j in seq_len(length(list.files(Path)))){
     res.releff <- t(res4[,3:7])
     colnames(res.releff) <- paste0(res4[,1],":",res4[,2])
     
-    setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
+    setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/")
     #dir.create(names(Conditions_id)[i])
-    
-    setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/",names(Conditions_id)[i]))
+        
+    setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}
-    png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
+    png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
     
-    par(mar = c(4,5,1.5,0),mfrow = c(4,1))   
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
-    
-    # plot for the bias
-    
-    if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
-    } else {ylabelbias=""}
 
-    barplot(res.bias, 
-            col = c("black","grey40","grey60","grey80","white"),
-            beside = TRUE,
-            main=paste0("G1=",G1,"; G2=",G2),
-            xaxt="n",
-            cex.lab=1.5,
-            cex.main=1.5,
-            ylab=ylabelbias
-    )
-    
     # plot for the relative bias
     
     if (j==1){ylabelbias=expression(paste("(E(" , hat(delta) , ") -",delta,")/",delta ))
@@ -293,29 +382,13 @@ for (j in seq_len(length(list.files(Path)))){
     
     barplot(res.relbias, 
             col = c("black","grey40","grey60","grey80","white"),
+            main=paste0("G1=",G1,"; G2=",G2),
             beside = TRUE,
             xaxt="n",
             cex.lab=1.5,
             cex.main=1.5,
             ylab=ylabelbias
     )
-    # plot for the variance
-    
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
-    } else {ylabeleff=""}
-    
-    barplot(res.eff, 
-            col = c("black","grey40","grey60","grey80","white"),
-            beside = TRUE,
-            ylab = ylabeleff,
-            cex.lab=1.5,
-            xaxt="n",
-            args.legend = list(
-              x = length(res.eff)*1.2,
-              y = max(res.eff)+.5,
-              bty="n"
-            ))
-    
 
     # plot the the relative variance
     if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
@@ -340,8 +413,9 @@ for (j in seq_len(length(list.files(Path)))){
   
 }
 
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#     GRAPH: PLOTTING bias, relative bias, variance and relative variance of subconditions
+#     GRAPH: PLOTTING relative bias and relative variance of subconditions
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
@@ -408,7 +482,7 @@ for (j in seq_len(length(list.files(Path)))){
     } else (G1 <- as.numeric(param[[1]][2]))
     G2 <- as.numeric(param[[1]][4])
     
-    # Matrix containing MSE information
+    # Matrix containing the relative variance information
     res2 <- matrix(0,K,7)  
     names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
@@ -437,7 +511,7 @@ for (j in seq_len(length(list.files(Path)))){
     
     setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/",cond))
     
-    png(file=paste0("bias_var,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=900,height=1700, units = "px", res = 300)  
+    png(file=paste0("bias_var,G1=",G1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
     
     par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
@@ -512,3 +586,5 @@ for (j in seq_len(length(list.files(Path)))){
   }
   
 }
+
+###### Biased estimators / relative bias and variance
