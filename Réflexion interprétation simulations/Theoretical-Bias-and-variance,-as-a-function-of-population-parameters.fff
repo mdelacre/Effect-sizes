@@ -1,0 +1,77 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendNsize2-1.pdf}
+\caption{\label{fig:biascohendNsize2}\ldots{}}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendNratio2-1.pdf}
+\caption{\label{fig:biascohendNratio2}\ldots{}}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biasGlassctrlsize2-1.pdf}
+\caption{\label{fig:biasGlassctrlsize2}\ldots{}}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehomNratio2-1.pdf}
+\caption{\label{fig:biascohendprimehomNratio2}\ldots{}}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehomNsize2-1.pdf}
+\caption{\label{fig:biascohendprimehomNsize2}\ldots{}}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalSDratio2-1.pdf}
+\caption{\label{fig:biascohendprimehetbalSDratio2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalNsize2-1.pdf}
+\caption{\label{fig:biascohendprimehetbalNsize2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalvariance2-1.pdf}
+\caption{\label{fig:biascohendprimehetbalvariance2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalNratio2-1.pdf}
+\caption{\label{fig:biascohendprimehetunbalNratio2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalNsize2-1.pdf}
+\caption{\label{fig:biascohendprimehetunbalNsize2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-and-variance,-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalvariance2-1.pdf}
+\caption{\label{fig:biascohendprimehetunbalvariance2}bias of Cohen's \(d'_s\) as a function of the total sample size, when variances are equal across groups}
+\end{figure*}
