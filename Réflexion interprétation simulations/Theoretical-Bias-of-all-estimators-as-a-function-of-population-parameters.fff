@@ -121,22 +121,8 @@
 \ifnextchar[{\eatarg}{}
 
 \centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRN2-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRN2}Degrees of freedom (DF) when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the variances and sample sizes ratios (\(\frac{\sigma_j}{n_j}\))}
-\end{figure*}
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-
-\centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRNandnpairing2case1-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRNandnpairing2case1}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups and \(\frac{\sigma^2_1}{n_1}=\frac{\sigma^2_2}{n_2}\), as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\))}
-\end{figure*}
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-
-\centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRNandnpairing2case2-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRNandnpairing2case2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups and either \(\frac{\sigma^2_1}{n_1}>\frac{\sigma^2_2}{n_2}\) (top) or \(\frac{\sigma^2_1}{n_1}<\frac{\sigma^2_2}{n_2}\) (bottom), as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\))}
+\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbaldfandbias-1.pdf}
+\caption{\label{fig:biasshiehhetunbaldfandbias}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}

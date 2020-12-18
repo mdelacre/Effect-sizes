@@ -32,9 +32,9 @@ output            : papaja::apa6_pdf
 # The bias 
 
 For all estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's $d_s$ (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's $d_s$, Cohen's $d'_s$ and Shieh's $d_s$ are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:  
-- when variances are equal across groups;     
-- when variances are unequal across groups, with equal sample sizes;  
-- when variances are unequal across groups, with unequal sample sizes.  
+- when variances are equal across populations;     
+- when variances are unequal across populations, with equal sample sizes;  
+- when variances are unequal across populations, with unequal sample sizes.  
 
 ## Preliminary note
 
@@ -415,22 +415,23 @@ for (i in 10:190){
 ```{r biascohendprimehetunbaldfandbias,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Cohen's $d'_s$, when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$), when $SD$-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)",echo=FALSE}
 par(mfrow=c(3,2))
 
-plot(log(nratio2),DF2,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
+plot(log(nratio4),DF4,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
-plot(log(nratio2),coeffmult2,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
+plot(log(nratio4),coeffmult4,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
+
 plot(log(nratio3),DF3,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
 plot(log(nratio3),coeffmult3,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
 
-plot(log(nratio4),DF4,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
+plot(log(nratio2),DF2,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
-plot(log(nratio4),coeffmult4,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
+plot(log(nratio2),coeffmult2,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
 abline(v=0)
 ```
 
-  + The smallest bias always occure when there is a positive pairing between variances and sample size, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias. This can be explained by splitting the numerator and the denominator in the DF computation (see Figure \ref{fig:biascohendprimehetunbaldfandbias}).
+  + The smallest bias always occure when there is a positive pairing between variances and sample size, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias. This can be explained by splitting the numerator and the denominator in the DF computation (see Figure \ref{fig:biascohendprimehetunbaldfandbias}).
   
 ```{r biascohendprimehetunbalnumanddenomdf,fig.cap="numerator and denominator of the degrees of freedom (DF) computation, when computing the bias of Cohen's $d'_s$, when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$), when $SD$-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)",echo=FALSE}
 par(mfrow=c(3,2))
@@ -697,187 +698,104 @@ abline(v=0)
 
   + The larger the sample sizes, the lower the bias (illustration in Figure \ref{fig:biasshiehhetunbalNsize2})
 
-```{r biasshiehhetunbalSDRN,include=FALSE}
-SDNr1 <- NULL #SDNr= sdj^2/nj
-SDNr2 <- NULL
-NUM <- NULL
-DENOM <- NULL
-DF <- NULL
-coeffmult <- NULL
-
-for (i in 1:100){
-  
-  n1 <- 50
-  n2 <- 20
-  N <- n1+n2
-
-  sdrn1 <- i
-  sdrn2 <- i
-  num <- (sdrn1+sdrn2)^2
-  denom <- (sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
-  df <- num/denom
-  
-  SDNr1 <- c(SDNr1,sdrn1)
-  SDNr2 <- c(SDNr2,sdrn2)
-  NUM <- c(NUM,num)
-  DENOM <- c(DENOM,denom)
-  DF <- c(DF,df)
-  coeffmult <- c(coeffmult,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
-}
-```
-
-
-```{r biasshiehhetunbalSDRN2,fig.cap="Degrees of freedom (DF) when computing the bias of Shieh's $d_s$, when variances and sample sizes are unequal across groups, as a function of the variances and sample sizes ratios ($\\frac{\\sigma_j}{n_j}$)",echo=FALSE}
-par(mfrow=c(1,2))
-#plot(SDNr2,NUM)
-#plot(SDNr2,DENOM)
-plot(SDNr1,DF,xlab=expression(paste(sigma[1],"/",n[1])))
-plot(SDNr2,DF,xlab=expression(paste(sigma[2],"/",n[2])))
-```
-
-```{r biasshiehhetunbalSDRNandnpairingcase1,include=FALSE}
-DF <- NULL
-coeffmult <- NULL
-Nratio <- NULL
-
-for (i in 6:100){
-
-  sdrn1 <- 1
-  sdrn2 <- 1
-  
-  N = 106
-  n1 <- i
-  n2 <- N-i
-  nratio <- n1/n2
-  
-  df <- (sdrn1+sdrn2)^2/(sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
- 
-  Nratio <- c(Nratio,nratio)  
-  DF <- c(DF,df)
-  coeffmult <- c(coeffmult,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
-}
-```
-
-
-```{r biasshiehhetunbalSDRNandnpairing2case1,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Shieh's $d_s$, when variances and sample sizes are unequal across groups and $\\frac{\\sigma^2_1}{n_1}=\\frac{\\sigma^2_2}{n_2}$, as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$)",echo=FALSE}
-par(mfrow=c(1,2))
-#the plot(SDNr2,NUM)
-#plot(SDNr2,DENOM)
-plot(log(Nratio),DF,xlab=expression(paste("log(",n[1],"/",n[2],")")))
-#Nratio[DF==max(DF)]
-plot(log(Nratio),coeffmult,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
-#Nratio[coeffmult==min(coeffmult)]
-```
-
-```{r biasshiehhetunbalSDRNandnpairingcase2,include=FALSE}
-Nratio1 <- NULL
-DF1 <- NULL
-coeffmult1 <- NULL
-
-for (i in 6:100){
-
-  sdrn1 <- 1
-  sdrn2 <- 2
-  
-  N = 106
-  n1 <- i
-  n2 <- N-i
-  nratio <- n1/n2
-  
-  df <- (sdrn1+sdrn2)^2/(sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
- 
-  Nratio1 <- c(Nratio1,nratio)  
-  DF1 <- c(DF1,df)
-  coeffmult1 <- c(coeffmult1,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
-}
-
-#----------------------------------------------------------------------
-
-Nratio2 <- NULL
-DF2 <- NULL
+```{r biasshiehhetunbalNratio,include=FALSE}
 coeffmult2 <- NULL
+nratio2 <- NULL
+DF2 <- NULL
+DF_NUM2 <- NULL
+DF_DENOM2 <- NULL
 
-for (i in 6:100){
-
-  sdrn1 <- 1
-  sdrn2 <- 10
+for (i in 10:190){
   
-  N = 106
+  N <- 200
   n1 <- i
-  n2 <- N-i
-  nratio <- n1/n2
-  
-  df <- (sdrn1+sdrn2)^2/(sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
- 
-  Nratio2 <- c(Nratio2,nratio)  
+  n2 <- N-n1
+  sd1 <- 1
+  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  SDratio2=sd1/sd2
+  nratio2 <- c(nratio2,n1/n2)
+  df_num <- (sd1^2/n1+sd2^2/n2)^2
+  df_denom <- ((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  df <- (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
   DF2 <- c(DF2,df)
+  DF_NUM2 <- c(DF_NUM2, df_num)
+  DF_DENOM2 <- c(DF_DENOM2, df_denom)
+
   coeffmult2 <- c(coeffmult2,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
 }
 
-#----------------------------------------------------------------------
-
-Nratio3 <- NULL
-DF3 <- NULL
 coeffmult3 <- NULL
+nratio3 <- NULL
+DF3 <- NULL
+DF_NUM3 <- NULL
+DF_DENOM3 <- NULL
 
-for (i in 6:100){
-
-  sdrn1 <- 2
-  sdrn2 <- 1
+for (i in 10:190){
   
-  N = 106
+  N <- 200
   n1 <- i
-  n2 <- N-i
-  nratio <- n1/n2
-  
-  df <- (sdrn1+sdrn2)^2/(sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
- 
-  Nratio3 <- c(Nratio3,nratio)  
+  n2 <- N-n1
+  sd1 <- 2
+  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  SDratio3=sd1/sd2
+  nratio3 <- c(nratio3,n1/n2)
+  df_num <- (sd1^2/n1+sd2^2/n2)^2
+  df_denom <- ((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  df <- (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF_NUM3 <- c(DF_NUM3, df_num)
+  DF_DENOM3 <- c(DF_DENOM3, df_denom)
   DF3 <- c(DF3,df)
+  
   coeffmult3 <- c(coeffmult3,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
 }
 
-#----------------------------------------------------------------------
-
-Nratio4 <- NULL
-DF4 <- NULL
 coeffmult4 <- NULL
+nratio4 <- NULL
+DF4 <- NULL
+DF_NUM4 <- NULL
+DF_DENOM4 <- NULL
 
-for (i in 6:100){
-
-  sdrn1 <- 10
-  sdrn2 <- 1
+for (i in 10:190){
   
-  N = 106
+  N <- 200
   n1 <- i
-  n2 <- N-i
-  nratio <- n1/n2
-  
-  df <- (sdrn1+sdrn2)^2/(sdrn1^2/(n1-1)+sdrn2^2/(n2-1))
- 
-  Nratio4 <- c(Nratio4,nratio)  
+  n2 <- N-n1
+  sd1 <- 4
+  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  SDratio4=sd1/sd2
+  nratio4 <- c(nratio4,n1/n2)
+  df_num <- (sd1^2/n1+sd2^2/n2)^2
+  df_denom <- ((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  df <- (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF_NUM4 <- c(DF_NUM4, df_num)
+  DF_DENOM4 <- c(DF_DENOM4, df_denom)
+  df <- ((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
   DF4 <- c(DF4,df)
   coeffmult4 <- c(coeffmult4,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))   
 }
+```
+
+```{r biasshiehhetunbaldfandbias,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Shieh's $d_s$, when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$), when $SD$-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)",echo=FALSE}
+par(mfrow=c(3,2))
+
+plot(log(nratio4),DF4,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
+plot(log(nratio4),coeffmult4,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
+
+plot(log(nratio3),DF3,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
+plot(log(nratio3),coeffmult3,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
+
+plot(log(nratio2),DF2,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
+plot(log(nratio2),coeffmult2,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
+abline(v=0)
 
 ```
 
-
-```{r biasshiehhetunbalSDRNandnpairing2case2,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Shieh's $d_s$, when variances and sample sizes are unequal across groups and either $\\frac{\\sigma^2_1}{n_1}>\\frac{\\sigma^2_2}{n_2}$ (top) or $\\frac{\\sigma^2_1}{n_1}<\\frac{\\sigma^2_2}{n_2}$ (bottom), as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$)",echo=FALSE}
-par(mfrow=c(2,2))
-plot(log(Nratio3),coeffmult3,main="when SDNratio1=2 and SDNratio1=1",ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
-abline(v=log(Nratio3)[coeffmult3==min(coeffmult3)])
-plot(log(Nratio4),coeffmult4,main="when SDNratio1=10 and SDNratio1=1",ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
-abline(v=log(Nratio4)[coeffmult4==min(coeffmult4)])
-plot(log(Nratio1),coeffmult1,main="when SDNratio1=1 and SDNratio1=2",ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
-abline(v=log(Nratio1)[coeffmult1==min(coeffmult1)])
-plot(log(Nratio2),coeffmult2,main="when SDNratio1=1 and SDNratio1=10",ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
-abline(v=log(Nratio2)[coeffmult2==min(coeffmult2)])
-```
-
-  + The variances and sample sizes ratios don't matter per se (see Figure \ref{fig:biasshiehhetunbalSDRN2}). However, the pairing between these ratios and sample sizes has an effect on the bias:
-    - When $\frac{\sigma^2_1}{n_1}=\frac{\sigma^2_2}{n_2}$, the smallest bias occurs when sample sizes are equal across groups. The further the sample sizes ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case1}).
-    - When $\frac{\sigma^2_1}{n_1} \neq \frac{\sigma^2_2}{n_2}$, the minimum bias will always occure when $min(\frac{\sigma^2_j}{n_j})$ will be associated with $min(n_j)$. In other word, when $\frac{\sigma^2_1}{n_1}>\frac{\sigma^2_2}{n_2}$, the sample sizes ratio associated with the minimum bias will be positive, meaning that $n_1>n_2$ (and the larger the difference between $\frac{\sigma^2_1}{n_1}$ and $\frac{\sigma^2_2}{n_2}$, the further from 1 will be this sample sizes ratio; see the two top plots in Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case2}). On the other side, when $\frac{\sigma^2_1}{n_1}<\frac{\sigma^2_2}{n_2}$, the sample sizes ratio associated with the minimum bias will be negative, meaning that $n_1<n_2$ (and the larger the difference between $\frac{\sigma^2_1}{n_1}$ and $\frac{\sigma^2_2}{n_2}$, the further from 1 will be this sample sizes ratio; see the two bottom plots in Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case2}). 
+  + The smallest bias always occure when there is a positive pairing between variances and sample size. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias. 
 
 ```{r biasshiehhetunbalvariance,include=FALSE}
 coeffmult <- NULL

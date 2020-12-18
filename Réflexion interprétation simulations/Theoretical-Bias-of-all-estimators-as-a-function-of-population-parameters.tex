@@ -107,9 +107,9 @@
 \section{The bias}\label{the-bias}}
 
 For all estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:\\
-- when variances are equal across groups;\\
-- when variances are unequal across groups, with equal sample sizes;\\
-- when variances are unequal across groups, with unequal sample sizes.
+- when variances are equal across populations;\\
+- when variances are unequal across populations, with equal sample sizes;\\
+- when variances are unequal across populations, with unequal sample sizes.
 
 \hypertarget{preliminary-note}{%
 \subsection{Preliminary note}\label{preliminary-note}}
@@ -289,7 +289,7 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \begin{itemize}
 \tightlist
 \item
-  The smallest bias always occure when there is a positive pairing between variances and sample size, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias. This can be explained by splitting the numerator and the denominator in the DF computation (see Figure \ref{fig:biascohendprimehetunbaldfandbias}).
+  The smallest bias always occure when there is a positive pairing between variances and sample size, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias. This can be explained by splitting the numerator and the denominator in the DF computation (see Figure \ref{fig:biascohendprimehetunbaldfandbias}).
 \end{itemize}
 
 \begin{figure}
@@ -426,34 +426,14 @@ The \textbf{bias} of Shieh's \(d'_s\) is a function of the population effect siz
 
 \begin{figure}
 \centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRN2-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRN2}Degrees of freedom (DF) when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the variances and sample sizes ratios (\(\frac{\sigma_j}{n_j}\))}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRNandnpairing2case1-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRNandnpairing2case1}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups and \(\frac{\sigma^2_1}{n_1}=\frac{\sigma^2_2}{n_2}\), as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\))}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalSDRNandnpairing2case2-1.pdf}
-\caption{\label{fig:biasshiehhetunbalSDRNandnpairing2case2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups and either \(\frac{\sigma^2_1}{n_1}>\frac{\sigma^2_2}{n_2}\) (top) or \(\frac{\sigma^2_1}{n_1}<\frac{\sigma^2_2}{n_2}\) (bottom), as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\))}
+\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbaldfandbias-1.pdf}
+\caption{\label{fig:biasshiehhetunbaldfandbias}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)}
 \end{figure}
 
 \begin{itemize}
 \tightlist
 \item
-  The variances and sample sizes ratios don't matter per se (see Figure \ref{fig:biasshiehhetunbalSDRN2}). However, the pairing between these ratios and sample sizes has an effect on the bias:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    When \(\frac{\sigma^2_1}{n_1}=\frac{\sigma^2_2}{n_2}\), the smallest bias occurs when sample sizes are equal across groups. The further the sample sizes ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case1}).
-  \item
-    When \(\frac{\sigma^2_1}{n_1} \neq \frac{\sigma^2_2}{n_2}\), the minimum bias will always occure when \(min(\frac{\sigma^2_j}{n_j})\) will be associated with \(min(n_j)\). In other word, when \(\frac{\sigma^2_1}{n_1}>\frac{\sigma^2_2}{n_2}\), the sample sizes ratio associated with the minimum bias will be positive, meaning that \(n_1>n_2\) (and the larger the difference between \(\frac{\sigma^2_1}{n_1}\) and \(\frac{\sigma^2_2}{n_2}\), the further from 1 will be this sample sizes ratio; see the two top plots in Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case2}). On the other side, when \(\frac{\sigma^2_1}{n_1}<\frac{\sigma^2_2}{n_2}\), the sample sizes ratio associated with the minimum bias will be negative, meaning that \(n_1<n_2\) (and the larger the difference between \(\frac{\sigma^2_1}{n_1}\) and \(\frac{\sigma^2_2}{n_2}\), the further from 1 will be this sample sizes ratio; see the two bottom plots in Figure \ref{fig:biasshiehhetunbalSDRNandnpairing2case2}).
-  \end{itemize}
+  The smallest bias always occure when there is a positive pairing between variances and sample size. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias.
 \end{itemize}
 
 \begin{figure}
