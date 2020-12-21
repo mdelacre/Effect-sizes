@@ -45,13 +45,13 @@ For all previously mentioned estimators (Cohen's $d_s$, Glass's $d_s$, Cohen's $
 (\#eq:mc)
 \end{equation} 
 
-Where $df$ are the degrees of freedom. $\gamma$ is *always* positive, meaning that when the population effect size is not zero, all estimators will overestimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom ($df$) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias. 
+Where $df$ are the degrees of freedom. $\gamma$ is *always* positive, meaning that when the population effect size is not zero, all estimators will overestimate the real population effect size. Moreover, it is monotonically decreasing and tends to 1 when the degrees of freedom ($df$) tend to infinity ($1.38 \ge \gamma > 1 \; for \; 3 \le df < \infty$; Huynh, 1989). As a consequence, the larger $df$, the lower the bias. 
 
-## Cohen's $d_s$ (see Table 1)
+## Cohen's $d_s$ (see Table 1 in the article)
 
 Under the assumptions that independant residuals are normally distributed with equal variances, the **bias** of Cohen's $d_s$ is a function of total sample size (N) and the population effect size ($\delta_{Cohen}$):     
 
-  + The larger the population effect size, the more Cohen's $d_s$ will overestimate $\delta_{Cohen}$.   
+  + The larger the population effect size, the more Cohen's $d_s$ will overestimate $\delta_{Cohen}$;   
   
 ```{r biascohendNsize,include=FALSE}
 Nsize=NULL
@@ -78,17 +78,17 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendNsize2}).
+  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendNsize2});  
 
-  + Of course, considering the degrees of freedom, the sample size ratio does not matter (i.e. the bias will decrease, whatever one increases $n_1$, $n_2$ or both sample sizes)
+  + Of course, considering the degrees of freedom, the sample size ratio does not matter (i.e. the bias will decrease, whatever one increases $n_1$, $n_2$ or both sample sizes).
 
-## Glass's $d_s$ (see Table 2)
+## Glass's $d_s$ (see Table 2 in the article)
 
-Because degrees of freedom depend only on the sample size of the control group, there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!   
+Because degrees of freedom depend only on the control group size, there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!   
 
-The **bias** of Glass's $d_s$ is a function of the sample size of the control group ($n_c$) and the population effect size ($\delta_{glass}$):  
+The **bias** of Glass's $d_s$ is a function of the control group size ($n_c$) and the population effect size ($\delta_{glass}$):  
 
-  + The larger the population effect size, the more Glass's $d_s$ will overestimate $\delta_{Glass}$.
+  + The larger the population effect size, the more Glass's $d_s$ will overestimate $\delta_{Glass}$;
 
 ```{r biasGlassctrlsize,include=FALSE}
 Nctrl=NULL
@@ -128,17 +128,17 @@ plot(Nexp,DF2,xlab=expression(n[e]),ylab="DF")
 plot(Nexp,coeffmult2,xlab=expression(n[e]),ylab=expression(gamma))
 ```
 
-  + The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other side, increasing the size of the experimental group does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
+  + The larger the control group size, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other side, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
 
-## Cohen's $d'_s$ (see Table 3)
+## Cohen's $d'_s$ (see Table 3 in the article)
 
 ### When variances are equal across populations
 
 When $\sigma_1=\sigma_2=\sigma$: 
 $$df_{Cohen's \; d'_s} = \frac{(n_1-1)(n_2-1)(2\sigma^2)^2}{(n_2-1)\sigma^4+(n_1-1)\sigma^4} = \frac{(n_1-1)(n_2-1)\times 4\sigma^4}{\sigma^4(n_1+n_2-2)} = \frac{4(n_1-1)(n_2-1)}{n_1+n_2-2}$$ 
-One can see that degrees of freedom depend only on the total sample size (N) and the sample size allocation ratio ($\frac{n_1}{n_2}$). As a consequence, the **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the sample size allocation ratio and the total sample size ($N$). 
+One can see that degrees of freedom depend only on the total sample size (N) and the sample size allocation ratio ($\frac{n_1}{n_2}$). As a consequence, the **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the sample size allocation ratio $\left(\frac{n_1}{n_2} \right)$ and the total sample size ($N$). 
 
-  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$
+  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$;
 
 ```{r biascohendprimehomNratio,include=FALSE}
 coeffmult <- NULL
@@ -171,7 +171,7 @@ abline(v=0)
 #nratio[coeffmult==min(coeffmult)]
 ```
 
-  + The further the sample size allocation ratio is from 1, the larger the bias (see Figure \ref{fig:biascohendprimehomNratio2})
+  + The further the sample size allocation ratio is from 1, the larger the bias (see Figure \ref{fig:biascohendprimehomNratio2});
 
 ```{r biascohendprimehomNsize,include=FALSE}
 Nsize=NULL
@@ -198,15 +198,15 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendprimehomNsize2})
+  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendprimehomNsize2}).
 
 ### When variances are unequal across populations, with equal sample sizes
 
 When $n_1=n_2=n$: 
 $$df_{Cohen's \; d'_s} = \frac{(n-1)^2(\sigma^2_1+\sigma^2_2)^2}{(n-1)(\sigma^4_1+\sigma^4_2)} =  \frac{(n-1)(\sigma^4_1+\sigma^4_2+2\sigma^2_1\sigma^2_2)}{\sigma^4_1+\sigma^4_2}$$ 
-One can see that degrees of freedom depend only on the total sample size  (N) and the SD-ratio. As a consequence, the **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the SD-ratio and the total sample size ($N$): 
+One can see that degrees of freedom depend only on the total sample size  (N) and the SD-ratio $\left(\frac{\sigma_1}{\sigma_2} \right)$. As a consequence, the **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the $SD$-ratio and the total sample size ($N$): 
 
-  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$  
+  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$;  
 
 ```{r biascohendprimehetbalSDratio,include=FALSE}
 coeffmult <- NULL
@@ -236,7 +236,7 @@ plot(log(SDratio),coeffmult,ylab=expression(gamma),xlab=expression(paste("log(",
 #SDratio[coeffmult==min(coeffmult)]
 ```
 
-  + The further the $SD$-ratio is from 1, the larger the bias (see Figure \ref{fig:biascohendprimehetbalSDratio2})  
+  + The further the $SD$-ratio is from 1, the larger the bias (see Figure \ref{fig:biascohendprimehetbalSDratio2});  
 
 ```{r biascohendprimehetbalNsize,include=FALSE}
 Nsize=NULL
@@ -263,7 +263,7 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendprimehetbalNsize2})  
+  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendprimehetbalNsize2}).  
 
 ```{r biascohendprimehetbalvariance,include=FALSE}
 coeffmult <- NULL
@@ -301,13 +301,13 @@ plot(SD2,coeffmult,ylab=expression(gamma),xlab=expression(sigma[1]))
 
 ```
 
-Note: for a constant $SD$-ratio, $\sigma_1$ and $\sigma_2$ don't matter (see Figure \ref{fig:biascohendprimehetbalvariance2}) 
+Note: for a constant $SD$-ratio, $\sigma_1$ and $\sigma_2$ don't matter (see Figure \ref{fig:biascohendprimehetbalvariance2}). 
 
 ### When variances are unequal across populations, with unequal sample sizes
 
-The **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the total sample size, and the interaction between the sample sizes ratio ($\frac{n_1}{n_2}$) and the $SD$-ratio ($\frac{\sigma_1}{\sigma_2}$):     
+The **bias** of Cohen's $d'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the total sample size (N), and the interaction between the sample sizes ratio $\left(\frac{n_1}{n_2} \right)$ and the $SD$-ratio $\left(\frac{\sigma_1}{\sigma_2} \right)$:     
 
-  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$  
+  + The larger the population effect size, the more $Cohen's \; d'_s$ will overestimate $\delta'_{Cohen}$;  
 
 ```{r biascohendprimehetunbalNsize,include=FALSE}
 coeffmult <- NULL
@@ -336,7 +336,7 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see in Figure \ref{fig:biascohendprimehetunbalNsize2})
+  + The larger the total sample size, the lower the bias (see in Figure \ref{fig:biascohendprimehetunbalNsize2});
 
 ```{r biascohendprimehetunbalNratio,include=FALSE}
 coeffmult2 <- NULL
@@ -431,7 +431,7 @@ plot(log(nratio2),coeffmult2,ylab=expression(gamma),xlab=expression(paste("log("
 abline(v=0)
 ```
 
-  + The smallest bias always occure when there is a positive pairing between variances and sample size, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias. This can be explained by splitting the numerator and the denominator in the DF computation (see Figure \ref{fig:biascohendprimehetunbaldfandbias}).
+  + The smallest bias always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance in the denominator of the df computation. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (see Figure \ref{fig:biascohendprimehetunbaldfandbias}). This can be explained by splitting the numerator and the denominator in the DF computation.
   
 ```{r biascohendprimehetunbalnumanddenomdf,fig.cap="numerator and denominator of the degrees of freedom (DF) computation, when computing the bias of Cohen's $d'_s$, when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio ($log \\left( \\frac{n_1}{n_2} \\right)$), when $SD$-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row)",echo=FALSE}
 par(mfrow=c(3,2))
@@ -455,7 +455,7 @@ plot(log(nratio2),DF_DENOM2,ylab=expression(denom[DF]),xlab=expression(paste("lo
 abline(v=0)
 ```
 
-  As illustrated in Figure \ref{fig:biascohendprimehetunbalnumanddenomdf}, for any $SD$-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the $SD$-ratio). On the other side, the denominator will be minimized when there is a positive pairing between variances and sample sizes. For example, when $\sigma_1>\sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}=max(\frac{n_1}{n_2})$) and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator. In the end, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the larger degrees of freedom.
+  As illustrated in Figure \ref{fig:biascohendprimehetunbalnumanddenomdf}, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups, and it is not impacted by the $SD$-ratio. On the other side, the denominator will be minimized when there is a positive pairing between variances and sample sizes. For example, when $\sigma_1>\sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}=max(\frac{n_1}{n_2})$) and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator.
 
 ```{r biascohendprimehetunbalvariance,include=FALSE}
 coeffmult <- NULL
@@ -489,7 +489,7 @@ abline(v=0)
 Note: for a constant SD-ratio, the variance does not matter. (See Figure \ref{fig:biascohendprimehetunbalvariance2})
 
 
-## Shieh's $d_s$ (see Table 4)
+## Shieh's $d_s$ (see Table 4 in the article)
 
 ### When variances are equal across populations
 
@@ -500,9 +500,9 @@ $$\leftrightarrow df_{Shieh's \; d_s} = \frac{\sigma^4N^2}{n_1^2n_2^2} \times \f
 $$\leftrightarrow df_{Shieh's \; d_s} = \frac{N^2(n_1-1)(n_2-1)}{n_1^2n_2^2 \left( \frac{n_2^2(n_2-1)+n_1^2(n_1-1)}{n_1^2n_2^2}\right)}$$
 $$\leftrightarrow df_{Shieh's \; d_s} = \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}$$
 
-One can see that degrees of freedom depend only on the total sample size ($N$) and the sample size allocation ratio ($\frac{n_1}{n_2}$). As a consequence, the **bias** of Shieh's $d'_s$ is a function of the population effect size ($\delta_{Shieh}$), the sample size allocation ratio ($\frac{n_1}{n_2}$) and the total sample size ($N$). 
+One can see that degrees of freedom depend only on the total sample size ($N$) and the sample size allocation ratio $\left( \frac{n_1}{n_2}\right)$. As a consequence, the **bias** of Shieh's $d'_s$ is a function of the population effect size ($\delta_{Shieh}$), the sample size allocation ratio $\left( \frac{n_1}{n_2}\right)$ and the total sample size ($N$). 
 
-  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$
+  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$;
   
 ```{r biasshiehhomNratio,include=FALSE}
 coeffmult <- NULL
@@ -533,7 +533,7 @@ plot(log(nratio),coeffmult,ylim=c(1,1.02),ylab=expression(gamma),xlab=expression
 #nratio[coeffmult==min(coeffmult)]
 ```
 
-  + The further the sample size allocation ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhomNratio2})
+  + The further the sample size allocation ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhomNratio2});
 
 ```{r biasshiehhomNsize,include=FALSE}
 Nsize=NULL
@@ -560,7 +560,7 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhomNsize2})
+  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhomNsize2}).
 
 
 ### When variances are unequal across populations, with equal sample sizes
@@ -570,9 +570,9 @@ $$df_{Shieh's \; d_s} = \frac{\left( \frac{\sigma_1^2+\sigma_2^2}{n} \right)^2}{
 $$df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2}{n^2} \times\frac{n-1}{\frac{\sigma_1^4+\sigma_2^4}{n^2}}$$
 $$df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2 \times (n-1)}{\sigma_1^4+\sigma_2^4}$$
 
-One can see that degrees of freedom depend on the total sample size (N), the $SD$-ratio.  As a consequence, the bias depends on the population effect size ($\delta_{Shieh}$), the $SD$-ratio and the total sample size (N).
+One can see that degrees of freedom depend on the total sample size (N) and the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$.  As a consequence, the bias depends on the population effect size ($\delta_{Shieh}$), the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$ and the total sample size (N).
 
-  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$  
+  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$;  
 
 ```{r biasshiehhetbalSDratio,include=FALSE}
 coeffmult <- NULL
@@ -602,7 +602,7 @@ plot(log(SDratio),coeffmult,ylab=expression(gamma),xlab=expression(paste("log(",
 #SDratio[coeffmult==min(coeffmult)]
 ```
 
-  + The further the SD-ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhetbalSDratio2})  
+  + The further the SD-ratio is from 1, the larger the bias (see Figure \ref{fig:biasshiehhetbalSDratio2});  
 
 ```{r biasshiehhetbalNsize,include=FALSE}
 Nsize=NULL
@@ -629,7 +629,7 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhetbalNsize2})  
+  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhetbalNsize2}).  
 
 ```{r biasshiehhetbalvariance,include=FALSE}
 coeffmult <- NULL
@@ -663,9 +663,9 @@ Note: for a constant SD-ratio, the size of the variance does not matter (see Fig
 
 ### When variances are unequal across populations, with unequal sample sizes
 
-The **bias** of Shieh's $d'_s$ is a function of the population effect size ($\delta_{Shieh}$), the sample sizes ($n_1$ and $n_2$), and the pairing between sample sizes, and variances and sample sizes ratios.
+The **bias** of Shieh's $d'_s$ is a function of the population effect size ($\delta_{Shieh}$), the sample sizes ($n_1$ and $n_2$), and the interaction between the sample sizes ratio $\left(\frac{n_1}{n_2} \right)$ and the $SD$-ratio $\left(\frac{\sigma_1}{\sigma_2} \right)$:
 
-  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$  
+  + The larger the population effect size, the more $Shieh's \; d_s$ will overestimate $\delta_{Shieh}$;  
 
 ```{r biasshiehhetunbalNsize,include=FALSE}
 coeffmult <- NULL
@@ -696,7 +696,7 @@ plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 abline(v=0)
 ```
 
-  + The larger the sample sizes, the lower the bias (illustration in Figure \ref{fig:biasshiehhetunbalNsize2})
+  + The larger the sample sizes, the lower the bias (illustration in Figure \ref{fig:biasshiehhetunbalNsize2});
 
 ```{r biasshiehhetunbalNratio,include=FALSE}
 coeffmult2 <- NULL
@@ -710,8 +710,8 @@ for (i in 10:190){
   N <- 200
   n1 <- i
   n2 <- N-n1
-  sd1 <- 1
-  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  sd2 <- 1
+  sd1 <- sqrt(50-sd2^2) # so sqrt((sd1^2+sd2^2)/2)=5
   SDratio2=sd1/sd2
   nratio2 <- c(nratio2,n1/n2)
   df_num <- (sd1^2/n1+sd2^2/n2)^2
@@ -735,8 +735,8 @@ for (i in 10:190){
   N <- 200
   n1 <- i
   n2 <- N-n1
-  sd1 <- 2
-  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  sd2 <- 2
+  sd1 <- sqrt(50-sd2^2) # so sqrt((sd1^2+sd2^2)/2)=5
   SDratio3=sd1/sd2
   nratio3 <- c(nratio3,n1/n2)
   df_num <- (sd1^2/n1+sd2^2/n2)^2
@@ -760,8 +760,8 @@ for (i in 10:190){
   N <- 200
   n1 <- i
   n2 <- N-n1
-  sd1 <- 4
-  sd2 <- sqrt(50-sd1^2) # so sqrt((sd1^2+sd2^2)/2)=5
+  sd2 <- 4
+  sd1 <- sqrt(50-sd2^2) # so sqrt((sd1^2+sd2^2)/2)=5
   SDratio4=sd1/sd2
   nratio4 <- c(nratio4,n1/n2)
   df_num <- (sd1^2/n1+sd2^2/n2)^2
@@ -795,7 +795,7 @@ abline(v=0)
 
 ```
 
-  + The smallest bias always occure when there is a positive pairing between variances and sample size. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias. 
+  + The smallest bias always occure when there is a positive pairing between variances and sample size. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (see Figure \ref{fig:biasshiehhetunbaldfandbias}). 
 
 ```{r biasshiehhetunbalvariance,include=FALSE}
 coeffmult <- NULL
@@ -826,4 +826,4 @@ plot(SD,coeffmult,ylab=expression(gamma),xlab=expression(sigma))
 abline(v=0)
 ```
   
-Moreover, for a constant SD-ratio, the variances don't matter either. (See Figure \ref{fig:biasshiehhetunbalvariance2})
+Moreover, for a constant SD-ratio, the variances don't matter (See Figure \ref{fig:biasshiehhetunbalvariance2}).

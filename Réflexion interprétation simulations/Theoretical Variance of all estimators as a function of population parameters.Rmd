@@ -1,0 +1,551 @@
+---
+title             : "Theoretical variance, as a function of population parameters"
+shorttitle        : "Theoretical variance"
+
+author: 
+  - name          : "Delacre Marie"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    address       : ""
+    email         : ""
+
+affiliation:
+  - id            : "1"
+    institution   : "ULB"
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+# The variance
+
+## Cohen's $d_s$
+
+### When variances are equal across populations
+
+#### When $\delta_{Cohen}=0$
+
+When the population effect size is zero, the variance of Cohen's $d_s$ can be simplified as follows:
+
+$$Var_{Cohen's \; d_s} = \frac{N(N-2)}{n_1n_2(N-4)}$$
+
+The **variance** of Cohen's $d_s$ is a function of total sample size (N) and the sample size allocation ratio ($\frac{n_1}{n_2}$):     
+
+```{r varcohendNsize,include=FALSE}
+Nsize=NULL
+VAR=NULL
+
+for (i in 4:200){
+  delta_cohen = 0
+  n1=i
+  n2=i
+  N = n1+n2
+  df=N-2
+  Nsize=c(Nsize,N)
+  variance <-(N*df)/(n1*n2*(df-2)) + delta_cohen^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varcohendNsize2,fig.cap="...",echo=FALSE}
+plot(Nsize,VAR,xlab="N",ylab=expression(paste("Var(",delta[s],")")))
+```
+
+  + The larger the total sample size, the lower the variance. The bias tends to zero when the total sample size tends to infinity (see Figure \ref{fig:varcohendNsize2})
+
+
+```{r varcohenNratio,include=FALSE}
+nratio=NULL
+VAR=NULL
+
+
+for (i in 1:199){
+  delta_cohen=0
+  N <- 200
+  n1 <- i
+  n2 <- N-n1
+  df <- N-2
+  
+  nratio <- c(nratio,n1/n2)
+  variance <-(N*df)/(n1*n2*(df-2)) + delta_cohen^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+
+#Remarque: le deuxième terme de l'addition, dans le calcul de la variance, ne dépend pas du tout du nratio.Donc peu importe que delta_cohen = 0 ou autre chose, ça ne modifiera en rien l'impact du nratio.
+```
+
+```{r varcohenNratio2,fig.cap="...",echo=FALSE}
+plot(log(nratio),VAR,xlab=expression(paste("log(",n[1],"/",n[2],")")),,ylab=expression(paste("Var(",delta[s],")")))
+#nratio[VAR==min(VAR)]
+```
+
+  + The further the sample sizes allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varcohenNratio2})  
+
+#### When $\delta_{Cohen} \neq 0$
+
+While the variance of $\delta_{Cohen}$ still depends on the total sample size and the sample sizes allocation ratio, it also depends on the population effect size ($\delta_{Cohen}$). The larger the population effect size, the larger the variance. Note that the effect of the population effect size decreases when sample sizes increase, as $\lim_{n\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0$.
+
+## Glass's $d_s$
+
+### When variances are equal across populations
+
+#### When $\delta_{Glass}=0$
+
+When the population effect size is zero, the variance of Glass's $d_s$ can be simplified as follows:
+
+$$Var_{Glass's \; d_s} = \frac{n_c-1}{n_c-3} \left( \frac{1}{n_c}+\frac{1}{n_e}\right)$$
+
+The **variance** of Glass's $d_s$ is a function of the sample sizes of both control and experimental group ($n_c$) as well as of the sample sizes allocation ratio.  
+
+```{r varglassNsize,include=FALSE}
+Nsize=NULL
+VAR=NULL
+
+for (i in 4:200){
+  delta_glass = 0
+  sde=2
+  sdc=2
+  nc=i
+  ne=3*i
+  N = nc+ne
+  df=nc-1
+  Nsize <- c(Nsize,N)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varglassNsize2,fig.cap="...",echo=FALSE}
+plot(Nsize,VAR,xlab="N",,ylab=expression(paste("Var(",delta[s],")")))
+```
+
+  + The larger the sample sizes, the lower the variance (Figure \ref{fig:varglassNsize2})
+  
+```{r varglasshomNratio,include=FALSE}
+nratio=NULL
+VAR=NULL
+
+for (i in 4:299){
+  delta_glass=0
+  sde=2
+  sdc=2
+
+  N <- 300
+  nc <- i
+  ne <- N-nc
+  df <- nc-1
+
+  nratio <- c(nratio,nc/ne)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varglasshomNratio2,fig.cap="...",echo=FALSE}
+plot(log(nratio),VAR,xlab=expression(paste("log(",n[1],"/",n[2],")")),ylab=expression(paste("Var(",delta[s],")")))
+#nratio[VAR==min(VAR)]
+```
+
+The sample sizes ratio associated with the lowest variance is not exactly 1 (because of the term $\frac{df}{df-2}$, df depending only on $n_c$), but is very close to 1 (and the larger the total sample size, the closer to 1 is the sample sizes ratio associated with the lowest variance).And the further from this sample size ratio, the larger the variance (see Figure \ref{fig:varglasshomNratio2}).
+
+#### When $\delta_{Glass} \neq 0$
+
+```{r varglasswithESNsize,include=FALSE}
+Nc=NULL
+VAR1=NULL
+
+for (i in 4:200){
+  delta_glass = 0
+  sde=2
+  sdc=2
+  nc=i
+  ne=20
+  N = nc+ne
+  df=nc-1
+  Nc <- c(Nc,nc)
+  variance <-(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*
+  VAR1=c(VAR1,variance) 
+}
+
+Ne=NULL
+VAR2=NULL
+
+for (i in 4:200){
+  delta_glass = 0
+  sde=2
+  sdc=2
+  nc=20
+  ne=i
+  N = nc+ne
+  df=nc-1
+  Ne <- c(Ne,ne)
+  variance <- (df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*
+  VAR2=c(VAR2,variance) 
+}
+```
+
+```{r varglasswithESNsize2,fig.cap="...",echo=FALSE}
+par(mfrow=c(2,1))
+plot(Nc,VAR1,xlab=expression(n[c]),ylab=expression(paste("Var(",delta[s],") multiplier")))
+plot(Ne,VAR2,xlab=expression(n[e]),ylab=expression(paste("Var(",delta[s],") multiplier")))
+
+```
+
+While the variance of $\delta_{Glass}$ still depends on the total sample size and the sample sizes allocation ratio, it also depends on the population effect size ($\delta_{Cohen}$). The larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the control group increases, as $\lim_{n\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0$ (see Figure \ref{fig:varglasswithESNsize2}).
+
+```{r varglasshomNratiobis,include=FALSE}
+nratio=NULL
+VAR=NULL
+delta_glass1=4
+
+for (i in 4:99){
+  
+  sde=2
+  sdc=2
+
+  N <- 100
+  nc <- i
+  ne <- N-nc
+  df <- nc-1
+
+  nratio <- c(nratio,nc/ne)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass1^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+
+nratio2=NULL
+VAR2=NULL
+delta_glass2=7
+
+for (i in 4:99){
+  
+  sde=2
+  sdc=2
+
+  N <- 100
+  nc <- i
+  ne <- N-nc
+  df <- nc-1
+
+  nratio2 <- c(nratio2,nc/ne)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass2^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR2=c(VAR2,variance) 
+}
+
+```
+
+```{r varglasshomNratiobis2,fig.cap="...",echo=FALSE}
+plot(log(nratio),VAR,xlab=expression(paste("log(",n[1],"/",n[2],")")),ylab=expression(paste("Var(",delta[s],")")))
+#round(nratio[VAR==min(VAR)])
+```
+
+Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the adddition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), and the larger the population effect size the truer. For example, when $\delta_{glass}$= `r delta_glass1`, the lowest variance will occure when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{glass}$= `r delta_glass2`, the lowest variance will occure when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
+
+### When variances are unequal across populations, with equal sample sizes
+
+#### When $\delta_{Glass}=0$
+
+When the population effect size is zero, the variance of Glass's $d_s$ can be simplified as follows:
+
+$$Var_{Glass's \; d_s} = \frac{n-1}{n(n-3)} \left( 1+\frac{\sigma^2_e}{\sigma^2_c}\right)$$
+
+Where $n=N/2$=sample size of each group. The variance is therefore a function of the total sample size and the $SD$-ratio ($\frac{\sigma_c}{\sigma_e}$). 
+
+```{r varglassHetbalNsize,include=FALSE}
+Nsize=NULL
+VAR=NULL
+
+for (i in 4:200){
+  delta_glass = 0
+  sde=10
+  sdc=2
+  nc=i
+  ne=i
+  N = nc+ne
+  df=nc-1
+  Nsize <- c(Nsize,N)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varglassHetbalNsize2,fig.cap="...",echo=FALSE}
+plot(Nsize,VAR,xlab="N",ylab=expression(paste("Var(",delta[s],")")))
+```
+
+  + The larger the total sample size, the lower the variance (See Figure \ref{fig:varglassHetbalNsize2})
+  
+```{r varglasshetbalSDratio,include=FALSE}
+SDratio <- NULL
+VAR <- NULL
+
+for (i in 1:100){
+  
+  delta_glass <- 0
+  ne=10
+  nc=10
+  N <- ne+nc
+  sde <- 10
+  sdc <- i
+  df <- nc-1
+  
+  SDratio <- c(SDratio,sdc/sde)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varglasshetbalSDratio2,fig.cap="...",echo=FALSE}
+plot(log(SDratio),VAR,xlab=expression(paste("log(",sigma[1],"/",sigma[2],")")),ylab=expression(paste("Var(",delta[s],")")))
+```
+
+  + The larger the $SD$-ratio (i.e. the larger is $\sigma_c$ in comparison with $\sigma_e$), the lower the variance (see Figure \ref{fig:varglasshetbalSDratio2}). However, the effect of the $SD$-ratio decreases when sample sizes increase, because $\lim_{n\rightarrow \infty}\left[\frac{n-1}{n(n-3)} \right]=0$.
+  
+#### When $\delta_{Glass} \neq 0$
+
+While the variance of $\delta_{Glass}$ still depends on the total sample size and the $SD$-ratio, it also depends on the population effect size ($\delta_{Glass}$). The larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the control group increases, as $\lim_{n\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0$ (see Figure \ref{fig:varglasswithESNsize2}).
+
+
+
+
+
+### When variances are unequal across populations, with unequal sample sizes
+
+#### When $\delta_{Glass}=0$
+
+When the population effect size is zero, the variance of Glass's $d_s$ can be simplified as follows:
+
+$$Var_{Glass's \; d_s} = \frac{n_c-1}{n_c-3} \left( \frac{1}{n_c}+\frac{\sigma^2_e}{n_e\sigma^2_c}\right)$$
+
+The variance of Glass's $d_s$ is therefore a function of the total sample size (N), the $SD$-ratio and the interaction between the sample sizes ratio and the $SD$-ratio.
+
+```{r varglassHetunbalNsize,include=FALSE}
+
+VAR1=NULL
+Ne1 = NULL
+for (i in 4:150){
+  delta_glass = 0
+  sde=1
+  sdc=10
+  nc=50
+  ne=i
+  Ne1=c(Ne1,ne)
+  df=nc-1
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR1=c(VAR1,variance) 
+}
+
+#------------------------------
+
+VAR2=NULL
+Nc2 = NULL
+for (i in 4:150){
+  delta_glass = 0
+  sde=1
+  sdc=10
+  nc=i
+  ne=50
+  Nc2=c(Nc2,nc)
+  df=nc-1
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR2=c(VAR2,variance) 
+}
+
+#------------------------------
+
+VAR3=NULL
+Ne3 = NULL
+for (i in 4:150){
+  delta_glass = 0
+  sde=10
+  sdc=1
+  nc=50
+  ne=i
+  Ne3=c(Ne3,ne)
+  df=nc-1
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR3=c(VAR3,variance) 
+}
+
+#------------------------------
+
+VAR4=NULL
+Nc4 = NULL
+for (i in 4:150){
+  delta_glass = 0
+  sde=10
+  sdc=1
+  nc=i
+  ne=50
+  Nc4=c(Nc4,nc)
+  df=nc-1
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR4=c(VAR4,variance) 
+}
+
+```
+
+```{r varglassHetunbalNsize2,fig.cap="...",echo=FALSE}
+par(mfrow=c(2,2))
+
+plot(Ne1,VAR1,xlab=expression(n[e]),ylab=expression(paste("Var(",delta[s],")")))
+
+plot(Nc2,VAR2,xlab=expression(n[c]),ylab=expression(paste("Var(",delta[s],")")))
+
+plot(Ne3,VAR3,xlab=expression(n[e]),ylab=expression(paste("Var(",delta[s],")")))
+
+plot(Nc4,VAR4,xlab=expression(n[c]),ylab=expression(paste("Var(",delta[s],")")))
+```
+
++ Whatever the $SD$ and sample sizes pairing, increasing $n_c$ and/or $n_e$ will decrease the variance (see Figure \ref{fig:varglassHetunbalNsize2}).
+
+```{r varglassHetunbalNwhensdelargerthansdc,include=FALSE}
+Ne=NULL
+VAR1=NULL
+#var1 <- NULL
+#var2 <- NULL
+
+for (i in 50:200){
+  delta_glass = 5
+  sde=10
+  sdc=1
+  nc=100
+  ne=i
+  N = nc+ne
+  df=nc-1
+  Ne <- c(Ne,ne)
+#  var1 <- c(var1,(nc-1)/(nc*(nc-3)))
+#  var2 <- c(var2,(sde^2*(nc-1))/(sdc^2*(nc-3)*ne))
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR1=c(VAR1,variance) 
+}
+
+#------------------------------
+
+Nc=NULL
+VAR2=NULL
+
+for (i in 50:200){
+  delta_glass = 0
+  sde=10
+  sdc=1
+  nc=i
+  ne=100
+  N = nc+ne
+  df=nc-1
+  Nc <- c(Nc,nc)
+#  var1 <- c(var12,(nc-1)/(nc*(nc-3)))
+#  var2 <- c(var22,(sde^2*(nc-1))/(sdc^2*(nc-3)*ne))
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR2=c(VAR2,variance) 
+}
+```
+
+```{r varglassHetunbalNwhensdelargerthansdc2,fig.cap="...",echo=FALSE}
+par(mfrow=c(1,2))
+plot(Ne,VAR1,xlab=expression(n[e]),ylab=expression(paste("Var(",delta[s],")")))
+abline(h=0)
+plot(Nc,VAR2,xlab=expression(n[c]),ylab=expression(paste("Var(",delta[s],")")))
+abline(h=0)
+```
+```{r varglassHetunbalNwhensdclargerthansde,include=FALSE}
+Ne=NULL
+VAR1=NULL
+#var1 <- NULL
+#var2 <- NULL
+
+for (i in 50:200){
+  delta_glass = 0
+  sde=1
+  sdc=10
+  nc=100
+  ne=i
+  N = nc+ne
+  df=nc-1
+  Ne <- c(Ne,ne)
+#  var1 <- c(var1,(nc-1)/(nc*(nc-3)))
+#  var2 <- c(var2,(sde^2*(nc-1))/(sdc^2*(nc-3)*ne))
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR1=c(VAR1,variance) 
+}
+
+#------------------------------
+
+Nc=NULL
+VAR2=NULL
+
+for (i in 50:200){
+  delta_glass = 0
+  sde=1
+  sdc=10
+  nc=i
+  ne=100
+  N = nc+ne
+  df=nc-1
+  Nc <- c(Nc,nc)
+#  var1 <- c(var12,(nc-1)/(nc*(nc-3)))
+#  var2 <- c(var22,(sde^2*(nc-1))/(sdc^2*(nc-3)*ne))
+  variance <-(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2) #df/(df-2)
+  VAR2=c(VAR2,variance) 
+}
+```
+
+```{r varglassHetunbalNwhensdclargerthansde2,fig.cap="...",echo=FALSE}
+par(mfrow=c(1,2))
+plot(Ne,VAR1,xlab=expression(n[e]),ylab=expression(paste("Var(",delta[s],")")))
+abline(h=0)
+plot(Nc,VAR2,xlab=expression(n[c]),ylab=expression(paste("Var(",delta[s],")")))
+abline(h=0)
+```
+
+  + The effect of the sample sizes ratio depends on the $SD$-ratio:  
+    - We previously mentioned that when $\sigma_c=\sigma_e$,  the variance is minimized when sample sizes of both groups are almost identical (see Figure \ref{fig:varglasshomNratio2}), meaning that it is more efficient, in order to reduce variance, to add subjects uniformly in both groups;  
+    - When $\sigma_e > \sigma_c$, more weight is given to $n_e$, meaning that it is more efficient, in order to reduce variance, to add subjects in the experiental group ($n_e$; see Figure \ref{fig:varglassHetunbalNwhensdelargerthansdc2});  
+    - When $\sigma_c > \sigma_e$, less weight is given to $n_e$, meaning that it is more efficient, in order to reduce variance, to add sujects in the control group ($n_c$; see Figure \ref{fig:varglassHetunbalNwhensdclargerthansde2}).     
+
+```{r varglasshetunbalSDratio,include=FALSE}
+SDratio <- NULL
+VAR <- NULL
+
+for (i in 1:100){
+  
+  delta_glass <- 5
+  ne=10
+  nc=100
+  N <- ne+nc
+  sde <- 10
+  sdc <- i
+  df <- nc-1
+  
+  SDratio <- c(SDratio,sdc/sde)
+  variance <-df/(df-2)*(1/nc+sde^2/(ne*sdc^2)) + delta_glass^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR=c(VAR,variance) 
+}
+```
+
+```{r varglasshetunbalSDratio2,fig.cap="...",echo=FALSE}
+plot(SDratio,VAR,xlab=expression(paste("log(",sigma[1],"/",sigma[2],")")),ylab=expression(paste("Var(",delta[s],")")))
+```
+
++ Finally, there is also a main effect of the $SD$-ratio: the larger is $\sigma_c$ in comparison with $\sigma_e$, the lower the variance, as we can observe in Figure \ref{fig:varglasshetunbalSDratio2}  
+    
+Note that the effect of the $SD$-ratio, and the interaction effect between $SD$-ratio and sample sizes ratio decreases when the sample size of the control group increases (because $\frac{n_c-1}{n_c-3}$ get closer to 1).
+  
+#### When $\delta_{Glass} \neq 0$
+
+While the variance of $\delta_{Glass}$ still depends on the total sample size, the $SD$-ratio and the interaction between the $SD$-ratio and the sample sizes ratio, it also depends on the population effect size ($\delta_{Glass}$): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the sample size of the control group increases, as $\lim_{n\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0$ 
+
+Note: when the population effect size was null, when $\sigma_e>\sigma_c$, it was much more efficient to add subjects in the experimental group in order to reduce the variance (because much more weight were given to $n_e$). When $\delta_{Glass} \neq 0$, it is important to add subjects in both groups in order to reduce the variance (because $\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2$ is only a function of the sample size of the control group). With huge population effect size, it is even always more important to add subjects in the control group (e.g. when $\delta_{Glass}=30$). 
+
