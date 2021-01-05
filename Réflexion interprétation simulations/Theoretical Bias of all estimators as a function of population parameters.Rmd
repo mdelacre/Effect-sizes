@@ -161,7 +161,7 @@ for (i in 10:190){
 }
 ```
 
-```{r biascohendprimehomNratio2,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Cohen's $d'_s$, when variances are equal across groups, as a function of the logarithm of the sample sizes ratio $log\\left(\\frac{n_1}{n_2} \\right)$",echo=FALSE}
+```{r biascohendprimehomNratio2,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Cohen's $d'_s$, when variances are equal across groups, as a function of the logarithm of the sample sizes ratio ($log\\left(\\frac{n_1}{n_2} \\right)$)",echo=FALSE}
 par(mfrow=c(1,2))
 plot(log(nratio),DF,xlab=expression(paste("log(",sigma[1],"/",sigma[2],")")))
 abline(v=0)
@@ -544,8 +544,8 @@ sd1=2
 sd2=2
 
 for (i in 4:200){
-  n1=2.45*i
-  n2=i
+  n1=i
+  n2=2*i
   N = n1+n2
   Nsize=c(Nsize,N)
   df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
@@ -560,8 +560,56 @@ plot(Nsize,DF,xlab="N")
 plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 ```
 
-  + The larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhomNsize2}).
+  + For a constant sample sizes-ratio, the larger the total sample size, the lower the bias (see Figure \ref{fig:biasshiehhomNsize2}).
+  
+```{r biasshiehhomNsize3,include=FALSE}
+Nsize=NULL
+coeffmult=NULL
+DF=NULL
 
+sd1=2
+sd2=2
+
+for (i in 4:200){
+  n1=i
+  n2=20
+  N = n1+n2
+  Nsize=c(Nsize,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF = c(DF,df)
+  coeffmult = c(coeffmult,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+
+Nsize2=NULL
+coeffmult2=NULL
+DF2=NULL
+
+sd1=2
+sd2=2
+
+for (i in 4:200){
+  n1=20
+  n2=i
+  N = n1+n2
+  Nsize2=c(Nsize2,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF2 = c(DF2,df)
+  coeffmult2 = c(coeffmult2,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+
+```
+
+```{r biasshiehhomNsize4,fig.cap="Degrees of freedom (DF; left) and $\\gamma$ (right), when computing the bias of Shieh's $d_s$, when variances are equal across groups, when adding subjects only in one groupe (either in the first group; see top plots; or in the second group; see bottom plots)",echo=FALSE}
+par(mfrow=c(2,2))
+plot(Nsize,DF,xlab="N")
+plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
+#DF[coeffmult==min(coeffmult)]
+#max(DF) # the lowest coeffmult occurs when DF = max(DF)
+plot(Nsize2,DF2,xlab="N")
+plot(Nsize2,coeffmult2,ylab=expression(gamma),xlab="N")
+```
+
+  Note: when computing Cohen's $d'_s$, df increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's $d_s$, this is not true anymore: there is a larger impact of the sample sizes ratio, in order that increasing the sample sizes ratio when adding subjects in only one group can decrease df and therefore, increase the bias (see Figure \ref{fig:biasshiehhomNsize4}). 
 
 ### When variances are unequal across populations, with equal sample sizes
 
@@ -696,7 +744,96 @@ plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
 abline(v=0)
 ```
 
-  + The larger the sample sizes, the lower the bias (illustration in Figure \ref{fig:biasshiehhetunbalNsize2});
+  + For a constant sample sizes ratio, the larger the sample sizes, the lower the bias (illustration in Figure \ref{fig:biasshiehhetunbalNsize2});
+
+```{r biasshiehhetunbalNsize3,include=FALSE}
+Nsize=NULL
+coeffmult=NULL
+DF=NULL
+
+  sd1 <- 1.8
+  sd2 <- 1
+
+for (i in 4:200){
+  n1=i
+  n2=20
+  N = n1+n2
+  Nsize=c(Nsize,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF = c(DF,df)
+  coeffmult = c(coeffmult,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+
+Nsize2=NULL
+coeffmult2=NULL
+DF2=NULL
+
+  sd1 <- 1.8
+  sd2 <- 1
+
+for (i in 4:200){
+  n1=20
+  n2=i
+  N = n1+n2
+  Nsize2=c(Nsize2,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF2 = c(DF2,df)
+  coeffmult2 = c(coeffmult2,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+
+Nsize3=NULL
+coeffmult3=NULL
+DF3=NULL
+
+  sd1 <- 1
+  sd2 <- 1.8
+
+for (i in 4:200){
+  n1=i
+  n2=20
+  N = n1+n2
+  Nsize3=c(Nsize3,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF3 = c(DF3,df)
+  coeffmult3 = c(coeffmult3,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+
+Nsize4=NULL
+coeffmult4=NULL
+DF4=NULL
+
+  sd1 <- 1
+  sd2 <- 1.8
+
+for (i in 4:200){
+  n1=20
+  n2=i
+  N = n1+n2
+  Nsize4=c(Nsize4,N)
+  df = (sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))
+  DF4 = c(DF4,df)
+  coeffmult4 = c(coeffmult4,sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))
+}
+  
+```
+
+```{r biasshiehhetunbalNsize4,fig.cap="Degrees of freedom (DF) and $\\gamma$, when computing the bias of Shieh's $d_s$, when variances are equal across groups, when adding subjects only in one groupe (either in the first groupe; see the two top plots; or in the second group; see the two bottom plots",echo=FALSE}
+par(mfrow=c(2,2))
+plot(Nsize,DF,xlab="N")
+#plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
+
+plot(Nsize2,DF2,xlab="N")
+#plot(Nsize2,coeffmult2,ylab=expression(gamma),xlab="N")
+
+plot(Nsize3,DF3,xlab="N")
+#plot(Nsize3,coeffmult3,ylab=expression(gamma),xlab="N")
+
+plot(Nsize4,DF4,xlab="N")
+#plot(Nsize4,coeffmult4,ylab=expression(gamma),xlab="N")
+
+```
+
+  Note: When variances were equal across populations, adding subjects only in the first group had the same impact on df (and therefore on bias) than adding subjects only in the second group (see Figure \ref{fig:biasshiehhomNsize4}). When variances are unequal across groups, this is not true anymore (see Figure \ref{fig:biasshiehhetunbalNsize4}).
 
 ```{r biasshiehhetunbalNratio,include=FALSE}
 coeffmult2 <- NULL

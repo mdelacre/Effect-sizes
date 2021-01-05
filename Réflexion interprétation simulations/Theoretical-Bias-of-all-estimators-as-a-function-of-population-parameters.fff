@@ -93,6 +93,13 @@
 \ifnextchar[{\eatarg}{}
 
 \centering
+\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhomNsize4-1.pdf}
+\caption{\label{fig:biasshiehhomNsize4}Degrees of freedom (DF; left) and \(\gamma\) (right), when computing the bias of Shieh's \(d_s\), when variances are equal across groups, when adding subjects only in one groupe (either in the first group; see top plots; or in the second group; see bottom plots}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetbalSDratio2-1.pdf}
 \caption{\label{fig:biasshiehhetbalSDratio2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances are unequal across groups and sample sizes are equal, as a function of the logarithm of the \(SD\)-ratio \((log \left(\frac{\sigma_1}{\sigma_2})\right)\)}
 \end{figure*}
@@ -116,6 +123,13 @@
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalNsize2-1.pdf}
 \caption{\label{fig:biasshiehhetunbalNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the total sample size (N)}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbalNsize4-1.pdf}
+\caption{\label{fig:biasshiehhetunbalNsize4}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances are equal across groups, when adding subjects only in one groupe (either in the first groupe; see the two top plots; or in the second group; see the two bottom plots}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
