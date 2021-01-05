@@ -1247,7 +1247,7 @@ for (i in 4:200){
   
 ```
 
-```{r varshiehhetunbalNsize4,fig.cap="Variance of Shieh's $d_s$ when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots), and $\\sigma_1 > \\sigma_2$ (top plots) or $\\sigma_1 < \\sigma_2$ (bottom plots).",echo=FALSE}
+```{r varshiehhetunbalNsize4,fig.cap="Variance of Shieh's $d_s$ when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and $\\sigma_1 > \\sigma_2$ (top plots) or $\\sigma_1 < \\sigma_2$ (bottom plots).",echo=FALSE}
 par(mfrow=c(2,2))
 #plot(Nsize,DF,xlab="N")
 plot(Nsize,var,ylab=expression(paste("Var(",d[s],")")),xlab="N")
@@ -1266,14 +1266,6 @@ plot(Nsize4,var4,ylab=expression(paste("Var(",d[s],")")),xlab="N")
   + The larger the total sample size, the lower the variance, whatever the sample sizes ratio is constant (see Figure \ref{fig:varshiehhetunbalNsize2}) or not (see Figure \ref{fig:varshiehhetunbalNsize4}).
 
   Note: When variances were equal across populations, adding subjects only in the first group had the same impact on the variance than adding subjects only in the second group (see Figure \ref{fig:varshiehhomNsize4}). When variances are unequal across groups, this is not true anymore (see Figure \ref{fig:varshiehhetunbalNsize4}).
-
-
-
-
-
-
-
-
 
 ```{r varshiehhetunbalNratio,include=FALSE}
 var2 <- NULL
