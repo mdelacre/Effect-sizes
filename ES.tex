@@ -234,60 +234,39 @@ Cohen's \; d_s = \frac{\bar{X}_1-\bar{X}_2}{\sqrt{\frac{(n_1-1) \times S_1+(n_2-
 Where \(S_j\) is the standard deviation and \(n_j\) the sample size of the \(j^{th}\) sample (j=1,2). The reasoning behind this measure is to make use of the fact that both samples share the same population variance (Keselman, Algina, Lix, Deering, \& Wilcox, 2008), hence we achieve a more accurate estimation of the population variance by pooling both estimates of this parameter (i.e \(S_1\) and \(S_2\)). Since the larger the sample size, the more accurate the estimate, we give more weight to the estimate based on the larger sample size. Cohen's \(d_{s}\) is directly related with Student's \emph{t}-statistic:
 
 \begin{equation} 
-t_{student} = cohen's \; d_s \times \sqrt{\frac{n_1n_2}{n_1+n_2}}
+cohen's \; d_s =  t_{student} \times \sqrt{\frac{n_1+n_2}{n_1n_2}}
 \label{eq:Cohenvsstudent}
 \end{equation}
 
 Under the assumption of normality and equal variances between groups, Student's \emph{t}-statistic follows a \emph{t}-distribution with known degrees of freedom and noncentrality parameter \footnote{Under the null hypothesis of no differences between sample means, Student's $t$-statistic will follow a central $t$-distribution with $n_1+n_2-2$ degrees of freedom. However, when the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral $t$-distribution will arise.}:
 
 \begin{equation} 
-t_{student} \sim t_{df,ncp}
-\label{eq:studentdist}
+df_{student} = n_1+n_2-2
+\label{eq:studentdf}
 \end{equation}
 
-With \(df=n_1+n_2-2\), ncp (the noncentrality parameter) \(= \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1n_2}{n_1+n_2}}\), and \(\sigma_{pooled}= \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1) \times \sigma^2_2}{n_1+n_2-2}}\). The relationship described in equation \ref{eq:Cohenvsstudent} and the theoretical distribution of Student's \emph{t}-statistic, described in equation \ref{eq:studentdist}, allow us to theoretically determine the sampling distribution of Cohen's \(d_s\), and therefore, its theoretical expectancy, bias and variance when the assumptions of normality and equal variances are met. All equations are provided in Table 1. In summary, we can deduce from these equations that:
+\begin{equation} 
+ncp_{student} = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1n_2}{n_1+n_2}}, \;\;\; where \; \sigma_{pooled}= \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1) \times \sigma^2_2}{n_1+n_2-2}}
+\label{eq:studentncp}
+\end{equation}
 
-\begin{itemize}
-\tightlist
-\item
-  When Cohen's \(\delta_s\) is null, the bias is null. In all other configurations, the \textbf{bias} of Cohen's \(d_s\) is a function of total sample size (N) and the population effect size (\(\delta_{Cohen}\)):
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The larger the population effect size, the more Cohen's \(d_s\) will overestimate Cohen's \(\delta_s\).\footnote{Because  $\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1$, in the equation of Cohen's $d_s$ expectancy in Table 1, is always positive.}\\
-  \item
-    The larger the total sample size, the lower the bias. The bias tends to zero when the total sample size tends to infinity.
-  \end{itemize}
-\item
-  The \textbf{variance} of Cohen's \(d_s\) is a function of the population effect size (Cohen's \(\delta_s\)), total sample size and sample sizes allocation ratio :
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The larger the population effect size, the larger the variance.
-  \item
-    The larger the sample sizes, the lower the variance. The variance tends to zero when the total sample sample size tends to infinity.\\
-  \item
-    All other parameters beeing equal, the variance is minimized when sample sizes are equal across groups. The larger the sample size allocation ratio, the larger the variance.
-  \end{itemize}
-\end{itemize}
+The relationship described in equation \ref{eq:Cohenvsstudent} and the theoretical distribution of Student's \emph{t}-statistic allow us to theoretically determine the sampling distribution of Cohen's \(d_s\), and therefore, its theoretical expectancy and variance when the assumptions of normality and equal variances are met. All these equations are provided in Table 1. For interested readers, bias and variance of Cohen's \(d_s\) have been thoroughly studied, based on Table 1, so as to determine the way different parameters influence them, and results are detailed and available on Github (see Appendix 1 in \url{https://github.com/mdelacre/Effect-sizes/}; it will be the same for all estimators described later).
 
 While Cohen's \(d_s\) is a consistent estimator, its bias and variance are substantial with small sample sizes, even under the assumptions of normality and equal variances (Lakens, 2013). In order to compensate for Cohen's \(d_s\) bias with small sample sizes, Hedges \& Olkin (1985) has defined a bias-corrected version:
 
 \begin{equation} 
-Hedge's \; g_s = Cohen's \; d_s \times \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}
+Hedge's \; g_s = Cohen's \; d_s \times \frac{\Gamma(\frac{df_{Student}}{2})}{\sqrt{\frac{df_{Student}}{2}} \times \Gamma(\frac{df_{Student}-1}{2})}
 \label{eq:Hedgesgs}
 \end{equation}
 
-Where \(df=n_1+n_2-2\) and \(\Gamma()\) is the gamma function. This equation can be approximated as follows:
+Where \(df_{Student}\) has been defined in equation \ref{eq:studentdf},and \(\Gamma()\) is the gamma function. This equation can be approximated as follows:
 
 \begin{equation} 
 Hedge's \; g_s = Cohen's \; d_s \times \left( 1- \frac{3}{4N -9} \right)
 \label{eq:Hedgesgsapprox}
 \end{equation}
 
-Where N = \(n_1+n_2\). Hedge's \(g_s\) is theoretically unbiased when the assumptions of normality and equal variances are met. Like Cohen's \(d_s\), its variance increases when the sample size allocation ratio and/or the population effect size increases, and decreases when the total sample size increases. However, due to the correction, Hedge's \(g_s\) has a smaller variance than Cohen's \(d_s\), especially with small sample size, as shown in Table 1.\footnote{$\left(\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right)^2$, in the equation of Hedge's $g_s$ variance in Table 1, is always less than 1, and tends to 1 when the total sample size tends to infinity, meaning that the larger the total sample size, the smaller the difference between the variance of Cohen's $d_s$ and Hedge's $g_s$.}
+Hedge's \(g_s\) is theoretically unbiased when the assumptions of normality and equal variances are met (see Table 1), and it has a smaller variance than Cohen's \(d_s\), especially with small sample sizes \footnote{$.52 \le \left[\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right] ^2 < 1$ for $3 \le df < \infty$. The larger the total sample size, the smaller the difference between the variance of Cohen's $d_s$ and Hedge's $g_s$.}. As Cohen's \(d_s\), its variance depends on the total sample size (N), the sample sizes ratio \(\left( \frac{n_1}{n_2}\right)\) and the population effect size (\(\delta_{Cohen}\)). How these parameters influence the variance of Hedge's \(g_s\) will be summarized in a later section in which we will compare different estimators through Monte Carlo simulations (see the section \enquote{Monte Carlo Simulations}).
 
 While the pooled error term is the best choice when variances are equal between groups (Grissom \& Kim, 2001), it may not be well advised for use with data that violate this assumption (Cumming, 2013; Grissom \& Kim, 2001, 2005; Kelley, 2005, 2005; Shieh, 2013). When variances are unequal between groups, the expression in equation \ref{eq:Cohendelta} is no longer valid because both groups don't share a common population variance. If we pool the estimates of two unequal population variances, the estimator of effect size will be lower as it should be in case of positive pairing (i.e.~the group with the larger sample size is extracted from the population with the larger variance) and larger as it should be in case of negative pairing (i.e.~the group with the larger sample size is extracted from the population with the smaller variance). Because the assumption of equal variances across populations is very rare in practice (Cain, Zhang, \& Yuan, 2017; Delacre et al., 2017; Delacre, Leys, Mora, \& Lakens, 2019; Erceg-Hurn \& Mirosevich, 2008; Glass, Peckham, \& Sanders, 1972; Grissom, 2000; Micceri, 1989; Yuan, Bentler, \& Chan, 2004), both Cohen's \(d_s\) and Hedge's \(g_s\) should be abandoned in favor of an alternative robust to unequal population variances.
 
@@ -297,116 +276,121 @@ While the pooled error term is the best choice when variances are equal between 
 \begin{longtable}[]{@{}lccc@{}}
 \caption{Expentency, bias and variance of Cohen's \(d_s\) and Hedge's \(g_s\) under the assumptions that independent residuals are normally distributed with equal variances across groups.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.06\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.48\columnwidth}\centering
+\begin{minipage}[b]{0.12\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.24\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.42\columnwidth}\centering
 Variance\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.06\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.48\columnwidth}\centering
+\begin{minipage}[b]{0.12\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.24\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.42\columnwidth}\centering
 Variance\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\tiny\(Cohen's \; d_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{cohen} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta_{cohen} \times \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1 \right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\frac{df}{(df-2) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+\(Cohen's \; d_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\(N-2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\(\delta_{cohen} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\(\frac{N\times df}{n_1n_2 \times (df-2)} + \delta^2_{Cohen} \left[ \frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2\right]\)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\approx \frac{\delta_{Cohen}}{\left(1-\frac{3}{4N-9}\right)}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\approx \delta_{Cohen} \left[\frac{1}{\left(1-\frac{3}{4N-9}\right)}-1\right]\)\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\approx\frac{df}{(df-2) \times \frac{n_1n_2}{N}} \times \left(1+\frac{n_1n_2}{N} \times \delta_{cohen}^2\right) -\delta_{cohen}^2 \times \left[\frac{1}{\left(1-\frac{3}{4N-9}\right)}\right]^2\)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(with \; df =N-2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\(\approx \frac{\delta_{Cohen}}{\left(1-\frac{3}{4N-9}\right)}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\(\approx \frac{N\times df}{n_1n_2 \times (df-2)} + \delta^2_{Cohen} \left[ \frac{df}{df-2} - \left( \frac{1}{1-\frac{3}{4N-9} }\right)^2\right]\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\tiny\(Hedges's \; g_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{Cohen}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-/\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(Var(Cohen's \; d_s) \times \left[ \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right]^2\)\strut
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(with \; df =N-2\)\strut
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+\(Hedges's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\(N-2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\(\delta_{Cohen}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\(Var(Cohen's \; d_s) \times \left[ \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right]^2\)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\approx Var(Cohen's \; d_s) \times \left[1-\frac{3}{4N-9}\right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
+\(\approx Var(Cohen's \; d_s) \times \left[1-\frac{3}{4N-9}\right]^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.42\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-\emph{Note}. Some equations are undefined with very small N.Computing the bias of Cohen's \(d_s\) requires \(N \ge 4\). Computing the variances of Cohen's \(d_s\) and Hedges's \(g_s\) requires \(N \ge 5\); \(\Gamma()\) is the gamma function.
+\emph{Note}. Cohen's \(d_s\) is a biased estimator, because its expectation differ from the population effect size. On the other hand, Hedge's \(g_s\) is an unbiased estimator, because its expectation equals the population effect size; equations in Table 1 require \(df \ge 3\) (i.e.~\(N \ge 5\)).
 
 \end{landscape}
 
 \hypertarget{when-variances-are-unequal-between-populations}{%
 \subsection{When variances are unequal between populations}\label{when-variances-are-unequal-between-populations}}
 
-In his review, Shieh (2013) mentions three options available in the literature to deal with the case of unequal variances: the sample mean difference divided by (A) the non pooled average of both variance estimates, (B) the Glass's \(d_s\) and (C) the Shieh's \(d_s\).
-
-The sample mean difference, divided by the non pooled average of both variance estimates was suggested by Cohen (1988). We immediately exclude this alternative because:\\
-- it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001);\\
-- unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013).
+In his review, Shieh (2013) mentions three options available in the literature to deal with the case of unequal variances: the sample mean difference divided by (A) the Glass's \(d_s\), (B) the non pooled average of both variance estimates and (C) the Shieh's \(d_s\).
 
 \hypertarget{glasss-d_s}{%
 \subsubsection{\texorpdfstring{Glass's \(d_s\)}{Glass's d\_s}}\label{glasss-d_s}}
@@ -420,148 +404,170 @@ Glass's \; d_s = \frac{\bar{X}_{e} - \bar{X}_{c}}{S_{c}}
 
 Where \(\bar{X}_{e} \; and \; \bar{X}_{c}\) are respectively the sample means of the experimental and control groups, and \(S_{c}\) is the sample SD of the control group. One argument in favour of using the \(SD\) of the control group as standardizer is the fact that it is not affected by the experimental treatment. When it is easy to identify which group is the \enquote{control} one, it is therefore convenient to compare the effect size estimation of different designs studying the same effect. However, defining this group is not always obvious (Coe, 2002). This could induce large ambiguity because depending of the chosen \(SD\) as standardizer, measures could be substantially diﬀerent (Shieh, 2013).
 
-Glass's \(d_{s}\) is directly related with a \emph{t}-statistic following a known distribution (Algina, Keselman, \& Penfield, 2006):
+The distribution of Glass's \(d_{s}\) is defined as following (Algina, Keselman, \& Penfield, 2006):
 
 \begin{equation} 
-t = \frac{Glass's \; d_s}{\sqrt{\frac{1}{n_{c}}+\frac{S_{e}^2}{n_{e} \times S^2_{c}}}}
+Glass's \; d_s \sim \sqrt{\frac{1}{n_{c}}+\frac{S_{e}^2}{n_{e} \times S^2_{c}}} \times t_{df,ncp}
 \label{eq:glassvst}
 \end{equation}
 
-Under the assumption of normality, this quantity follows a \emph{t}-distribution with known degrees of freedom and noncentrality parameter:
+Where \(n_c\) and \(n_e\) are respectively the sample sizes of the control and experimental groups, and \(df\) and \(ncp\) are defined as follows:
 
 \begin{equation} 
-t \sim t_{df,ncp}
-\label{eq:tdist}
+df = n_{c}-1
+\label{eq:glassdf}
 \end{equation}
-
-Where \(df = n_{c}-1\) and \(ncp = \frac{\mu_{c}-\mu_{e}}{\sigma_{c} \times \sqrt{\frac{1}{n_{c}} + \frac{\sigma_{e}^2}{n_{e} \times \sigma^2_{c}}}}.\) The relationship described in equation \ref{eq:glassvst} and the theoretical distribution of the \emph{t}-statistic, described in equation \ref{eq:tdist}, allow us to theoretically determine the sampling distribution of Glass's \(d_s\), and therefore, its theoretical expectancy, bias and variance when the assumptions of normality is met. All equations are provided in Table 2. In summary, we can deduce from these equations that:
-
-\begin{itemize}
-\item
-  When Glass's \(\delta_s\) is null, the bias is null. In all other configurations, the \textbf{bias} of Glass's \(d_s\) is a function of the sample size of the control group (\(n_c\)) and the population effect size (\(\delta_{glass}\)):
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The larger the population effect size, the more Glass's \(d_s\) will overestimate Glass's \(\delta_s\).\footnote{Because  $\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1$, in the equation of Glass's $d_s$ expectancy in Table 2, is always positive.}\\
-  \item
-    The larger the sample size of the control group, the lower the bias. The bias tends to zero when the sample size of the control group tend to infinity.
-  \end{itemize}
-\item
-  The \textbf{variance} of Glass's \(d_s\) is a function of the population effect size (Cohen's \(\delta_s\)), the total sample size and the sample sizes and variance pairing:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The larger the population effect size, the larger the variance.\\
-  \item
-    The larger the total sample size, the lower the variance.\\
-  \item
-    For a constant total sample size (N), the impact of the sample sizes allocation ratio will depend on the SD-ratio.
-  \end{itemize}
-\end{itemize}
-
-Under the assumptions of normality, because the bias of Glass's \(d_s\) does not depend either on the size of the experimental group or on the total sample size, it will decrease only when subjects are added in the control group (i.e.~when \(n_c\) increases), and it will do so more slowly than the bias of Cohen's \(d_s\). Moreover, while the variance of Glass's \(d_s\) decreases when the total sample size increases, it will never tend to zero when sample sizes tend to infinity. For this reason, Glass's \(d_s\) is not a consistent estimator.
-
-As for Cohen's \(d_s\), an Hedge's correction can be applied in order to compensate for Glass's \(d_s\) bias with small sample sizes (Hedges \& Olkin, 1985):
 
 \begin{equation} 
-Glass's \; g_s = Glass's \; d_s \times \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}
-\label{eq:Hedgesgs}
+ncp = \frac{\mu_{c}-\mu_{e}}{\sigma_{c} \times \sqrt{\frac{1}{n_{c}} + \frac{\sigma_{e}^2}{n_{e} \times \sigma^2_{c}}}}
+\label{eq:glassdf}
 \end{equation}
 
-Where \(df=n_c-1\). Glass's \(g_s\) is theoretically unbiased when the assumptions of normality is met. Like Glass's \(d_s\), its variance increases when the population effect size increases, decreases when the total sample size increases and also depends on the sample sizes and variances pairing. However, due to the correction, Glass's \(g_s\) has a smaller variance than Glass's \(d_s\), especially with small sample size, as shown in Table 2.\footnote{$\left(\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right)^2$, in the equation of Glass's $g_s$ variance, is always less than 1, and tends to 1 when the total sample size tends to infinity, meaning that the larger the total sample size, the smaller the difference between the variance of Glass's $d_s$ and Glass's $g_s$.}.
+Where \(\mu_c\) and \(\mu_e\) are respectively the mean of the populations control and experimental groups are extracted from. Thanks to equation \ref{eq:glassvst}, we can compute its theoretical expectancy variance when the assumptions of normality is met (See Table 2), and therefore determine which factors influence bias and variance, and how they do so (see Appendix 1).
 
 \newpage
 \begin{landscape}
 
 \begin{longtable}[]{@{}lccc@{}}
-\caption{Expentency, bias and variance Glass's \(d_s\) and Glass's \(g_s\) under the assumptions that independent residuals are normally distributed.}\tabularnewline
+\caption{Expentency, bias and variance of Glass's \(d_s\) and Cohen's \(d'_s\) and Shieh's \(d_s\) under the assumptions that independent residuals are normally distributed.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.06\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.48\columnwidth}\centering
+\begin{minipage}[b]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.45\columnwidth}\centering
 Variance\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.06\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.48\columnwidth}\centering
+\begin{minipage}[b]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.45\columnwidth}\centering
 Variance\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\tiny\(Glass's \; d_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{glass} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta_{glass} \times \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1 \right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(\frac{df}{df-2} \times \left( \frac{1}{n_c} + \frac{\sigma^2_e}{n_e\sigma^2_c} + \delta^2_{glass}\right) -\delta_{glass}^2 \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Glass's \; d_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(n_c-1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+~\(\delta_{glass} \times c_f\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(\frac{df}{df-2} \times \left( \frac{1}{n_c} + \frac{\sigma^2_e}{n_e\sigma^2_c}\right) + \delta^2_{Glass} \left( \frac{df}{df-2} - c_f^2 \right)\)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(with \; df =n_c-1\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
 \strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
-\tiny\(Glass's \; g_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
-\tiny\(\delta_{glass}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-/\strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(Var(Glass's \; d_s) \times \left[\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}\right]^2\)\strut
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Cohen's \; d'_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(\frac{(n_1-1)(n_2-1)(s^2_1+s^2_2)^2}{(n_2-1)s^4_1+(n_1-1)s^4_2}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\(\delta'_{Cohen} \times c_f\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(\frac{df}{df-2} \times \frac{2\left( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2} \right)}{\sigma^2_1+\sigma^2_2} + (\delta'_{Cohen})^2 \left( \frac{df}{df-2} - c_f^2 \right)\)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
-\tiny\(with \; df =n_c-1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
 \strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\(\approx \delta'_{Cohen} \times \frac{4df-1}{4(df-1)}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(\approx \frac{df}{df-2} \times \frac{2\left( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2} \right)}{\sigma^2_1+\sigma^2_2} + (\delta'_{Cohen})^2 \left[ \frac{df}{df-2} - \left( \frac{4 \;df-1}{4(df-1)}\right)^2 \right]\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
 \strut
-\end{minipage} & \begin{minipage}[t]{0.48\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Shieh's \; d_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(\approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\(\delta_{Shieh} \times c_f\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(\frac{df}{(df-2)N} + \delta^2_{Shieh} \left( \frac{df}{df-2} - c_f^2 \right)\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
 \strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-\emph{Note}. Some equations are undefined with very small sample sizes.Computing the bias and variance of Glass's \(d_s\) requires \(n_c \ge 4\).
+\emph{Note}. \(c_f=\frac{\sqrt{\frac{df}{2}} \times \Gamma\left( \frac{df-1}{2}\right)}{\Gamma\left( \frac{df}{2}\right)}\); all estimators are biased estimators, because their expectations differ from the population effect size \(\delta\); equations require \(df \ge 3\) and at least 2 subjects per group.
 
 \end{landscape}
 \newpage
+
+\hypertarget{cohens-d_s}{%
+\subsubsection{\texorpdfstring{Cohen's \(d'_s\)}{Cohen's d'\_s}}\label{cohens-d_s}}
+
+The sample mean difference, divided by the non pooled average of both variance estimates was suggested by Welch (1938). This yields:
+
+\begin{equation} 
+Cohen's \; d'_s = \frac{\bar{X}_{1} - \bar{X}_{2}}{ \sqrt{\frac{\left(S^2_{1}+S^2_{2} \right)}{2}}}
+\label{eq:cohenprimeds}
+\end{equation}
+
+Where \(\bar{X}_{j}\) is the mean and \(S_j\) is the standard deviation of the \(j^{th}\) sample (j = 1,2). We know the distribution of Cohen's \(d'_{s}\) (Huynh, 1989):
+
+\begin{equation} 
+cohen's \; d'_s \sim  \sqrt{\frac{\left( \frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}\right)(\sigma^2_1+\sigma^2_2)}{2}} \times t_{df^*,ncp^*}
+\label{eq:cohendprimedist}
+\end{equation}
+
+Where \(df^*\) and \(ncp^*\) are defined as follows:
+
+\begin{equation} 
+df^* = \frac{(n_1-1)(n_2-1)(s^2_1+s^2_2)^2}{(n_2-1)s^4_1+(n_1-1)s^4_2}
+\label{eq:cohendprimedf}
+\end{equation}
+
+\begin{equation} 
+ncp^*=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1+\sigma^2_2}{2}}} \times \sqrt{\frac{n_1n_2(\sigma^2_1+\sigma^2_2)}{2(n_2\sigma^2_1+n_1\sigma^2_2)}}
+\label{eq:cohendprimevst}
+\end{equation}
+
+Thanks to equation \ref{eq:cohendprimevst}, we can compute its theoretical expectancy variance when the assumptions of normality is met (See Table 2), and therefore determine which factors influence bias and variance, and how they do so (see Appendix 1). This estimator has been widely criticized, because:\\
+- it results in a variance term of an artificial population and is therefore very difficult to interpret (Grissom \& Kim, 2001);\\
+- unless both sample sizes are equal, the variance term does not correspond to the variance of the mean difference (Shieh, 2013).
+
+However, we will show throughout the simulation section that this estimator show very good inferential properties.
 
 \hypertarget{shiehs-d_s}{%
 \subsubsection{\texorpdfstring{Shieh's \(d_s\)}{Shieh's d\_s}}\label{shiehs-d_s}}
@@ -580,140 +586,19 @@ t_{welch} = Shieh's \; d_s \times \sqrt{N}
 \label{eq:shiehvswelch}
 \end{equation}
 
-The exact distribution of Welch's \emph{t}-statistic is more complicated than the exact distribution of Student's \emph{t}-statistic, but it can be approximated as follows, under the assumption of normality (Shieh, 2013; Welch, 1938):
+Where \(N = n_1+n_2\). The exact distribution of Welch's \emph{t}-statistic is more complicated than the exact distribution of Student's \emph{t}-statistic, but it follows a \emph{t}-distribution with degrees of freedom and noncentrality parameters that can be approximated as follows, under the assumption of normality (Shieh, 2013; Welch, 1938):
 
 \begin{equation} 
-t_{welch} \sim t_{df,ncp}
-\label{eq:welchdist}
+df_{Welch} \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}
+\label{eq:welchdf}
 \end{equation}
-
-With \(N = n_1+n_2\), \(df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\) and \(ncp = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}\). The relationship described in equation \ref{eq:shiehvswelch} and the theoretical distribution of Welch's \emph{t}-statistic, approximated in equation \ref{eq:welchdist}, allow us to theoretically approximate the sampling distribution of Shieh's \(d_s\), and therefore, its theoretical expectancy, bias and variance under the assumption of normality (see Table 3). It can be seen that the bias and variance of Shieh's \(d_s\) depend on sample variances of both groups. Considering the expectancy of Shieh's \(d_s\), shown in Table 3, Hedge's correction can again be applied in order to suppress the bias, under the assumption of normality:
 
 \begin{equation} 
-Shieh's \; g_s = Shieh's \; d_s \times \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}
-\label{eq:Hedgesgs}
+ncp_{Welch} = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}
+\label{eq:welchncp}
 \end{equation}
 
-Where \(df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\).
-
-\newpage
-\begin{landscape}
-
-\begin{longtable}[]{@{}lccc@{}}
-\caption{Expentency, bias and variance Shieh's \(d_s\) and Shieh's \(g_s\) under the assumptions that independent residuals are normally distributed.}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.04\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.50\columnwidth}\centering
-Variance\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.04\columnwidth}\raggedright
-Estimator\strut
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
-expectancy\strut
-\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\centering
-Bias\strut
-\end{minipage} & \begin{minipage}[b]{0.50\columnwidth}\centering
-Variance\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\tiny\(Shieh's \; d_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(\delta_{Shieh} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta_{Shieh} \times \left(\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}-1 \right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\tiny\(\frac{df}{(df-2) \times N} \left( 1+N \times \delta_{Shieh}^2 \right) -\delta_{Shieh}^2 \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(with \; df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\tiny\(Shieh's \; g_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(\delta_{Shieh}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-/\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\tiny\(Var(Shieh's \; d_s) \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\tiny\(Shieh's \; d^*_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(\delta^*_{Shieh} \times \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\tiny\(\delta^*_{Shieh} \times \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})} -1\right)\)\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\tiny\(\frac{df}{(df-2) \times \frac{\sigma^2_{n_1=n_2} \times N \times nratio}{(nratio+1)^2 \times \sigma^2_{obs}}} \left( 1+\frac{\sigma^2_{n_1=n_2} \times N \times nratio}{(nratio+1)^2 \times \sigma^2_{obs}} \times \delta_{Shieh}^{*^2} \right) -\delta_{Shieh}^{*^2} \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(with \; df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.04\columnwidth}\raggedright
-\tiny\(Shieh's \; g^*_s\)\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-\tiny\(\delta^*_{Shieh}\)\strut
-\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\centering
-/\strut
-\end{minipage} & \begin{minipage}[t]{0.50\columnwidth}\centering
-\tiny\(Var(Shieh's \; d^*_s) \times \left[\frac{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}{\Gamma(\frac{df}{2})}\right]^2\)\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\emph{Note}. Some equations are undefined with very small sample sizes. \ldots{}
-
-\end{landscape}
-
-\newpage
+The relationship described in equation \ref{eq:shiehvswelch} and the theoretical distribution of Welch's \emph{t}-statistic allow us to theoretically approximate the sampling distribution of Shieh's \(d_s\). Based on the sampling distribution of Shieh's \(d_s\), we can estimate its theoretical expectancy and variance under the assumption of normality (see Table 2), and therefore and therefore determine which factors influence bias and variance, and how they do so (see Appendix 1).
 
 It can be demonstrated that when variances and sample sizes are equal across groups, the biases and variances of Shieh's \(d_s\) and Cohen's \(d_s\) are identical except for a constant, as shown in equations \ref{eq:biascohenshieh} and \ref{eq:varcohenshieh}:
 
@@ -727,52 +612,117 @@ Shieh's \; d_{s,variance} = 4 \times Cohen's \; d_{s,variance} \;\;\;(considerin
 \label{eq:varcohenshieh}
 \end{equation}
 
-Due to the relation described in equation \ref{eq:cohenshieh} when sample sizes are equal between groups (as explained in Appendix 1), such proportions mean that relative to their respective true effect size, Cohen's \(d_s\) and Shieh's \(d_s\) are equally good. This is a good illustration of the fact that biases and variances should always be studied relative to the population effect size, and not in absolute terms, as we will do later.
+Due to the relation described in equation \ref{eq:cohenshieh} when sample sizes are equal between groups (as explained in Appendix 2), such proportions mean that relative to their respective true effect size, Cohen's \(d_s\) and Shieh's \(d_s\) are equally good. This is a good illustration of the fact that biases and variances should always be studied relative to the population effect size (and not in absolute terms), as we will do later.
 
 \begin{equation} 
 Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
 \label{eq:cohenshieh}
 \end{equation}
 
-Except for this very specific situation, according to the statistical properties of Welch's statistic under heteroscedasticity, it does not appear possible to define a proper standardised effect size without accounting for the relative group size of subpopulations in a sampling scheme. At the same time, the lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference (\(\bar{X_1}-\bar{X_2}\)) as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is illustrated in the following shiny application: \url{https://mdelacre.shinyapps.io/ShiehvsCohen/}).
+Except for this very specific situation, according to the statistical properties of Welch's statistic under heteroscedasticity, Shieh's \(d_s\) accounts for the sample sizes allocation ratio. The lack of generality caused by taking this specificity of the design into account has led Cumming (2013) to question its usefulness in terms of interpretability: when keeping constant the mean difference (\(\bar{X_1}-\bar{X_2}\)) as well as \(SD_1\) and \(SD_2\), Shieh's \(d_s\) will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's \(d_s\) value on the sample sizes allocation ratio is illustrated in the following shiny application: \url{https://mdelacre.shinyapps.io/ShiehvsCohen/}).
 
-Fortunately, this apparent paradox can be resolved. It is possible to find a modified measure of Shieh's \(d_s\) that does not depend on sample sizes ratio, namely by answering the following question: \enquote{whatever the real sample sizes ratio, what value of Shieh's \(d_s\) would have been computed if design were balanced (i.e.~\(n_1 = n_2\)), keeping all other parameters constant?}. After having answered this question, we can multiply the resulting value by 2, in order to take equation \ref{eq:cohenshieh} into account and to have a measure that can be interpreted using the same benchmarks as for Cohen's \(d_s\). It can be shown that the relationship between Cohen's \(\delta\) when samples sizes are equal between groups and Shieh's \(\delta\) for any sample sizes allocation ratios can be expressed as follows:
+\hypertarget{glasss-g_s-cohens-g_s-and-shiehs-g_s}{%
+\subsubsection{\texorpdfstring{Glass's \(g_s\), Cohen's \(g'_s\) and Shieh's \(g_s\)}{Glass's g\_s, Cohen's g'\_s and Shieh's g\_s}}\label{glasss-g_s-cohens-g_s-and-shiehs-g_s}}
 
-\begin{equation} 
-Cohen's \; \delta_{n_1=n_2}= Shieh's \; \delta \times \frac{(nratio+1) \times \hat{\sigma}}{\hat{\sigma}_{n_1=n_2} \times \sqrt{nratio}}
-\label{eq:shiehvsbaldesignPOP}
-\end{equation}
-
-with \[nratio= \frac{n_1}{n_2}\]
-\[\hat{\sigma}_{n_1=n_2}= \sqrt{\frac{\sigma_1^2+\sigma_2^2}{2}}\]\\
-\[\hat{\sigma} = \sqrt{(1- \frac{n_1}{N}) \times \sigma_1^2+(1- \frac{n_2}{N}) \times \sigma_2^2}\]
-
-\(Cohen's \; \delta_{n_1=n_2}\) (that we will call later Shieh's \(\delta^*_s\)) can thefore be estimated using this equation:
+As for Cohen's \(d_s\), an Hedge's correction can be applied in order to compensate for the bias of Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\) with small sample sizes (see Table 2). This correction has the following general form:
 
 \begin{equation} 
-Shieh's \; d^*_s= Shieh's \; d_s \times \frac{(nratio+1) \times S_{obs}}{S_{n_1=n_2} \times \sqrt{nratio}}
-\label{eq:shiehvsbaldesign}
-\end{equation}
-
-with \[S_{n_1=n_2}= \sqrt{\frac{S_1^2+S_2^2}{2}}\] and
-\[S_{obs} = \sqrt{(1- \frac{n_1}{N}) \times S_1^2+(1- \frac{n_2}{N}) \times S_2^2}\]
-
-\(Shieh's \; d^*_s\) can be compared across two different studies using different sample sizes allocation ratio and could thus be included in meta-analysis. Because Shieh's \(d_s^*\) is directly related with Shieh's \(d_s\), it is also related with Welch's \emph{t}-statistic:
-
-\begin{equation} 
-t_{welch} = Shieh's \; d^*_s \times \frac{s_{n_1=n_2 }\times \sqrt{N \times nratio} }{(nratio+1) \times s_{obs}}
-\label{eq:shiehvswelch}
-\end{equation}
-
-We previously mentioned how the distribution of Welch's \emph{t}-statistic can be approximated, allowing us to theoretically approximate the sampling distribution of Shieh's \(d^*_s\), and therefore, its theoretical expectancy, bias and variance under the assumption of normality (see Table 3). Considering the expectancy of Shieh's \(d^*_s\), shown in Table 3, as for all other biased estimators, Hedge's correction can be applied in order to compensate for the bias (resulting in a theoretically unbiased estimator, when the assumption of normality is met):
-\begin{equation} 
-Shieh's \; g^*_s = Shieh's \; d^*_s \times \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}
+g_s = d_s \times \frac{\Gamma(\frac{\nu}{2})}{\sqrt{\frac{\nu}{2}} \times \Gamma(\frac{\nu-1}{2})}
 \label{eq:Hedgesgs}
 \end{equation}
 
-Where \(df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\).
+Where \(\nu\) are provided in equation \ref{eq:glassdf} for Glass's \(g_s\), in equation \ref{eq:cohendprimedf} for Cohen's \(g'_s\) and in equation \ref{eq:welchdf} for Shieh's \(g_s\). The three corrected estimators are theoretically unbiased when the assumptions of normality is met. Their variance are a function of the same factors as their biased equivalent, however, due to the correction, they have a smaller variance, especially with small sample size, as shown in Table 3.
 
-To our knowledge, we are the first to propose the transformed Shieh's \(d^*_s\) estimator (and Shieh's \(g^*_s\), it's unbiased version). We will therefore test their properties and compare them with all pre-mentioned estimators through Monte Carlo simulations.
+\newpage
+\begin{landscape}
+
+\begin{longtable}[]{@{}lccc@{}}
+\caption{Expentency, bias and variance of Glass's \(d_s\) and Cohen's \(d'_s\) and Shieh's \(d_s\) under the assumptions that independent residuals are normally distributed.}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.45\columnwidth}\centering
+Variance\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\centering
+df\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
+Expectancy\strut
+\end{minipage} & \begin{minipage}[b]{0.45\columnwidth}\centering
+Variance\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Glass's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(n_c-1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+~\(\delta_{glass}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(Var(Glass's \; d_s) \times \left( \frac{\Gamma\left(\frac{df}{2} \right)}{\sqrt{\frac{df}{2}} \times \Gamma \left( \frac{df-1}{2}\right)}\right)^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Cohen's \; g'_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(\frac{(n_1-1)(n_2-1)(s^2_1+s^2_2)^2}{(n_2-1)s^4_1+(n_1-1)s^4_2}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\(\delta'_{Cohen}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(Var(Cohen's \; d'_s) \times \left( \frac{\Gamma\left(\frac{df}{2} \right)}{\sqrt{\frac{df}{2}} \times \Gamma \left( \frac{df-1}{2}\right)}\right)^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\(Shieh's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\(\approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\(\delta_{Shieh}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\(Var(Shieh's \; d_s) \times \left( \frac{\Gamma\left(\frac{df}{2} \right)}{\sqrt{\frac{df}{2}} \times \Gamma \left( \frac{df-1}{2}\right)}\right)^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.10\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.45\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Note}. \(c_f=\frac{\sqrt{\frac{df}{2}} \times \Gamma\left( \frac{df-1}{2}\right)}{\Gamma\left( \frac{df}{2}\right)}\); all estimators are unbiased estimators, because their expectations equal the population effect size \(\delta\); equations require \(df \ge 3\) and at least 2 subjects per group.
+
+\end{landscape}
+\newpage
 
 \hypertarget{monte-carlo-simulations}{%
 \subsection{Monte Carlo Simulations}\label{monte-carlo-simulations}}
@@ -798,7 +748,7 @@ G_{2}=\frac{n-1}{(n-2)(n-3)}\times [(n+1)(\frac{m_{4}}{(m_{2})^2}-3)+6]
 \label{eq:kurt}
 \end{equation}
 
-with s = standard deviation, n = sample size and \(m_{3}\)=third centered moment. They found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution of kurtosis, i.e.~G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution of skewness, i.e.~respectively G1 = -2.08 and G1 = 6.32. We also simulated samples extracted from population where G1 = 0, in order to assess the main effect of high kurtosis on the quality of estimators. All possible combinations of population skewness and kurtosis and the number of scenarios for each combination are summarized in Table 4.
+with s = standard deviation, n = sample size and \(m_{3}\)=third centered moment. They found values of kurtosis from G2 = -2.20 to 1,093.48. According to their suggestions, throughout our simulations, we kept constant the population kurtosis value at the 99th percentile of their distribution of kurtosis, i.e.~G2=95.75. Regarding skewness, we simulated population parameter values which correspond to the 1st and 99th percentile of their distribution of skewness, i.e.~respectively G1 = -2.08 and G1 = 6.32. We also simulated samples extracted from population where G1 = 0, in order to assess the main effect of high kurtosis on the quality of estimators. All possible combinations of population skewness and kurtosis and the number of scenarios for each combination are summarized in Table 5.
 
 \newpage
 
@@ -824,9 +774,9 @@ with s = standard deviation, n = sample size and \(m_{3}\)=third centered moment
 \bottomrule
 \end{longtable}
 
-\emph{Note.} Fisher's skewness (G1) and kurtosis (G2) are presented in Table 4. The 252 combinations where both G1 and G2 equal 0 correspond to the normal case.
+\emph{Note.} Fisher's skewness (G1) and kurtosis (G2) are presented in Table 5. The 252 combinations where both G1 and G2 equal 0 correspond to the normal case.
 
-For the 4 resulting combinations of skewness and kurtosis (see Table 4), all other parameter values were chosen in order to illustrate the consequences of factors known to play a key role on quality of estimators. We manipulated the population mean difference (\(\mu_1-\mu_2\)), the sample sizes (\emph{n}), the sample size ratio (\emph{n}-ratio = \(\frac{n_1}{n_2}\)), the population \emph{SD}-ratio (i.e.~\(\frac{\sigma_1}{\sigma_2}\)), and the sample size and population variance pairing. In our scenarios, \(\mu_2\) was always 0 and \(\mu_1\) varied from 1 to 4, in step of 1 (so does \(\mu_1-\mu_2\))\footnote{In the original plan, we had added 252 simulations in which $\mu_1$ and $\mu_2$ were both null. We decided to not present the results of these simulations, because the relative bias and the relative variance appeared to us to be very useful to fully understand the estimators comparison, and computing them is impossible when the real mean difference is zero.}. Moreover, \(\sigma_1\) always equals 1, and \(\sigma_2\) equals .1, .25, .5, 1, 2, 4 or 10 (so does \(\frac{\sigma_1}{\sigma_2}\)). The simulations for which both \(\sigma_1\) and \(\sigma_2\) equal 1 are the particular case of homoscedasticity (i.e.~equal population variances across groups). Sample size of both groups (\(n_1\) and \(n_2\)) were 20, 50 or 100. When sample sizes of both groups are equal, the \emph{n}-ratio equals 1 (it is known as a balanced design). All possible combinations of \emph{n}-ratio and population \emph{SD}-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest \emph{SD}), negative pairings (the group with the smallest sample size is extracted from the population with the smallest \emph{SD}), and no pairing (sample sizes and/or population \emph{SD} are equal across all groups). In sum, the simulations grouped over different sample sizes yield 5 conditions based on the \emph{n}-ratio, population \emph{SD}-ratio, and sample size and population variance pairing, as summarized in Table 5.
+For the 4 resulting combinations of skewness and kurtosis (see Table 5), all other parameter values were chosen in order to illustrate the consequences of factors known to play a key role on quality of estimators. We manipulated the population mean difference (\(\mu_1-\mu_2\)), the sample sizes (\emph{n}), the sample size ratio (\emph{n}-ratio = \(\frac{n_1}{n_2}\)), the population \emph{SD}-ratio (i.e.~\(\frac{\sigma_1}{\sigma_2}\)), and the sample size and population variance pairing. In our scenarios, \(\mu_2\) was always 0 and \(\mu_1\) varied from 1 to 4, in step of 1 (so does \(\mu_1-\mu_2\))\footnote{In the original plan, we had added 252 simulations in which $\mu_1$ and $\mu_2$ were both null. We decided to not present the results of these simulations, because the relative bias and the relative variance appeared to us to be very useful to fully understand the estimators comparison, and computing them is impossible when the real mean difference is zero.}. Moreover, \(\sigma_1\) always equals 1, and \(\sigma_2\) equals .1, .25, .5, 1, 2, 4 or 10 (so does \(\frac{\sigma_1}{\sigma_2}\)). The simulations for which both \(\sigma_1\) and \(\sigma_2\) equal 1 are the particular case of homoscedasticity (i.e.~equal population variances across groups). Sample size of both groups (\(n_1\) and \(n_2\)) were 20, 50 or 100. When sample sizes of both groups are equal, the \emph{n}-ratio equals 1 (it is known as a balanced design). All possible combinations of \emph{n}-ratio and population \emph{SD}-ratio were performed in order to distinguish positive pairings (the group with the largest sample size is extracted from the population with the largest \emph{SD}), negative pairings (the group with the smallest sample size is extracted from the population with the smallest \emph{SD}), and no pairing (sample sizes and/or population \emph{SD} are equal across all groups). In sum, the simulations grouped over different sample sizes yield 5 conditions based on the \emph{n}-ratio, population \emph{SD}-ratio, and sample size and population variance pairing, as summarized in Table 6.
 
 \begin{longtable}[]{@{}ccccc@{}}
 \caption{5 conditions based on the n-ratio, SD-ratio, and sample size and variance pairing.}\tabularnewline
@@ -898,7 +848,7 @@ Figures \ref{fig:idHombal} and \ref{fig:idHomrnull} represent configurations whe
 
 Both glass's \(d_s\) estimates (i.e.~using \(SD_1\) and \(SD_2\)) show least precision and highest bias rates, in comparison with all other measures. When samples are extracted from symmetric ditributions (the two first columns in Figure \ref{fig:idHombal}), Glass's \(d_s\) shows similar performances when using either \(SD_1\) or \(SD_2\) as standardizer. On the other side, when samples are extracted from skewed distributions, it shows unequal performances as a function of the chosen standardizer, because there is a non null correlation between the sample means and sample standard deviations, resulting in a non null correlation of opposite sign between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\) and \(SD_2\).\footnote{When distributions are right-skewed, the correlation between sample means and standard deviation is positive. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a positive (negative) correlation between SD1 (SD2) and the mean difference. when distributions are left-skewed, the correlation between sample means and standard deviation is negative. Because SD1 (SD2) is positively (negatively) correlated with the mean difference estimates, it results in a negative (positive) correlation between SD1 (SD2) and the mean difference.  When the population mean difference $\mu_1-\mu_2$ is positive (like in our simulations), Glass's $d_s$ is always more biased and variable when choosing as standardizer the $SD$ that is negatively correlated with $\bar{X_1}-\bar{X_2}$ (i.e. $SD_2$ when distributions are right-skewed and $SD_1$ when distributions are left-skewed). When the population mean difference is negative, the reverse is true. For interested reader, this is detailed and explained in Appendix 3.}.
 
-Figure \ref{fig:idHomrnull} shows that when sample sizes are unequal between groups, Glass's \(d_s\) and Shieh's \(d_s\) are sometimes unconsistent, meaning that their bias and variance will remain identical or even increase when the total sample size increases. We know from Table 2 that under the assumptions of normality, the bias of Glass's \(d_s\) does not depend either on the size of the experimental group or on the total sample size. Our simulations reveal that it remains true for any departures from the normality assumption. The only way to decrease the bias of Glass's \(d_s\) is therefore to add subjects in the control group. One can see, for example, that when there are 50 subjects in the control group, the bias will remain identical when there are respectively 20 and 100 subjects in the experimental group. On the other side, the variance of Glass's \(d_s\) depends on the sample size of both control and experimental groups, however, Glass's \(d_s\) will be less variable when there are more subjects in the control group than when there are more subjects in the experimental group. Finally, as previously observed in Figure \ref{fig:idHombal}, the bias and variances of Glass's estimates also depends on the correlation between \(\bar{X_1}-\bar{X_2}\) and the standardizer, when distribution are skewed. \footnote{In our simulations, the worst configuration will occure when the standardizer is computed with the smaller group and is negatively correlated with the sample means difference (i.e. when choosing SD2 when distributions are right-skewed, and when choosing SD1 when distributions are left-skewed). Again, we should remind that in all our simulations, the population mean difference is positive. If mean difference were negative, glass's $d_s$ would be more biased and variable when the chosen standardizer is positively correlated with the mean difference and associated with the smaller sample size.}
+Figure \ref{fig:idHomrnull} shows that when sample sizes are unequal between groups, Glass's \(d_s\) and Shieh's \(d_s\) are sometimes unconsistent, meaning that their bias and variance will remain identical or even increase when the total sample size increases. We know from Table 3 that under the assumptions of normality, the bias of Glass's \(d_s\) does not depend either on the size of the experimental group or on the total sample size. Our simulations reveal that it remains true for any departures from the normality assumption. The only way to decrease the bias of Glass's \(d_s\) is therefore to add subjects in the control group. One can see, for example, that when there are 50 subjects in the control group, the bias will remain identical when there are respectively 20 and 100 subjects in the experimental group. On the other side, the variance of Glass's \(d_s\) depends on the sample size of both control and experimental groups, however, Glass's \(d_s\) will be less variable when there are more subjects in the control group than when there are more subjects in the experimental group. Finally, as previously observed in Figure \ref{fig:idHombal}, the bias and variances of Glass's estimates also depends on the correlation between \(\bar{X_1}-\bar{X_2}\) and the standardizer, when distribution are skewed. \footnote{In our simulations, the worst configuration will occure when the standardizer is computed with the smaller group and is negatively correlated with the sample means difference (i.e. when choosing SD2 when distributions are right-skewed, and when choosing SD1 when distributions are left-skewed). Again, we should remind that in all our simulations, the population mean difference is positive. If mean difference were negative, glass's $d_s$ would be more biased and variable when the chosen standardizer is positively correlated with the mean difference and associated with the smaller sample size.}
 
 For a given sample size ratio, increasing sample size will decrease the relative bias and the relative variance of Shieh's \(d_s\). However, when the n-ratio moves away from 1 by adding subjects, relative bias and relative variance will increase. For example, when there are 20 subjects in the first group, the bias and variance of Shieh's \(d_s\) are larger when there are 100 subjects in the second group than when there are only 50 subjects in the second group, because despite the increasing total sample size, the sample size ratio increases. On the other side, when the n-ratio moves closer to 1 by adding subjects, relative bias and relative variance will decrease. For example, one can observe that when there are 100 subjects in the first group, the bias and variance of Shieh's \(d_s\) are smaller when there are 50 subjects in the second group than when there are only 20 subjects, because the sample size ratio decreases.
 
@@ -922,7 +872,7 @@ Figure \ref{fig:idHetbal} shows that all estimators are consistent, even when va
 
 When distributions are symmetric with heavy-tailed distributions, both Glass's estimators are more biased and variable than all other estimators. Moreover, the relative variance of Glass's \(d_s\) is larger when computing the standardizer based on the sample extracted from the less variable population, as shown in Figures \ref{fig:idHetbal2} and \ref{fig:idHetbal3}.
 
-When samples are extracted from skewed distributions, as previously, Glass's \(d_s\) using either \(SD_1\) or \(SD_2\) as standardizer show unequal performances, due to correlations of opposite sign between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\) and \(SD_2\). While Glass's \(d_s\) estimates were always less performant than all other estimators when variances were equal across groups, these are sometimes more biased and variable, and sometimes less biased and variable than all other estimators when population variances are unequal across groups. The explanation also lies in the correlation between \(\bar{X_1}-\bar{X_2}\) and standardizers: as long as population variances are equal across groups, standardizers taking both \(SD_1\) and \(SD_2\) into account are uncorrelated with \(\bar{X_1}-\bar{X_2}\). However, when population variances are unequal across groups, the sign of the correlation between the standardizer and the mean difference will be the same as the one of the correlation between the mean difference and the estimates of the larger population variance, as summarized in Table 4. It explains why Glass's \(d_s\) is sometimes more, sometimes less performant than other estimators.
+When samples are extracted from skewed distributions, as previously, Glass's \(d_s\) using either \(SD_1\) or \(SD_2\) as standardizer show unequal performances, due to correlations of opposite sign between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\) and \(SD_2\). While Glass's \(d_s\) estimates were always less performant than all other estimators when variances were equal across groups, these are sometimes more biased and variable, and sometimes less biased and variable than all other estimators when population variances are unequal across groups. The explanation also lies in the correlation between \(\bar{X_1}-\bar{X_2}\) and standardizers: as long as population variances are equal across groups, standardizers taking both \(SD_1\) and \(SD_2\) into account are uncorrelated with \(\bar{X_1}-\bar{X_2}\). However, when population variances are unequal across groups, the sign of the correlation between the standardizer and the mean difference will be the same as the one of the correlation between the mean difference and the estimates of the larger population variance, as summarized in Table 5. It explains why Glass's \(d_s\) is sometimes more, sometimes less performant than other estimators.
 
 \newpage
 
@@ -957,7 +907,7 @@ When \(\sigma_1<\sigma_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negativ
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=-2.08 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=0;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=2.08 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=6.32 & G2=95.75;id_SDsd_bal2} 
+{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=-2.08 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=0;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=95.75;id_SDsd_bal2} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=6.32 & G2=95.75;id_SDsd_bal2} 
 
 }
 
@@ -966,7 +916,7 @@ When \(\sigma_1<\sigma_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negativ
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=-2.08 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=0;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=2.08 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=6.32 & G2=95.75;id_sdSD_bal1} 
+{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=-2.08 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=0;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=0 & G2=95.75;id_sdSD_bal1} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/subconditions/hetBal/bias_var,G1=6.32 & G2=95.75;id_sdSD_bal1} 
 
 }
 
@@ -1002,7 +952,118 @@ In summary, Cohen's \(d_s\) remains the best measure when the asssumption of equ
 
 \hypertarget{conclusion}{%
 \paragraph{Conclusion}\label{conclusion}}
-\addcontentsline{toc}{paragraph}{Conclusion}
+
+Est-ce mieux de faire 4 tables distinctes, ou les 2 qui suivent?
+
+\newpage
+\begin{landscape}
+
+\newpage
+
+\begin{longtable}[]{@{}lccc@{}}
+\caption{Theoretical bias and variance of unbiased estimators.}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.06\columnwidth}\raggedright
+Estimator\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Bias\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+Variance\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+df\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.06\columnwidth}\raggedright
+Estimator\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Bias\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+Variance\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+df\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\tiny\(Hedges's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(Var(Cohen's \; d_s) \times \left[ \frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})} \right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(N-2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(\approx Var(Cohen's \; d_s) \times \left[1-\frac{3}{4N-9}\right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\tiny\(Glass's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(Var(Glass's \; d_s) \times \left[\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}\right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(n_c-1\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\tiny\(Cohen's \; g'_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(Var(Cohen's \; d'_s) \times \left[\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}\right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(\frac{(n_1-1)(n_2-1)(s^2_1+s^2_2)^2}{(n_2-1)s^4_1+(n_1-1)s^4_2}\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\raggedright
+\tiny\(Shieh's \; g_s\)\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+/\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(Var(Shieh's \; d_s) \times \left[\frac{\Gamma(\frac{df}{2})}{\sqrt{\frac{df}{2}} \times \Gamma(\frac{df-1}{2})}\right]^2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\tiny\(\approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Note}. Equations for bias and variance of Cohen's \(d_s\) require that i.i.d. residuals are normally distributed (\(\epsilon_i \sim i.i.d.\; N(0,\sigma^2)\)) with equal variances across gruops (\(\sigma_1=\sigma_2\)). Equations for bias and variance of all other estimators require only that i.i.d. residuals are normally distributed.
+
+\end{landscape}
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-Algina_et_al_2006}{}%
@@ -1031,9 +1092,6 @@ Coe, R. (2002). \emph{It's the effect size, stupid. What effect size is and why 
 
 \leavevmode\hypertarget{ref-Cohen_1965}{}%
 Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
-
-\leavevmode\hypertarget{ref-Cohen_1988}{}%
-Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (Routledge Academic.). New York, NY.
 
 \leavevmode\hypertarget{ref-Cumming_2013}{}%
 Cumming, G. (2013). Cohen's d needs to be readily interpretable: Comment on shieh (2013). \emph{Behavior Research Methods}, \emph{45}, 968--971. doi:\href{https://doi.org/10.3758/s13428-013-0392-4}{10.3758/s13428-013-0392-4}
@@ -1079,6 +1137,9 @@ Hedges, L. V., \& Olkin, I. (1985). \emph{Statistical methods for meta-analysis}
 
 \leavevmode\hypertarget{ref-Henson_Smith_2000}{}%
 Henson, R. I., \& Smith, A. D. (2000). State of the art in statistical significance and effect size reporting: A review of the APA task force report and current trends. \emph{Journal of Research and Development in Education}, \emph{33}(4), 285--296.
+
+\leavevmode\hypertarget{ref-Huynh_1989}{}%
+Huynh, C.-L. (1989). A unified approach to the estimation of effect size in meta-analysis. San Francisco: Paper presented at the Annual Meeting of the American Educational Research Association.
 
 \leavevmode\hypertarget{ref-Kelley_2005}{}%
 Kelley, K. (2005). The effects of nonnormal distributions on confidence intervales around the standardized mean difference: Bootstrap and parametric confidence intervals. \emph{Educational and Psychological Measurement}, \emph{65}(1), 51--69. doi:\href{https://doi.org/10.1177/0013164404264850}{10.1177/0013164404264850}
@@ -1185,9 +1246,6 @@ Coe, R. (2002). \emph{It's the effect size, stupid. What effect size is and why 
 \leavevmode\hypertarget{ref-Cohen_1965}{}%
 Cohen, J. (1965). Some statistical issues in psychological research. In \emph{Handbook of clinical psychology} (B. B. Wolman., pp. 95--121). New York: McGraw-Hill.
 
-\leavevmode\hypertarget{ref-Cohen_1988}{}%
-Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (Routledge Academic.). New York, NY.
-
 \leavevmode\hypertarget{ref-Cumming_2013}{}%
 Cumming, G. (2013). Cohen's d needs to be readily interpretable: Comment on shieh (2013). \emph{Behavior Research Methods}, \emph{45}, 968--971. doi:\href{https://doi.org/10.3758/s13428-013-0392-4}{10.3758/s13428-013-0392-4}
 
@@ -1232,6 +1290,9 @@ Hedges, L. V., \& Olkin, I. (1985). \emph{Statistical methods for meta-analysis}
 
 \leavevmode\hypertarget{ref-Henson_Smith_2000}{}%
 Henson, R. I., \& Smith, A. D. (2000). State of the art in statistical significance and effect size reporting: A review of the APA task force report and current trends. \emph{Journal of Research and Development in Education}, \emph{33}(4), 285--296.
+
+\leavevmode\hypertarget{ref-Huynh_1989}{}%
+Huynh, C.-L. (1989). A unified approach to the estimation of effect size in meta-analysis. San Francisco: Paper presented at the Annual Meeting of the American Educational Research Association.
 
 \leavevmode\hypertarget{ref-Kelley_2005}{}%
 Kelley, K. (2005). The effects of nonnormal distributions on confidence intervales around the standardized mean difference: Bootstrap and parametric confidence intervals. \emph{Educational and Psychological Measurement}, \emph{65}(1), 51--69. doi:\href{https://doi.org/10.1177/0013164404264850}{10.1177/0013164404264850}
