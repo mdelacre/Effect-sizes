@@ -150,6 +150,14 @@ $$\lim_{N\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}
 
 All these limits are illustrated in Figure \ref{fig:ESmoderatorcohenNsize2}.  
 
+### In summary
+
+The variance of Cohen's $d_s$ is a function of the population effect size $\delta_{Cohen}$, the total sample size (N) and the sample sizes ratio ($\frac{n_1}{n_2}$):  
+
+  + The variance decreases when the total sample size increases;  
+  + The variance also decreases when the sample sizes ratio get closer to 1;  
+  + Finally, the variance decreases when $\delta_{Cohen}$ decreases but is never zero, even when $\delta_{Cohen}$ is null. Note that the effect of $\delta_{Cohen}$ is moderated by the total sample size (the larger $N$, the smaller the effect of $\delta_{Cohen}$ on the variance).   
+
 ## Glass's $d_s$
 
 ### When variances are equal across populations
@@ -507,6 +515,14 @@ Note that the effect of the $SD$-ratio, and the interaction effect between $SD$-
 While the variance of Glass's $d_s$ still depends on the total sample size, the $SD$-ratio and the interaction between the $SD$-ratio and the sample sizes ratio, it also depends on the population effect size ($\delta_{Glass}$): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the sample size of the control group increases, as previously explained and illustrated in Figure \ref{fig:ESmoderatorGlassNsize2}.
 
 Note: when the population effect size was null, when $\sigma_c<\sigma_e$, it was much more efficient to add subjects in the experimental group in order to reduce the variance (because much more weight were given to $n_e$). When $\delta_{Glass} \neq 0$, it is important to add subjects in both groups in order to reduce the variance (because $\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2$ is only a function of the sample size of the control group). With huge population effect size, it is even always more important to add subjects in the control group (e.g. when $\delta_{Glass}=30$). 
+
+### In summary
+
+The variance of Glass's $d_s$ is a function of the population effect size ($\delta_{Glass}$), the $SD$-ratio, the total sample size and the interaction between sample sizes ratio and $SD$-ratio:  
+
+  + The variance decreases when the $SD$-ratio increases (i.e. when $\sigma_e >> \sigma_c$);  
+  + The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control, in the experimental, or in both groups, in order to reduce the variance, varies as a function of the $SD$-ratio and the population effect size. The only situation where it is optimal to maximize the experimental group is when $\sigma_e > \sigma_c$ and $\sigma_{glass} \approx 0$. Most of the time, it is more efficient to maximize the control groups (e.g. anytime $\sigma_e < \sigma_c$, and when $\sigma_{Glass}$ is very large) or to uniformly add subjects in both groups (e.g. when $\sigma_e > \sigma_c$ and $\delta_{Glass}$ with neither null nor huge). TRYING TO QUANTIFY WHAT I CALL HUGE.   
+  + The variance decreases when $\delta_{Glass}$ decreases but is never zero, even when $\delta_{Glass}$ is null. Note that the effect of $\delta_{Glass}$ is moderated by the control group size (the larger $n_e$, the smaller the effect of $\delta_{Glass}$ on the variance).   
 
 ## Cohen's $d'_s$
 
@@ -884,6 +900,13 @@ Note: for a constant SD-ratio, the variance does not matter. (See Figure \ref{fi
 #### When $\delta'_{Cohen} \neq 0$
 
 While the variance of Cohen's $d'_s$ still depends on the total sample size and the interaction between the sample sizes ratio and the $SD$-ratio, it also depends on the population effect size ($\delta'_{Cohen}$): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e. when the total sample size increases and/or when there is a positive pairing between the sample sizes ratio and the $SD$-ratio), as previously illustrated in Figure \ref{fig:ESmoderator2}. 
+
+### In summary
+
+The variance of Cohen's $\delta'_s$ is a function of the population effect size ($\delta_{Cohen's \; d'_s}$), the total sample size and the interaction between sample sizes ratio and $SD$-ratio:  
+
+  + The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control or in the experimental group depends on the $SD$-ratio.  Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (for details, see the Appendix "Theoretical variance, as a function of population parameters").  
+  + The variance decreases when $\delta_{Cohen's \; d'_s}$ decreases but is never zero, even when $\delta_{Cohen's \; d'_s}$ is null. Note that the effect of $\delta_{Cohen's \; d'_s}$ is moderated by the total sample size and the interaction between sample sizes ratio and $SD$-ratio.   
 
 ## Shieh's $d_s$
 
@@ -1403,3 +1426,10 @@ Moreover, for a constant SD-ratio, the variances don't matter (See Figure \ref{f
 #### When $\delta_{Shieh} \neq 0$
 
 While the variance of Shieh's $d_s$ still depends on the total sample size and the interaction between the sample sizes ratio and the $SD$-ratio, it also depends on the population effect size ($\delta_{Shieh}$): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e. ...), as previously illustrated in Figure \ref{fig:ESmoderator2}. 
+
+### In summary
+
+The variance of Shieh's $d_s$ is a function of ...:  
+
+  + ...  
+  + ...   

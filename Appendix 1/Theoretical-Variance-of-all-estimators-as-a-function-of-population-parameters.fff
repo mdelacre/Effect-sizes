@@ -199,7 +199,7 @@
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalNsize4-1.pdf}
-\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
+\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  5 JAN 2021 15:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  6 JAN 2021 12:22
 entering extended mode
 **./Theoretical-Variance-of-all-estimators-as-a-function-of-population-paramete
 rs.tex
@@ -1023,12 +1023,15 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 33.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [2] [3] [4] [5] [6] [7] [8] [9] [10] AED endfloat: Processing end Figures and
- Tables [11]
+) [2] [3] [4] [5]
+Underfull \vbox (badness 5331) has occurred while \output is active []
+
+[6] [7] [8] [9] [10] [11] [12] AED endfloat: Processing end Figures and Tables 
+[13]
 (Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters.
 fff
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendNsize2-1".pdf, id=211, 469.755pt x 325.215pt>
+_files/figure-latex/""varcohendNsize2-1".pdf, id=228, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1038,7 +1041,7 @@ of-population-parameters_files/figure-latex/""varcohendNsize2-1".pdf  used on i
 nput line 5.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohenNratio2-1".pdf, id=212, 469.755pt x 325.215pt>
+_files/figure-latex/""varcohenNratio2-1".pdf, id=229, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohenNratio2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1048,7 +1051,7 @@ of-population-parameters_files/figure-latex/""varcohenNratio2-1".pdf  used on i
 nput line 12.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""ESmoderatorcohenNsize2-1".pdf, id=213, 469.755pt x 325.21
+_files/figure-latex/""ESmoderatorcohenNsize2-1".pdf, id=230, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""ESmoderatorcohenNsize2-1".pdf Graphic file (type pdf
@@ -1060,7 +1063,7 @@ of-population-parameters_files/figure-latex/""ESmoderatorcohenNsize2-1".pdf  us
 ed on input line 19.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglassNsize2-1".pdf, id=214, 469.755pt x 325.215pt>
+_files/figure-latex/""varglassNsize2-1".pdf, id=231, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglassNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1070,7 +1073,7 @@ of-population-parameters_files/figure-latex/""varglassNsize2-1".pdf  used on in
 put line 26.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglasshomNratio2-1".pdf, id=215, 469.755pt x 325.215pt>
+_files/figure-latex/""varglasshomNratio2-1".pdf, id=232, 469.755pt x 325.215pt>
 
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglasshomNratio2-1".pdf Graphic file (type pdf)
@@ -1081,7 +1084,7 @@ of-population-parameters_files/figure-latex/""varglasshomNratio2-1".pdf  used o
 n input line 33.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""ESmoderatorGlassNsize2-1".pdf, id=216, 469.755pt x 325.21
+_files/figure-latex/""ESmoderatorGlassNsize2-1".pdf, id=233, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""ESmoderatorGlassNsize2-1".pdf Graphic file (type pdf
@@ -1093,7 +1096,7 @@ of-population-parameters_files/figure-latex/""ESmoderatorGlassNsize2-1".pdf  us
 ed on input line 40.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglasshomNratiobis2-1".pdf, id=217, 469.755pt x 325.215
+_files/figure-latex/""varglasshomNratiobis2-1".pdf, id=234, 469.755pt x 325.215
 pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglasshomNratiobis2-1".pdf Graphic file (type pdf)
@@ -1105,7 +1108,7 @@ of-population-parameters_files/figure-latex/""varglasshomNratiobis2-1".pdf  use
 d on input line 47.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglassHetbalNsize2-1".pdf, id=218, 469.755pt x 325.215p
+_files/figure-latex/""varglassHetbalNsize2-1".pdf, id=235, 469.755pt x 325.215p
 t>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglassHetbalNsize2-1".pdf Graphic file (type pdf)
@@ -1116,7 +1119,7 @@ of-population-parameters_files/figure-latex/""varglassHetbalNsize2-1".pdf  used
  on input line 54.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglasshetbalSDratio2-1".pdf, id=219, 469.755pt x 325.21
+_files/figure-latex/""varglasshetbalSDratio2-1".pdf, id=236, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglasshetbalSDratio2-1".pdf Graphic file (type pdf
@@ -1128,7 +1131,7 @@ of-population-parameters_files/figure-latex/""varglasshetbalSDratio2-1".pdf  us
 ed on input line 61.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglassHetunbalNsize2-1".pdf, id=220, 469.755pt x 325.21
+_files/figure-latex/""varglassHetunbalNsize2-1".pdf, id=237, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglassHetunbalNsize2-1".pdf Graphic file (type pdf
@@ -1140,7 +1143,7 @@ of-population-parameters_files/figure-latex/""varglassHetunbalNsize2-1".pdf  us
 ed on input line 68.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varglasshetunbalSDratio2-1".pdf, id=221, 469.755pt x 325.
+_files/figure-latex/""varglasshetunbalSDratio2-1".pdf, id=238, 469.755pt x 325.
 215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varglasshetunbalSDratio2-1".pdf Graphic file (type p
@@ -1152,7 +1155,7 @@ of-population-parameters_files/figure-latex/""varglasshetunbalSDratio2-1".pdf
 used on input line 75.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimeHomNratio2-1".pdf, id=222, 469.755pt x 325.
+_files/figure-latex/""varcohendprimeHomNratio2-1".pdf, id=239, 469.755pt x 325.
 215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimeHomNratio2-1".pdf Graphic file (type p
@@ -1164,7 +1167,7 @@ of-population-parameters_files/figure-latex/""varcohendprimeHomNratio2-1".pdf
 used on input line 82.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehomNsize2-1".pdf, id=223, 469.755pt x 325.2
+_files/figure-latex/""varcohendprimehomNsize2-1".pdf, id=240, 469.755pt x 325.2
 15pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehomNsize2-1".pdf Graphic file (type pd
@@ -1176,7 +1179,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehomNsize2-1".pdf  u
 sed on input line 89.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""ESmoderator2-1".pdf, id=224, 469.755pt x 325.215pt>
+_files/figure-latex/""ESmoderator2-1".pdf, id=241, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""ESmoderator2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1186,7 +1189,7 @@ of-population-parameters_files/figure-latex/""ESmoderator2-1".pdf  used on inpu
 t line 96.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetbalSDratio2-1".pdf, id=225, 469.755pt x 
+_files/figure-latex/""varcohendprimehetbalSDratio2-1".pdf, id=242, 469.755pt x 
 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetbalSDratio2-1".pdf Graphic file (ty
@@ -1198,7 +1201,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetbalSDratio2-1".p
 df  used on input line 103.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetbalNsize2-1".pdf, id=226, 469.755pt x 32
+_files/figure-latex/""varcohendprimehetbalNsize2-1".pdf, id=243, 469.755pt x 32
 5.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetbalNsize2-1".pdf Graphic file (type
@@ -1210,7 +1213,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetbalNsize2-1".pdf
   used on input line 110.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetbalvariance2-1".pdf, id=227, 469.755pt x
+_files/figure-latex/""varcohendprimehetbalvariance2-1".pdf, id=244, 469.755pt x
  325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetbalvariance2-1".pdf Graphic file (t
@@ -1222,7 +1225,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetbalvariance2-1".
 pdf  used on input line 117.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetunbalNsize2-1".pdf, id=228, 469.755pt x 
+_files/figure-latex/""varcohendprimehetunbalNsize2-1".pdf, id=245, 469.755pt x 
 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetunbalNsize2-1".pdf Graphic file (ty
@@ -1234,7 +1237,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetunbalNsize2-1".p
 df  used on input line 124.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetunbalnratiosdratio2-1".pdf, id=229, 469.
+_files/figure-latex/""varcohendprimehetunbalnratiosdratio2-1".pdf, id=246, 469.
 755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetunbalnratiosdratio2-1".pdf Graphic 
@@ -1246,7 +1249,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetunbalnratiosdrat
 io2-1".pdf  used on input line 131.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varcohendprimehetunbalvariance2-1".pdf, id=230, 469.755pt
+_files/figure-latex/""varcohendprimehetunbalvariance2-1".pdf, id=247, 469.755pt
  x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varcohendprimehetunbalvariance2-1".pdf Graphic file 
@@ -1258,7 +1261,7 @@ of-population-parameters_files/figure-latex/""varcohendprimehetunbalvariance2-1
 ".pdf  used on input line 138.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehHomNratio2-1".pdf, id=231, 469.755pt x 325.215pt>
+_files/figure-latex/""varshiehHomNratio2-1".pdf, id=248, 469.755pt x 325.215pt>
 
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehHomNratio2-1".pdf Graphic file (type pdf)
@@ -1269,7 +1272,7 @@ of-population-parameters_files/figure-latex/""varshiehHomNratio2-1".pdf  used o
 n input line 145.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhomNsize2-1".pdf, id=232, 469.755pt x 325.215pt>
+_files/figure-latex/""varshiehhomNsize2-1".pdf, id=249, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhomNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1279,7 +1282,7 @@ of-population-parameters_files/figure-latex/""varshiehhomNsize2-1".pdf  used on
  input line 152.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhomNsize4-1".pdf, id=233, 469.755pt x 325.215pt>
+_files/figure-latex/""varshiehhomNsize4-1".pdf, id=250, 469.755pt x 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhomNsize4-1".pdf Graphic file (type pdf)
 <use "Theoretical-Variance-of-all-estimators-as-a-function-of-population-parame
@@ -1289,7 +1292,7 @@ of-population-parameters_files/figure-latex/""varshiehhomNsize4-1".pdf  used on
  input line 159.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""ESmoderatorCohendprimeNsize2-1".pdf, id=234, 469.755pt x 
+_files/figure-latex/""ESmoderatorCohendprimeNsize2-1".pdf, id=251, 469.755pt x 
 325.215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""ESmoderatorCohendprimeNsize2-1".pdf Graphic file (ty
@@ -1301,7 +1304,7 @@ of-population-parameters_files/figure-latex/""ESmoderatorCohendprimeNsize2-1".p
 df  used on input line 166.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetbalSDratio2-1".pdf, id=235, 469.755pt x 325.21
+_files/figure-latex/""varshiehhetbalSDratio2-1".pdf, id=252, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetbalSDratio2-1".pdf Graphic file (type pdf
@@ -1313,7 +1316,7 @@ of-population-parameters_files/figure-latex/""varshiehhetbalSDratio2-1".pdf  us
 ed on input line 173.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetbalNsize2-1".pdf, id=236, 469.755pt x 325.215p
+_files/figure-latex/""varshiehhetbalNsize2-1".pdf, id=253, 469.755pt x 325.215p
 t>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetbalNsize2-1".pdf Graphic file (type pdf)
@@ -1324,7 +1327,7 @@ of-population-parameters_files/figure-latex/""varshiehhetbalNsize2-1".pdf  used
  on input line 180.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetbalvariance2-1".pdf, id=237, 469.755pt x 325.2
+_files/figure-latex/""varshiehhetbalvariance2-1".pdf, id=254, 469.755pt x 325.2
 15pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetbalvariance2-1".pdf Graphic file (type pd
@@ -1336,7 +1339,7 @@ of-population-parameters_files/figure-latex/""varshiehhetbalvariance2-1".pdf  u
 sed on input line 187.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetunbalNsize2-1".pdf, id=238, 469.755pt x 325.21
+_files/figure-latex/""varshiehhetunbalNsize2-1".pdf, id=255, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetunbalNsize2-1".pdf Graphic file (type pdf
@@ -1348,7 +1351,7 @@ of-population-parameters_files/figure-latex/""varshiehhetunbalNsize2-1".pdf  us
 ed on input line 194.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetunbalNsize4-1".pdf, id=239, 469.755pt x 325.21
+_files/figure-latex/""varshiehhetunbalNsize4-1".pdf, id=256, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetunbalNsize4-1".pdf Graphic file (type pdf
@@ -1360,7 +1363,7 @@ of-population-parameters_files/figure-latex/""varshiehhetunbalNsize4-1".pdf  us
 ed on input line 201.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetunbaldfandvar-1".pdf, id=240, 469.755pt x 325.
+_files/figure-latex/""varshiehhetunbaldfandvar-1".pdf, id=257, 469.755pt x 325.
 215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetunbaldfandvar-1".pdf Graphic file (type p
@@ -1372,7 +1375,7 @@ of-population-parameters_files/figure-latex/""varshiehhetunbaldfandvar-1".pdf
 used on input line 208.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters
-_files/figure-latex/""varshiehhetunbalvariance2-1".pdf, id=241, 469.755pt x 325
+_files/figure-latex/""varshiehhetunbalvariance2-1".pdf, id=258, 469.755pt x 325
 .215pt>
 File: "Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
 eters_files/figure-latex/""varshiehhetunbalvariance2-1".pdf Graphic file (type 
@@ -1384,79 +1387,79 @@ of-population-parameters_files/figure-latex/""varshiehhetunbalvariance2-1".pdf
  used on input line 215.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 641.
-[12
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 697.
+[14
 
 
  <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-paramete
-rs_files/figure-latex/varcohendNsize2-1.pdf>] [13 <./Theoretical-Variance-of-al
+rs_files/figure-latex/varcohendNsize2-1.pdf>] [15 <./Theoretical-Variance-of-al
 l-estimators-as-a-function-of-population-parameters_files/figure-latex/varcohen
-Nratio2-1.pdf>] [14 <./Theoretical-Variance-of-all-estimators-as-a-function-of-
-population-parameters_files/figure-latex/ESmoderatorcohenNsize2-1.pdf>] [15 <./
+Nratio2-1.pdf>] [16 <./Theoretical-Variance-of-all-estimators-as-a-function-of-
+population-parameters_files/figure-latex/ESmoderatorcohenNsize2-1.pdf>] [17 <./
 Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_f
-iles/figure-latex/varglassNsize2-1.pdf>] [16 <./Theoretical-Variance-of-all-est
+iles/figure-latex/varglassNsize2-1.pdf>] [18 <./Theoretical-Variance-of-all-est
 imators-as-a-function-of-population-parameters_files/figure-latex/varglasshomNr
-atio2-1.pdf>] [17 <./Theoretical-Variance-of-all-estimators-as-a-function-of-po
-pulation-parameters_files/figure-latex/ESmoderatorGlassNsize2-1.pdf>] [18 <./Th
+atio2-1.pdf>] [19 <./Theoretical-Variance-of-all-estimators-as-a-function-of-po
+pulation-parameters_files/figure-latex/ESmoderatorGlassNsize2-1.pdf>] [20 <./Th
 eoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/varglasshomNratiobis2-1.pdf>] [19 <./Theoretical-Variance-of-al
+es/figure-latex/varglasshomNratiobis2-1.pdf>] [21 <./Theoretical-Variance-of-al
 l-estimators-as-a-function-of-population-parameters_files/figure-latex/varglass
-HetbalNsize2-1.pdf>] [20 <./Theoretical-Variance-of-all-estimators-as-a-functio
+HetbalNsize2-1.pdf>] [22 <./Theoretical-Variance-of-all-estimators-as-a-functio
 n-of-population-parameters_files/figure-latex/varglasshetbalSDratio2-1.pdf>] [2
-1 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-paramet
-ers_files/figure-latex/varglassHetunbalNsize2-1.pdf>] [22 <./Theoretical-Varian
+3 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-paramet
+ers_files/figure-latex/varglassHetunbalNsize2-1.pdf>] [24 <./Theoretical-Varian
 ce-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/
-varglasshetunbalSDratio2-1.pdf>] [23 <./Theoretical-Variance-of-all-estimators-
+varglasshetunbalSDratio2-1.pdf>] [25 <./Theoretical-Variance-of-all-estimators-
 as-a-function-of-population-parameters_files/figure-latex/varcohendprimeHomNrat
-io2-1.pdf>] [24 <./Theoretical-Variance-of-all-estimators-as-a-function-of-popu
-lation-parameters_files/figure-latex/varcohendprimehomNsize2-1.pdf>] [25 <./The
+io2-1.pdf>] [26 <./Theoretical-Variance-of-all-estimators-as-a-function-of-popu
+lation-parameters_files/figure-latex/varcohendprimehomNsize2-1.pdf>] [27 <./The
 oretical-Variance-of-all-estimators-as-a-function-of-population-parameters_file
-s/figure-latex/ESmoderator2-1.pdf>] [26 <./Theoretical-Variance-of-all-estimato
+s/figure-latex/ESmoderator2-1.pdf>] [28 <./Theoretical-Variance-of-all-estimato
 rs-as-a-function-of-population-parameters_files/figure-latex/varcohendprimehetb
-alSDratio2-1.pdf>] [27 <./Theoretical-Variance-of-all-estimators-as-a-function-
+alSDratio2-1.pdf>] [29 <./Theoretical-Variance-of-all-estimators-as-a-function-
 of-population-parameters_files/figure-latex/varcohendprimehetbalNsize2-1.pdf>] 
-[28 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
-eters_files/figure-latex/varcohendprimehetbalvariance2-1.pdf>] [29 <./Theoretic
+[30 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-param
+eters_files/figure-latex/varcohendprimehetbalvariance2-1.pdf>] [31 <./Theoretic
 al-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figu
-re-latex/varcohendprimehetunbalNsize2-1.pdf>] [30 <./Theoretical-Variance-of-al
+re-latex/varcohendprimehetunbalNsize2-1.pdf>] [32 <./Theoretical-Variance-of-al
 l-estimators-as-a-function-of-population-parameters_files/figure-latex/varcohen
-dprimehetunbalnratiosdratio2-1.pdf>] [31 <./Theoretical-Variance-of-all-estimat
+dprimehetunbalnratiosdratio2-1.pdf>] [33 <./Theoretical-Variance-of-all-estimat
 ors-as-a-function-of-population-parameters_files/figure-latex/varcohendprimehet
-unbalvariance2-1.pdf>] [32 <./Theoretical-Variance-of-all-estimators-as-a-funct
-ion-of-population-parameters_files/figure-latex/varshiehHomNratio2-1.pdf>] [33 
+unbalvariance2-1.pdf>] [34 <./Theoretical-Variance-of-all-estimators-as-a-funct
+ion-of-population-parameters_files/figure-latex/varshiehHomNratio2-1.pdf>] [35 
 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameter
-s_files/figure-latex/varshiehhomNsize2-1.pdf>] [34 <./Theoretical-Variance-of-a
+s_files/figure-latex/varshiehhomNsize2-1.pdf>] [36 <./Theoretical-Variance-of-a
 ll-estimators-as-a-function-of-population-parameters_files/figure-latex/varshie
-hhomNsize4-1.pdf>] [35 <./Theoretical-Variance-of-all-estimators-as-a-function-
+hhomNsize4-1.pdf>] [37 <./Theoretical-Variance-of-all-estimators-as-a-function-
 of-population-parameters_files/figure-latex/ESmoderatorCohendprimeNsize2-1.pdf>
-] [36 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-par
-ameters_files/figure-latex/varshiehhetbalSDratio2-1.pdf>] [37 <./Theoretical-Va
+] [38 <./Theoretical-Variance-of-all-estimators-as-a-function-of-population-par
+ameters_files/figure-latex/varshiehhetbalSDratio2-1.pdf>] [39 <./Theoretical-Va
 riance-of-all-estimators-as-a-function-of-population-parameters_files/figure-la
-tex/varshiehhetbalNsize2-1.pdf>] [38 <./Theoretical-Variance-of-all-estimators-
+tex/varshiehhetbalNsize2-1.pdf>] [40 <./Theoretical-Variance-of-all-estimators-
 as-a-function-of-population-parameters_files/figure-latex/varshiehhetbalvarianc
-e2-1.pdf>] [39 <./Theoretical-Variance-of-all-estimators-as-a-function-of-popul
-ation-parameters_files/figure-latex/varshiehhetunbalNsize2-1.pdf>] [40 <./Theor
+e2-1.pdf>] [41 <./Theoretical-Variance-of-all-estimators-as-a-function-of-popul
+ation-parameters_files/figure-latex/varshiehhetunbalNsize2-1.pdf>] [42 <./Theor
 etical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/
-figure-latex/varshiehhetunbalNsize4-1.pdf>] [41 <./Theoretical-Variance-of-all-
+figure-latex/varshiehhetunbalNsize4-1.pdf>] [43 <./Theoretical-Variance-of-all-
 estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhe
-tunbaldfandvar-1.pdf>] [42 <./Theoretical-Variance-of-all-estimators-as-a-funct
+tunbaldfandvar-1.pdf>] [44 <./Theoretical-Variance-of-all-estimators-as-a-funct
 ion-of-population-parameters_files/figure-latex/varshiehhetunbalvariance2-1.pdf
 >]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 641.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 697.
 
 (Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters.
 aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 641.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 641.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 697.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 697.
  ) 
 Here is how much of TeX's memory you used:
- 16892 strings out of 492452
- 273690 string characters out of 3128447
- 395923 words of memory out of 3000000
- 20750 multiletter control sequences out of 15000+200000
- 56003 words of font info for 90 fonts, out of 3000000 for 9000
+ 16912 strings out of 492452
+ 273892 string characters out of 3128447
+ 395672 words of memory out of 3000000
+ 20758 multiletter control sequences out of 15000+200000
+ 56094 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,972b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,972b,563s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathe
 x.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1479,9 +1482,9 @@ al/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Marie/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
 Output written on Theoretical-Variance-of-all-estimators-as-a-function-of-popul
-ation-parameters.pdf (42 pages, 1077742 bytes).
+ation-parameters.pdf (44 pages, 1085060 bytes).
 PDF statistics:
- 675 PDF objects out of 1000 (max. 8388607)
- 145 named destinations out of 1000 (max. 500000)
- 6428 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 155 named destinations out of 1000 (max. 500000)
+ 6460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -458,6 +458,53 @@ Note: When variances were equal across populations, adding subjects only in the 
 \caption{\label{fig:biasshiehhetunbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) and \(\sigma_2\), for a constant \(SD\)-ratio.}
 \end{figure}
 
-Moreover, for a constant \(SD\)-ratio, the variances don't matter (See Figure \ref{fig:biasshiehhetunbalvariance2}).
+Moreover, for a constant \(SD\)-ratio, the variances don't matter (See Figure \ref{fig:biasshiehhetunbalvariance2})
+
+\hypertarget{in-summary}{%
+\subsection{In summary}\label{in-summary}}
+
+The \textbf{bias} of Cohen's \(d_s\) is a function of the population effect size \(\delta_{Cohen}\) and the total sample size (N):
+
+\begin{itemize}
+\tightlist
+\item
+  When \(\delta_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Cohen}\), the more Cohen's \(d_s\) will overestimate \(\delta_{Cohen}\);\\
+\item
+  The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both).
+\end{itemize}
+
+The \textbf{bias} of Glass's \(d_s\) is a function of the population effect size (\(\delta_{Glass}\)) and the size of the control group (\(n_e\)):
+
+\begin{itemize}
+\tightlist
+\item
+  When \(\delta_{Glass}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Glass}\), the more Glass's \(d_s\) will overestimate \(\delta_{Glass}\);\\
+\item
+  The bias decreases when the size of the control group increases. On the other side, increasing the size of the experimental group does not impact the bias.
+\end{itemize}
+
+The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect size (\(\delta'_{Cohen}\)), the total sample size, and the interaction between the sample sizes ratio (\(\frac{n_1}{n_2}\)) and the \(SD\)-ratio (\(\frac{\sigma_1}{\sigma_2}\)):
+
+\begin{itemize}
+\tightlist
+\item
+  When \(\delta'_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta'_{Cohen}\), the more Cohen's \(d'_s\) will overestimate \(\delta'_{Cohen}\)\\
+\item
+  The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both).\\
+\item
+  The smallest bias always occure when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.
+\end{itemize}
+
+The \textbf{bias} of Shieh's \(d'_s\) is a function of the population effect size (\(\delta_{Shieh}\)), the total sample size, and the interaction between the sample sizes ratio (\(\frac{n_1}{n_2}\)) and the \(SD\)-ratio :
+
+\begin{itemize}
+\tightlist
+\item
+  When \(\delta_{Shieh}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Shieh}\), the more Shieh's \(d_s\) will overestimate \(\delta_{Shieh}\)\\
+\item
+  For a constant sample sizes ratio, the bias decreases when the total sample size increases.\\
+\item
+  The smallest bias always occure when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see \enquote{Theoretical Bias, as a function of population parameters}).
+\end{itemize}
 
 \end{document}
