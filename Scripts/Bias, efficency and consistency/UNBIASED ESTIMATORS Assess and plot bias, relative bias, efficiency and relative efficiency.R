@@ -12,7 +12,7 @@ for (i in seq_len(length(Folder))){
   # set up empty container for all estimated parameters
   good_mes <-matrix(0,length(list.files(Folder[i])),5+4*5)
   goodness_indic <- c("bias_","relbias_","eff_","releff_")
-  estimator <- c("Hedge","Glass1","Glass2","Shieh", "Shieh_corr")
+  estimator <- c("Hedge","Glass1","Glass2","Shieh", "cohen_delta_prime")
   columns_names=expand.grid(estimator,goodness_indic)
   colnames(good_mes) <- c("n1","n2","n1/n2","m1-m2","sd1/sd2",paste0(columns_names[,2],columns_names[,1]))
 
@@ -35,37 +35,35 @@ for (i in seq_len(length(Folder))){
     q2 <- n2/(n1+n2)
     shieh_delta <- (m1-m2)/sqrt(sd1^2/q1+sd2^2/q2)       
     nratio=n1/n2
-    sigma_unbal <- sqrt((1-n1/(n1+n2))*sd1^2 + (1-n2/(n1+n2))*sd2^2)    
-    sigma_bal <-   sqrt((sd1^2+sd2^2)/2)
-    shieh_delta_corr <- shieh_delta*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio)))  
+    cohen_delta_prime <- (m1-m2)/sqrt((sd1^2+sd2^2)/2)  
     
     # Compute bias View(file)
     bias_hedge <- mean(file[,10]) - cohen_delta # hedge's g_s is a corrected estimate of cohen's delta!
     bias_glass1 <- mean(file[,13]) - glass_delta1 
     bias_glass2 <- mean(file[,14]) - glass_delta2
     bias_shieh <- mean(file[,16]) - shieh_delta
-    bias_shieh_corr <- mean(file[,18]) - shieh_delta_corr
+    bias_cohen_delta_prime <- mean(file[,18]) - cohen_delta_prime
     
     # Compute relative bias
     relbias_hedge <- (mean(file[,10]) - cohen_delta)/cohen_delta
     relbias_glass1 <- (mean(file[,13]) - glass_delta1)/glass_delta1 
     relbias_glass2 <- (mean(file[,14]) - glass_delta2)/glass_delta2
     relbias_shieh <- (mean(file[,16]) - shieh_delta)/shieh_delta
-    relbias_shieh_corr <- (mean(file[,18]) - shieh_delta_corr)/shieh_delta_corr
+    relbias_cohen_delta_prime <- (mean(file[,18]) - cohen_delta_prime)/cohen_delta_prime
     
     # Compute variance
     eff_hedge <- var(file[,10])
     eff_glass1 <- var(file[,13])
     eff_glass2 <- var(file[,14])
     eff_shieh <- var(file[,16])
-    eff_shieh_corr <- var(file[,18])
+    eff_cohen_delta_prime <- var(file[,18])
     
     # Compute relative variance
     releff_hedge <- var(file[,10])/cohen_delta^2
     releff_glass1 <- var(file[,13])/glass_delta1^2 
     releff_glass2 <- var(file[,14])/glass_delta2^2
     releff_shieh <- var(file[,16])/shieh_delta^2
-    releff_shieh_corr <- var(file[,18])/shieh_delta_corr^2
+    releff_cohen_delta_prime <- var(file[,18])/cohen_delta_prime^2
     
     good_mes[j,1] <- n1
     good_mes[j,2] <- n2
@@ -77,25 +75,25 @@ for (i in seq_len(length(Folder))){
     good_mes[j,7] <- bias_glass1
     good_mes[j,8] <- bias_glass2
     good_mes[j,9] <- bias_shieh
-    good_mes[j,10] <- bias_shieh_corr
+    good_mes[j,10] <- bias_cohen_delta_prime
     
     good_mes[j,11] <- relbias_hedge
     good_mes[j,12] <- relbias_glass1
     good_mes[j,13] <- relbias_glass2
     good_mes[j,14] <- relbias_shieh
-    good_mes[j,15] <- relbias_shieh_corr
+    good_mes[j,15] <- relbias_cohen_delta_prime
     
     good_mes[j,16] <- eff_hedge
     good_mes[j,17] <- eff_glass1
     good_mes[j,18] <- eff_glass2
     good_mes[j,19] <- eff_shieh
-    good_mes[j,20] <- eff_shieh_corr
+    good_mes[j,20] <- eff_cohen_delta_prime
     
     good_mes[j,21] <- releff_hedge
     good_mes[j,22] <- releff_glass1
     good_mes[j,23] <- releff_glass2
     good_mes[j,24] <- releff_shieh
-    good_mes[j,25] <- releff_shieh_corr
+    good_mes[j,25] <- releff_cohen_delta_prime
     
   }
   
@@ -148,9 +146,6 @@ legend("center",
 dev.off()
 
 
-
-
-
 Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
@@ -195,14 +190,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing biases information
     res <- matrix(0,9,7)  
-    names<-expand.grid("bias_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("bias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
     res[,3] <- tapply(Sel$bias_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,4] <- tapply(Sel$bias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,5] <- tapply(Sel$bias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,6] <- tapply(Sel$bias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res[,7] <- tapply(Sel$bias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res[,7] <- tapply(Sel$bias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res <- subset(res,res[,3] != "NA") 
     # Select only bias columns
@@ -217,14 +212,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing variances information
     res3 <- matrix(0,9,7)  
-    names<-expand.grid("var_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("var_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
     res3[,1:2] <- cbind(combi[,1],combi[,2]) 
     res3[,3] <- tapply(Sel$eff_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,6] <- tapply(Sel$eff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,7] <- tapply(Sel$eff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,7] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res3 <- subset(res3,res3[,3] != "NA") 
     # Select only bias columns
@@ -331,14 +326,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing relative biases information
     res2 <- matrix(0,9,7)  
-    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
     res2[,3] <- tapply(Sel$relbias_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res2[,7] <- tapply(Sel$relbias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res2[,7] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res2 <- subset(res2,res2[,3] != "NA") 
     # Select only bias columns
@@ -354,14 +349,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing the relative variance information
     res4 <- matrix(0,9,7)  
-    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res4) <- c("n1","n2",paste0(names[,1],names[,2]))
     res4[,1:2] <- cbind(combi[,1],combi[,2])
     res4[,3] <- tapply(Sel$releff_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res4[,7] <- tapply(Sel$releff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res4[,7] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res4 <- subset(res4,res4[,3] != "NA") 
     # Select only bias columns
@@ -377,31 +372,41 @@ for (j in seq_len(length(list.files(Path)))){
     } else {g1=G1}
     png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
     
-    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
-    
+    par(mar = c(4,5,1,0),mfrow = c(2,1))   
     
     # plot for the relative bias
     
     if (j==1){ylabelbias=expression(paste("(E(" , hat(delta) , ") -",delta,")/",delta ))
     } else {ylabelbias=""}
-    
+
+    if (j==4){ylim=c(0,1.2)
+    } else {ylim=c(0,.12)}
+  
     barplot(res.relbias, 
             col = c("black","grey40","grey60","grey80","white"),
             beside = TRUE,
             xaxt="n",
-            cex.lab=1.5,
+            cex.lab=1.2,
+            las=1,
+            main=paste0("G1=",G1,"; G2=",G2),
             cex.main=1.5,
+            ylim=ylim,
             ylab=ylabelbias
     )
 
     # plot the the relative variance
     if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
     } else {ylabeleff=""}
+
+    if (j==4){ylim=c(0,6)
+    } else {ylim=c(0,1)}
     
     barplot(res.releff, 
             col = c("black","grey40","grey60","grey80","white"),
             beside = TRUE,
             ylab = ylabeleff,
+            las=1,
+            ylim=ylim,
             cex.lab=1.5,
             cex.names=.8,
             args.legend = list(
@@ -461,14 +466,14 @@ for (j in seq_len(length(list.files(Path)))){
     # Matrix containing relative biases information
     K=length(combi[,1])
     res <- matrix(0,K,7)  
-    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
     res[,3] <- tapply(Sel$relbias_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
-    res[,7] <- tapply(Sel$relbias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,7] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:K]
     # Select only rows with no "NA"  
     res <- subset(res,res[,3] != "NA") 
     # Select only bias columns
@@ -487,14 +492,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing the relative variance information
     res2 <- matrix(0,K,7)  
-    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
     res2[,3] <- tapply(Sel$releff_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
-    res2[,7] <- tapply(Sel$releff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,7] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:K]
     # Select only rows with no "NA"  
     res2 <- subset(res2,res2[,3] != "NA") 
     # Select only bias columns

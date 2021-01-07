@@ -12,7 +12,7 @@ for (i in seq_len(length(Folder))){
   # set up empty container for all estimated parameters
   good_mes <-matrix(0,length(list.files(Folder[i])),5+4*5)
   goodness_indic <- c("bias_","relbias_","eff_","releff_")
-  estimator <- c("Cohen","Glass1","Glass2","Shieh", "Shieh_corr")
+  estimator <- c("Cohen","Glass1","Glass2","Shieh", "cohen_delta_prime")
   columns_names=expand.grid(estimator,goodness_indic)
   colnames(good_mes) <- c("n1","n2","n1/n2","m1-m2","sd1/sd2",paste0(columns_names[,2],columns_names[,1]))
 
@@ -35,37 +35,35 @@ for (i in seq_len(length(Folder))){
     q2 <- n2/(n1+n2)
     shieh_delta <- (m1-m2)/sqrt(sd1^2/q1+sd2^2/q2)       
     nratio=n1/n2
-    sigma_unbal <- sqrt((1-n1/(n1+n2))*sd1^2 + (1-n2/(n1+n2))*sd2^2)    
-    sigma_bal <-   sqrt((sd1^2+sd2^2)/2)
-    shieh_delta_corr <- shieh_delta*(((nratio+1)*sigma_unbal)/(sigma_bal*sqrt(nratio)))  
+    cohen_delta_prime <- (m1-m2)/sqrt((sd1^2+sd2^2)/2)  
     
     # Compute bias
     bias_cohen <- mean(file[,9]) - cohen_delta
     bias_glass1 <- mean(file[,11]) - glass_delta1 
     bias_glass2 <- mean(file[,12]) - glass_delta2
     bias_shieh <- mean(file[,15]) - shieh_delta
-    bias_shieh_corr <- mean(file[,17]) - shieh_delta_corr
+    bias_cohen_delta_prime <- mean(file[,17]) - cohen_delta_prime
     
     # Compute relative bias
     relbias_cohen <- (mean(file[,9]) - cohen_delta)/cohen_delta
     relbias_glass1 <- (mean(file[,11]) - glass_delta1)/glass_delta1 
     relbias_glass2 <- (mean(file[,12]) - glass_delta2)/glass_delta2
     relbias_shieh <- (mean(file[,15]) - shieh_delta)/shieh_delta
-    relbias_shieh_corr <- (mean(file[,17]) - shieh_delta_corr)/shieh_delta_corr
+    relbias_cohen_delta_prime <- (mean(file[,17]) - cohen_delta_prime)/cohen_delta_prime
     
     # Compute variance
     eff_cohen <- var(file[,9])
     eff_glass1 <- var(file[,11])
     eff_glass2 <- var(file[,12])
     eff_shieh <- var(file[,15])
-    eff_shieh_corr <- var(file[,17])
+    eff_cohen_delta_prime <- var(file[,17])
     
     # Compute relative variance
     releff_cohen <- var(file[,9])/cohen_delta^2
     releff_glass1 <- var(file[,11])/glass_delta1^2 
     releff_glass2 <- var(file[,12])/glass_delta2^2
     releff_shieh <- var(file[,15])/shieh_delta^2
-    releff_shieh_corr <- var(file[,17])/shieh_delta_corr^2
+    releff_cohen_delta_prime <- var(file[,17])/cohen_delta_prime^2
     
     good_mes[j,1] <- n1
     good_mes[j,2] <- n2
@@ -77,25 +75,25 @@ for (i in seq_len(length(Folder))){
     good_mes[j,7] <- bias_glass1
     good_mes[j,8] <- bias_glass2
     good_mes[j,9] <- bias_shieh
-    good_mes[j,10] <- bias_shieh_corr
+    good_mes[j,10] <- bias_cohen_delta_prime
     
     good_mes[j,11] <- relbias_cohen
     good_mes[j,12] <- relbias_glass1
     good_mes[j,13] <- relbias_glass2
     good_mes[j,14] <- relbias_shieh
-    good_mes[j,15] <- relbias_shieh_corr
+    good_mes[j,15] <- relbias_cohen_delta_prime
     
     good_mes[j,16] <- eff_cohen
     good_mes[j,17] <- eff_glass1
     good_mes[j,18] <- eff_glass2
     good_mes[j,19] <- eff_shieh
-    good_mes[j,20] <- eff_shieh_corr
+    good_mes[j,20] <- eff_cohen_delta_prime
     
     good_mes[j,21] <- releff_cohen
     good_mes[j,22] <- releff_glass1
     good_mes[j,23] <- releff_glass2
     good_mes[j,24] <- releff_shieh
-    good_mes[j,25] <- releff_shieh_corr
+    good_mes[j,25] <- releff_cohen_delta_prime
     
   }
   
@@ -139,8 +137,8 @@ png(file="legend.png",width=1500,height=1000, units = "px", res = 300)
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
-       legend=c(expression(paste("Hedge's ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
-                expression(paste("Cohen's ",g[s],"'"))),
+       legend=c(expression(paste("Hedge's ",d[s])),expression(paste("Glass's ",d[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",d[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",d[s])),
+                expression(paste("Cohen's ",d[s],"'"))),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n"
 )
@@ -191,14 +189,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing biases information
     res <- matrix(0,9,7)  
-    names<-expand.grid("bias_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("bias_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
     res[,3] <- tapply(Sel$bias_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,4] <- tapply(Sel$bias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,5] <- tapply(Sel$bias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,6] <- tapply(Sel$bias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res[,7] <- tapply(Sel$bias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res[,7] <- tapply(Sel$bias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res <- subset(res,res[,3] != "NA") 
     # Select only bias columns
@@ -213,14 +211,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing variances information
     res3 <- matrix(0,9,7)  
-    names<-expand.grid("var_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("var_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
     res3[,1:2] <- cbind(combi[,1],combi[,2]) 
     res3[,3] <- tapply(Sel$eff_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,6] <- tapply(Sel$eff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res3[,7] <- tapply(Sel$eff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,7] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res3 <- subset(res3,res3[,3] != "NA") 
     # Select only bias columns
@@ -326,14 +324,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing relative biases information
     res2 <- matrix(0,9,7)  
-    names<-expand.grid("relbias_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("relbias_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
     res2[,3] <- tapply(Sel$relbias_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res2[,7] <- tapply(Sel$relbias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res2[,7] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res2 <- subset(res2,res2[,3] != "NA") 
     # Select only bias columns
@@ -349,14 +347,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing relative variance information
     res4 <- matrix(0,9,7)  
-    names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res4) <- c("n1","n2",paste0(names[,1],names[,2]))
     res4[,1:2] <- cbind(combi[,1],combi[,2])
     res4[,3] <- tapply(Sel$releff_Cohen,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
-    res4[,7] <- tapply(Sel$releff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:9]
+    res4[,7] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:9]
     # Select only rows with no "NA"  
     res4 <- subset(res4,res4[,3] != "NA") 
     # Select only bias columns
@@ -458,14 +456,14 @@ for (j in seq_len(length(list.files(Path)))){
     # Matrix containing relative biases information
     K=length(combi[,1])
     res <- matrix(0,K,7)  
-    names<-expand.grid("relbias_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("relbias_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
     res[,3] <- tapply(Sel$relbias_Cohen,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
-    res[,7] <- tapply(Sel$relbias_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,7] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:K]
     # Select only rows with no "NA"  
     res <- subset(res,res[,3] != "NA") 
     # Select only bias columns
@@ -484,14 +482,14 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing the relative variance information
     res2 <- matrix(0,K,7)  
-    names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","Shieh_corr"))
+    names<-expand.grid("releff_",c("Cohen","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
     res2[,3] <- tapply(Sel$releff_Cohen,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
-    res2[,7] <- tapply(Sel$releff_Shieh_corr,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,7] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1,Sel$n2),mean)[1:K]
     # Select only rows with no "NA"  
     res2 <- subset(res2,res2[,3] != "NA") 
     # Select only bias columns
@@ -587,4 +585,3 @@ for (j in seq_len(length(list.files(Path)))){
   
 }
 
-###### Biased estimators / relative bias and variance
