@@ -903,7 +903,7 @@ While the variance of Cohen's $d'_s$ still depends on the total sample size and 
 
 ### In summary
 
-The variance of Cohen's $\delta'_s$ is a function of the population effect size ($\delta_{Cohen's \; d'_s}$), the total sample size and the interaction between sample sizes ratio and $SD$-ratio:  
+The variance of Cohen's $\delta'_s$ is a function of the population effect size ($\delta'_{Cohen}$), the total sample size and the interaction between sample sizes ratio and $SD$-ratio:  
 
   + The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control or in the experimental group depends on the $SD$-ratio.  Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the $SD$-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (for details, see the Appendix "Theoretical variance, as a function of population parameters").  
   + The variance increases when $\delta_{Cohen's \; d'_s}$ increases. Note that the effect of $\delta_{Cohen's \; d'_s}$ is moderated by the total sample size and the interaction between sample sizes ratio and $SD$-ratio.   
