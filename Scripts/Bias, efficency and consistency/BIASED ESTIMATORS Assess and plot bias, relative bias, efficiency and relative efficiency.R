@@ -137,7 +137,7 @@ png(file="legend.png",width=1500,height=1000, units = "px", res = 300)
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
-       legend=c(expression(paste("Hedge's ",d[s])),expression(paste("Glass's ",d[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",d[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",d[s])),
+       legend=c(expression(paste("Cohen's ",d[s])),expression(paste("Glass's ",d[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",d[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",d[s])),
                 expression(paste("Cohen's ",d[s],"'"))),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n"

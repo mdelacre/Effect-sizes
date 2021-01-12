@@ -12,7 +12,7 @@ for (i in seq_len(length(Folder))){
   # set up empty container for all estimated parameters
   good_mes <-matrix(0,length(list.files(Folder[i])),5+4*5)
   goodness_indic <- c("bias_","relbias_","eff_","releff_")
-  estimator <- c("Hedge","Glass1","Glass2","Shieh", "cohen_delta_prime")
+  estimator <- c("Hedges","Glass1","Glass2","Shieh", "cohen_delta_prime")
   columns_names=expand.grid(estimator,goodness_indic)
   colnames(good_mes) <- c("n1","n2","n1/n2","m1-m2","sd1/sd2",paste0(columns_names[,2],columns_names[,1]))
 
@@ -38,28 +38,28 @@ for (i in seq_len(length(Folder))){
     cohen_delta_prime <- (m1-m2)/sqrt((sd1^2+sd2^2)/2)  
     
     # Compute bias View(file)
-    bias_hedge <- mean(file[,10]) - cohen_delta # hedge's g_s is a corrected estimate of cohen's delta!
+    bias_Hedges <- mean(file[,10]) - cohen_delta # Hedges' g_s is a corrected estimate of cohen's delta!
     bias_glass1 <- mean(file[,13]) - glass_delta1 
     bias_glass2 <- mean(file[,14]) - glass_delta2
     bias_shieh <- mean(file[,16]) - shieh_delta
     bias_cohen_delta_prime <- mean(file[,18]) - cohen_delta_prime
     
     # Compute relative bias
-    relbias_hedge <- (mean(file[,10]) - cohen_delta)/cohen_delta
+    relbias_Hedges <- (mean(file[,10]) - cohen_delta)/cohen_delta
     relbias_glass1 <- (mean(file[,13]) - glass_delta1)/glass_delta1 
     relbias_glass2 <- (mean(file[,14]) - glass_delta2)/glass_delta2
     relbias_shieh <- (mean(file[,16]) - shieh_delta)/shieh_delta
     relbias_cohen_delta_prime <- (mean(file[,18]) - cohen_delta_prime)/cohen_delta_prime
     
     # Compute variance
-    eff_hedge <- var(file[,10])
+    eff_Hedges <- var(file[,10])
     eff_glass1 <- var(file[,13])
     eff_glass2 <- var(file[,14])
     eff_shieh <- var(file[,16])
     eff_cohen_delta_prime <- var(file[,18])
     
     # Compute relative variance
-    releff_hedge <- var(file[,10])/cohen_delta^2
+    releff_Hedges <- var(file[,10])/cohen_delta^2
     releff_glass1 <- var(file[,13])/glass_delta1^2 
     releff_glass2 <- var(file[,14])/glass_delta2^2
     releff_shieh <- var(file[,16])/shieh_delta^2
@@ -71,25 +71,25 @@ for (i in seq_len(length(Folder))){
     good_mes[j,4] <- m1-m2
     good_mes[j,5] <- sd1/sd2
     
-    good_mes[j,6] <- bias_hedge
+    good_mes[j,6] <- bias_Hedges
     good_mes[j,7] <- bias_glass1
     good_mes[j,8] <- bias_glass2
     good_mes[j,9] <- bias_shieh
     good_mes[j,10] <- bias_cohen_delta_prime
     
-    good_mes[j,11] <- relbias_hedge
+    good_mes[j,11] <- relbias_Hedges
     good_mes[j,12] <- relbias_glass1
     good_mes[j,13] <- relbias_glass2
     good_mes[j,14] <- relbias_shieh
     good_mes[j,15] <- relbias_cohen_delta_prime
     
-    good_mes[j,16] <- eff_hedge
+    good_mes[j,16] <- eff_Hedges
     good_mes[j,17] <- eff_glass1
     good_mes[j,18] <- eff_glass2
     good_mes[j,19] <- eff_shieh
     good_mes[j,20] <- eff_cohen_delta_prime
     
-    good_mes[j,21] <- releff_hedge
+    good_mes[j,21] <- releff_Hedges
     good_mes[j,22] <- releff_glass1
     good_mes[j,23] <- releff_glass2
     good_mes[j,24] <- releff_shieh
@@ -137,8 +137,8 @@ png(file="legend.png",width=1500,height=1000, units = "px", res = 300)
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
-       legend=c(expression(paste("Hedge's ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
-                expression(paste("Cohen's ",g[s],"'"))),
+       legend=c(expression(paste("Hedges' ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
+                expression(paste("Hedges' ",g[s],"'"))),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n"
 )
@@ -190,10 +190,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing biases information
     res <- matrix(0,9,7)  
-    names<-expand.grid("bias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
-    res[,3] <- tapply(Sel$bias_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
+    res[,3] <- tapply(Sel$bias_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,4] <- tapply(Sel$bias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,5] <- tapply(Sel$bias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,6] <- tapply(Sel$bias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -212,10 +212,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing variances information
     res3 <- matrix(0,9,7)  
-    names<-expand.grid("var_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("var_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
     res3[,1:2] <- cbind(combi[,1],combi[,2]) 
-    res3[,3] <- tapply(Sel$eff_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
+    res3[,3] <- tapply(Sel$eff_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,6] <- tapply(Sel$eff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -326,10 +326,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing relative biases information
     res2 <- matrix(0,9,7)  
-    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("relbias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
-    res2[,3] <- tapply(Sel$relbias_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
+    res2[,3] <- tapply(Sel$relbias_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -349,10 +349,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing the relative variance information
     res4 <- matrix(0,9,7)  
-    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("releff_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res4) <- c("n1","n2",paste0(names[,1],names[,2]))
     res4[,1:2] <- cbind(combi[,1],combi[,2])
-    res4[,3] <- tapply(Sel$releff_Hedge,list(Sel$n1,Sel$n2),mean)[1:9]
+    res4[,3] <- tapply(Sel$releff_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -466,10 +466,10 @@ for (j in seq_len(length(list.files(Path)))){
     # Matrix containing relative biases information
     K=length(combi[,1])
     res <- matrix(0,K,7)  
-    names<-expand.grid("relbias_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("relbias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,1],combi[,2])
-    res[,3] <- tapply(Sel$relbias_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
+    res[,3] <- tapply(Sel$relbias_Hedges,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res[,6] <- tapply(Sel$relbias_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
@@ -492,10 +492,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # Matrix containing the relative variance information
     res2 <- matrix(0,K,7)  
-    names<-expand.grid("releff_",c("Hedge","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    names<-expand.grid("releff_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
     res2[,1:2] <- cbind(combi[,1],combi[,2])
-    res2[,3] <- tapply(Sel$releff_Hedge,list(Sel$n1,Sel$n2),mean)[1:K]
+    res2[,3] <- tapply(Sel$releff_Hedges,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:K]
     res2[,6] <- tapply(Sel$releff_Shieh,list(Sel$n1,Sel$n2),mean)[1:K]
