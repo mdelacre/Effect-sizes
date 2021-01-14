@@ -1,0 +1,501 @@
+---
+title             : "Correlations between the sample means difference and standardizers of all estimators, and implications on biases and variances of all estimators"
+shorttitle        : ""
+
+author: 
+  - name          : "Delacre Marie"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    address       : ""
+    email         : ""
+
+affiliation:
+  - id            : "1"
+    institution   : "ULB"
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("PearsonDS")
+```
+
+# Introduction
+
+The *d*-family effect sizes are commonly used with “between-subject” designs where individuals are randomly assigned into one of two independent groups and groups scores means are compared. The population effect size is defined as 
+  
+\begin{equation} 
+\delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
+(\#eq:Cohendelta)
+\end{equation} 
+
+where both populations follow a normal distribution with mean $\mu_j$ in the $j^{th}$ population (j=1,2) and common standard deviation $\sigma$. They exist different estimators of this population effect size, varying as a function of the chosen standardizer ($\sigma$). When the equality of variances assumption is met, $\sigma$ is estimated by pooling both samples standard deviations ($S_1$ and $S_2$):
+
+\begin{equation} 
+\sigma_{Cohen's \; d_s} = \sqrt{\frac{(n_1-1) \times S_1^2+(n_2-1) \times S_2^2}{n_1+n_2-2}}
+(\#eq:Cohends)
+\end{equation} 
+
+When the equality of variances assumption is not met, we are considering three alternative estimates: 
+
+- Using the standard deviation of the control group ($S_c$) as standardizer:   
+
+\begin{equation} 
+S_{Glass's \; d_s} = S_{c}
+(\#eq:Glassds)
+\end{equation} 
+
+- Using a standardizer that takes the sample sizes allocation ratio $\left( \frac{n_1}{n_2}\right)$ into account:       
+
+\begin{equation} 
+S_{Shieh's \; d_s} = \sqrt{S_1^2/q_1+S_2^2/q_2}; \;\;\; q_j=\frac{n_j}{N} (j=1,2)
+(\#eq:Shiehds)
+\end{equation} 
+
+- Or using the square root of the non pooled average of both variance estimates ($S^2_1$ and $S^2_2$) as standardizer:  
+
+\begin{equation} 
+S_{Cohen's \; d'_s} = \sqrt{\frac{\left(S^2_{1}+S^2_{2} \right)}{2}}
+(\#eq:cohenprimeds)
+\end{equation} 
+
+As we previously mentioned, using these formulas implies meeting the assumption of normality. Using them when distributions are not normal will have consequences on both bias and variance of all estimators. More specifically, when samples are extracted from skewed distribution, correlations might occur between the sample means difference ($\bar{X_1}-\bar{X_2}$) and standardizers ($\sigma$). Studying when these correlations occur is the main goal of this appendix. To this end, we will distinguish 4 situations, as a function of the sample sizes ratio $\left( \frac{n_1}{n_2}=1 \; vs. \frac{n_1}{n_2}\neq1\; \right)$ and the population $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}=1 \; vs. \frac{\sigma_1}{\sigma_2}\neq1\; \right)$, but before that, we will briefly introduce the impact of correlations on the bias. 
+
+# How correlations between the mean difference ($\bar{X_1}-\bar{X_2}$) and standardizers influence the bias of estimators.
+
+# Correlations between the mean difference ($\bar{X_1}-\bar{X_2}$) and all standardizers
+
+## When equal population variances are estimated based on equal sample sizes (condition a)
+
+```{r Hombal,include=FALSE}
+
+n1 <- 20
+n2 <- 20
+n <- n1
+N <- n1+n2
+
+corrHombal=function(sd,nSims=10000,m1=1,m2=0,n,skew,kurt=95.75){
+   
+   sd1<-rep(0,nSims)
+   sd2<-rep(0,nSims)
+   meandiff<-rep(0,nSims)
+   mean1<-rep(1,nSims)
+   mean2<-rep(0,nSims)
+   
+   y=rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurtosis=(kurt*(n-2)*(n-3)-6*(n-1))/(n^2-1)+3))  
+   
+   for (i in 1:nSims){
+
+      y1 <- sample(y,size=n,replace=TRUE)
+      y2 <- sample(y,size=n,replace=TRUE)
+      sd1[i] <- sd(y1)
+      sd2[i] <- sd(y2)
+      meandiff[i] <- mean(y1)-mean(y2)
+      mean1[i] <- mean(y1)
+      mean2[i] <- mean(y2)
+      
+   }
+   
+   return(data.frame(sd1,sd2,meandiff,mean1,mean2))
+}
+
+Hombal_sym <- corrHombal(sd=2,n=n,skew=0)
+Hombal_rightskew <- corrHombal(sd=2,n=n,skew=6.32)
+Hombal_leftskew <- corrHombal(sd=2,n=n,skew=-6.32)
+```
+
+```{r corHombalsym,echo=FALSE}
+Hombal_sym_mean1 <- Hombal_sym$mean1
+Hombal_sym_mean2 <- Hombal_sym$mean2
+Hombal_sym_meandiff <- Hombal_sym$meandiff
+Hombal_sym_sd1 <- Hombal_sym$sd1
+Hombal_sym_sd2 <- Hombal_sym$sd2
+Hombal_sym_sdCohen <- sqrt(((n1-1)*Hombal_sym_sd1^2+(n2-1)*Hombal_sym_sd2^2)/(N-2))
+Hombal_sym_sdShieh <-  sqrt(Hombal_sym_sd1^2/(n1/N)+Hombal_sym_sd2^2/(n2/N))
+Hombal_sym_sdCohenprime <- sqrt((Hombal_sym_sd1^2+Hombal_sym_sd2^2)/2)
+```
+
+```{r corHombalrightskew,echo=FALSE}
+Hombal_rightskew_mean1 <- Hombal_rightskew$mean1
+Hombal_rightskew_mean2 <- Hombal_rightskew$mean2
+Hombal_rightskew_meandiff <- Hombal_rightskew$meandiff
+Hombal_rightskew_sd1 <- Hombal_rightskew$sd1
+Hombal_rightskew_sd2 <- Hombal_rightskew$sd2
+Hombal_rightskew_sdCohen <- sqrt(((n1-1)*Hombal_rightskew_sd1^2+(n2-1)*Hombal_rightskew_sd2^2)/(N-2))
+Hombal_rightskew_sdShieh <-  sqrt(Hombal_rightskew_sd1^2/(n1/N)+Hombal_rightskew_sd2^2/(n2/N))
+Hombal_rightskew_sdCohenprime <- sqrt((Hombal_rightskew_sd1^2+Hombal_rightskew_sd2^2)/2)
+```
+
+```{r corHomballeftskew,echo=FALSE}
+Hombal_leftskew_mean1 <- Hombal_leftskew$mean1
+Hombal_leftskew_mean2 <- Hombal_leftskew$mean2
+Hombal_leftskew_meandiff <- Hombal_leftskew$meandiff
+Hombal_leftskew_sd1 <- Hombal_leftskew$sd1
+Hombal_leftskew_sd2 <- Hombal_leftskew$sd2
+Hombal_leftskew_sdCohen <- sqrt(((n1-1)*Hombal_leftskew_sd1^2+(n2-1)*Hombal_leftskew_sd2^2)/(N-2))
+Hombal_leftskew_sdShieh <-  sqrt(Hombal_leftskew_sd1^2/(n1/N)+Hombal_leftskew_sd2^2/(n2/N))
+Hombal_leftskew_sdCohenprime <- sqrt((Hombal_leftskew_sd1^2+Hombal_leftskew_sd2^2)/2)
+```
+
+```{r pltSDMEANHombalsym,fig.cap="$S_j$ as a function of $\\bar{X_j}$ (j=1,2), when samples are extracted from symmetric distributions ($\\gamma_1 = 0$)",echo=FALSE}
+par(mfrow=c(1,2),mar=c(5,5,5,2))
+plot(Hombal_sym_sd1,Hombal_sym_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Hombal_sym_sd1,Hombal_sym_mean1,method="spearman"),2)))
+plot(Hombal_sym_sd2,Hombal_sym_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Hombal_sym_sd2,Hombal_sym_mean2,method="spearman"),2)))
+```
+
+While $\bar{X_j}$ and $S_j$ (j=1,2) are uncorrelated when samples are extracted from symmetric distributions (see Figure \ref{fig:pltSDMEANHombalsym}), there is a non-null correlation between $\bar{X_j}$ and $S_j$ when distributions are skewed (Zhang, 2007). 
+
+```{r pltSDHombalRskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$; top plots)",echo=FALSE}
+par(mfrow=c(2,2),mar=c(5,5,5,2))
+plot(Hombal_rightskew_sd1,Hombal_rightskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Hombal_rightskew_sd1,Hombal_rightskew_mean1,method="spearman"),2)))
+plot(Hombal_rightskew_sd2,Hombal_rightskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Hombal_rightskew_sd2,Hombal_rightskew_mean2,method="spearman"),2)))
+
+plot(Hombal_rightskew_sd1,Hombal_rightskew_meandiff,ylab=expression(S[1]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sd1,Hombal_rightskew_meandiff),2)))
+plot(Hombal_rightskew_sd2,Hombal_rightskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sd2,Hombal_rightskew_meandiff),2)))
+```
+
+More specifically, when distributions are right-skewed, there is a **positive** correlation between $\bar{X_j}$ and $S_j$ (see the two top plots in Figure \ref{fig:pltSDHombalRskew}), resulting in a *positive* correlation between $S_1$ and $\bar{X_1}-\bar{X_2}$ and in a *negative* correlation between $S_2$ and $\bar{X_1}-\bar{X_2}$ (see the two bottom plots in Figure \ref{fig:pltSDHombalRskew}). This can be explained by the fact that $\bar{X_1}$ and $\bar{X_1}-\bar{X_2}$ are positively correlated while $\bar{X_2}$ and $\bar{X_1}-\bar{X_2}$ and negatively correlated (of course, correlations would be trivially reversed if we computed $\bar{X_2}-\bar{X_1}$ instead of $\bar{X_1}-\bar{X_2}$).
+
+```{r pltStdzrHombalRskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d'_s}$ as a function of the means difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
+par(mfrow=c(1,3),mar=c(5,5,5,2))
+plot(Hombal_leftskew_sdCohen,Hombal_leftskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sdCohen,Hombal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Hombal_leftskew_sdShieh,Hombal_leftskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sdShieh,Hombal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Hombal_leftskew_sdCohenprime,Hombal_leftskew_meandiff,ylab=expression(S["Cohen d'"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sdCohenprime,Hombal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+```
+
+One should also notice that both correlations between $S_j$ and $\bar{X_1}-\bar{X_2}$ are equal, in absolute terms (possible tiny differences might be observed due to sampling error in our simulations). As a consequence, when computing a standardizer taking both $S_1$ and $S_2$ into account, it results in a standardizer that is uncorrelated with $\bar{X_1}-\bar{X_2}$ (see Figure \ref{fig:pltStdzrHombalRskew}).
+
+```{r pltSDHombalLskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$; top plots)",echo=FALSE}
+par(mfrow=c(2,2),mar=c(5,5,5,2))
+plot(Hombal_leftskew_sd1,Hombal_leftskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Hombal_leftskew_sd1,Hombal_leftskew_mean1,method="spearman"),2)))
+plot(Hombal_leftskew_sd2,Hombal_leftskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Hombal_leftskew_sd2,Hombal_leftskew_mean2,method="spearman"),2)))
+
+plot(Hombal_leftskew_sd1,Hombal_leftskew_meandiff,ylab=expression(S[1]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sd1,Hombal_leftskew_meandiff),2)))
+plot(Hombal_leftskew_sd2,Hombal_leftskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sd2,Hombal_leftskew_meandiff),2)))
+```
+
+On the other hand, when distributions are left-skewed, there is a **negative** correlation between $\bar{X_j}$ and $S_j$ (see the two top plots in Figure \ref{fig:pltSDHombalLskew}), resulting in a *negative* correlation between $S_1$ and $\bar{X_1}-\bar{X_2}$ and in a *positive* correlation between $S_2$ and $\bar{X_1}-\bar{X_2}$ (see the two bottom plots in Figure \ref{fig:pltSDHombalLskew}).
+
+```{r pltStdzrHombalLskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d'_s}$ as a function of the means difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
+par(mfrow=c(1,3),mar=c(5,5,5,2))
+plot(Hombal_rightskew_sdCohen,Hombal_rightskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sdCohen,Hombal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Hombal_rightskew_sdShieh,Hombal_rightskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sdShieh,Hombal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Hombal_rightskew_sdCohenprime,Hombal_rightskew_meandiff,ylab=expression(S["Cohen d'"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sdCohenprime,Hombal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+```
+
+Again, because correlations between $S_j$ and $\bar{X_1}-\bar{X_2}$ are similar in absolute terms, any standardizers taking both $S_1$ and $S_2$ into account will be uncorrelated with $\bar{X_1}-\bar{X_2}$ (see Figure \ref{fig:pltStdzrHombalLskew}).
+
+## When equal population variances are estimated based on unequal sample sizes (condition b)
+
+```{r Homunbal,include=FALSE}
+
+n1 <- 20
+n2 <- 100
+N <- n1+n2
+
+corrHomunbal=function(sd,nSims=10000,m1=1,m2=0,n1,n2,skew,kurt=95.75){
+   
+   sd1<-rep(0,nSims)
+   sd2<-rep(0,nSims)
+   meandiff<-rep(0,nSims)
+   mean1<-rep(0,nSims)
+   mean2<-rep(0,nSims)
+   
+   # I generate a population using N in order to be sure that both samples are extacted from equal population skewness and kurtosis
+   N <- n1+n2
+   y=rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtosis=(kurt*(N-2)*(N-3)-6*(N-1))/(N^2-1)+3))  
+   
+   for (i in 1:nSims){
+
+      y1 <- sample(y,size=n1,replace=TRUE)
+      y2 <- sample(y,size=n2,replace=TRUE)
+      sd1[i] <- sd(y1)
+      sd2[i] <- sd(y2)
+      meandiff[i] <- mean(y1)-mean(y2)
+      mean1[i] <- mean(y1)
+      mean2[i] <- mean(y2)
+      
+   }
+   
+   return(data.frame(sd1,sd2,meandiff,mean1,mean2))
+}
+
+Homunbal_sym <- corrHomunbal(sd=2,n1=n1,n2=n2,skew=0)
+Homunbal_rightskew <- corrHomunbal(sd=2,n1=n1,n2=n2,skew=6.32)
+Homunbal_leftskew <- corrHomunbal(sd=2,n1=n1,n2=n2,skew=-6.32)
+
+```
+
+```{r corHomunbalsym,echo=FALSE}
+Homunbal_sym_mean1 <- Homunbal_sym$mean1
+Homunbal_sym_mean2 <- Homunbal_sym$mean2
+Homunbal_sym_meandiff <- Homunbal_sym$meandiff
+Homunbal_sym_sd1 <- Homunbal_sym$sd1
+Homunbal_sym_sd2 <- Homunbal_sym$sd2
+Homunbal_sym_sdCohen <- sqrt(((n1-1)*Homunbal_sym_sd1^2+(n2-1)*Homunbal_sym_sd2^2)/(N-2))
+Homunbal_sym_sdShieh <-  sqrt(Homunbal_sym_sd1^2/(n1/N)+Homunbal_sym_sd2^2/(n2/N))
+Homunbal_sym_sdCohenprime <- sqrt((Homunbal_sym_sd1^2+Homunbal_sym_sd2^2)/2)
+```
+
+```{r corHomunbalrightskew,echo=FALSE}
+Homunbal_rightskew_mean1 <- Homunbal_rightskew$mean1
+Homunbal_rightskew_mean2 <- Homunbal_rightskew$mean2
+Homunbal_rightskew_meandiff <- Homunbal_rightskew$meandiff
+Homunbal_rightskew_sd1 <- Homunbal_rightskew$sd1
+Homunbal_rightskew_sd2 <- Homunbal_rightskew$sd2
+Homunbal_rightskew_sdCohen <- sqrt(((n1-1)*Homunbal_rightskew_sd1^2+(n2-1)*Homunbal_rightskew_sd2^2)/(N-2))
+Homunbal_rightskew_sdShieh <-  sqrt(Homunbal_rightskew_sd1^2/(n1/N)+Homunbal_rightskew_sd2^2/(n2/N))
+Homunbal_rightskew_sdCohenprime <- sqrt((Homunbal_rightskew_sd1^2+Homunbal_rightskew_sd2^2)/2)
+```
+
+```{r corHomunballeftskew,echo=FALSE}
+Homunbal_leftskew_mean1 <- Homunbal_leftskew$mean1
+Homunbal_leftskew_mean2 <- Homunbal_leftskew$mean2
+Homunbal_leftskew_meandiff <- Homunbal_leftskew$meandiff
+Homunbal_leftskew_sd1 <- Homunbal_leftskew$sd1
+Homunbal_leftskew_sd2 <- Homunbal_leftskew$sd2
+Homunbal_leftskew_sdCohen <- sqrt(((n1-1)*Homunbal_leftskew_sd1^2+(n2-1)*Homunbal_leftskew_sd2^2)/(N-2))
+Homunbal_leftskew_sdShieh <-  sqrt(Homunbal_leftskew_sd1^2/(n1/N)+Homunbal_leftskew_sd2^2/(n2/N))
+Homunbal_leftskew_sdCohenprime <- sqrt((Homunbal_leftskew_sd1^2+Homunbal_leftskew_sd2^2)/2)
+```
+
+```{r pltSDMEANHomunbalsym,fig.cap="$S_j$ as a function of $\\bar{X_j}$ (j=1,2), when samples are extracted from symmetric distributions ($\\gamma_1 = 0$)",echo=FALSE}
+par(mfrow=c(1,2),mar=c(5,5,5,2))
+plot(Homunbal_sym_sd1,Homunbal_sym_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Homunbal_sym_sd1,Homunbal_sym_mean1,method="spearman"),2)))
+plot(Homunbal_sym_sd2,Homunbal_sym_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Homunbal_sym_sd2,Homunbal_sym_mean2,method="spearman"),2)))
+```
+
+Even when $n_1 \neq n_2$, $\bar{X_j}$ and $S_j$ (j=1,2) remain uncorrelated as long as samples are extracted from symmetric distributions (see Figure \ref{fig:pltSDMEANHomunbalsym}). When distributions are skewed, there are again non-null correlations between $\bar{X_j}$ and $S_j$, however $cor(S_1,\bar{X_1}) \neq cor(S_2,\bar{X_2})$, because of the different sample sizes. 
+
+```{r Homunbalcorasafctofn1,fig.cap="correlation between $S_j$ and $\\bar{X_1}$ when n = 25, 50, 75 or 100 and samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
+
+nSims=10000
+m1=0
+n1 <- 25
+n2 <- 50
+n3 <- 75
+n4 <- 100
+sd <- 2
+kurt=95.75
+skew=6.32
+
+N <- n1+n2+n3+n4
+
+mean1 <- NULL
+mean2 <- NULL
+mean3 <- NULL
+mean4 <- NULL
+
+sd1 <- NULL
+sd2 <- NULL
+sd3 <- NULL
+sd4 <- NULL
+
+y <- rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtosis=(kurt*(N-2)*(N-3)-6*(N-1))/(N^2-1)+3))  
+
+  for (i in 1:nSims){
+    
+
+     y1 <- sample(y,size=n1,replace=TRUE)
+     y2 <- sample(y,size=n2,replace=TRUE)
+     y3 <- sample(y,size=n3,replace=TRUE)
+     y4 <- sample(y,size=n4,replace=TRUE)
+     
+   mean1 <- c(mean1,mean(y1))
+   mean2 <- c(mean2,mean(y2))
+   mean3 <- c(mean3,mean(y3))
+   mean4 <- c(mean4,mean(y4))
+
+   sd1 <- c(sd1,sd(y1))
+   sd2 <- c(sd2,sd(y2))
+   sd3 <- c(sd3,sd(y3))
+   sd4 <- c(sd4,sd(y4))
+
+  }
+   
+   par(mfrow=c(2,2))
+   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,Cor(mean,sd)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,Cor(mean,sd)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,Cor(mean,sd)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,Cor(mean,sd)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+
+```
+
+```{r Homunbalcorasafctofn2,fig.cap="correlation between $S_j$ and $\\bar{X_1}$ when n = 25, 50, 75 or 100 and samples are extracted from right left distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
+
+nSims=10000
+m1=0
+n1 <- 25
+n2 <- 50
+n3 <- 75
+n4 <- 100
+sd <- 2
+kurt=95.75
+skew=-6.32
+
+N <- n1+n2+n3+n4
+
+mean1 <- NULL
+mean2 <- NULL
+mean3 <- NULL
+mean4 <- NULL
+
+sd1 <- NULL
+sd2 <- NULL
+sd3 <- NULL
+sd4 <- NULL
+
+y <- rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtosis=(kurt*(N-2)*(N-3)-6*(N-1))/(N^2-1)+3))  
+
+  for (i in 1:nSims){
+    
+
+     y1 <- sample(y,size=n1,replace=TRUE)
+     y2 <- sample(y,size=n2,replace=TRUE)
+     y3 <- sample(y,size=n3,replace=TRUE)
+     y4 <- sample(y,size=n4,replace=TRUE)
+     
+   mean1 <- c(mean1,mean(y1))
+   mean2 <- c(mean2,mean(y2))
+   mean3 <- c(mean3,mean(y3))
+   mean4 <- c(mean4,mean(y4))
+
+   sd1 <- c(sd1,sd(y1))
+   sd2 <- c(sd2,sd(y2))
+   sd3 <- c(sd3,sd(y3))
+   sd4 <- c(sd4,sd(y4))
+
+  }
+   
+   par(mfrow=c(2,2))
+   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,Cor(mean,sd)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,Cor(mean,sd)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,Cor(mean,sd)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,Cor(mean,sd)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+
+```
+
+When distributions are skewed, one observes that the larger the sample size, the lower the correlation between $S_j$ and $\bar{X_j}$ (See Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn1}).
+
+```{r pltSDHomunbalRskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$; top plots), with n1=20 and n2=100",echo=FALSE}
+par(mfrow=c(2,2),mar=c(5,5,5,2))
+plot(Homunbal_rightskew_sd1,Homunbal_rightskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Homunbal_rightskew_sd1,Homunbal_rightskew_mean1,method="spearman"),2)))
+plot(Homunbal_rightskew_sd2,Homunbal_rightskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Homunbal_rightskew_sd2,Homunbal_rightskew_mean2,method="spearman"),2)))
+
+plot(Homunbal_rightskew_sd1,Homunbal_rightskew_meandiff,ylab=expression(S[1]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_rightskew_sd1,Homunbal_rightskew_meandiff),2)))
+plot(Homunbal_rightskew_sd2,Homunbal_rightskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_rightskew_sd2,Homunbal_rightskew_meandiff),2)))
+```
+
+```{r pltSDHomunbalLskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$; top plots), with n1=20 and n2=100",echo=FALSE}
+par(mfrow=c(2,2),mar=c(5,5,5,2))
+plot(Homunbal_leftskew_sd1,Homunbal_leftskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Homunbal_leftskew_sd1,Homunbal_leftskew_mean1,method="spearman"),2)))
+plot(Homunbal_leftskew_sd2,Homunbal_leftskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Homunbal_leftskew_sd2,Homunbal_leftskew_mean2,method="spearman"),2)))
+
+plot(Homunbal_leftskew_sd1,Homunbal_leftskew_meandiff,ylab=expression(S[1]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_leftskew_sd1,Homunbal_leftskew_meandiff),2)))
+plot(Homunbal_leftskew_sd2,Homunbal_leftskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_leftskew_sd2,Homunbal_leftskew_meandiff),2)))
+```
+
+This might explain why the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ is lower in the larger sample (See bottom plots in Figure \ref{pltSDHomunbalRskew}). With no surprise, there is a positive (negative) correlation between $S_1$ and $\bar{X_1}-\bar{X_2}$ and a negative (positive) correlation between $S_2$ and $\bar{X_1}-\bar{X_2}$ when distribution are right-skewed (left-skewed), as illustrated in the two bottom plots of Figures \ref{fig:pltSDHomunbalRskew} and \ref{fig:pltSDHomunbalLskew}. 
+
+```{r pltStdzrHomunbalRskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d'_s}$ as a function of the means difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
+par(mfrow=c(1,3),mar=c(5,5,5,2))
+plot(Homunbal_leftskew_sdCohen,Homunbal_leftskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_leftskew_sdCohen,Homunbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Homunbal_leftskew_sdShieh,Homunbal_leftskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_leftskew_sdShieh,Homunbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Homunbal_leftskew_sdCohenprime,Homunbal_leftskew_meandiff,ylab=expression(S["Cohen d'"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_leftskew_sdCohenprime,Homunbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+```
+
+```{r pltStdzrHomunbalLskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d'_s}$ as a function of the means difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
+par(mfrow=c(1,3),mar=c(5,5,5,2))
+plot(Homunbal_rightskew_sdCohen,Homunbal_rightskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_rightskew_sdCohen,Homunbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Homunbal_rightskew_sdShieh,Homunbal_rightskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_rightskew_sdShieh,Homunbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+plot(Homunbal_rightskew_sdCohenprime,Homunbal_rightskew_meandiff,ylab=expression(S["Cohen d'"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Homunbal_rightskew_sdCohenprime,Homunbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
+```
+
+This might also explain why the standardizers of Shieh's $d_s$ and Cohen's $d'_s$ are this time **correlated** with $\bar{X_1}-\bar{X_2}$ (see Figure \ref{fig:pltStdzrHombalLskew}). EXPLIQUER POURQUOI SHIEH EST LE PLUS AFFECTE DES TROIS ET POURQUOI COHEN L EST PAS.
+
+Reste aussi à comprendre: pourquoi la corrélation prend le signe du plus grand groupe et pas le contraire? A mon avis, simplement parce qu'en mixant le tout, on donne bcp plus de poids au 2ème groupe (mais bien écrire ça). 
+
+## When unequal population variances are estimated based on equal sample sizes (condition c)
+
+```{r Hetbal,include=FALSE}
+Hetbal=function(sd1,sd2,nSims=10000,m1=1,m2=0,n,skew,kurt=95.75){
+   
+   SD1<-rep(0,nSims)
+   SD2<-rep(0,nSims)
+   meandiff<-rep(0,nSims)
+   mean1<-rep(0,nSims)
+   mean2<-rep(0,nSims)
+   
+   Y1=rpearson(1000000,moments=c(m1,sd1^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurtosis=(kurt*(n-2)*(n-3)-6*(n-1))/(n^2-1)+3))  
+   Y2=rpearson(1000000,moments=c(m1,sd2^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurtosis=(kurt*(n-2)*(n-3)-6*(n-1))/(n^2-1)+3))
+   
+   for (i in 1:nSims){
+      
+      y1 <- sample(Y1,size=n,replace=TRUE)
+      y2 <- sample(Y2,size=n,replace=TRUE)
+      SD1[i] <- sd(y1)
+      SD2[i] <- sd(y2)
+      meandiff[i] <- mean(y1)-mean(y2)
+      mean1[i] <- mean(y1)
+      mean2[i] <- mean(y2)
+      
+   }
+   
+   return(data.frame(SD1,SD2,meandiff,mean1,mean2))
+}
+
+Hetbal_sym <- Hetbal(sd1=2,sd2=2,n=n,skew=0)
+Hetbal_rightskew <- Hetbal(sd1=2,sd2=2,n=n,skew=6.32)
+Hetbal_leftskew <- Hetbal(sd1=2,sd2=2,n=n,skew=-6.32)
+
+```
+
+## When unequal population variances are estimated based on unequal sample sizes (conditions d and e)
+
+```{r Hetunbal,include=FALSE}
+Hetunbal=function(sd1,sd2,nSims=10000,m1=1,m2=0,n1,n2,skew,kurt=95.75){
+   
+   SD1<-rep(0,nSims)
+   SD2<-rep(0,nSims)
+   meandiff<-rep(0,nSims)
+   mean1<-rep(0,nSims)
+   mean2<-rep(0,nSims)
+   
+   # I generate populations using N in order to be sure that both population have the exact same skeweness and kurtosis
+   N <- n1+n2
+   Y1=rpearson(1000000,moments=c(m1,sd1^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtosis=(kurt*(N-2)*(N-3)-6*(N-1))/(N^2-1)+3))  
+   Y2=rpearson(1000000,moments=c(m1,sd2^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtosis=(kurt*(N-2)*(N-3)-6*(N-1))/(N^2-1)+3))
+   
+   for (i in 1:nSims){
+      
+      y1 <- sample(Y1,size=n1,replace=TRUE)
+      y2 <- sample(Y2,size=n2,replace=TRUE)
+      SD1[i] <- sd(y1)
+      SD2[i] <- sd(y2)
+      meandiff[i] <- mean(y1)-mean(y2)
+      mean1[i] <- mean(y1)
+      mean2[i] <- mean(y2)
+      
+   }
+   
+   return(data.frame(SD1,SD2,meandiff,mean1,mean2))
+}
+
+Hetunbal_sym <- Hetunbal(sd1=2,sd2=2,n1=n1,n2=n2,skew=0)
+Hetunbal_rightskew <- Hetunbal(sd1=2,sd2=2,n1=n1,n2=n2,skew=6.32)
+Hetunbal_leftskew <- Hetunbal(sd1=2,sd2=2,n1=n1,n2=n2,skew=-6.32)
+
+```
