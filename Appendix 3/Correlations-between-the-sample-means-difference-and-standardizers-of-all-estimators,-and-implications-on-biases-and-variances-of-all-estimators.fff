@@ -38,21 +38,21 @@
 
 \centering
 \includegraphics{Correlations-between-the-sample-means-difference-and-standardizers-of-all-estimators,-and-implications-on-biases-and-variances-of-all-estimators_files/figure-latex/pltSDMEANHomunbalsym-1.pdf}
-\caption{\label{fig:pltSDMEANHomunbalsym}\(S_j\) as a function of \(\bar{X_j}\) (j=1,2), when samples are extracted from symmetric distributions (\(\gamma_1 = 0\))}
+\caption{\label{fig:pltSDMEANHomunbalsym}\(S_j\) as a function of \(\bar{X_j}\) (j=1,2), when samples are extracted from symmetric distributions (\(\gamma_1 = 0\)), n1=20 and n2=100}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlations-between-the-sample-means-difference-and-standardizers-of-all-estimators,-and-implications-on-biases-and-variances-of-all-estimators_files/figure-latex/Homunbalcorasafctofn1-1.pdf}
-\caption{\label{fig:Homunbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_1}\) when n = 25, 50, 75 or 100 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:Homunbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlations-between-the-sample-means-difference-and-standardizers-of-all-estimators,-and-implications-on-biases-and-variances-of-all-estimators_files/figure-latex/Homunbalcorasafctofn2-1.pdf}
-\caption{\label{fig:Homunbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_1}\) when n = 25, 50, 75 or 100 and samples are extracted from right left distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:Homunbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from right left distributions (\(\gamma_1 = -6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
