@@ -57,6 +57,7 @@ for (i in 4:200){
   variance <-(N*df)/(n1*n2*(df-2)) + delta_cohen^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
   VAR=c(VAR,variance) 
 }
+
 ```
 
 ```{r varcohendNsize2,fig.cap="Variance of Cohen's $d_s$, when variances are equal across groups, as a function of the total sample size (N).",echo=FALSE}
@@ -67,19 +68,22 @@ plot(Nsize,VAR,xlab="N",ylab=expression(paste("Var(",d[s],")")))
 
 ```{r varcohenNratio,include=FALSE}
 nratio=NULL
-VAR=NULL
-
+VAR1=NULL
+VAR2=NULL
 
 for (i in 1:199){
-  delta_cohen=0
+  delta_cohen=5
   N <- 200
   n1 <- i
   n2 <- N-n1
   df <- N-2
   
   nratio <- c(nratio,n1/n2)
-  variance <-(N*df)/(n1*n2*(df-2)) + delta_cohen^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
-  VAR=c(VAR,variance) 
+  variance1 <-(N*df)/(n1*n2*(df-2))
+  variance2 <-delta_cohen^2*(df/(df-2)-(sqrt(df/2)*gamma((df-1)/2)/gamma(df/2))^2)
+  VAR1=c(VAR1,variance1) 
+  VAR2=c(VAR2,variance2) 
+
 }
 
 #Remarque: le deuxième terme de l'addition, dans le calcul de la variance, ne dépend pas du tout du nratio.Donc peu importe que delta_cohen = 0 ou autre chose, ça ne modifiera en rien l'impact du nratio.

@@ -186,7 +186,7 @@ sd2=2
 
 for (i in 4:200){
   n1=i
-  n2=i
+  n2=10
   N = n1+n2
   Nsize=c(Nsize,N)
   df = ((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4) 
@@ -441,7 +441,7 @@ plot(log(nratio2),DF_NUM2,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],"
 plot(log(nratio2),DF_DENOM2,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
 ```
 
-As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any $SD$-ratio, th enumerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the $SD$-ratio). On the other side, the denominator will be minimized when there is a positive pairing between varianes and sample sizes. For example, when $\sigma_1 > \sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}=max\left(\frac{n_1}{n_2}\right)$ and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator. 
+As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any $SD$-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the $SD$-ratio). On the other side, the denominator will be minimized when there is a positive pairing between varianes and sample sizes. For example, when $\sigma_1 > \sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}=max\left(\frac{n_1}{n_2}\right)$ and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator. 
 
 ```{r biascohendprimehetunbalvariance,include=FALSE}
 coeffmult <- NULL
