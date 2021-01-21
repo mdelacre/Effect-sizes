@@ -394,38 +394,37 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
     
   } else if (totalN == 120){
-
+    
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
     
   } else if (totalN == 150){
-
+    
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
-
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
+    
   }  
-
-
+  
   for (i in seq_len(length(Conditions_id))){ 
     
   Sel <- File[Conditions_id[[i]],]
@@ -434,21 +433,18 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   sdval <- as.numeric(levels(factor(Sel$sd1.sd2)))
   n2val <- as.numeric(levels(factor(Sel$n2)))
   n1val<- as.numeric(levels(factor(Sel$n1)))
-  combi <- expand.grid(sdval, n2val, n1val)
+  combi <- expand.grid(sdval, n1val, n2val)
   
   # Matrix containing biases information
-  res <- matrix(0,24,8)  
+  res <- matrix(0,6,8)  
   names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
   colnames(res) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
   res[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
-  res[,4] <- tapply(Sel$bias_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res[,5] <- tapply(Sel$bias_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res[,6] <- tapply(Sel$bias_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res[,7] <- tapply(Sel$bias_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res[,8] <- tapply(Sel$bias_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  
-  # Select only rows with no "NA"  
-  res <- subset(res,res[,4] != "NA") 
+  res[,4] <- tapply(Sel$bias_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res[,5] <- tapply(Sel$bias_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res[,6] <- tapply(Sel$bias_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res[,7] <- tapply(Sel$bias_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res[,8] <- tapply(Sel$bias_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
   
   # Select only bias columns
   res.bias <- t(res[,4:8])
@@ -461,18 +457,15 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   G2 <- as.numeric(param[[1]][4])
   
   # Matrix containing variances information
-  res3 <- matrix(0,24,8)  
+  res3 <- matrix(0,6,8)  
   names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
   colnames(res3) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
   res3[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
-  res3[,4] <- tapply(Sel$eff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res3[,5] <- tapply(Sel$eff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res3[,6] <- tapply(Sel$eff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res3[,7] <- tapply(Sel$eff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  res3[,8] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-  
-  # Select only rows with no "NA"  
-  res3 <- subset(res3,res3[,4] != "NA") 
+  res3[,4] <- tapply(Sel$eff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res3[,5] <- tapply(Sel$eff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res3[,6] <- tapply(Sel$eff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res3[,7] <- tapply(Sel$eff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+  res3[,8] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
   
   # Select only variances columns
   res.eff <- t(res3[,4:8])
@@ -673,7 +666,7 @@ for (j in seq_len(length(list.files(Path)))){
 #     Condition c, as a function of the SD-ratio
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Because the comparison pattern is very similar whatever n = 20, 50 or 100
+# Because the comparison pattern is very similar whatever n = 20, 50 or 100par
 # We will only plot the results as a function of the SD-ratio when n = 20
 
 Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
@@ -792,40 +785,40 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   
   File=read.table(paste0(Path,list.files(Path)[j]),header=T,sep=";",dec=",")  
   
-  # Extract "Het_bal" subcategory (for a specific total sample size)
+  # Extract "Het_unbal" subcategory (for a specific total sample size)
   
   if (totalN == 70){
     
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
     
   } else if (totalN == 120){
     
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==120) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
     
   } else if (totalN == 150){
     
     # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
-    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
+    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
+    id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==150) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
-    Conditions_id <- list(id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
+    Conditions_id <- list(id_Het_firstsmaller=c(id_sdSD_nN,id_SDsd_nN),id_Het_firstlarger=c(id_sdSD_Nn,id_SDsd_Nn))
     
   }  
   
@@ -838,21 +831,18 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     sdval <- as.numeric(levels(factor(Sel$sd1.sd2)))
     n2val <- as.numeric(levels(factor(Sel$n2)))
     n1val<- as.numeric(levels(factor(Sel$n1)))
-    combi <- expand.grid(sdval, n2val, n1val)
+    combi <- expand.grid(sdval, n1val, n2val)
     
     # Matrix containing biases information
-    res <- matrix(0,24,8)  
+    res <- matrix(0,6,8)  
     names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
     res[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
-    res[,4] <- tapply(Sel$relbias_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res[,5] <- tapply(Sel$relbias_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res[,6] <- tapply(Sel$relbias_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res[,7] <- tapply(Sel$relbias_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res[,8] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    
-    # Select only rows with no "NA"  
-    res <- subset(res,res[,4] != "NA") 
+    res[,4] <- tapply(Sel$relbias_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res[,5] <- tapply(Sel$relbias_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res[,6] <- tapply(Sel$relbias_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res[,7] <- tapply(Sel$relbias_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res[,8] <- tapply(Sel$relbias_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
     
     # Select only bias columns
     res.relbias <- t(res[,4:8])
@@ -865,18 +855,15 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     G2 <- as.numeric(param[[1]][4])
     
     # Matrix containing variances information
-    res3 <- matrix(0,24,8)  
+    res3 <- matrix(0,6,8)  
     names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
     res3[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
-    res3[,4] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res3[,5] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res3[,6] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res3[,7] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    res3[,8] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:24]
-    
-    # Select only rows with no "NA"  
-    res3 <- subset(res3,res3[,4] != "NA") 
+    res3[,4] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res3[,5] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res3[,6] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res3[,7] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res3[,8] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
     
     # Select only variances columns
     res.releff <- t(res3[,4:8])
