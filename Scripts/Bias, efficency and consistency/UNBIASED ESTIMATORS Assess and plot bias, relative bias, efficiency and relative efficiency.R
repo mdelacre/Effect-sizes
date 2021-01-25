@@ -616,10 +616,10 @@ for (j in seq_len(length(list.files(Path)))){
     
     # plot for the relative bias
     
-    if (j==1){ylabelbias=expression(paste("(E(" , hat(delta) , ") -",delta,")/",delta ))
+    if (j==1){ylabelbias=expression(paste("[E(" , hat(delta) , ")-",delta,"]/",delta))
     } else {ylabelbias=""}
     
-    if (j==4){ylim=c(0,1.5)
+    if (j==4){ylim=c(0,1.6)
     } else {ylim=c(0,.12)}
     
     barplot(res.relbias, 
@@ -634,13 +634,13 @@ for (j in seq_len(length(list.files(Path)))){
             ylab=ylabelbias
     )
     
-    # plot for the variance (need to be modified later)
+    # plot for the relative variance
     
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
     } else {ylabeleff=""}
     
-    if (j==4){ylim=c(0,6)
-    } else {ylim=c(0,1)}
+    if (j==4){ylim=c(0,4)
+    } else {ylim=c(0,.6)}
     
     barplot(res.releff, 
             col = c("black","grey40","grey60","grey80","white"),
@@ -667,7 +667,11 @@ for (j in seq_len(length(list.files(Path)))){
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Because the comparison pattern is very similar whatever n = 20, 50 or 100par
-# We will only plot the results as a function of the SD-ratio when n = 20
+# We will only plot the results as a function of the SD-ratio when n = 100
+# Reason: we don't entirely remove the effect of delta, when dividing the variance by delta²
+# But the effect of delta² is much reduced with larger sample size.
+# We therefore chose n=100 in order to reduce a result that is an artefact of the way we computed
+# The relative variance.
 
 Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
 
@@ -678,8 +682,8 @@ for (j in seq_len(length(list.files(Path)))){
   
   # Extract "Het_bal" subcategory (when n1=n2=20)
   
-  id_sdSD_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==20)&(File$sd1.sd2 < 1),]))
-  id_SDsd_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==20)&(File$sd1.sd2 > 1),]))
+  id_sdSD_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==100)&(File$sd1.sd2 < 1),]))
+  id_SDsd_bal=as.numeric(rownames(File[(File$m1.m2!=0)&(File$n1==File$n2)&(File$n1==100)&(File$sd1.sd2 > 1),]))
   id_Het_bal <- c(id_sdSD_bal,id_SDsd_bal)
   
   Sel <- File[id_Het_bal,]
@@ -725,16 +729,17 @@ for (j in seq_len(length(list.files(Path)))){
   if(G1==-2.08){
     g1=2.08
   } else {g1=G1}
-  png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
+  
+  png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";","id_Het_bal.png"),width=1400,height=1700, units = "px", res = 300)  
   
   par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
   
-  # plot for the bias
+  # plot for the relative bias
   
-  if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
+  if (j==1){ylabelbias=expression(paste("[E(" , hat(delta) , ")-",delta,"]/",delta))
   } else {ylabelbias=""}
   
-  if (j==4){ylim=c(0,1.4)
+  if (j==4){ylim=c(0,1.6)
   } else {ylim=c(0,.12)}
   
   barplot(res.relbias, 
@@ -748,15 +753,19 @@ for (j in seq_len(length(list.files(Path)))){
           ylab=ylabelbias
   )
   
-  # plot for the variance
+  # plot for the relative variance
   
-  if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+  if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
   } else {ylabeleff=""}
+
+  if (j==4){ylim=c(0,4)
+  } else {ylim=c(0,.6)}
   
   barplot(res.releff, 
           col = c("black","grey40","grey60","grey80","white"),
           beside = TRUE,
           ylab = ylabeleff,
+          ylim=ylim,
           cex.lab=1.5,
           args.legend = list(
             x = length(res.releff)*1.2,
@@ -877,12 +886,12 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     
     par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
-    # plot for the bias
+    # plot for the relative bias
     
-    if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
+    if (j==1){ylabelbias=expression(paste("[E(" , hat(delta) , ")-",delta,"]/",delta))
     } else {ylabelbias=""}
 
-    if (j==4){ylim=c(0,1.4)
+    if (j==4){ylim=c(0,1.6)
     } else {ylim=c(0,.12)}
     
     barplot(res.relbias, 
@@ -898,8 +907,11 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     
     # plot for the variance
     
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
     } else {ylabeleff=""}
+
+    if (j==4){ylim=c(0,11)
+    } else {ylim=c(0,2)}
     
     barplot(res.releff, 
             col = c("black","grey40","grey60","grey80","white"),
@@ -907,6 +919,7 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
             ylab = ylabeleff,
             cex.lab=1.5,
             cex.names=.8,
+            ylim=ylim,
             args.legend = list(
               x = length(res.releff)*1.2,
               y = max(res.releff)+.5,
