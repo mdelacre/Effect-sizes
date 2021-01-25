@@ -1,6 +1,6 @@
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal/bias_eff,G1=0 & G2=0;id_Hom_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal/bias_eff,G1=0 & G2=95.75;id_Hom_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal/bias_eff,G1=2.08 & G2=95.75;id_Hom_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal/bias_eff,G1=6.32 & G2=95.75;id_Hom_bal}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal}
 
 }
 
@@ -10,7 +10,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal/bias_eff,G1=0 & G2=0;id_Hom_unbal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal/bias_eff,G1=0 & G2=95.75;id_Hom_unbal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal/bias_eff,G1=2.08 & G2=95.75;id_Hom_unbal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal/bias_eff,G1=6.32 & G2=95.75;id_Hom_unbal}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal}
 
 }
 
@@ -20,7 +20,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/bias_eff,G1=0 & G2=0;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/bias_eff,G1=0 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/bias_eff,G1=2.08 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/bias_eff,G1=6.32 & G2=95.75;id_Het_bal}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N}
 
 }
 
@@ -30,17 +30,17 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio/bias_eff,G1=0 & G2=0;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio/bias_eff,G1=0 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio/bias_eff,G1=2.08 & G2=95.75;id_Het_bal} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio/bias_eff,G1=6.32 & G2=95.75;id_Het_bal}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd}
 
 }
 
-\caption{Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio (when $n_1=n_2=20$)}\label{fig:idHetbal2}
+\caption{Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio (when $n_1=n_2=100$)}\label{fig:idHetbal2}
 \end{sidewaysfigure}
 \efloatseparator
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=150/G1=0 & G2=0;id_Het_firstlarger; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=150/G1=0 & G2=95.75;id_Het_firstlarger; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=150/G1=2.08 & G2=95.75;id_Het_firstlarger; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=150/G1=6.32 & G2=95.75;id_Het_firstlarger; N=150}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_N150}
 
 }
 
@@ -50,7 +50,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=150/G1=0 & G2=0;id_Het_firstsmaller; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=150/G1=0 & G2=95.75;id_Het_firstsmaller; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=150/G1=2.08 & G2=95.75;id_Het_firstsmaller; N=150} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=150/G1=6.32 & G2=95.75;id_Het_firstsmaller; N=150}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_N150}
 
 }
 
@@ -60,7 +60,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=120/G1=0 & G2=0;id_Het_firstlarger; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=120/G1=0 & G2=95.75;id_Het_firstlarger; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=120/G1=2.08 & G2=95.75;id_Het_firstlarger; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/N=120/G1=6.32 & G2=95.75;id_Het_firstlarger; N=120}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_N120}
 
 }
 
@@ -70,7 +70,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=120/G1=0 & G2=0;id_Het_firstsmaller; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=120/G1=0 & G2=95.75;id_Het_firstsmaller; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=120/G1=2.08 & G2=95.75;id_Het_firstsmaller; N=120} \includegraphics[width=0.2\linewidth]{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/N=120/G1=6.32 & G2=95.75;id_Het_firstsmaller; N=120}
+{\centering \includegraphics{C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_N120}
 
 }
 
