@@ -187,7 +187,7 @@ for (j in seq_len(length(list.files(Path)))){
     res <- matrix(0,9,7)  
     names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("n1","n2",paste0(names[,1],names[,2]))
-    res[,1:2] <- cbind(combi[,1],combi[,2])
+    res[,1:2] <- cbind(combi[,2],combi[,1])
     res[,3] <- tapply(Sel$bias_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,4] <- tapply(Sel$bias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res[,5] <- tapply(Sel$bias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -209,7 +209,7 @@ for (j in seq_len(length(list.files(Path)))){
     res3 <- matrix(0,9,7)  
     names<-expand.grid("var_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2",paste0(names[,1],names[,2]))
-    res3[,1:2] <- cbind(combi[,1],combi[,2]) 
+    res3[,1:2] <- cbind(combi[,2],combi[,1]) 
     res3[,3] <- tapply(Sel$eff_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,4] <- tapply(Sel$eff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res3[,5] <- tapply(Sel$eff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -569,7 +569,7 @@ for (j in seq_len(length(list.files(Path)))){
     res2 <- matrix(0,9,7)  
     names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res2) <- c("n1","n2",paste0(names[,1],names[,2]))
-    res2[,1:2] <- cbind(combi[,1],combi[,2])
+    res2[,1:2] <- cbind(combi[,2],combi[,1])
     res2[,3] <- tapply(Sel$relbias_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,4] <- tapply(Sel$relbias_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res2[,5] <- tapply(Sel$relbias_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
@@ -591,7 +591,7 @@ for (j in seq_len(length(list.files(Path)))){
     res4 <- matrix(0,9,7)  
     names<-expand.grid("var_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res4) <- c("n1","n2",paste0(names[,1],names[,2]))
-    res4[,1:2] <- cbind(combi[,1],combi[,2]) 
+    res4[,1:2] <- cbind(combi[,2],combi[,1]) 
     res4[,3] <- tapply(Sel$releff_Hedges,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,4] <- tapply(Sel$releff_Glass1,list(Sel$n1,Sel$n2),mean)[1:9]
     res4[,5] <- tapply(Sel$releff_Glass2,list(Sel$n1,Sel$n2),mean)[1:9]
