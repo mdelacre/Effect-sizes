@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Mathematical-study-of-Glass-s-d_files/figure-latex/glass1-1.pdf}
+\caption{\label{fig:glass1}Comparison of Glass's ds when choosing either sd1 (blue line) or sd2 (red dotted line) as standardizer when G1 =0, G2=95.75,n1=n2=20 and sigma1=sigma2=1}
+\end{figure*}
