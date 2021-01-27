@@ -106,7 +106,7 @@
 \hypertarget{the-bias}{%
 \section{The bias}\label{the-bias}}
 
-For all estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:\\
+For all \enquote{biased} estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:\\
 - when variances are equal across groups;\\
 - when variances are unequal across groups, with equal sample sizes;\\
 - when variances are unequal across groups, with unequal sample sizes.
@@ -121,7 +121,10 @@ For all previously mentioned estimators (Cohen's \(d_s\), Glass's \(d_s\), Cohen
 \label{eq:mc}
 \end{equation}
 
-Where \(df\) are the degrees of freedom. \(\gamma\) is \emph{always} positive, meaning that when the population effect size is not zero, all estimators will overstimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.
+Where \(df\) are the degrees of freedom. \(\gamma\) is \emph{always} positive, meaning that when the population effect size is not zero, all estimators will overstimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.\\
+While we focus on the theoretical bias of biased estimators (Cohen's \(d_s\), Glass's \(d_s\), Shieh's \(d_s\) and Cohen's \(d'_s\)) when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to :\\
+- biased estimators when samples are extracted from symmetric distributions;\\
+- unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.
 
 \hypertarget{cohens-d_s-see-table-1}{%
 \subsection{\texorpdfstring{Cohen's \(d_s\) (see Table 1)}{Cohen's d\_s (see Table 1)}}\label{cohens-d_s-see-table-1}}
@@ -298,7 +301,7 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \caption{\label{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}Numerator and denominator of the degrees of freedom (\(DF\)) computation, when computing the bias of Cohen's \(d'_s\) when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
 \end{figure}
 
-As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any \(SD\)-ratio, th enumerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the \(SD\)-ratio). On the other side, the denominator will be minimized when there is a positive pairing between varianes and sample sizes. For example, when \(\sigma_1 > \sigma_2\), the smallest denominator occurs when \(\frac{n_1}{n_2}=max\left(\frac{n_1}{n_2}\right)\) and the larger the \(SD\)-ratio, the larger the impact of the sample sizes ratio on the denominator.
+As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any \(SD\)-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the \(SD\)-ratio). On the other side, the denominator will be minimized when there is a positive pairing between varianes and sample sizes. For example, when \(\sigma_1 > \sigma_2\), the smallest denominator occurs when \(\frac{n_1}{n_2}=max\left(\frac{n_1}{n_2}\right)\) and the larger the \(SD\)-ratio, the larger the impact of the sample sizes ratio on the denominator.
 
 \begin{figure}
 \centering

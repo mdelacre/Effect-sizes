@@ -31,7 +31,7 @@ output            : papaja::apa6_pdf
 
 # The bias 
 
-For all estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's $d_s$ (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's $d_s$, Cohen's $d'_s$ and Shieh's $d_s$ are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:  
+For all "biased" estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's $d_s$ (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's $d_s$, Cohen's $d'_s$ and Shieh's $d_s$ are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:  
 - when variances are equal across groups;     
 - when variances are unequal across groups, with equal sample sizes;  
 - when variances are unequal across groups, with unequal sample sizes.  
@@ -45,7 +45,10 @@ For all previously mentioned estimators (Cohen's $d_s$, Glass's $d_s$, Cohen's $
 (\#eq:mc)
 \end{equation} 
 
-Where $df$ are the degrees of freedom. $\gamma$ is *always* positive, meaning that when the population effect size is not zero, all estimators will overstimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom ($df$) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias. 
+Where $df$ are the degrees of freedom. $\gamma$ is *always* positive, meaning that when the population effect size is not zero, all estimators will overstimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom ($df$) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.   
+While we focus on the theoretical bias of biased estimators (Cohen's $d_s$, Glass's $d_s$, Shieh's $d_s$ and Cohen's $d'_s$) when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to :  
+- biased estimators when samples are extracted from symmetric distributions;     
+- unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.  
 
 ## Cohen's $d_s$ (see Table 1)
 

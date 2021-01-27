@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  12 JAN 2021 18:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  27 JAN 2021 15:38
 entering extended mode
 **./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters.t
 ex
@@ -1008,12 +1008,9 @@ fg"
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{C:/Users/Marie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-]
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
-[2]
+] [2]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-34.
+37.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1022,10 +1019,13 @@ ameters.fff'.
 
 
 (Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters.fff)
-[3] [4] [5] [6] [7] AED endfloat: Processing end Figures and Tables [8] (Theore
-tical-Bias-of-all-estimators-as-a-function-of-population-parameters.fff
+
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+[3] [4] [5] [6] [7] [8] AED endfloat: Processing end Figures and Tables [9] (Th
+eoretical-Bias-of-all-estimators-as-a-function-of-population-parameters.fff
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendNsize2-1".pdf, id=125, 469.755pt x 325.215pt>
+es/figure-latex/""biascohendNsize2-1".pdf, id=129, 469.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters
@@ -1035,7 +1035,7 @@ opulation-parameters_files/figure-latex/""biascohendNsize2-1".pdf  used on inpu
 t line 5.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasGlassctrlsize2-1".pdf, id=126, 469.755pt x 325.215pt>
+es/figure-latex/""biasGlassctrlsize2-1".pdf, id=130, 469.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasGlassctrlsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters
@@ -1045,7 +1045,7 @@ opulation-parameters_files/figure-latex/""biasGlassctrlsize2-1".pdf  used on in
 put line 12.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehomNratio2-1".pdf, id=127, 469.755pt x 325.215
+es/figure-latex/""biascohendprimehomNratio2-1".pdf, id=131, 469.755pt x 325.215
 pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehomNratio2-1".pdf Graphic file (type pdf)
@@ -1057,7 +1057,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehomNratio2-1".pdf  use
 d on input line 19.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehomNsize2-1".pdf, id=128, 469.755pt x 325.215p
+es/figure-latex/""biascohendprimehomNsize2-1".pdf, id=132, 469.755pt x 325.215p
 t>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehomNsize2-1".pdf Graphic file (type pdf)
@@ -1068,7 +1068,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehomNsize2-1".pdf  used
  on input line 26.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetbalSDratio2-1".pdf, id=129, 469.755pt x 325
+es/figure-latex/""biascohendprimehetbalSDratio2-1".pdf, id=133, 469.755pt x 325
 .215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetbalSDratio2-1".pdf Graphic file (type 
@@ -1080,7 +1080,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetbalSDratio2-1".pdf
  used on input line 33.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetbalNsize2-1".pdf, id=130, 469.755pt x 325.2
+es/figure-latex/""biascohendprimehetbalNsize2-1".pdf, id=134, 469.755pt x 325.2
 15pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetbalNsize2-1".pdf Graphic file (type pd
@@ -1092,7 +1092,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetbalNsize2-1".pdf  u
 sed on input line 40.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetbalvariance2-1".pdf, id=131, 469.755pt x 32
+es/figure-latex/""biascohendprimehetbalvariance2-1".pdf, id=135, 469.755pt x 32
 5.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetbalvariance2-1".pdf Graphic file (type
@@ -1104,7 +1104,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetbalvariance2-1".pdf
   used on input line 47.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetunbalNsize2-1".pdf, id=132, 469.755pt x 325
+es/figure-latex/""biascohendprimehetunbalNsize2-1".pdf, id=136, 469.755pt x 325
 .215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetunbalNsize2-1".pdf Graphic file (type 
@@ -1116,7 +1116,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetunbalNsize2-1".pdf
  used on input line 54.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetunbalnratiosdratio2-1".pdf, id=133, 469.755
+es/figure-latex/""biascohendprimehetunbalnratiosdratio2-1".pdf, id=137, 469.755
 pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetunbalnratiosdratio2-1".pdf Graphic fil
@@ -1128,7 +1128,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetunbalnratiosdratio2
 -1".pdf  used on input line 61.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""dfnumdenomcohendprimehetunbalnratiosdratio2-1".pdf, id=134, 4
+es/figure-latex/""dfnumdenomcohendprimehetunbalnratiosdratio2-1".pdf, id=138, 4
 69.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""dfnumdenomcohendprimehetunbalnratiosdratio2-1".pdf Graph
@@ -1140,7 +1140,7 @@ opulation-parameters_files/figure-latex/""dfnumdenomcohendprimehetunbalnratiosd
 ratio2-1".pdf  used on input line 68.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biascohendprimehetunbalvariance2-1".pdf, id=135, 469.755pt x 
+es/figure-latex/""biascohendprimehetunbalvariance2-1".pdf, id=139, 469.755pt x 
 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biascohendprimehetunbalvariance2-1".pdf Graphic file (ty
@@ -1152,7 +1152,7 @@ opulation-parameters_files/figure-latex/""biascohendprimehetunbalvariance2-1".p
 df  used on input line 75.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhomNratio2-1".pdf, id=136, 469.755pt x 325.215pt>
+es/figure-latex/""biasshiehhomNratio2-1".pdf, id=140, 469.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhomNratio2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters
@@ -1162,7 +1162,7 @@ opulation-parameters_files/figure-latex/""biasshiehhomNratio2-1".pdf  used on i
 nput line 82.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhomNsize2-1".pdf, id=137, 469.755pt x 325.215pt>
+es/figure-latex/""biasshiehhomNsize2-1".pdf, id=141, 469.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhomNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters
@@ -1172,7 +1172,7 @@ opulation-parameters_files/figure-latex/""biasshiehhomNsize2-1".pdf  used on in
 put line 89.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhomuneqNsize2-1".pdf, id=138, 469.755pt x 325.215pt>
+es/figure-latex/""biasshiehhomuneqNsize2-1".pdf, id=142, 469.755pt x 325.215pt>
 
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhomuneqNsize2-1".pdf Graphic file (type pdf)
@@ -1183,7 +1183,7 @@ opulation-parameters_files/figure-latex/""biasshiehhomuneqNsize2-1".pdf  used o
 n input line 96.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetbalSDratio2-1".pdf, id=139, 469.755pt x 325.215pt
+es/figure-latex/""biasshiehhetbalSDratio2-1".pdf, id=143, 469.755pt x 325.215pt
 >
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetbalSDratio2-1".pdf Graphic file (type pdf)
@@ -1194,7 +1194,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetbalSDratio2-1".pdf  used
 on input line 103.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetbalNsize2-1".pdf, id=140, 469.755pt x 325.215pt>
+es/figure-latex/""biasshiehhetbalNsize2-1".pdf, id=144, 469.755pt x 325.215pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetbalNsize2-1".pdf Graphic file (type pdf)
 <use "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters
@@ -1204,7 +1204,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetbalNsize2-1".pdf  used on
  input line 110.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetbalvariance2-1".pdf, id=141, 469.755pt x 325.215p
+es/figure-latex/""biasshiehhetbalvariance2-1".pdf, id=145, 469.755pt x 325.215p
 t>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetbalvariance2-1".pdf Graphic file (type pdf)
@@ -1215,7 +1215,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetbalvariance2-1".pdf  used
  on input line 117.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetunbalNsize2-1".pdf, id=142, 469.755pt x 325.215pt
+es/figure-latex/""biasshiehhetunbalNsize2-1".pdf, id=146, 469.755pt x 325.215pt
 >
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetunbalNsize2-1".pdf Graphic file (type pdf)
@@ -1226,7 +1226,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetunbalNsize2-1".pdf  used
 on input line 124.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetuneqNsize2-1".pdf, id=143, 469.755pt x 325.215pt>
+es/figure-latex/""biasshiehhetuneqNsize2-1".pdf, id=147, 469.755pt x 325.215pt>
 
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetuneqNsize2-1".pdf Graphic file (type pdf)
@@ -1237,7 +1237,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetuneqNsize2-1".pdf  used o
 n input line 131.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetunbaldfandvar-1".pdf, id=144, 469.755pt x 325.215
+es/figure-latex/""biasshiehhetunbaldfandvar-1".pdf, id=148, 469.755pt x 325.215
 pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetunbaldfandvar-1".pdf Graphic file (type pdf)
@@ -1249,7 +1249,7 @@ opulation-parameters_files/figure-latex/""biasshiehhetunbaldfandvar-1".pdf  use
 d on input line 138.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <"Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fil
-es/figure-latex/""biasshiehhetunbalvariance2-1".pdf, id=145, 469.755pt x 325.21
+es/figure-latex/""biasshiehhetunbalvariance2-1".pdf, id=149, 469.755pt x 325.21
 5pt>
 File: "Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
 s_files/figure-latex/""biasshiehhetunbalvariance2-1".pdf Graphic file (type pdf
@@ -1261,59 +1261,59 @@ opulation-parameters_files/figure-latex/""biasshiehhetunbalvariance2-1".pdf  us
 ed on input line 145.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 510.
-[9
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 513.
+[10
 
 
  <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_f
-iles/figure-latex/biascohendNsize2-1.pdf>] [10 <./Theoretical-Bias-of-all-estim
+iles/figure-latex/biascohendNsize2-1.pdf>] [11 <./Theoretical-Bias-of-all-estim
 ators-as-a-function-of-population-parameters_files/figure-latex/biasGlassctrlsi
-ze2-1.pdf>] [11 <./Theoretical-Bias-of-all-estimators-as-a-function-of-populati
-on-parameters_files/figure-latex/biascohendprimehomNratio2-1.pdf>] [12 <./Theor
+ze2-1.pdf>] [12 <./Theoretical-Bias-of-all-estimators-as-a-function-of-populati
+on-parameters_files/figure-latex/biascohendprimehomNratio2-1.pdf>] [13 <./Theor
 etical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figu
-re-latex/biascohendprimehomNsize2-1.pdf>] [13 <./Theoretical-Bias-of-all-estima
+re-latex/biascohendprimehomNsize2-1.pdf>] [14 <./Theoretical-Bias-of-all-estima
 tors-as-a-function-of-population-parameters_files/figure-latex/biascohendprimeh
-etbalSDratio2-1.pdf>] [14 <./Theoretical-Bias-of-all-estimators-as-a-function-o
+etbalSDratio2-1.pdf>] [15 <./Theoretical-Bias-of-all-estimators-as-a-function-o
 f-population-parameters_files/figure-latex/biascohendprimehetbalNsize2-1.pdf>] 
-[15 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
-s_files/figure-latex/biascohendprimehetbalvariance2-1.pdf>] [16 <./Theoretical-
+[16 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameter
+s_files/figure-latex/biascohendprimehetbalvariance2-1.pdf>] [17 <./Theoretical-
 Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-late
-x/biascohendprimehetunbalNsize2-1.pdf>] [17 <./Theoretical-Bias-of-all-estimato
+x/biascohendprimehetunbalNsize2-1.pdf>] [18 <./Theoretical-Bias-of-all-estimato
 rs-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehet
-unbalnratiosdratio2-1.pdf>] [18 <./Theoretical-Bias-of-all-estimators-as-a-func
+unbalnratiosdratio2-1.pdf>] [19 <./Theoretical-Bias-of-all-estimators-as-a-func
 tion-of-population-parameters_files/figure-latex/dfnumdenomcohendprimehetunbaln
-ratiosdratio2-1.pdf>] [19 <./Theoretical-Bias-of-all-estimators-as-a-function-o
+ratiosdratio2-1.pdf>] [20 <./Theoretical-Bias-of-all-estimators-as-a-function-o
 f-population-parameters_files/figure-latex/biascohendprimehetunbalvariance2-1.p
-df>] [20 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-para
-meters_files/figure-latex/biasshiehhomNratio2-1.pdf>] [21 <./Theoretical-Bias-o
+df>] [21 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-para
+meters_files/figure-latex/biasshiehhomNratio2-1.pdf>] [22 <./Theoretical-Bias-o
 f-all-estimators-as-a-function-of-population-parameters_files/figure-latex/bias
-shiehhomNsize2-1.pdf>] [22 <./Theoretical-Bias-of-all-estimators-as-a-function-
-of-population-parameters_files/figure-latex/biasshiehhomuneqNsize2-1.pdf>] [23 
+shiehhomNsize2-1.pdf>] [23 <./Theoretical-Bias-of-all-estimators-as-a-function-
+of-population-parameters_files/figure-latex/biasshiehhomuneqNsize2-1.pdf>] [24 
 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fi
-les/figure-latex/biasshiehhetbalSDratio2-1.pdf>] [24 <./Theoretical-Bias-of-all
+les/figure-latex/biasshiehhetbalSDratio2-1.pdf>] [25 <./Theoretical-Bias-of-all
 -estimators-as-a-function-of-population-parameters_files/figure-latex/biasshieh
-hetbalNsize2-1.pdf>] [25 <./Theoretical-Bias-of-all-estimators-as-a-function-of
--population-parameters_files/figure-latex/biasshiehhetbalvariance2-1.pdf>] [26 
+hetbalNsize2-1.pdf>] [26 <./Theoretical-Bias-of-all-estimators-as-a-function-of
+-population-parameters_files/figure-latex/biasshiehhetbalvariance2-1.pdf>] [27 
 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_fi
-les/figure-latex/biasshiehhetunbalNsize2-1.pdf>] [27 <./Theoretical-Bias-of-all
+les/figure-latex/biasshiehhetunbalNsize2-1.pdf>] [28 <./Theoretical-Bias-of-all
 -estimators-as-a-function-of-population-parameters_files/figure-latex/biasshieh
-hetuneqNsize2-1.pdf>] [28 <./Theoretical-Bias-of-all-estimators-as-a-function-o
-f-population-parameters_files/figure-latex/biasshiehhetunbaldfandvar-1.pdf>] [2
-9 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_
+hetuneqNsize2-1.pdf>] [29 <./Theoretical-Bias-of-all-estimators-as-a-function-o
+f-population-parameters_files/figure-latex/biasshiehhetunbaldfandvar-1.pdf>] [3
+0 <./Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_
 files/figure-latex/biasshiehhetunbalvariance2-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 510.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 513.
 (Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 510.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 510.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 513.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 513.
  ) 
 Here is how much of TeX's memory you used:
- 16726 strings out of 492452
- 264507 string characters out of 3128447
- 384672 words of memory out of 3000000
+ 16727 strings out of 492452
+ 264579 string characters out of 3128447
+ 384676 words of memory out of 3000000
  20663 multiletter control sequences out of 15000+200000
  51126 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,51p,968b,461s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,968b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
 t.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1335,9 +1335,9 @@ ograms/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Marie/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
 Output written on Theoretical-Bias-of-all-estimators-as-a-function-of-populatio
-n-parameters.pdf (29 pages, 895720 bytes).
+n-parameters.pdf (30 pages, 897358 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
+ 473 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
  6362 words of extra memory for PDF output out of 10000 (max. 10000000)
 
