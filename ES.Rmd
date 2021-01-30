@@ -323,7 +323,7 @@ ncp_{Welch} = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2
 (\#eq:welchncp)
 \end{equation} 
 
-The relationship described in equation \ref{eq:shiehvswelch} and the theoretical distribution of Welch's *t*-statistic allow us to theoretically approximate the sampling distribution of Shieh's $d_s$. Based on the sampling distribution of Shieh's $d_s$, we can estimate its theoretical expectancy and variance under the assumption of normality (see Table 2), and therefore and therefore determine which factors influence bias and variance, and how they do so (see Supplemental Material 1).
+The relationship described in equation \ref{eq:shiehvswelch} and the theoretical distribution of Welch's *t*-statistic allow us to theoretically approximate the sampling distribution of Shieh's $d_s$. Based on the sampling distribution of Shieh's $d_s$, we can estimate its theoretical expectancy and variance under the assumption of normality (see Table 2), and therefore determine which factors influence bias and variance, and how they do so (see Supplemental Material 1).
 
 It can be demonstrated that when variances and sample sizes are equal across groups, the biases and variances of Shieh's $d_s$ and Cohen's $d_s$ are identical except for a constant, as shown in equations \ref{eq:biascohenshieh} and \ref{eq:varcohenshieh}:
 
