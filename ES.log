@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  27 JAN 2021 15:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  16 FEB 2021 14:14
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -1054,7 +1054,10 @@ File: "ES_files/figure-latex/""BIAS-1".pdf Graphic file (type pdf)
 Package pdftex.def Info: "ES_files/figure-latex/""BIAS-1".pdf  used on input li
 ne 178.
 (pdftex.def)             Requested size: 401.50575pt x 214.1364pt.
-[8 <./ES_files/figure-latex/BIAS-1.pdf>] [9] [10] [11] [12] [13] [14] [15
+[8] [9 <./ES_files/figure-latex/BIAS-1.pdf>] [10]
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+[11] [12] [13] [14] [15
 
 ] [16
 
@@ -1075,26 +1078,32 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \openout4 = `ES.fff'.
 
 (ES.fff) [29]
-Underfull \vbox (badness 2846) has occurred while \output is active []
+Underfull \vbox (badness 1320) has occurred while \output is active []
 
-[30] [31] [32] [33]
-Underfull \vbox (badness 4752) has occurred while \output is active []
+[30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[34] [35] [36] [37] [38] [39]pdfTeX warning (ext4): destination with the same i
-dentifier (name{ref-Algina_et_al_2006}) has been already used, duplicate ignore
-d
+[31]
+Underfull \vbox (badness 7907) has occurred while \output is active []
+
+[32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[33] [34] [35] [36] [37] [38] [39]pdfTeX warning (ext4): destination with the s
+ame identifier (name{ref-Algina_et_al_2006}) has been already used, duplicate i
+gnored
 <to be read again> 
                    \relax 
 l.1087 ...ode\hypertarget{ref-Algina_et_al_2006}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Altman_2005}) has been already used, 
-duplicate ignored
+                                                  % [40]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Altman_2005}) has been already u
+sed, duplicate ignored
 <to be read again> 
                    \relax 
 l.1090 \leavevmode\hypertarget{ref-Altman_2005}{}
-                                                 % [40]pdfTeX warning (ext4): d
-estination with the same identifier (name{ref-AERA_2006}) has been already used
-, duplicate ignored
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-AERA_2006}) has been already used, dup
+licate ignored
 <to be read again> 
                    \relax 
 l.1093 \leavevmode\hypertarget{ref-AERA_2006}{}
@@ -1140,15 +1149,15 @@ uplicate ignored
 <to be read again> 
                    \relax 
 l.1114 \leavevmode\hypertarget{ref-Cumming_2013}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Delacre_et_al_2017}) has been already
- used, duplicate ignored
+                                                  % [41]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Delacre_et_al_2017}) has been al
+ready used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1117 ...de\hypertarget{ref-Delacre_et_al_2017}{}
-                                                  % [41]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Delacre_et_al_2019}) has been al
-ready used, duplicate ignored
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Delacre_et_al_2019}) has been already
+ used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1120 ...de\hypertarget{ref-Delacre_et_al_2019}{}
@@ -1188,15 +1197,15 @@ nation with the same identifier (name{ref-Grissom_2000}) has been already used,
 <to be read again> 
                    \relax 
 l.1138 \leavevmode\hypertarget{ref-Grissom_2000}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Grissom_Kim_2001}) has been already u
-sed, duplicate ignored
+                                                  % [42]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Grissom_Kim_2001}) has been alre
+ady used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1141 ...mode\hypertarget{ref-Grissom_Kim_2001}{}
-                                                  % [42]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Grissom_and_Kim_2012}) has been 
-already used, duplicate ignored
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Grissom_and_Kim_2012}) has been alrea
+dy used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1144 ...\hypertarget{ref-Grissom_and_Kim_2012}{}
@@ -1242,15 +1251,15 @@ ation with the same identifier (name{ref-Keselman_et_al_2008}) has been already
 <to be read again> 
                    \relax 
 l.1165 ...e\hypertarget{ref-Keselman_et_al_2008}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Kirk_2009}) has been already used, du
-plicate ignored
+                                                  % [43]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Kirk_2009}) has been already use
+d, duplicate ignored
 <to be read again> 
                    \relax 
 l.1168 \leavevmode\hypertarget{ref-Kirk_2009}{}
-                                               % [43]pdfTeX warning (ext4): des
-tination with the same identifier (name{ref-Kulinskaya_Staudte_2007}) has been 
-already used, duplicate ignored
+                                               %pdfTeX warning (ext4): destinat
+ion with the same identifier (name{ref-Kulinskaya_Staudte_2007}) has been alrea
+dy used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1171 ...pertarget{ref-Kulinskaya_Staudte_2007}{}
@@ -1296,15 +1305,15 @@ y used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1192 ...e\hypertarget{ref-Olejnik_Algina_2000}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Peng_and_Chen_2014}) has been already
- used, duplicate ignored
+                                                  % [44]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Peng_and_Chen_2014}) has been al
+ready used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1195 ...de\hypertarget{ref-Peng_and_Chen_2014}{}
-                                                  % [44]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Peng_et_al_2013}) has been alrea
-dy used, duplicate ignored
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Peng_et_al_2013}) has been already us
+ed, duplicate ignored
 <to be read again> 
                    \relax 
 l.1198 ...vmode\hypertarget{ref-Peng_et_al_2013}{}
@@ -1388,136 +1397,136 @@ ed, duplicate ignored
 l.1237 ...vmode\hypertarget{ref-Yuan_et_al_2004}{}
                                                   % AED endfloat: Processing en
 d Figures and Tables [46] (ES.fff
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Hom_bal".png, id=495, 947.03813pt x 375.4025pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Hom_bal".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Hom_bal".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Hom_bal".png  used on input line 3.
-(pdftex.def)             Requested size: 650.45128pt x 257.83653pt.
-[47 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Hom_bal.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Hom_unbal".png, id=502, 948.04187pt x 437.635pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Hom_unbal".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Hom_unbal".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Hom_unbal".png  used on input line 13.
-(pdftex.def)             Requested size: 650.44632pt x 300.25896pt.
-[48 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Hom_unbal.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_bal_N".png, id=508, 949.5475pt x 376.40625pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_bal_N".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_bal_N".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_bal_N".png  used on input line 23.
-(pdftex.def)             Requested size: 650.4506pt x 257.84245pt.
-[49 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_bal_N.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_bal_sd".png, id=515, 931.98187pt x 414.04688pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_bal_sd".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_bal_sd".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_bal_sd".png  used on input line 33.
-(pdftex.def)             Requested size: 650.44882pt x 288.9716pt.
-[50 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_bal_sd.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_firstlarger_SDR10".png, id=521, 927.96687pt x 408.52625pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_firstlarger_SDR10".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_firstlarger_SDR10".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_firstlarger_SDR10".png  used on input line 43.
-(pdftex.def)             Requested size: 650.43613pt x 286.34668pt.
-[51 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_firstlarger_SDR10.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_firstsmaller_SDR10".png, id=527, 924.45375pt x 409.53pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_firstsmaller_SDR10".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_firstsmaller_SDR10".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_firstsmaller_SDR10".png  used on input line 53.
-(pdftex.def)             Requested size: 650.42813pt x 288.13753pt.
-[52 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_firstsmaller_SDR10.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_firstlarger_SDR2".png, id=533, 929.97438pt x 412.03937pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_firstlarger_SDR2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_firstlarger_SDR2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_firstlarger_SDR2".png  used on input line 63.
-(pdftex.def)             Requested size: 650.4526pt x 288.19296pt.
-[53 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_firstlarger_SDR2.png>]
-<"C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality
- of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""
-Het_firstsmaller_SDR2".png, id=539, 945.5325pt x 423.5825pt>
-File: "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qu
-ality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quali
-ty/""Het_firstsmaller_SDR2".png Graphic file (type png)
-<use "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qua
-lity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative qualit
-y/""Het_firstsmaller_SDR2".png>
-Package pdftex.def Info: "C:/Users/Marie/Documents/Github_projects/Effect-sizes
-/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Fig
-ures_relative quality/""Het_firstsmaller_SDR2".png  used on input line 73.
-(pdftex.def)             Requested size: 650.44154pt x 291.38676pt.
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal".png
+, id=495, 948.54375pt x 443.15562pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal
+".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal"
+.png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Hom_bal".png  used on input line 3.
+(pdftex.def)             Requested size: 650.45776pt x 303.8911pt.
+[47 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal.png
+>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unbal".p
+ng, id=502, 949.5475pt x 442.65375pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unb
+al".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unba
+l".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Hom_unbal".png  used on input line 13.
+(pdftex.def)             Requested size: 650.4506pt x 303.22273pt.
+[48 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal.p
+ng>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_N".p
+ng, id=508, 948.04187pt x 440.64626pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
+_N".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_
+N".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_bal_N".png  used on input line 23.
+(pdftex.def)             Requested size: 650.44632pt x 302.32497pt.
+[49 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N.p
+ng>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_sd".
+png, id=515, 950.04938pt x 442.65375pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
+_sd".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_
+sd".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_bal_sd".png  used on input line 33.
+(pdftex.def)             Requested size: 650.46098pt x 303.06738pt.
+[50 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd.
+png>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
+ger_SDR10".png, id=521, 947.54pt x 442.65375pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
+stlarger_SDR10".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firs
+tlarger_SDR10".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_firstlarger_SDR10".png  used on input line 43.
+(pdftex.def)             Requested size: 650.44897pt x 303.8644pt.
+[51 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
+rger_SDR10.png>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
+ller_SDR10".png, id=527, 950.04938pt x 446.16687pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
+stsmaller_SDR10".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firs
+tsmaller_SDR10".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_firstsmaller_SDR10".png  used on input line 53.
+(pdftex.def)             Requested size: 650.46098pt x 305.47269pt.
+[52 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
+aller_SDR10.png>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
+ger_SDR2".png, id=533, 949.5475pt x 442.15187pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
+stlarger_SDR2".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firs
+tlarger_SDR2".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_firstlarger_SDR2".png  used on input line 63.
+(pdftex.def)             Requested size: 650.4506pt x 302.87895pt.
+[53 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
+rger_SDR2.png>]
+<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
+res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
+ller_SDR2".png, id=539, 949.5475pt x 442.15187pt>
+File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
+stsmaller_SDR2".png Graphic file (type png)
+<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
+easures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firs
+tsmaller_SDR2".png>
+Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
+puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
+e quality/""Het_firstsmaller_SDR2".png  used on input line 73.
+(pdftex.def)             Requested size: 650.4506pt x 302.87895pt.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1240.
-[54 <C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Qual
-ity of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality
-/Het_firstsmaller_SDR2.png>]
+[54 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
+aller_SDR2.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1240.
 (ES.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1240.
@@ -1527,13 +1536,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17168 strings out of 492452
- 263120 string characters out of 3128447
+ 17170 strings out of 492452
+ 262600 string characters out of 3128447
  383129 words of memory out of 3000000
  20901 multiletter control sequences out of 15000+200000
- 87338 words of font info for 135 fonts, out of 3000000 for 9000
+ 87421 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,2373b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,2389b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.e
 nc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-math
@@ -1564,7 +1573,7 @@ ers/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:
 <C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.p
 fb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on ES.pdf (54 pages, 1123784 bytes).
+Output written on ES.pdf (54 pages, 1105318 bytes).
 PDF statistics:
  715 PDF objects out of 1000 (max. 8388607)
  206 named destinations out of 1000 (max. 500000)
