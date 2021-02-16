@@ -20,8 +20,6 @@ abstract: |
 keywords          : "keywords"
 wordcount         : "X"
 
-bibliography      : ["r-references.bib"]
-
 floatsintext      : no
 figurelist        : no
 tablelist         : no
@@ -52,16 +50,14 @@ G_{1}=\frac{\sqrt{n(n-1)}}{n-2} \frac{m_{3}}{\sqrt{(m_{2})^3}}
 (\#eq:skew)
 \end{equation} 
 
-With s = standard deviation, n = sample size,  $m_{2}$ = second centered moment and $m_{3}$ = third centered moment.
+With n = sample size,  $m_{2}$ = second centered moment and $m_{3}$ = third centered moment.
 
 \begin{equation} 
 G_{2}=\frac{n-1}{(n-2)(n-3)}\times [(n+1)(\frac{m_{4}}{(m_{2})^2}-3)+6]
 (\#eq:kurt)
 \end{equation} 
 
-With s = standard deviation, n = sample size and $m_{3}$=third centered moment.
-
-I chose to use this article in order to define which value of skewness and kurtosis I would simulate, in order to test the goodness of different measures of effect sizes under realistic population parameter values. In my simulations, I Chose the function "rPearson" from the package "PearsonDS", in which skewness and kurtosis are computed as following: 
+with n = sample size and $m_{2}$ and $m_{4}$ = the second and fourth centered moments. I chose to use this article in order to define which value of skewness and kurtosis I would simulate, in order to test the goodness of different measures of effect sizes under realistic population parameter values. In my simulations, I Chose the function "rPearson" from the package "PearsonDS", in which skewness and kurtosis are computed as following: 
 
 \begin{equation} 
 skewness=\frac{m_{3}}{\sqrt{(m_{2})^3}}
