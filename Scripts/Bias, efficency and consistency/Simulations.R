@@ -39,7 +39,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
   # set up empty container for all estimated parameters
   ES <-matrix(0,nSims,18+4*2) # Six colums to store the Cohen's d, Shieh's d and modified shieh's d measures
   # 8 columns to store de mean, sd, skewness and kurtosis of each measures
-  estimator <- c("Cohen's d","Hedge's g","Glass's sd1","Glass's sd2","Unbiased Glass1","Unbiased Glass2","Shieh's d", "Unbiased Shieh's d","cohen's d'","unbiased cohen's d'")
+  estimator <- c("Cohen's ds","Hedge's gs","Glass's sd1","Glass's sd2","Unbiased Glass1","Unbiased Glass2","Shieh's ds", "Shieh's gs","Hedges' d'","Hedges' g'")
   descr=expand.grid(paste(1:2),c("mean","sd", "skewness","kurtosis"))
   colnames(ES) <- c(paste0(descr[,2],descr[,1]),estimator)
   
