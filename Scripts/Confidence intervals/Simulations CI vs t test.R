@@ -64,16 +64,9 @@ get_simu     <- function(nSims=1000000,conf.level=.95,alternative="two.sided",n1
     sdev1 <- sd(y1)
     sdev2 <- sd(y2)
     
-    # Student's t-test
-    
-    if(alternative=="two.sided"){
-      student_p <-t.test(y1,y2,var.equal=TRUE,alternative="two.sided")$p.value       
-    } if(alternative=="less"){
-      student_p <-t.test(y1,y2,var.equal=TRUE,alternative="less")$p.value 
-    } if(alternative=="greater"){
-      student_p <-t.test(y1,y2,var.equal=TRUE,alternative="greater")$p.value 
-    }
+    # Student's t-test 
 
+    student_p <-t.test(y1,y2,var.equal=TRUE,alternative=alternative)$p.value       
         pooled_sd <-sqrt(((n1-1)*sdev1^2+(n2-1)*sdev2^2)/(n1+n2-2))
     cohen_ds <- (mean1-mean2)/pooled_sd
     hedges_gs<- cohen_ds*(1-3/(4*(n1+n2-9)))
@@ -83,14 +76,8 @@ get_simu     <- function(nSims=1000000,conf.level=.95,alternative="two.sided",n1
     CL[i,1:5] <- c(student_p,cohen_ds,hedges_gs,cohen_lim)
     
     ### Welch's t-test
-    if(alternative=="two.sided"){
-      welch_p  <-t.test(y1,y2,var.equal=FALSE,alternative="two.sided")$p.value
-    } if(alternative=="less"){
-      welch_p  <-t.test(y1,y2,var.equal=FALSE,alternative="less")$p.value
-    } if(alternative=="greater"){
-      welch_p  <-t.test(y1,y2,var.equal=FALSE,alternative="greater")$p.value
-    }
-    
+      welch_p  <-t.test(y1,y2,var.equal=FALSE,alternative=alternative)$p.value
+
       N <- n1+n2
       q1 <- n1/N
       q2 <- n2/N
@@ -113,7 +100,7 @@ get_simu     <- function(nSims=1000000,conf.level=.95,alternative="two.sided",n1
   }
 
   # Extraction of the ES matrix 
-  chem <- "C:/Users/Marie/Documents/CI MEASURES/"
+  chem <- "C:/Users/Marie/Documents/CI measures/"
   sschem<- paste0(alternative,"/") 
   sschem2<- paste0("G1=",skew,",G2=",kurt) 
   setwd(dir=paste0(chem,sschem,sschem2)) # destination file  
@@ -150,18 +137,63 @@ colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
 # performing simulations  
 
-for (i in seq_len(length(Simu[,1]))){
-  get_simu(nSims=10,conf.level=.95,alternative="two.sided",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
-}
+#for (i in seq_len(length(Simu[,1]))){
+#  get_simu(nSims=100000,conf.level=.95,alternative="two.sided",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+#}
 
 for (i in seq_len(length(Simu[,1]))){
   get_simu(nSims=100000,conf.level=.95,alternative="greater",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
 }
 
-
-
+for (i in seq_len(length(Simu[,1]))){
+  get_simu(nSims=100000,conf.level=.95,alternative="less",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+}
 
 #### Abnormal cases
+
+# Not extreme cases (ça ne marche pas, trouver des valeurs pour lesquelles ça fonctionne!)
+
+n1 <- c(20,50,100)
+n2 <- c(20,50,100)
+m1 <- seq(0,4,1)
+m2 <- 0
+Kurt <- 9.48
+Skew <- c(-2.08,0, 2.77) # skewness = 0 is the symmetric case
+sd1 <- 1
+sd2 <- c(.1,.25,.5,1,2,4,10)
+
+Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
+colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
+
+#length(Simu[,1])
+
+# create subfolders
+#fold<-expand.grid(Skew,Kurt)
+#for (j in seq_len(length(fold[,1]))){  
+#  setwd("C:/Users/Marie/Documents/ES MEASURES")
+#  dir.create(paste0("G1=",fold[j,1],",G2=",fold[j,2]))
+#}
+
+
+
+#View(Simu)
+
+# performing simulations  
+#for (i in seq_len(length(Simu[,1]))){ #
+#  get_simu(nSims=100000,conf.level=.95,alternative="two.sided",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+#}
+
+setwd("C:/Users/Marie/Documents/CI measures/greater/G1=0,G2=95.75")
+ for (i in seq_len(length(Simu[,1]))){ # seq_len(length(Simu[,1]))
+  get_simu(nSims=100000,conf.level=.95,alternative="greater",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+}
+
+for (i in seq_len(length(Simu[,1]))){ #
+  get_simu(nSims=100000,conf.level=.95,alternative="less",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+}
+
+
+# Extreme cases
 
 n1 <- c(20,50,100)
 n2 <- c(20,50,100)
@@ -175,9 +207,8 @@ sd2 <- c(.1,.25,.5,1,2,4,10)
 Simu=expand.grid(Skew,Kurt,n1,n2,sd1,sd2,m1,m2)
 colnames(Simu)<-c("skewness","kurtosis","n1","n2","sd1","sd2","m1","m2")
 
+Simu[762,]
 #length(Simu[,1])
-
-length(Simu$skewness[Simu$kurtosis==95.75])
 
 # create subfolders
 #fold<-expand.grid(Skew,Kurt)
@@ -188,20 +219,16 @@ length(Simu$skewness[Simu$kurtosis==95.75])
 
 #View(Simu)
 
-
-
-
-setwd("C:/Users/Marie/Documents/ES MEASURES/G1=0,G2=95.75")
-
 # performing simulations  
-  for (i in c(379,381)){ #il manque 382,383,384
-    get_simu(nSims=100000,conf.level=.95,n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
-  }
+#for (i in seq_len(length(Simu[,1]))){ #
+#  get_simu(nSims=100000,conf.level=.95,alternative="two.sided",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+#}
 
-
-# performing simulations  
-for (i in seq_len(length(Simu[,1]))){ #
+for (i in 763:945){ #seq_len(length(Simu[,1]))
   get_simu(nSims=100000,conf.level=.95,alternative="greater",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
 }
 
+for (i in seq_len(length(Simu[,1]))){ #
+  get_simu(nSims=100000,conf.level=.95,alternative="less",n1=Simu[i,3],n2=Simu[i,4],sd1=Simu[i,5],sd2=Simu[i,6],m1=Simu[i,7],m2=Simu[i,8],skew=Simu[i,1],kurt=Simu[i,2])  
+}
 

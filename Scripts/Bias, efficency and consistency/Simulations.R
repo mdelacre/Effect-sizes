@@ -72,28 +72,28 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     
     ### Effect sizes measures
     
-    # Cohen's d 
+    # Cohen's ds 
     pooled_sd <-sqrt(((n1-1)*sdev1^2+(n2-1)*sdev2^2)/(n1+n2-2))
     cohen_d <- (mean1-mean2)/pooled_sd
     
-    # Hedges's g
+    # Hedges's gs
     N <- n1+n2
     hedge_g <- cohen_d*gamma((N-2)/2)/(sqrt((N-2)/2)*gamma((N-3)/2)) #(1-3/(4*(n1+n2)-9))   
     
-    # Glass's delta
+    # Glass's ds
     glass_sd1 <- (mean1-mean2)/sdev1
     glass_sd2 <- (mean1-mean2)/sdev2
 
-    # Unbiased Glass's delta
+    # Glass's gs
     unbiased_glass_sd1 <- glass_sd1*gamma((n1-1)/2)/(sqrt((n1-1)/2)*gamma((n1-2)/2))
     unbiased_glass_sd2 <- glass_sd2*gamma((n2-1)/2)/(sqrt((n2-1)/2)*gamma((n2-2)/2))
     
-    # Shieh's d
+    # Shieh's ds
     q1 <- n1/N
     q2 <- n2/N
     shieh_d <- (mean1-mean2)/sqrt(sdev1^2/q1+sdev2^2/q2)       
 
-    # Unbiased Shieh's d
+    # Shieh's gs
     df <- (sdev1^2/n1+sdev2^2/n2)^2/((sdev1^2/n1)^2/(n1-1)+(sdev2^2/n2)^2/(n2-1))
     correction <- gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
     unbiased_shieh <- shieh_d*correction
@@ -101,8 +101,10 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     # Cohen's d's
 
     cohen_d_prime <- (mean1-mean2)/sqrt((sdev1^2+sdev2^2)/2)
-    df <- (sdev1^2/n1+sdev2^2/n2)^2/((sdev1^2/n1)^2/(n1-1)+(sdev2^2/n2)^2/(n2-1))
-    unbiased_cohen_d_prime <- shieh_d_corr*gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
+    
+    # Hedges' g's
+    df <- ((n1-1)*(n2-1)*(file[,3]^2+file[,4]^2)^2)/((n2-1)*file[,3]^4+(n1-1)*file[,4]^4)
+    unbiased_cohen_d_prime <- cohen_d_prime*gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
 
     ES[i,9:18] <- c(cohen_d,hedge_g,glass_sd1,glass_sd2,unbiased_glass_sd1,unbiased_glass_sd2,shieh_d,unbiased_shieh,cohen_d_prime,unbiased_cohen_d_prime)
     
