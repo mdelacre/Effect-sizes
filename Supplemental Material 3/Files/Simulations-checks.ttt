@@ -1,0 +1,46 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+\caption{\label{tab:condA}|E[$\hat{\delta}$] - $\mu_\delta$|}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r}
+\hline
+  & \$\textbackslash{}delta\_\{Cohen\}\$ & \$\textbackslash{}delta\_\{Glass\_1\}\$ & \$\textbackslash{}delta\_\{Glass\_2\}\$ & \$\textbackslash{}delta'\_\{Cohen\}\$ & \$\textbackslash{}delta\_\{Shieh\}\$\\
+\hline
+max & 0.012 & 0.022 & 0.023 & 0.012 & 0.006\\
+\hline
+min & 0.000 & 0.000 & 0.000 & 0.000 & 0.000\\
+\hline
+mean & 0.002 & 0.004 & 0.005 & 0.002 & 0.001\\
+\hline
+sd & 0.003 & 0.006 & 0.007 & 0.003 & 0.002\\
+\hline
+\end{tabular}
+\end{table*}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}lccccc@{}}
+\toprule
+\(|E(\hat{\delta})-\mu_\delta|\) & Cohen & \(Glass_1\) & \(Glass_2\) & Cohen' & Shieh\tabularnewline
+\midrule
+\endhead
+Max & tableA{[}1,1{]} & & & &\tabularnewline
+Min & tableA{[}2,1{]} & & & &\tabularnewline
+Mean & tableA{[}3,1{]} & & & &\tabularnewline
+Standard deviation & tableA{[}4,1{]} & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+\efloatseparator
+ 
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+& \(\frac{S^2_{\hat{\delta}}}{\sigma_\delta}\)\tabularnewline
+\midrule
+\endhead
+& Cohen\tabularnewline
+:-----: & :-----:\tabularnewline
+Cohen & Glass1\tabularnewline
+Cohen & Glass1\tabularnewline
+\bottomrule
+\end{longtable}
