@@ -183,7 +183,7 @@ Hedges' \; g_s = Cohen's \; d_s \times \frac{\Gamma(\frac{df_{Student}}{2})}{\sq
 (\#eq:Hedgesgs)
 \end{equation} 
 
-Where $df_{Student}$ has been defined in equation \ref{eq:studentdf},and $\Gamma()$ is the gamma function. This equation can be approximated as follows: 
+Where $df_{Student}$ has been defined in equation \ref{eq:studentdf},and $\Gamma()$ is the gamma function [For integers, $\Gamma(x)$ is the factorial of x minus 1: $\Gamma(x)$=(x-1)!; @Pelletier_Cousineau_2018] This equation can be approximated as follows: 
 
 \begin{equation} 
 Hedges' \; g_s = Cohen's \; d_s \times \left( 1- \frac{3}{4N -9} \right)
@@ -334,7 +334,7 @@ Cohen's \; d'_s = \frac{\bar{X}_{1} - \bar{X}_{2}}{ \sqrt{\frac{\left(S^2_{1}+S^
 Where $\bar{X}_{j}$ is the mean and $S_j$ is the standard deviation of the $j^{th}$ sample (j = 1,2). We know the distribution of Cohen's $d'_{s}$ [@Huynh_1989]: 
 
 \begin{equation} 
-Cohen's \; d'_s \sim  \sqrt{\frac{\left( \frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}\right)(\sigma^2_1+\sigma^2_2)}{2}} \times t_{df^*,ncp^*}
+Cohen's \; d'_s \sim  \sqrt{\frac{2(n_2\times\sigma^2_1+n1\times\sigma^2_2)}{n_1n_2(\sigma^2_1+\sigma^2_2)}} \times t_{df^*,ncp^*}
 (\#eq:cohendprimedist)
 \end{equation} 
 

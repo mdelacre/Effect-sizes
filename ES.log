@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  3 MAR 2021 23:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  17 MAR 2021 13:36
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -1090,228 +1090,234 @@ Underfull \vbox (badness 4254) has occurred while \output is active []
 fier (name{ref-Algina_et_al_2006}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1016 ...ode\hypertarget{ref-Algina_et_al_2006}{}
+l.1019 ...ode\hypertarget{ref-Algina_et_al_2006}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Altman_2005}) has been already used, 
 duplicate ignored
 <to be read again> 
                    \relax 
-l.1019 \leavevmode\hypertarget{ref-Altman_2005}{}
+l.1022 \leavevmode\hypertarget{ref-Altman_2005}{}
                                                  %pdfTeX warning (ext4): destin
 ation with the same identifier (name{ref-AERA_2006}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.1022 \leavevmode\hypertarget{ref-AERA_2006}{}
+l.1025 \leavevmode\hypertarget{ref-AERA_2006}{}
                                                %pdfTeX warning (ext4): destinat
 ion with the same identifier (name{ref-APA_2010}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.1025 \leavevmode\hypertarget{ref-APA_2010}{}
-                                              %pdfTeX warning (ext4): destinati
-on with the same identifier (name{ref-Andersen_et_al_2007}) has been already us
-ed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1028 ...e\hypertarget{ref-Andersen_et_al_2007}{}
-                                                  % [37]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Cain_et_al_2017}) has been alrea
+l.1028 \leavevmode\hypertarget{ref-APA_2010}{}
+                                              % [37]pdfTeX warning (ext4): dest
+ination with the same identifier (name{ref-Andersen_et_al_2007}) has been alrea
 dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1031 ...vmode\hypertarget{ref-Cain_et_al_2017}{}
+l.1031 ...e\hypertarget{ref-Andersen_et_al_2007}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Cain_et_al_2017}) has been already us
+ed, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1034 ...vmode\hypertarget{ref-Cain_et_al_2017}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Coe_2002}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.1034 \leavevmode\hypertarget{ref-Coe_2002}{}
+l.1037 \leavevmode\hypertarget{ref-Coe_2002}{}
                                               %pdfTeX warning (ext4): destinati
 on with the same identifier (name{ref-Cohen_1965}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.1037 \leavevmode\hypertarget{ref-Cohen_1965}{}
+l.1040 \leavevmode\hypertarget{ref-Cohen_1965}{}
                                                 %pdfTeX warning (ext4): destina
 tion with the same identifier (name{ref-Cumming_2013}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.1040 \leavevmode\hypertarget{ref-Cumming_2013}{}
+l.1043 \leavevmode\hypertarget{ref-Cumming_2013}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Delacre_et_al_2017}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1043 ...de\hypertarget{ref-Delacre_et_al_2017}{}
+l.1046 ...de\hypertarget{ref-Delacre_et_al_2017}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Delacre_et_al_2019}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1046 ...de\hypertarget{ref-Delacre_et_al_2019}{}
+l.1049 ...de\hypertarget{ref-Delacre_et_al_2019}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Ellis_2015}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.1049 \leavevmode\hypertarget{ref-Ellis_2015}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has been a
-lready used, duplicate ignored
+l.1052 \leavevmode\hypertarget{ref-Ellis_2015}{}
+                                                % [38]pdfTeX warning (ext4): de
+stination with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has b
+een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1052 ...target{ref-Erceg-Hurn_Mirosevich_2008}{}
-                                                  % [38]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Fan_2001}) has been already used
-, duplicate ignored
+l.1055 ...target{ref-Erceg-Hurn_Mirosevich_2008}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Fan_2001}) has been already used, dup
+licate ignored
 <to be read again> 
                    \relax 
-l.1055 \leavevmode\hypertarget{ref-Fan_2001}{}
+l.1058 \leavevmode\hypertarget{ref-Fan_2001}{}
                                               %pdfTeX warning (ext4): destinati
 on with the same identifier (name{ref-Glass_et_al_1981}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.1058 ...mode\hypertarget{ref-Glass_et_al_1981}{}
+l.1061 ...mode\hypertarget{ref-Glass_et_al_1981}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Glass_et_al_1972}) has been already u
 sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.1061 ...mode\hypertarget{ref-Glass_et_al_1972}{}
+l.1064 ...mode\hypertarget{ref-Glass_et_al_1972}{}
+                                                  %pdfTeX warning (ext4): desti
+nation with the same identifier (name{ref-Pelletier_Cousineau_2018}) has been a
+lready used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1067 ...ertarget{ref-Pelletier_Cousineau_2018}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Grissom_2000}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.1064 \leavevmode\hypertarget{ref-Grissom_2000}{}
+l.1070 \leavevmode\hypertarget{ref-Grissom_2000}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Grissom_Kim_2001}) has been already u
 sed, duplicate ignored
 <to be read again> 
                    \relax 
-l.1067 ...mode\hypertarget{ref-Grissom_Kim_2001}{}
+l.1073 ...mode\hypertarget{ref-Grissom_Kim_2001}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Grissom_and_kim_2005}) has been alrea
 dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1070 ...\hypertarget{ref-Grissom_and_kim_2005}{}
+l.1076 ...\hypertarget{ref-Grissom_and_kim_2005}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Hedges_Olkin_1985}) has been already 
 used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1073 ...ode\hypertarget{ref-Hedges_Olkin_1985}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Huynh_1989}) has been already used, d
-uplicate ignored
+l.1079 ...ode\hypertarget{ref-Hedges_Olkin_1985}{}
+                                                  % [39]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Huynh_1989}) has been already us
+ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.1076 \leavevmode\hypertarget{ref-Huynh_1989}{}
+l.1082 \leavevmode\hypertarget{ref-Huynh_1989}{}
                                                 %pdfTeX warning (ext4): destina
 tion with the same identifier (name{ref-Kelley_2005}) has been already used, du
 plicate ignored
 <to be read again> 
                    \relax 
-l.1079 \leavevmode\hypertarget{ref-Kelley_2005}{}
-                                                 % [39]pdfTeX warning (ext4): d
-estination with the same identifier (name{ref-Keselman_et_al_2008}) has been al
-ready used, duplicate ignored
+l.1085 \leavevmode\hypertarget{ref-Kelley_2005}{}
+                                                 %pdfTeX warning (ext4): destin
+ation with the same identifier (name{ref-Keselman_et_al_2008}) has been already
+ used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1082 ...e\hypertarget{ref-Keselman_et_al_2008}{}
+l.1088 ...e\hypertarget{ref-Keselman_et_al_2008}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Kulinskaya_Staudte_2007}) has been al
 ready used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1085 ...pertarget{ref-Kulinskaya_Staudte_2007}{}
+l.1091 ...pertarget{ref-Kulinskaya_Staudte_2007}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Lakens_2013}) has been already used, 
 duplicate ignored
 <to be read again> 
                    \relax 
-l.1088 \leavevmode\hypertarget{ref-Lakens_2013}{}
+l.1094 \leavevmode\hypertarget{ref-Lakens_2013}{}
                                                  %pdfTeX warning (ext4): destin
 ation with the same identifier (name{ref-Micceri_1989}) has been already used, 
 duplicate ignored
 <to be read again> 
                    \relax 
-l.1091 \leavevmode\hypertarget{ref-Micceri_1989}{}
+l.1097 \leavevmode\hypertarget{ref-Micceri_1989}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Peng_and_Chen_2014}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1094 ...de\hypertarget{ref-Peng_and_Chen_2014}{}
+l.1100 ...de\hypertarget{ref-Peng_and_Chen_2014}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Peng_et_al_2013}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.1097 ...vmode\hypertarget{ref-Peng_et_al_2013}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Prentice_Miller_1992}) has been alrea
-dy used, duplicate ignored
+l.1103 ...vmode\hypertarget{ref-Peng_et_al_2013}{}
+                                                  % [40]pdfTeX warning (ext4): 
+destination with the same identifier (name{ref-Prentice_Miller_1992}) has been 
+already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1100 ...\hypertarget{ref-Prentice_Miller_1992}{}
+l.1106 ...\hypertarget{ref-Prentice_Miller_1992}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Raviv}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.1103 \leavevmode\hypertarget{ref-Raviv}{}
+l.1109 \leavevmode\hypertarget{ref-Raviv}{}
                                            %pdfTeX warning (ext4): destination 
 with the same identifier (name{ref-Shieh_2013}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.1106 \leavevmode\hypertarget{ref-Shieh_2013}{}
-                                                % [40]pdfTeX warning (ext4): de
-stination with the same identifier (name{ref-Stout_Ruble_1995}) has been alread
-y used, duplicate ignored
+l.1112 \leavevmode\hypertarget{ref-Shieh_2013}{}
+                                                %pdfTeX warning (ext4): destina
+tion with the same identifier (name{ref-Stout_Ruble_1995}) has been already use
+d, duplicate ignored
 <to be read again> 
                    \relax 
-l.1109 ...mode\hypertarget{ref-Stout_Ruble_1995}{}
+l.1115 ...mode\hypertarget{ref-Stout_Ruble_1995}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Sullivan_Feinn_2012}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1112 ...e\hypertarget{ref-Sullivan_Feinn_2012}{}
+l.1118 ...e\hypertarget{ref-Sullivan_Feinn_2012}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Wackerly_et_al_2008}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1115 ...e\hypertarget{ref-Wackerly_et_al_2008}{}
+l.1121 ...e\hypertarget{ref-Wackerly_et_al_2008}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Welch_1938}) has been already used, d
 uplicate ignored
 <to be read again> 
                    \relax 
-l.1118 \leavevmode\hypertarget{ref-Welch_1938}{}
+l.1124 \leavevmode\hypertarget{ref-Welch_1938}{}
                                                 %pdfTeX warning (ext4): destina
 tion with the same identifier (name{ref-Wilkinson_1999}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.1121 ...evmode\hypertarget{ref-Wilkinson_1999}{}
+l.1127 ...evmode\hypertarget{ref-Wilkinson_1999}{}
                                                   %pdfTeX warning (ext4): desti
 nation with the same identifier (name{ref-Yuan_et_al_2004}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.1124 ...vmode\hypertarget{ref-Yuan_et_al_2004}{}
+l.1130 ...vmode\hypertarget{ref-Yuan_et_al_2004}{}
                                                   % AED endfloat: Processing en
 d Figures and Tables [41] (ES.fff
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal".png
-, id=440, 948.54375pt x 443.15562pt>
+, id=443, 948.54375pt x 443.15562pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal
 ".png Graphic file (type png)
@@ -1327,7 +1333,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal.png
 >]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unbal".p
-ng, id=447, 949.5475pt x 442.65375pt>
+ng, id=450, 949.5475pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unb
 al".png Graphic file (type png)
@@ -1343,7 +1349,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_N".p
-ng, id=454, 948.04187pt x 440.64626pt>
+ng, id=457, 948.04187pt x 440.64626pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _N".png Graphic file (type png)
@@ -1359,7 +1365,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_sd".
-png, id=460, 950.04938pt x 442.65375pt>
+png, id=463, 950.04938pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _sd".png Graphic file (type png)
@@ -1375,7 +1381,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd.
 png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR10".png, id=466, 947.54pt x 442.65375pt>
+ger_SDR10".png, id=469, 947.54pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR10".png Graphic file (type png)
@@ -1391,7 +1397,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR10".png, id=472, 950.04938pt x 446.16687pt>
+ller_SDR10".png, id=475, 950.04938pt x 446.16687pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR10".png Graphic file (type png)
@@ -1407,7 +1413,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
 aller_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR2".png, id=478, 949.5475pt x 442.15187pt>
+ger_SDR2".png, id=481, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR2".png Graphic file (type png)
@@ -1423,7 +1429,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR2.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR2".png, id=484, 949.5475pt x 442.15187pt>
+ller_SDR2".png, id=487, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR2".png Graphic file (type png)
@@ -1435,24 +1441,24 @@ puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_firstsmaller_SDR2".png  used on input line 73.
 (pdftex.def)             Requested size: 650.4506pt x 302.87895pt.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1127.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1133.
 [49 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
 aller_SDR2.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1127.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1133.
 (ES.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1127.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1127.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1133.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1133.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17134 strings out of 492452
- 261988 string characters out of 3128447
+ 17137 strings out of 492452
+ 262038 string characters out of 3128447
  382907 words of memory out of 3000000
  20895 multiletter control sequences out of 15000+200000
- 87334 words of font info for 135 fonts, out of 3000000 for 9000
+ 87421 words of font info for 136 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,12n,51p,2675b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
@@ -1485,9 +1491,9 @@ ers/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:
 <C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.p
 fb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on ES.pdf (49 pages, 1085571 bytes).
+Output written on ES.pdf (49 pages, 1087375 bytes).
 PDF statistics:
- 646 PDF objects out of 1000 (max. 8388607)
- 178 named destinations out of 1000 (max. 500000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
  10382 words of extra memory for PDF output out of 12000 (max. 10000000)
 
