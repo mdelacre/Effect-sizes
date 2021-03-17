@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  15 MAR 2021 15:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  17 MAR 2021 16:13
 entering extended mode
 **./Simulations-checks.tex
 (Simulations-checks.tex
@@ -1126,7 +1126,7 @@ Here is how much of TeX's memory you used:
  20641 multiletter control sequences out of 15000+200000
  44263 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,11n,51p,1417b,491s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,11n,51p,1435b,491s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-maths
 y.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
 athit.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
@@ -1139,7 +1139,7 @@ pe1/public/lm/lmr12.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/lm/lmr8.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/lm/lmss8.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/
 fonts/type1/public/lm/lmsy8.pfb>
-Output written on Simulations-checks.pdf (11 pages, 208905 bytes).
+Output written on Simulations-checks.pdf (11 pages, 208922 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  23 named destinations out of 1000 (max. 500000)
