@@ -170,7 +170,7 @@ df_{student} = n_1+n_2-2
 \end{equation} 
 
 \begin{equation} 
-ncp_{student} = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1n_2}{n_1+n_2}}, \;\;\; where \; \sigma_{pooled}= \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1) \times \sigma^2_2}{n_1+n_2-2}}
+ncp_{student} = \frac{\mu_1-\mu_2}{\sigma_{pooled} \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} where \; \sigma_{pooled}= \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1) \times \sigma^2_2}{n_1+n_2-2}}
 (\#eq:studentncp)
 \end{equation} 
 
@@ -296,7 +296,7 @@ df_{Welch} \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \ri
 \end{equation} 
 
 \begin{equation} 
-ncp_{Welch} = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}
+ncp_{Welch} = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N} = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n1}+\frac{\sigma_2^2}{n_2}}}
 (\#eq:welchncp)
 \end{equation} 
 
@@ -346,7 +346,7 @@ df^* = \frac{(n_1-1)(n_2-1)(s^2_1+s^2_2)^2}{(n_2-1)s^4_1+(n_1-1)s^4_2}
 \end{equation} 
 
 \begin{equation} 
-ncp^*=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1+\sigma^2_2}{2}}} \times \sqrt{\frac{n_1n_2(\sigma^2_1+\sigma^2_2)}{2(n_2\sigma^2_1+n_1\sigma^2_2)}}
+ncp^*=\frac{(\mu_1-\mu_2)\sqrt{n_1n_2}}{\sqrt{n_2\sigma^2_1+n_1\sigma^2_2}}=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1+\sigma^2_2}{2}}} \times \sqrt{\frac{n_1n_2(\sigma^2_1+\sigma^2_2)}{2(n_2\sigma^2_1+n_1\sigma^2_2)}}
 (\#eq:cohendprimevst)
 \end{equation} 
 
