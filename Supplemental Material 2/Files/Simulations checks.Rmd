@@ -1,0 +1,89 @@
+---
+title             : "Simulation checks"
+shorttitle        : "Simulation checks"
+
+author: 
+  - name          : "Delacre Marie"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    address       : ""
+    email         : ""
+
+affiliation:
+  - id            : "1"
+    institution   : "ULB"
+
+keywords          : "keywords"
+wordcount         : "X"
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : yes
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+
+header-includes:
+  - \usepackage{rotating}
+  - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}     
+  - \usepackage{lscape}
+  - \newcommand{\blandscape}{\begin{landscape}}
+  - \newcommand{\elandscape}{\end{landscape}}
+
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+library(stringr)
+```
+
+# Supplemental Material 2
+
+In order to insure the reliability of our calculation method, for all scenarios where $G_1=G_2=0$, we compared empirical means and variances of all estimators (i.e. means and variances of all estimates) with theoretical means and variances (i.e. expected means and variances, computed based on equations in Tables 1, 2 and 3). Because we can draw exactly the same conclusions for biased and unbiased estimators, we will simultaneously present results for **biased** (Cohen's $d_s$, Glass's $d_s$ using either $sd_1$ or $sd_2$ as standardizer, Shieh's $d_s$ and Cohen's $d'_s$) and **unbiased estimators** (Hedges' $g_s$, Glass's $g_s$ using either $sd_1$ or $sd_2$ as standardizer, Shieh's $g_s$ and Hedges' $g'_s$). Results will be subdivided into 4 conditions:  
+- When population variances and sample sizes are equal across groups (condition a; see Figures A3.1 and A3.5 for respectively biased and unbiased estimators);      
+- When population variances are equal across groups and sample sizes are unequal (condition b; see Figures A3.2 and A3.6 for respectively biased and unbiased estimators);  
+- When population variances are unequal across groups and sample sizes are equal (condition c; see Figures A3.3 and A3.7 for respectively biased and unbiased estimators);  
+- When population variances and sample sizes are unequal across groups (condition d; see Figures A3.4 and A3.8 for respectively biased and unbiased estimators).  
+
+Because the equations of theoretical means and variances of Cohen's $d_s$ and Hedges' $g_s$ rely on the assumption of normality and equality of population variances, we expect empirical and theoretical parameters to be very close only in conditions a and b. For all other estimators, the equations of theoretical means and variances rely solely on the assumption of normality and therefore, we expect empirical and theoretical parameters to be very close in all conditions.
+
+On average, empirical means (and variances) of all estimators are very close to theoretical expectations, when population variances are equal across groups, with equal sample sizes (condition a; see Table A3.1) or unequal sample sizes (condition b; see Table A3.2). 
+
+When population variances are unequal across groups (conditions c and d; see Tables A3.3 and A3.4), empirical means (and variances) of Cohen's $d'_s$ (Cohen's $g'_s$) and Shieh's $d_s$ (Shieh's $g_s$) are still very close to theoretical expectations. Regarding Glass's $d_s$ (Glass's $g_s$), while empirical variances remain very close to theoretical expectations, on average, one observes a larger average departure between empirical and theoretical means when using $SD_2$ as standardizer. However, when looking at details in results for each scenarios (see "biased_condC.xlsx", "biased_condD.xlsx", "unbiased_condC.xlsx" and "unbiased_condD.xlsx" in Supplemental Material 2), one notices that the larger the population effect size, the larger the departure between empirical and theoretical means, and that relative to the population effect size, departures between empirical and theoretical means are always very small. On the other side, both empirical bias and variance of Cohen's $d_s$ (Hedges' $g_s$) highly depart from theoretical expectations, even when looking and relative departures to the population effect size, especially when sample sizes are unequal across groups (condition d; see Table A3.4), which is not surprising, as Cohen's $d_s$ (Hedges' $g_s$) relies on the equality of population variances assumption.
+
+```{r "biased_condA", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.1.png")
+```
+
+```{r "biased_condB", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.2.png")
+```
+
+```{r "biased_condC", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.3.png")
+```
+
+```{r "biased_condD", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.4.png")
+```
+
+```{r "unbiased_condA", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.5.png")
+```
+
+```{r "unbiased_condB", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.6.png")
+```
+
+```{r "unbiased_condC", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.7.png")
+```
+
+```{r "unbiased_condD", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A3.8.png")
+```
