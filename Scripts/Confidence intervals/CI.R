@@ -1,20 +1,19 @@
 #Required packages
 
 #devtools::install_github("mdelacre/deffectsize",force=T)
-#library(deffectsize)
-#library(stringr)
+library(deffectsize)
+library(stringr)
 
 Mainfolder="D:/Documents/ES MEASURES/"
 subfolder=list.files(Mainfolder)
 Folder=paste0(Mainfolder,subfolder)
 
-for (i in seq_len(length(Folder))){
+for (i in seq_len(length(Folder))){ 
 
-  for (j in seq_len(length(list.files(Folder[i])))){
+  for (j in seq_len(length(list.files(Folder[i])))){ 
 
   filepath = paste0(Folder[i],"/",list.files(Folder[i])[j])
   file=readRDS(filepath)
-
   lev_biased <- c("tstat","tdf","tncp") 
   estimator_biased <- c("Bcohen","Bglass1","Bglass2","Bcohen d'","Bshieh")
   lev_unbiased <- c("est","LL","UL") 
@@ -71,7 +70,7 @@ for (i in seq_len(length(Folder))){
   #### df
   res[,8]<-n2-1
   #### ncp
-  res[,9] <- ((m1-m2)/(sd2*sqrt(1/n2+sd1^2/(n1*sd2^2))))
+  res[,9] <- ((m2-m1)/(sd2*sqrt(1/n2+sd1^2/(n1*sd2^2))))
   
   ### Cohen's d's
   
@@ -98,7 +97,8 @@ for (i in seq_len(length(Folder))){
   ### Glass's ds using sd1 as standardizer
   res[,19]<- file[,11]
   ### Glass's ds using sd2 as standardizer
-  res[,22]<- file[,12]
+  res[,22]<- -file[,12] # minus because I computed (m1-m2) in ES MEASURES
+                        # while I use (m2-m1) when computing confidence intervals around Glass's ds using sd2 as standardizer.
   ### Cohen's d's
   res[,25]<- file[,17]
   ### Shieh's d's
@@ -108,7 +108,7 @@ for (i in seq_len(length(Folder))){
   ### Glass's gs using sd1 as standardizer
   res[,34] <- file[,13]
   ### Glass's gs using sd2 as standardizer
-  res[,37] <- file[,14]
+  res[,37] <- -file[,14] # same explanation as for Glass's ds using sd2 as standardizer
   ### Hedges g's
   res[,40] <- file[,18]
   ### Shieh's gs
@@ -153,15 +153,16 @@ for (i in seq_len(length(Folder))){
 chem <- "D:/Documents/CI.MEASURES/"
 if(param[[1]][2]==2.08){
 G1 <- -2.08  
-} else (G1 <- param[[1]][2])
+} else {G1 <- param[[1]][2]}
 G2 = param[[1]][4]
 
 sschem<- paste0("G1=",G1,",G2=",G2) 
 setwd(dir=paste0(chem,sschem)) # destination file  
 
 fname=paste0("G1=",G1,", G2=",G2,", n=[",n1,",",n2,"], means=[",m1,",",m2,"], sds=[",sd1,",",sd2,"].rds")
-saveRDS(file, file = fname)
+saveRDS(res, file = fname)
 
   }
 
 }
+
