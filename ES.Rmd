@@ -133,7 +133,7 @@ Note that both unbiasedness and efficiency are very important. An unbiased estim
 
 Finally, the last property of a good point estimator is **consistency**: consistency means that the bigger the sample size, the closer the estimate is to the population parameter. In other words, the estimates *converge* to the true population parameter. 
 
-Beyond the inferential properties, @Cumming_2013 reminds that an effect size estimator needs to have a constant value across designs, in order to be easily interpretable and to be included in meta-analysis. In other words, it should achieve the property of **generality**. To our concern, while we focus en between subjects designs, we expect to highlight an estimate of the population effect size with a constant value for any sample sizes ratio. 
+Beyond the inferential properties, @Cumming_2013 reminds that an effect size estimator needs to have a constant value across designs, in order to be easily interpretable and to be included in meta-analysis. In other words, it should achieve the property of **generality**. To our concern, while we focus on between subjects designs, we expect to highlight an estimate of the population effect size with a constant value for any sample sizes ratio. 
 
 # Different measures of effect sizes
 
@@ -182,7 +182,7 @@ Hedges' \; g_s = Cohen's \; d_s \times \frac{\Gamma(\frac{df_{Student}}{2})}{\sq
 (\#eq:Hedgesgs)
 \end{equation} 
 
-Where $df_{Student}$ has been defined in equation \ref{eq:studentdf},and $\Gamma()$ is the gamma function [for integers, $\Gamma(x)$ is the factorial of x minus 1: $\Gamma(x)$=(x-1)!; @Pelletier_Cousineau_2018] This equation can be approximated as follows: 
+Where $df_{Student}$ has been defined in equation \ref{eq:studentdf},and $\Gamma()$ is the gamma function [for integers, $\Gamma(x)$ is the factorial of x minus 1: $\Gamma(x)$=(x-1)!; @Pelletier_Cousineau_2018]. This equation can be approximated as follows: 
 
 \begin{equation} 
 Hedges' \; g_s = Cohen's \; d_s \times \left( 1- \frac{3}{4N -9} \right)
@@ -318,7 +318,7 @@ Shieh's \; \delta_{n_1=n_2}= \frac{Cohen's \; \delta_{n_1=n_2}}{2}
 (\#eq:cohenshieh)
 \end{equation} 
 
-Except for this very specific situation, according to the statistical properties of Welch’s statistic under heteroscedasticity, Shieh's $d_s$ accounts for the sample sizes allocation ratio. The lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference ($\bar{X_1}-\bar{X_2}$) as well as $SD_1$ and $SD_2$, Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (the dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is illustrated in the following shiny application:  https://mdelacre.shinyapps.io/shiehvscohen/).
+Except for this very specific situation, according to the statistical properties of Welch’s statistic under heteroscedasticity, Shieh's $d_s$ accounts for the sample sizes allocation ratio. The lack of generality caused by taking this specificity of the design into account has led @Cumming_2013 to question its usefulness in terms of interpretability: when keeping constant the mean difference ($\bar{X_1}-\bar{X_2}$) as well as $SD_1$ and $SD_2$, Shieh's $d_s$ will vary as a function of the sample sizes allocation ratio (unlike Cohen's $d'_s$ that we will describe later).The dependency of Shieh's $d_s$ value on the sample sizes allocation ratio is illustrated in the following shiny application:  https://mdelacre.shinyapps.io/shiehvscohen/.
 
 ### Cohen's $d'_s$
 The sample mean difference, divided by the square root of the non pooled average of both variance estimates was suggested by @Welch_1938. This yields:
@@ -388,7 +388,9 @@ Table: Expentency, bias and variance of Glass's $d_s$ and Cohen's $d'_s$ and Shi
 \elandscape
 \newpage
 
-## Monte Carlo Simulations: assessing the bias, efficiency and consistency of 5 estimators
+## Monte Carlo Simulations
+
+### Assessing the bias, efficiency and consistency of 5 estimators
 
 #### Method
 
@@ -549,23 +551,23 @@ In conclusion, Glass’s $g_s$ should always be avoided when the equality of var
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N.png")
 ```
 
-```{r "idHetbal2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio (when $n_1=n_2=100$)",fig.show='hold',fig.align='center'}
+```{r "idHetbal2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio (when $n_1=n_2=200$)",fig.show='hold',fig.align='center'}
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd.png")
 ```
 
-```{r "idHetunbal1", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), total sample (N) equals 150, and $n_1>n_2$",fig.show='hold',fig.align='center'}
+```{r "idHetunbal1", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR10.png")
 ```
 
-```{r "idHetunbal2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), total sample (N) equals 150, and $n_1<n_2$",fig.show='hold',fig.align='center'}
+```{r "idHetunbal2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR10.png")
 ```
 
-```{r "idHetunbal3", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), total sample (N) equals 120, and $n_1>n_2$",fig.show='hold',fig.align='center'}
+```{r "idHetunbal3", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR2.png")
 ```
 
-```{r "idHetunbal4", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), total sample (N) equals 120, and $n_1<n_2$",fig.show='hold',fig.align='center'}
+```{r "idHetunbal4", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
 knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR2.png")
 ```
 
@@ -582,6 +584,72 @@ When distributions are symmetric, the bias of Glass's $g_s$ only depends on the 
 
 In summary, when variances are unequal across populations, Glass's $g_s$ is sometimes better but also sometimes much worst than respectively Shieh's $g_s$ and Hedges' $g'_s$. The performance of Glass's $g_s$ highly depends on parameters that we  cannot control (i.e. an triple interaction) and for this reason, we do not recommend using it. When designs are not "too  unbalanced", Shieh's $g_s$ and Hedges' $g'_s" are both appropriate but the further the sample sizes ratio is from 1, the larger the bias of Shieh's $g_s$ in order that in the end, our favourite measure is Hedges' $g'_s".
 
-#### Conclusion
- TO DO
+### Confidence intervals around 5 point estimators
+
+#### Method
+
+In order to compute confidence intervals around Cohen's $g_s$, Glass's $g_s$ (using respectively the sample $SD$ of the first or second group as a standardizer), Hedges' $g'_s$ and Shieh's $g_s$, we created an R package (see https://github.com/mdelacre/deffectsize). In this package, confidence intervals were computed using non-central *t*-distributions, as explained in Supplemental Material 4 \footnote{In Supplemental Material 4, we have also shown that in accordance with our expectations, the p-values associated with t-statistics always equal the percentage of confidence intervals based on the same statistical quantity that includes 0. This insures the reliability of our calculation method}.(SUPP MAT A RETRAVAILLER!). Based on this package, we performed Monte Carlo simulations to assess the *coverage probability* of confidence intervals around all point estimators. As an indicator of accuracy, coverage probability is taken as the percentage of confidence intervals whose bounds correctly bracket the population value (% of coverage). The coverage percentage of a confidence interval is expected to be the specified nominal level which is 95% in our study. 
+
+Two-sided 95% confidence intervals around point estimators were computed for a set of 504 scenarios (with 100,000 iterations per scenario). In 126 scenarios, samples were extracted from a normally distributed population and in 378 scenarios, samples were extracted from non normal population distributions. Refering to the review of @Cain_et_al_2017, all possible combinations of population skewness and kurtosis and the number of scenarios for each combination are summarized in Table 6.
+
+\newpage
+
+|                         |               |               | __Kurtosis__ |               
+| :---------------------: | :-----------: |:-------------:|:------------:|:-------------:|
+|                         |               |     0         |   95.75      |    **TOTAL**    |
+|                         |               |---------------|--------------|---------------|
+|                         |        0      |     126       |     126      |     **252**     | 
+|                         |               |               |              |               |
+|      __Skewness__       |      -2.08    |      /        |     126      |     **126**     |
+|                         |               |               |              |               |
+|                         |      6.32     |        /      |     126      |     **126**     |
+|                         |               |               |              |               |
+|                         |    **TOTAL**    |    **126**      |    **378**     |    **504**     |
+
+Table: Number of Combinations of skewness and kurtosis in our simulations.
+
+For the 4 resulting combinations of skewness and kurtosis (see Table 6), scenarios varied as a function of the population mean difference ($\mu_1-\mu_2$; 0 or 1), the sample sizes (*$n_1$* and *$n_2$*; 20, 50 or 100), the sample size ratio (*n*-ratio = $\frac{n_1}{n_2}$; .2, .4, .5, 1, 2, 2.5 or 5), the population *SD*-ratio (i.e. $\frac{\sigma_1}{\sigma_2}$; .1, .25, .5, 1, 2, 4 or 10), and the sample size and population variance pairing $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2}\right)$. All possible combinations of *n*-ratio and population *SD*-ratio were performed. In sum, the simulations grouped over different sample sizes yield 4 conditions (a, b, c and d) based on the *n*-ratio, population *SD*-ratio, and sample size and population variance pairing, as previously summarized in Table 5.  
+
+#### Results
+
+##### When variances are equal across groups
+
+```{r "idHombalbis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are equal across groups (condition a)",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Hom_bal.png")
+```
+
+```{r "idHomunbalbis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are equal across groups and sample sizes are unequal (condition b)",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Hom_unbal.png")
+```
+
+##### When variances are unequal across groups
+
+```{r "idHetbal1bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c), as a function of $n$-ratio",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_bal.png")
+```
+
+```{r "idHetbal2bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_bal_sdratio.png")
+```
+
+```{r "idHetunbal1bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR10.png")
+```
+
+```{r "idHetunbal2bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR10.png")
+```
+
+```{r "idHetunbal3bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR2.png")
+```
+
+```{r "idHetunbal4bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR2.png")
+```
+
+## Conclusion
+
+Comme déjà mentionné, calculer les intervalles de confiance autour des estimateurs est similaire à réaliser des tests t (voir Supplemental Material 4), mais contient de l'information supplémentaire.
++ Parler des analyses de puissances a priori (ajouter des fonctions dans le package).
 
