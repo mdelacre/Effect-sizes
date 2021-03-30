@@ -50,6 +50,7 @@ get_simu     <- function(nSims=1000000,n1=50,n2=50,
     y2 <- rpearson(n2,moments=c(m2,sd2^2,skewness=skew*(n2-2)/sqrt(n2*(n2-1)),kurtosis=(kurt*(n2-2)*(n2-3)-6*(n2-1))/(n2^2-1)+3))
 
     # For the explanation about the transformation of skew1,skew2,kurt1 and kurt2,
+    # See Skewness-and-kurtosis-in-my-simulations,-note.pdf
     ### Descriptives
     mean1 <- mean(y1)
     mean2 <- mean(y2)
