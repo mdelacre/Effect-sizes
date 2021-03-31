@@ -950,10 +950,10 @@ The **bias** of Cohen's $d'_s$ is a function of the population effect size ($\de
 
   + When $\delta'_{Cohen}$ is null, the bias is null. In all other configurations, the larger $\delta'_{Cohen}$, the more Cohen's $d'_s$ will overestimate $\delta'_{Cohen}$;  
   + The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both);  
-  + The smallest bias always occure when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.  
+  + The smallest bias always occurs when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.  
 
 The **bias** of Shieh's $d'_s$ is a function of the population effect size ($\delta_{Shieh}$), the total sample size, and the interaction between the sample sizes ratio and the $SD$-ratio $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)$:   
 
   + When $\delta_{Shieh}$ is null, the bias is null. In all other configurations, the larger $\delta_{Shieh}$, the more Shieh's $d_s$ will overestimate $\delta_{Shieh}$;    
   + For a constant sample sizes ratio, the bias decreases when the total sample size increases;  
-  + The smallest bias always occure when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see "Theoretical Bias, as a function of population parameters").    
+  + The smallest bias always occurs when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see "Theoretical Bias, as a function of population parameters").    
