@@ -17,7 +17,7 @@
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/ESmoderatorcohenNsize2-1.pdf}
-\caption{\label{fig:ESmoderatorcohenNsize2}Effect size moderator, when computing the variance of COhen's \(d_s\), as a function of \(n_1\) (left), \(n_2\) (center) and \(N=n_1+n_2\) (right).}
+\caption{\label{fig:ESmoderatorcohenNsize2}Effect size moderator, when computing the variance of Cohen's \(d_s\), as a function of \(n_1\) (left), \(n_2\) (center) and \(N=n_1+n_2\) (right).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -150,21 +150,14 @@
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhomNsize2-1.pdf}
-\caption{\label{fig:varshiehhomNsize2}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size, for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
+\caption{\label{fig:varshiehhomNsize2}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size (N), for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhomNsize4-1.pdf}
-\caption{\label{fig:varshiehhomNsize4}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots).}
-\end{figure*}
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-
-\centering
-\includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/ESmoderatorCohendprimeNsize2-1.pdf}
-\caption{\label{fig:ESmoderatorCohendprimeNsize2}Effect size moderator, as a function of the size of the control (left) or experimental group (right).}
+\caption{\label{fig:varshiehhomNsize4}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size (N), when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -192,14 +185,14 @@
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalNsize2-1.pdf}
-\caption{\label{fig:varshiehhetunbalNsize2}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
+\caption{\label{fig:varshiehhetunbalNsize2}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size (N), for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalNsize4-1.pdf}
-\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
+\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size (N), when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -213,5 +206,5 @@
 
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalvariance2-1.pdf}
-\caption{\label{fig:varshiehhetunbalvariance2}Variance of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) and \(\sigma_2\), for a constant \(SD\)-ratio.}
+\caption{\label{fig:varshiehhetunbalvariance2}Variance of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) (left) or \(\sigma_2\) (right), for a constant \(SD\)-ratio.}
 \end{figure*}

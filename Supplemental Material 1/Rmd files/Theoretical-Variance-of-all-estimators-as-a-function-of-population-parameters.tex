@@ -121,7 +121,7 @@ When the population effect size is zero, the variance of Cohen's \(d_s\) can be 
 
 \[Var_{Cohen's \; d_s} = \frac{N(N-2)}{n_1n_2(N-4)}\]
 
-The \textbf{variance} of Cohen's \(d_s\) is a function of total sample size (N) and the sample size allocation ratio (\(\frac{n_1}{n_2}\)):
+The \textbf{variance} of Cohen's \(d_s\) is a function of total sample size (N) and the sample sizes allocation ratio (\(\frac{n_1}{n_2}\)):
 
 \begin{figure}
 \centering
@@ -153,7 +153,7 @@ The \textbf{variance} of Cohen's \(d_s\) is a function of total sample size (N) 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/ESmoderatorcohenNsize2-1.pdf}
-\caption{\label{fig:ESmoderatorcohenNsize2}Effect size moderator, when computing the variance of COhen's \(d_s\), as a function of \(n_1\) (left), \(n_2\) (center) and \(N=n_1+n_2\) (right).}
+\caption{\label{fig:ESmoderatorcohenNsize2}Effect size moderator, when computing the variance of Cohen's \(d_s\), as a function of \(n_1\) (left), \(n_2\) (center) and \(N=n_1+n_2\) (right).}
 \end{figure}
 
 While the variance of Cohen's \(d_s\) still depends on the total sample size and the sample sizes allocation ratio, it also depends on the population effect size (\(\delta_{Cohen}\)). The larger the population effect size, the larger the variance. Note that the effect of the population effect size decreases when sample sizes increase, as:\\
@@ -161,12 +161,12 @@ While the variance of Cohen's \(d_s\) still depends on the total sample size and
 \[\lim_{n_2\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0\]\\
 \[\lim_{N\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0\]
 
-All these limits are illustrated in Figure \ref{fig:ESmoderatorcohenNsize2}.
+This is illustrated in Figure \ref{fig:ESmoderatorcohenNsize2}.
 
 \hypertarget{in-summary}{%
 \subsubsection{In summary}\label{in-summary}}
 
-The variance of Cohen's \(d_s\) is a function of the population effect size \(\delta_{Cohen}\), the total sample size (N) and the sample sizes ratio (\(\frac{n_1}{n_2}\)):
+The variance of Cohen's \(d_s\) is a function of the population effect size (\(\delta_{Cohen}\)), the total sample size (N) and the sample sizes ratio (\(\frac{n_1}{n_2}\)):
 
 \begin{itemize}
 \tightlist
@@ -189,9 +189,7 @@ The variance of Cohen's \(d_s\) is a function of the population effect size \(\d
 
 When the population effect size is zero, the variance of Glass's \(d_s\) can be simplified as follows:
 
-\[Var_{Glass's \; d_s} = \frac{n_c-1}{n_c-3} \left( \frac{1}{n_c}+\frac{1}{n_e}\right)\]
-
-In this configuration, the \textbf{variance} of Glass's \(d_s\) is a function of the sample sizes of both control (\(n_c\)) and experimental (\(n_e\)) groups as well as of the sample sizes allocation ratio \(\left( \frac{n_1}{n_2}\right)\):
+\[Var_{Glass's \; d_s} = \frac{n_c-1}{n_c-3} \left( \frac{1}{n_c}+\frac{1}{n_e}\right)\]. In this configuration, the \textbf{variance} of Glass's \(d_s\) is a function of the sample sizes of both control (\(n_c\)) and experimental (\(n_e\)) groups as well as of the sample sizes allocation ratio \(\left( \frac{n_1}{n_2}\right)\):
 
 \begin{figure}
 \centering
@@ -310,7 +308,7 @@ The variance of Glass's \(d_s\) is therefore a function of the total sample size
     \item
       We previously mentioned that when \(\sigma_c=\sigma_e\), the variance is minimized when sample sizes of both groups are almost identical (see Figure \ref{fig:varglasshomNratio2}), meaning that it is more efficient, in order to reduce variance, to add subjects uniformly in both groups;\\
     \item
-      When \(\sigma_e > \sigma_c\), more weight is given to \(n_e\), meaning that it is more efficient, in order to reduce variance, to add subjects in the experiental group (\(n_e\); see bottom plots in Figure \ref{fig:varglassHetunbalNsize2});\\
+      When \(\sigma_e > \sigma_c\), more weight is given to \(n_e\), meaning that it is more efficient, in order to reduce variance, to add subjects in the experimental group (\(n_e\); see bottom plots in Figure \ref{fig:varglassHetunbalNsize2});\\
     \item
       When \(\sigma_c > \sigma_e\), less weight is given to \(n_e\), meaning that it is more efficient, in order to reduce variance, to add sujects in the control group (\(n_c\); see top plots in Figure \ref{fig:varglassHetunbalNsize2}).
     \end{itemize}
@@ -348,7 +346,7 @@ The variance of Glass's \(d_s\) is a function of the population effect size (\(\
 \item
   The variance decreases when the \(SD\)-ratio increases (i.e.~when \(\sigma_e >> \sigma_c\));\\
 \item
-  The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control, in the experimental, or in both groups, in order to reduce the variance, varies as a function of the \(SD\)-ratio and the population effect size. The only situation where it is optimal to maximize the experimental group is when \(\sigma_e > \sigma_c\) and \(\sigma_{glass} \approx 0\). Most of the time, it is more efficient to maximize the control groups (e.g.~anytime \(\sigma_e < \sigma_c\), and when \(\sigma_{Glass}\) is very large) or to uniformly add subjects in both groups (e.g.~when \(\sigma_e > \sigma_c\) and \(\delta_{Glass}\) with neither null nor huge). TRYING TO QUANTIFY WHAT I CALL HUGE.\\
+  The variance always decreases when the control and/or the experimental group increases. The benefit of adding subjects rather in the control, in the experimental, or in both groups, in order to reduce the variance, varies as a function of the \(SD\)-ratio and the population effect size. The only situation where it is optimal to maximize the experimental group is when \(\sigma_e > \sigma_c\) and \(\sigma_{glass} \approx 0\). Most of the time, it is more efficient to maximize the control groups (e.g.~anytime \(\sigma_e < \sigma_c\), and when \(\sigma_{Glass}\) is very large) or to uniformly add subjects in both groups (e.g.~when \(\sigma_e > \sigma_c\) and \(\delta_{Glass}\) is neither null nor huge);
 \item
   The variance increases when \(\delta_{Glass}\) increases. Note that the effect of \(\delta_{Glass}\) is moderated by the control group size (the larger \(n_e\), the smaller the effect of \(\delta_{Glass}\) on the variance).
 \end{itemize}
@@ -365,9 +363,7 @@ The variance of Glass's \(d_s\) is a function of the population effect size (\(\
 When the population effect size is zero, the variance of Cohen's \(d'_s\) is computed as following :
 
 \[Var_{Cohen's \; d'_s} = \frac{df}{df-2} \times \frac{N}{n_1n_2}\]
-with \[df = \frac{4(n_1-1)(n_2-1)}{n_1+n_2-2}\].
-
-In this configuration, the degrees of freedom as well as the variance of Cohen's \(d'_s\) depends on the total sample size (N) and the sample size allocation ratio (\(\frac{n_1}{n_2}\)):
+with \[df = \frac{4(n_1-1)(n_2-1)}{n_1+n_2-2}\]. In this configuration, the degrees of freedom as well as the variance of Cohen's \(d'_s\) depends on the total sample size (N) and the sample sizes allocation ratio (\(\frac{n_1}{n_2}\)):
 
 \begin{figure}
 \centering
@@ -378,7 +374,7 @@ In this configuration, the degrees of freedom as well as the variance of Cohen's
 \begin{itemize}
 \tightlist
 \item
-  The further the sample size allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varcohendprimeHomNratio2});
+  The further the sample sizes allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varcohendprimeHomNratio2});
 \end{itemize}
 
 \begin{figure}
@@ -402,7 +398,7 @@ In this configuration, the degrees of freedom as well as the variance of Cohen's
 \caption{\label{fig:ESmoderator2}Effect size moderator, as a function of the degrees of freedom.}
 \end{figure}
 
-While the variance of Cohen's \(d'_s\) still depends on the total sample size and the sample sizes ratio, it also depends on the population effect size (\(\delta'_{Cohen}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect sizes decreases when the degrees of freedom increase (i.e.~when sample sizes increase and/or the sample sizes ratio get closer to 1), as illustrated in Figure \ref{fig:ESmoderator2}:
+While the variance of Cohen's \(d'_s\) still depends on the total sample size and the sample sizes ratio, it also depends on the population effect size (\(\delta'_{Cohen}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when sample sizes increase and/or the sample sizes ratio get closer to 1), as illustrated in Figure \ref{fig:ESmoderator2}:
 
 \[\lim_{df\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0\]
 
@@ -415,9 +411,7 @@ While the variance of Cohen's \(d'_s\) still depends on the total sample size an
 When the population effect size is zero, the variance of Cohen's \(d'_s\) can be simplified as follows:
 
 \[Var_{Cohen's \; d'_s} = \frac{df}{df-2} \times \frac{2}{n}\]
-Where \(n=N/2\)=sample size of each group, and \(df=\frac{(n-1)(\sigma^4_1+\sigma^4_2+2\sigma^2_1\sigma^2_2)}{\sigma^4_1+\sigma^4_2}\)
-
-In this configuration, the degrees of freedom as well as the variance of Cohen's \(d_s\) depends on the total sample size (N) and the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\):
+Where \(n=N/2\)=sample size of each group, and \(df=\frac{(n-1)(\sigma^4_1+\sigma^4_2+2\sigma^2_1\sigma^2_2)}{\sigma^4_1+\sigma^4_2}\). In this configuration, the degrees of freedom as well as the variance of Cohen's \(d_s\) depends on the total sample size (N) and the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\):
 
 \begin{figure}
 \centering
@@ -465,9 +459,7 @@ While the variance of Cohen's \(d'_s\) still depends on the total sample size an
 When the population effect size is zero, the variance of Cohen's \(d'_s\) can be simplified as follows:
 
 \[Var_{Cohen's \; d'_s} = \frac{df}{df-2} \times \frac{2\left( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2} \right)}{\sigma^2_1+\sigma^2_2}\]
-with \(df =\frac{(n_1-1)(n_2-1)(\sigma^2_1+\sigma^2_2)^2}{(n_2-1)\sigma_1^4+(n_1-1)\sigma_2^4}\)
-
-In this configuration, the degrees of freedom are a function of the total sample size (N) and the interaction between sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
+with \(df =\frac{(n_1-1)(n_2-1)(\sigma^2_1+\sigma^2_2)^2}{(n_2-1)\sigma_1^4+(n_1-1)\sigma_2^4}\). In this configuration, the degrees of freedom are a function of the total sample size (N) and the interaction between sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
 
 \begin{figure}
 \centering
@@ -490,7 +482,7 @@ In this configuration, the degrees of freedom are a function of the total sample
 \begin{itemize}
 \tightlist
 \item
-  The smallest variance always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance in the denominator of the df computation and in the numerator in the variance computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (see Figure \ref{fig:varcohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator in the DF computation (see the file \enquote{Theoretical Bias, as a function of population parameters}).
+  The smallest variance always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance in the denominator of the df computation and in the numerator of the variance computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (see Figure \ref{fig:varcohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator of the DF computation (see the file \enquote{Theoretical Bias, as a function of population parameters}).
 \end{itemize}
 
 \begin{figure}
@@ -514,7 +506,7 @@ The variance of Cohen's \(\delta'_s\) is a function of the population effect siz
 \begin{itemize}
 \tightlist
 \item
-  The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control or in the experimental group depends on the \(SD\)-ratio. Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (for details, see the Appendix \enquote{Theoretical variance, as a function of population parameters}).\\
+  The variance always decreases when the control and/or the experimental group increases. The benefit of adding subjects rather in the control or in the experimental group depends on the \(SD\)-ratio. Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance;\\
 \item
   The variance increases when \(\delta_{Cohen's \; d'_s}\) increases. Note that the effect of \(\delta_{Cohen's \; d'_s}\) is moderated by the total sample size and the interaction between sample sizes ratio and \(SD\)-ratio.
 \end{itemize}
@@ -532,7 +524,7 @@ When the population effect size is zero, the variance of Shieh's \(d_s\) can be 
 
 \[Var_{Shieh's \; d_s} = \frac{df}{(df-2)N}\]
 
-With \(df \approx \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}\). In this configuration, the degrees of freedom as well as the variance of Shieh's \(d_s\) depend on the total sample size (N) and the sample size allocation ratio (\(\frac{n_1}{n_2}\)):
+With \(df \approx \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}\). In this configuration, the degrees of freedom as well as the variance of Shieh's \(d_s\) depend on the total sample size (N) and the sample sizes allocation ratio (\(\frac{n_1}{n_2}\)):
 
 \begin{figure}
 \centering
@@ -543,19 +535,19 @@ With \(df \approx \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}\). In this
 \begin{itemize}
 \tightlist
 \item
-  The further the sample size allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varshiehHomNratio2});
+  The further the sample sizes allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varshiehHomNratio2});
 \end{itemize}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhomNsize2-1.pdf}
-\caption{\label{fig:varshiehhomNsize2}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size, for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
+\caption{\label{fig:varshiehhomNsize2}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size (N), for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhomNsize4-1.pdf}
-\caption{\label{fig:varshiehhomNsize4}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots).}
+\caption{\label{fig:varshiehhomNsize4}Variance of Shieh's \(d_s\) when variances are equal across groups, as a function of the total sample size (N), when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots).}
 \end{figure}
 
 \begin{itemize}
@@ -564,20 +556,14 @@ With \(df \approx \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}\). In this
   The larger the total sample size, the lower the variance, whatever the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) or not (see Figure \ref{fig:varshiehhomNsize4}).
 \end{itemize}
 
-Note: in \enquote{Theoretical Bias, as a function of population parameters}, we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the \enquote{N} in the denominator in the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator in the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}).
+Note: in \enquote{Theoretical Bias, as a function of population parameters}, we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the \enquote{N} in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}).
 
 \hypertarget{when-delta_shieh-neq-0}{%
 \paragraph{\texorpdfstring{When \(\delta_{Shieh} \neq 0\)}{When \textbackslash delta\_\{Shieh\} \textbackslash neq 0}}\label{when-delta_shieh-neq-0}}
 
-\begin{figure}
-\centering
-\includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/ESmoderatorCohendprimeNsize2-1.pdf}
-\caption{\label{fig:ESmoderatorCohendprimeNsize2}Effect size moderator, as a function of the size of the control (left) or experimental group (right).}
-\end{figure}
+While the variance of Shieh's \(d_s\) still depends on the total sample size and the sample sizes ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when sample sizes increase, without increasing the sample sizes ratio, and/or the sample sizes ratio get closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
-While the variance of Shieh's \(d_s\) still depends on the total sample size and the sample sizes ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect sizes decreases when the degrees of freedom increase (i.e.~when sample sizes increase (without increasing the sample sizes ratio) and/or the sample sizes ratio get closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
-
-Note: we previously noticed that when the effet size is zero, the variance of Shieh's \(d_s\) decreases, even when the sample sizes ratio increases. It is no longer true when there is an effect size because the larger the sample sizes ratio, the more the variance will increase with increasing effect size.
+Note: we previously noticed that when the effet size is zero, the variance of Shieh's \(d_s\) decreases, even when the sample sizes ratio increases. It is no longer true when there is a non-null effect size because the larger the sample sizes ratio, the more the variance will increase with increasing effect size.
 
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes-2}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes-2}}
@@ -625,7 +611,7 @@ Note: for a constant SD-ratio, the size of the variance does not matter (see Fig
 \hypertarget{when-delta_shieh-neq-0-1}{%
 \paragraph{\texorpdfstring{When \(\delta_{Shieh} \neq 0\)}{When \textbackslash delta\_\{Shieh\} \textbackslash neq 0}}\label{when-delta_shieh-neq-0-1}}
 
-While the variance of Shieh's \(d_s\) still depends on the total sample size and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect sizes decreases when the degrees of freedom increase (i.e.~when sample sizes increase and/or the \(SD\)-ratio get closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
+While the variance of Shieh's \(d_s\) still depends on the total sample size and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when sample sizes increase and/or the \(SD\)-ratio get closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
 \hypertarget{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-2}{%
 \subsubsection{When variances are unequal across populations, with unequal sample sizes}\label{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-2}}
@@ -636,20 +622,18 @@ While the variance of Shieh's \(d_s\) still depends on the total sample size and
 When the population effect size is zero, the variance of Shieh's \(d_s\) can be simplified as follows:
 
 \[Var_{Shieh's \; d_s} = \frac{df}{(df-2)N}\]
-With \(df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\)
-
-In this configuration, the degrees of freedom as well as the variance of Shieh's \(d_s\) depend on the total sample size (\(N\)) and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
+With \(df \approx \frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}\). In this configuration, the degrees of freedom as well as the variance of Shieh's \(d_s\) depend on the total sample size (\(N\)) and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalNsize2-1.pdf}
-\caption{\label{fig:varshiehhetunbalNsize2}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
+\caption{\label{fig:varshiehhetunbalNsize2}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size (N), for a constant sample sizes ratio (\(log\left(\frac{n_1}{n_2} \right)\)).}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalNsize4-1.pdf}
-\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
+\caption{\label{fig:varshiehhetunbalNsize4}Variance of Shieh's \(d_s\) when variances and sample sizes are unequal across groups, as a function of the total sample size (N), when adding subjects only in one group (either in the first group; see left plots; or in the second group; see right plots), and \(\sigma_1 > \sigma_2\) (top plots) or \(\sigma_1 < \sigma_2\) (bottom plots).}
 \end{figure}
 
 \begin{itemize}
@@ -672,15 +656,10 @@ Note: When variances were equal across populations, adding subjects only in the 
   The smallest variance always occurs when there is a positive pairing between variances and sample size. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest var (see Figure \ref{fig:varshiehhetunbaldfandvar}).
 \end{itemize}
 
-\begin{verbatim}
-## Warning in plot.window(...): relative range of values ( 71 * EPS) is small (axis
-## 2)
-\end{verbatim}
-
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Variance-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/varshiehhetunbalvariance2-1.pdf}
-\caption{\label{fig:varshiehhetunbalvariance2}Variance of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) and \(\sigma_2\), for a constant \(SD\)-ratio.}
+\caption{\label{fig:varshiehhetunbalvariance2}Variance of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) (left) or \(\sigma_2\) (right), for a constant \(SD\)-ratio.}
 \end{figure}
 
 Moreover, for a constant SD-ratio, the variances don't matter (See Figure \ref{fig:varshiehhetunbalvariance2}).
@@ -688,7 +667,7 @@ Moreover, for a constant SD-ratio, the variances don't matter (See Figure \ref{f
 \hypertarget{when-delta_shieh-neq-0-2}{%
 \paragraph{\texorpdfstring{When \(\delta_{Shieh} \neq 0\)}{When \textbackslash delta\_\{Shieh\} \textbackslash neq 0}}\label{when-delta_shieh-neq-0-2}}
 
-While the variance of Shieh's \(d_s\) still depends on the total sample size and the interaction between the sample sizes ratio and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~\ldots), as previously illustrated in Figure \ref{fig:ESmoderator2}.
+While the variance of Shieh's \(d_s\) still depends on the total sample size and the interaction between the sample sizes ratio and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase, as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
 \hypertarget{in-summary-3}{%
 \subsubsection{In summary}\label{in-summary-3}}
@@ -697,9 +676,9 @@ The variance of Shieh's \(d_s\) is a function of the population effect size (\(\
 
 \begin{itemize}
 \item
-  The variance always decreases when the control and/or the experimental groups increases. The benefit of adding subjects rather in the control or in the experimental group depends on the \(SD\)-ratio. Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (for details, see the Appendix \enquote{Theoretical variance, as a function of population parameters}).
+  The variance always decreases when the control and/or the experimental group increases. The benefit of adding subjects rather in the control or in the experimental group depends on the \(SD\)-ratio. Indeed, the smallest variance always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance;
 \item
-  The variance increases when \(\delta_{Shieh}\) increases. Note that the effect of \(\delta_{Shieh}\) is moderated by the total sample size and the interaction between sample sizes ratio and \(SD\)-ratio.
+  The variance increases when \(\delta_{Shieh}\) increases. Note that the effect of \(\delta_{Shieh}\) is moderated by the total sample size and the interaction between the sample sizes ratio and the \(SD\)-ratio.
 \end{itemize}
 
 \end{document}
