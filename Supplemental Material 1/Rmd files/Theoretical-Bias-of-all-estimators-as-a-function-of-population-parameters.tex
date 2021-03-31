@@ -153,7 +153,7 @@ Under the assumptions that independant residuals are normally distributed with e
 \hypertarget{glasss-d_s-see-table-2}{%
 \subsection{\texorpdfstring{Glass's \(d_s\) (see Table 2)}{Glass's d\_s (see Table 2)}}\label{glasss-d_s-see-table-2}}
 
-Because degrees of freedom depend only on the control group size, there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!
+Because degrees of freedom depend only on the control group size (neither on \(\sigma_1\) nor on \(\sigma_2\)), there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!
 
 The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(n_c\)) and the population effect size (\(\delta_{glass}\)):
 
@@ -166,7 +166,7 @@ The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasGlassctrlsize2-1.pdf}
-\caption{\label{fig:biasGlassctrlsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Glass's \(d_s\), when variances are equal across groups, \(n_c\) (top) and \(n_e\) (bottom).}
+\caption{\label{fig:biasGlassctrlsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Glass's \(d_s\), when variances are equal across groups, as a function of \(n_c\) (top) and \(n_e\) (bottom).}
 \end{figure}
 
 \begin{itemize}
@@ -175,8 +175,8 @@ The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(
   The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other side, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
 \end{itemize}
 
-\hypertarget{cohens-d_s-see-table-3}{%
-\subsection{\texorpdfstring{Cohen's \(d'_s\) (see Table 3)}{Cohen's d'\_s (see Table 3)}}\label{cohens-d_s-see-table-3}}
+\hypertarget{cohens-d_s-see-table-2}{%
+\subsection{\texorpdfstring{Cohen's \(d'_s\) (see Table 2)}{Cohen's d'\_s (see Table 2)}}\label{cohens-d_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations}}
@@ -255,7 +255,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalvariance2-1.pdf}
-\caption{\label{fig:biascohendprimehetbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are unequal across groups and sample sizes are equal, as a function of \(\sigma_1\) and \(\sigma_2\), for a constant \(SD\)-ratio.}
+\caption{\label{fig:biascohendprimehetbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are unequal across groups and sample sizes are equal, as a function of \(\sigma_1\) (top plots) and \(\sigma_2\) (bottom plots), for a constant \(SD\)-ratio.}
 \end{figure}
 
 Note: for a constant \(SD\)-ratio, \(\sigma_1\) and \(\sigma_2\) don't matter (see Figure \ref{fig:biascohendprimehetbalvariance2}).
@@ -292,7 +292,7 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \begin{itemize}
 \tightlist
 \item
-  The smallest bias always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance, in the denominator of the \(df\) computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (see Figure \ref{fig:biascohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator in the \(DF\) computation.
+  The smallest bias always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance, in the denominator of the \(df\) computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (see Figure \ref{fig:biascohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator in the \(df\) computation.
 \end{itemize}
 
 \begin{figure}
@@ -309,10 +309,10 @@ As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, 
 \caption{\label{fig:biascohendprimehetunbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma= \frac{(\sigma_1^2+\sigma_2^2)}{2}\), for a constant \(SD\)-ratio.}
 \end{figure}
 
-Note: for a constant \(SD\)-ratio, the variance does not matter. (See Figure \ref{fig:biascohendprimehetunbalvariance2})
+Note: for a constant \(SD\)-ratio, the variance does not matter. (See Figure \ref{fig:biascohendprimehetunbalvariance2}).
 
-\hypertarget{shiehs-d_s-see-table-4}{%
-\subsection{\texorpdfstring{Shieh's \(d_s\) (see Table 4)}{Shieh's d\_s (see Table 4)}}\label{shiehs-d_s-see-table-4}}
+\hypertarget{shiehs-d_s-see-table-2}{%
+\subsection{\texorpdfstring{Shieh's \(d_s\) (see Table 2)}{Shieh's d\_s (see Table 2)}}\label{shiehs-d_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations-1}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-1}}
@@ -362,7 +362,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \caption{\label{fig:biasshiehhomuneqNsize2}Degrees of freedom (DF), when computing the bias of Shieh's \(d_s\), when variances are equal across groups, , when adding subjects only in the first group (left) or in the second group (right).}
 \end{figure}
 
-Note: when computing Cohen's \(d'_s\), \(DF\) increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's \(d_s\), this is not true anymore: there is a larger impact of the sample sizes ratio, in order that increasing the sample sizes ratio when adding subjects in only one group can decrease \(DF\) and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2})
+Note: when computing Cohen's \(d'_s\), degrees of freedom increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's \(d_s\), this is not true anymore: there is a larger impact of the sample sizes ratio, in order that increasing the sample sizes ratio when adding subjects in only one group can decrease the degrees of freedom and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2}).
 
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}}
@@ -441,18 +441,18 @@ The \textbf{bias} of Shieh's \(d'_s\) is a function of the population effect siz
 \caption{\label{fig:biasshiehhetuneqNsize2}Degrees of freedom (DF), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the total sample size, when adding subjects only in one group (either in the first group; see top plots; or in the second group; see bottom plots), and \(\sigma_1 > \sigma_2\) (left plots) or \(\sigma_1 < \sigma_2\) (right plots).}
 \end{figure}
 
-Note: When variances were equal across populations, adding subjects only in the first group had the same impact on \(DF\) (and therefore on bias) than adding subjects only in the second group (see Figure \ref{fig:biasshiehhomuneqNsize2}). When variances are unequal across gruops, this is not true anymore (see Figure \ref{fig:biasshiehhetuneqNsize2})
+Note: When variances were equal across populations, adding subjects only in the first group had the same impact on degrees of freedom (and therefore on bias) than adding subjects only in the second group (see Figure \ref{fig:biasshiehhomuneqNsize2}). When variances are unequal across groups, this is not true anymore (see Figure \ref{fig:biasshiehhetuneqNsize2}).
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasshiehhetunbaldfandvar-1.pdf}
-\caption{\label{fig:biasshiehhetunbaldfandvar}Degrees of freedom (\(DF\)) and \(\gamma\), when computing the bias ofo Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
+\caption{\label{fig:biasshiehhetunbaldfandvar}Degrees of freedom (\(DF\)) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
 \end{figure}
 
 \begin{itemize}
 \tightlist
 \item
-  The smallest bias always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (See Figure \ref{fig:biasshiehhetunbaldfandvar})
+  The smallest bias always occurs when there is a positive pairing between variances and sample sizes. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest bias (See Figure \ref{fig:biasshiehhetunbaldfandvar});
 \end{itemize}
 
 \begin{figure}
@@ -461,7 +461,7 @@ Note: When variances were equal across populations, adding subjects only in the 
 \caption{\label{fig:biasshiehhetunbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Shieh's \(d_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma_1\) and \(\sigma_2\), for a constant \(SD\)-ratio.}
 \end{figure}
 
-Moreover, for a constant \(SD\)-ratio, the variances don't matter (See Figure \ref{fig:biasshiehhetunbalvariance2})
+Moreover, for a constant \(SD\)-ratio, the variances don't matter (See Figure \ref{fig:biasshiehhetunbalvariance2}).
 
 \hypertarget{in-summary}{%
 \subsection{In summary}\label{in-summary}}
@@ -491,9 +491,9 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \begin{itemize}
 \tightlist
 \item
-  When \(\delta'_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta'_{Cohen}\), the more Cohen's \(d'_s\) will overestimate \(\delta'_{Cohen}\)\\
+  When \(\delta'_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta'_{Cohen}\), the more Cohen's \(d'_s\) will overestimate \(\delta'_{Cohen}\);\\
 \item
-  The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both).\\
+  The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both);\\
 \item
   The smallest bias always occure when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.
 \end{itemize}
@@ -503,9 +503,9 @@ The \textbf{bias} of Shieh's \(d'_s\) is a function of the population effect siz
 \begin{itemize}
 \tightlist
 \item
-  When \(\delta_{Shieh}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Shieh}\), the more Shieh's \(d_s\) will overestimate \(\delta_{Shieh}\)\\
+  When \(\delta_{Shieh}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Shieh}\), the more Shieh's \(d_s\) will overestimate \(\delta_{Shieh}\);\\
 \item
-  For a constant sample sizes ratio, the bias decreases when the total sample size increases.\\
+  For a constant sample sizes ratio, the bias decreases when the total sample size increases;\\
 \item
   The smallest bias always occure when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see \enquote{Theoretical Bias, as a function of population parameters}).
 \end{itemize}
