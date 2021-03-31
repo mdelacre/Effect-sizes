@@ -328,7 +328,7 @@ plot(log(nratio2),VAR2,xlab=expression(paste("log(",n[c],"/",n[e],")")),ylab=exp
 #round(nratio2[VAR2==min(VAR2)])
 ```
 
-Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the adddition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), and the larger the population effect size the truer. For example, when $\delta_{glass}$= `r delta_glass1`, the lowest variance will occure when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{glass}$= `r delta_glass2`, the lowest variance will occure when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
+Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the adddition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), and the larger the population effect size the truer. For example, when $\delta_{glass}$= `r delta_glass1`, the lowest variance will occur when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{glass}$= `r delta_glass2`, the lowest variance will occur when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
 
 ### When variances are unequal across populations, with equal sample sizes
 
