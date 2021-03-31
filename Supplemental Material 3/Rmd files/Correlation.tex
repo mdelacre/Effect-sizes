@@ -115,7 +115,7 @@
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-The \emph{d}-family effect sizes are commonly used with \enquote{between-subject} designs where individuals are randomly assigned into one of two independent groups and groups scores means are compared. The population effect size is defined as
+The \emph{d}-family effect sizes are commonly used with between-subjects designs where individuals are randomly assigned into one of two independent groups and groups means are compared. The population effect size is defined as
 
 \begin{equation} 
 \delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
@@ -164,18 +164,19 @@ S_{Cohen's \; d'_s} = \sqrt{\frac{\left(S^2_{1}+S^2_{2} \right)}{2}}
 \label{eq:cohenprimeds}
 \end{equation}
 
-As we previously mentioned, using these formulas implies meeting the assumption of normality. Using them when distributions are not normal will have consequences on both bias and variance of all estimators. More specifically, when samples are extracted from skewed distribution, correlations might occur between the sample means difference (\(\bar{X_1}-\bar{X_2}\)) and standardizers (\(\sigma\)). Studying when these correlations occur is the main goal of this appendix. To this end, we will distinguish 4 situations, as a function of the sample sizes ratio \(\left( \frac{n_1}{n_2}=1 \; vs. \frac{n_1}{n_2}\neq1\; \right)\) and the population \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}=1 \; vs. \frac{\sigma_1}{\sigma_2}\neq1\; \right)\), but before that, we will briefly introduce the impact of correlations on the bias.
+As we previously mentioned, using these formulas implies meeting the assumption of normality. Using them when distributions are not normal will have consequences on both bias and variance of all estimators. More specifically, when samples are extracted from skewed distributions, correlations might occur between the sample means difference (\(\bar{X_1}-\bar{X_2}\)) and standardizers (\(\sigma\)). Studying when these correlations occur is the main goal of this Supplemental Material. To this end, we will distinguish 3 situations:\\
+- when \(\sigma_1=\sigma_2\) and \(n_1=n_2\) (condition a);\\
+- when \(\sigma_1=\sigma_2\) and \(n_1\neq n_2\) (condition b);\\
+- when \(\sigma_1 \neq \sigma_2\) and \(n_1 = n_2\) (condition c).
 
-Note that we will compute correlations using the coefficient of Spearman's \(\rho\). We decided to use Spearman's \(\rho\) instead of Pearson's \(\rho\) because some plots revealed non-perfectly linear relations.
+Before studying conditions a, b and c, we will briefly introduce the impact of these correlations on the bias. Note that we will compute correlations using the coefficient of Spearman's \(\rho\). We decided to use Spearman's \(\rho\) instead of Pearson's \(\rho\) because some plots revealed non-perfectly linear relations.
 
 \hypertarget{how-correlations-between-the-mean-difference-barx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}{%
 \section{\texorpdfstring{How correlations between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and standardizers affect the bias of estimators.}{How correlations between the mean difference (\textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}) and standardizers affect the bias of estimators.}}\label{how-correlations-between-the-mean-difference-barx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}}
 
-When distributions are right-skewed, there is a positive (negative) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When distributions are left-skewed, there is a negative (positive) correlation between \(S_1\) (\(S_2\)) and \(\bar{X_1}-\bar{X_2}\). When the population mean difference \(\mu_1-\mu_2\) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with \(\bar{X_1}-\bar{X_2}\) than when choosing an estimator that is negatively correlated with \(\bar{X_1}-\bar{X_2}\). When the population mean difference is negative, the reverse is true.
+When distributions are right-skewed, there is a positive (negative) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When distributions are left-skewed, there is a negative (positive) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When the population means difference (\(\mu_1-\mu_2\)) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with \(\bar{X_1}-\bar{X_2}\) than when choosing an estimator that is negatively correlated with \(\bar{X_1}-\bar{X_2}\). When the population means difference is negative, the reverse is true.
 
-GRAPHIQUE POUR L'EXPLIQUER.
-
-Note: I mentioned \enquote{all other parameters being equal}, because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower \(n_j\), the larger the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\). When the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decrease the bias. This is a nice example of situations where two factors might have an opposite action on bias.
+\enquote{All other parameters being equal} is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower \(n_j\), the larger the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\). When the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decrease the bias. This is a nice example of situations where two factors might have an opposite action on bias.
 
 \hypertarget{correlations-between-the-mean-difference-barx_1-barx_2-and-all-standardizers}{%
 \section{\texorpdfstring{Correlations between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and all standardizers}{Correlations between the mean difference (\textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}) and all standardizers}}\label{correlations-between-the-mean-difference-barx_1-barx_2-and-all-standardizers}}
@@ -194,10 +195,10 @@ While \(\bar{X_j}\) and \(S_j\) (j=1,2) are uncorrelated when samples are extrac
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHombalRskew-1.pdf}
-\caption{\label{fig:pltSDHombalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\); top plots)}
+\caption{\label{fig:pltSDHombalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure}
 
-More specifically, when distributions are right-skewed, there is a \textbf{positive} correlation between \(\bar{X_j}\) and \(S_j\) (see the two top plots in Figure \ref{fig:pltSDHombalRskew}), resulting in a \emph{positive} correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) and in a \emph{negative} correlation between \(S_2\) and \(\bar{X_1}-\bar{X_2}\) (see the two bottom plots in Figure \ref{fig:pltSDHombalRskew}). This can be explained by the fact that \(\bar{X_1}\) and \(\bar{X_1}-\bar{X_2}\) are positively correlated while \(\bar{X_2}\) and \(\bar{X_1}-\bar{X_2}\) and negatively correlated (of course, correlations would be trivially reversed if we computed \(\bar{X_2}-\bar{X_1}\) instead of \(\bar{X_1}-\bar{X_2}\)).
+More specifically, when distributions are right-skewed, there is a \textbf{positive} correlation between \(\bar{X_j}\) and \(S_j\) (see the two top plots in Figure \ref{fig:pltSDHombalRskew}), resulting in a \emph{positive} correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) and in a \emph{negative} correlation between \(S_2\) and \(\bar{X_1}-\bar{X_2}\) (see the two bottom plots in Figure \ref{fig:pltSDHombalRskew}). This can be explained by the fact that \(\bar{X_1}\) and \(\bar{X_1}-\bar{X_2}\) are positively correlated while \(\bar{X_2}\) and \(\bar{X_1}-\bar{X_2}\) are negatively correlated (of course, correlations would be trivially reversed if we computed \(\bar{X_2}-\bar{X_1}\) instead of \(\bar{X_1}-\bar{X_2}\)).
 
 \begin{figure}
 \centering
@@ -210,7 +211,7 @@ One should also notice that both correlations between \(S_j\) and \(\bar{X_1}-\b
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHombalLskew-1.pdf}
-\caption{\label{fig:pltSDHombalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\); top plots)}
+\caption{\label{fig:pltSDHombalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure}
 
 On the other hand, when distributions are left-skewed, there is a \textbf{negative} correlation between \(\bar{X_j}\) and \(S_j\) (see the two top plots in Figure \ref{fig:pltSDHombalLskew}), resulting in a \emph{negative} correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) and in a \emph{positive} correlation between \(S_2\) and \(\bar{X_1}-\bar{X_2}\) (see the two bottom plots in Figure \ref{fig:pltSDHombalLskew}).
@@ -237,7 +238,7 @@ When distributions are skewed, there are again non-null correlations between \(\
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/Homunbalcorasafctofn2-1.pdf}
-\caption{\label{fig:Homunbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from right left distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:Homunbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure}
 
 When distributions are skewed, one observes that the larger the sample size, the lower the correlation between \(S_j\) and \(\bar{X_j}\) (See Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn2}).
@@ -245,61 +246,191 @@ When distributions are skewed, one observes that the larger the sample size, the
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHomunbalRskew-1.pdf}
-\caption{\label{fig:pltSDHomunbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\); top plots), with n1=20 and n2=100}
+\caption{\label{fig:pltSDHomunbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHomunbalLskew-1.pdf}
-\caption{\label{fig:pltSDHomunbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\); top plots), with n1=20 and n2=100}
+\caption{\label{fig:pltSDHomunbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure}
 
-This might explain why the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is lower in the larger sample (See bottom plots in Figures \ref{fig:pltSDHomunbalRskew} and \ref{fig:pltSDHomunbalLskew}; note that with no surprise, there is a positive (negative) correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) and a negative (positive) correlation between \(S_2\) and \(\bar{X_1}-\bar{X_2}\) when distribution are right-skewed (left-skewed), as illustrated in the two bottom plots of Figures \ref{fig:pltSDHomunbalRskew} and \ref{fig:pltSDHomunbalLskew}).
+This might explain that the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is lower in the larger sample (see bottom plots in Figures \ref{fig:pltSDHomunbalRskew} and \ref{fig:pltSDHomunbalLskew}). With no surprise, there is a positive (negative) correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) and a negative (positive) correlation between \(S_2\) and \(\bar{X_1}-\bar{X_2}\) when distribution are right-skewed (left-skewed), as illustrated in the two bottom plots of Figures \ref{fig:pltSDHomunbalRskew} and \ref{fig:pltSDHomunbalLskew}.
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHomunbalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHomunbalRskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:pltStdzrHomunbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\), with \(n_1\)=20 and \(n_2\)=100)}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHomunbalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHomunbalLskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:pltStdzrHomunbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure}
 
-This might also explain why the standardizers of Shieh's \(d_s\) and Cohen's \(d'_s\) are this time \textbf{correlated} with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHomunbalRskew} and \ref{fig:pltStdzrHomunbalLskew}):\\
-- When computing \(S_{Cohen's \; d'_s}\), the same weight is given to both \(S_1\) and \(S_2\). Therefore, it doesn't seem surprising that the sign of the correlation between \(S_{Cohen's \; d'_s}\) and \(\bar{X_1}-\bar{X_2}\) is the same as the size of the correlation between \(\bar{X_1}-\bar{X_2}\) and the \(SD\) of the smallest sample.\\
-- When computing \(S_{Shieh's \; d_s}\), more weight is given to the \(SD\) of the smallest sample, it is therefore not really surprising to observe that the correlation between \(S_{Shieh's \; d_s}\) and \(\bar{X_1}-\bar{X_2}\) is closer of the correlation between \(S_1\) and \(\bar{X_1}-\bar{X_2}\) (i.e.~\(cor(S_{Shieh's \; d_s},\bar{X_1}-\bar{X_2}) > cor(S_{Cohen's \; d'_s},\bar{X_1}-\bar{X_2})\))\\
+This might also explain that standardizers of Shieh's \(d_s\) and Cohen's \(d'_s\) are \textbf{correlated} with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHomunbalRskew} and \ref{fig:pltStdzrHomunbalLskew}):\\
+- When computing \(S_{Cohen's \; d'_s}\), the same weight is given to both \(S_1\) and \(S_2\). Therefore, it doesn't seem surprising that the sign of the correlation between \(S_{Cohen's \; d'_s}\) and \(\bar{X_1}-\bar{X_2}\) is the same as the size of the correlation between \(\bar{X_1}-\bar{X_2}\) and the \(SD\) of the smallest sample;\\
+- When computing \(S_{Shieh's \; d_s}\), more weight is given to the \(SD\) of the smallest sample, it is therefore not really surprising to observe that the correlation between \(S_{Shieh's \; d_s}\) and \(\bar{X_1}-\bar{X_2}\) is closer of the correlation between the \(SD\) of the smallest group and \(\bar{X_1}-\bar{X_2}\) (i.e.~\(|cor(S_{Shieh's \; d_s},\bar{X_1}-\bar{X_2})| > |cor(S_{Cohen's \; d'_s},\bar{X_1}-\bar{X_2})|\));\\
 - When computing \(S_{Cohen}\), more weight is given to the \(SD\) of the largest sample, which by compensation effect, brings the correlation very close to 0.
 
-The correlation \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\), \(SD_2\), the standardizer of Hedge's \(g'_s\) and Shieh's \(g_s\) and the standardizer of Hedge's \(g_s\) are summarized in Table 2:
+The correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\), \(SD_2\), the standardizer of Cohen's \(d'_s\), the standardizer of Shieh's \(d_s\) and the standardizer of Cohen's \(d_s\) are summarized in Table 1:
 
 \begin{longtable}[]{@{}lcc@{}}
-\caption{Correlation between standardizers (\(SD_1\),\(SD_2\),\(S_{Cohen's \; d_s}\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, as a function of the n-ratio.}\tabularnewline
+\caption{Correlation between standardizers (\(SD_1\), \(SD_2\), \(S_{Cohen's \; d_s}\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, and \(n_1=n_2\) (condition a) or \(n_1 \neq n_2\) (condition b)}\tabularnewline
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+\begin{minipage}[b]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
+\textbf{\textbf{population distribution}}\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+\begin{minipage}[b]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
+\textbf{\textbf{population distribution}}\strut
+\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-& \emph{right-skewed} & \emph{left-skewed}\tabularnewline
-& ---------------------------------- & -----------------------------------------\tabularnewline
-When \(n_1=n_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negative}\tabularnewline
-& \(SD_2\): \emph{negative} & \(SD_2\): \emph{positive}\tabularnewline
-& Others: \emph{null} & Others: \emph{null}\tabularnewline
-& &\tabularnewline
-When \(n_1>n_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negative}\tabularnewline
-& \(SD_2\): \emph{negative} & \(SD_2\): \emph{positive}\tabularnewline
-& Others: \emph{negative} & Others: \emph{positive}\tabularnewline
-& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null}\tabularnewline
-& &\tabularnewline
-When \(n_1<n_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negative}\tabularnewline
-& \(SD_2\): \emph{negative} & \(SD_2\): \emph{positive}\tabularnewline
-& Others: \emph{positive} & Others: \emph{negative}\tabularnewline
-& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\emph{right-skewed}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\emph{left-skewed}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+----------------------------------\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+-----------------------------------------\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+When \(n_1=n_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_1\): \emph{positive}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_1\): \emph{negative}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_2\): \emph{negative}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_2\): \emph{positive}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{null}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{null}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{null}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{null}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{null}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{null}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+When \(n_1>n_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_1\): \emph{positive}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_1\): \emph{negative}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_2\): \emph{negative}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_2\): \emph{positive}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{null}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{null}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{negative}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{positive}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{positive (but very small)}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{negative (but very small)}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+When \(n_1<n_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_1\): \emph{positive}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_1\): \emph{negative}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(SD_2\): \emph{negative}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(SD_2\): \emph{positive}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{negative (but very small)}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d_s}\): \emph{positive (but very small)}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{positive}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Shieh's \; d_s}\): \emph{negative}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{positive}\strut
+\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
+\(S_{Cohen's \; d'_s}\): \emph{negative}\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -309,42 +440,42 @@ When \(n_1<n_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negative}\tabular
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/Hetbalcorasafctofn1-1.pdf}
-\caption{\label{fig:Hetbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:Hetbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/Hetbalcorasafctofn2-1.pdf}
-\caption{\label{fig:Hetbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when n = 25, 50, 75 or 100 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:Hetbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHetbalRskew-1.pdf}
-\caption{\label{fig:pltSDHetbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\); top plots), with n1=20 and n2=100}
+\caption{\label{fig:pltSDHetbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHetbalLskew-1.pdf}
-\caption{\label{fig:pltSDHetbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\); top plots), with n1=20 and n2=100}
+\caption{\label{fig:pltSDHetbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure}
 
-When distributions are skewed, there are again non-null correlations between \(\bar{X_j}\) and \(S_j\). As illustrated in Figures \ref{fig:Hetbalcorasafctofn1} and \ref{fig:Hetbalcorasafctofn2}, the correlation remain the same for any population \(SD\) (\(\sigma\)). However, the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) differ: it is stronger in the sample extracted from the larger population variance.
+When distributions are skewed, there are again non-null correlations between \(\bar{X_j}\) and \(S_j\). As illustrated in Figures \ref{fig:Hetbalcorasafctofn1} and \ref{fig:Hetbalcorasafctofn2}, the correlation remain the same for any population \(SD\) (\(\sigma\)). However, the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) differ: it is stronger in the sample extracted from the larger population variance (see Figures \ref{fig:pltSDHetbalRskew} and \ref{fig:pltSDHetbalLskew}).
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHetbalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHetbalRskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:pltStdzrHetbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHetbalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHetbalLskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:pltStdzrHetbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure}
 
-This also explain that when computing a standardizer taking both \(S_1\) and \(S_2\) into account, it results in a standardizer that is correlated with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and respectively the standardizer of Shieh's \(d_s\), Cohen's \(d'_s\) and Cohen's \(d_s\) will have the same sign as the correlation between (\(\bar{X_1}-\bar{X_2}\)) and the larger \(SD\). Table 1 summarizes the sign of the correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\), \(SD_2\) and the three standardizers taking both \(SD_1\) and \(SD_2\) into account (see \enquote{Others} in the Table).
+This also explain that when computing a standardizer taking both \(S_1\) and \(S_2\) into account, it results in a standardizer that is correlated with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and respectively the standardizer of Shieh's \(d_s\), Cohen's \(d'_s\) and Cohen's \(d_s\) will have the same sign as the correlation between (\(\bar{X_1}-\bar{X_2}\)) and the larger \(SD\). Table 2 summarizes the sign of the correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(SD_1\), \(SD_2\) and the three standardizers taking both \(SD_1\) and \(SD_2\) into account (see \enquote{Others} in the Table).
 
 \begin{longtable}[]{@{}lcc@{}}
 \caption{Correlation between standardizers (\(SD_1\),\(SD_2\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.}\tabularnewline
@@ -372,24 +503,5 @@ When \(\sigma_1<\sigma_2\) & \(SD_1\): \emph{positive} & \(SD_1\): \emph{negativ
 & &\tabularnewline
 \bottomrule
 \end{longtable}
-
-\hypertarget{when-unequal-population-variances-are-estimated-based-on-unequal-sample-sizes-conditions-d-and-e}{%
-\subsection{When unequal population variances are estimated based on unequal sample sizes (conditions d and e)}\label{when-unequal-population-variances-are-estimated-based-on-unequal-sample-sizes-conditions-d-and-e}}
-
-\hypertarget{when-distributions-are-right-skewed}{%
-\section{When distributions are right-skewed}\label{when-distributions-are-right-skewed}}
-
-We already know that Glass's \(d_s\) using \(SD_1\) will have the smallest bias (and that Glass's \(d_s\) using \(SD_2\) as standardizer will have the largest one) when:\\
-- \(n_1 > n_2\) (condition b)\\
-- \(\sigma_1 < \sigma_2\) (condition c)
-There is therefore no surprises that the most extreme differences between both Glass's estimators (in favour of using \(SD_1\)) occurs when there is a negative pairing between \(n\) and \(SD\), and \(n_1 > n_2\).
-
-\hypertarget{when-distributions-are-left-skewed}{%
-\section{When distributions are left-skewed}\label{when-distributions-are-left-skewed}}
-
-We already know that Glass's \(d_s\) using \(SD_2\) will have the smallest bias (and that Glass's \(d_s\) using \(SD_1\) as standardizer will have the largest one) when:\\
-- \(n_1 < n_2\) (condition b)\\
-- \(\sigma_1 > \sigma_2\) (condition c)
-There is therefore no surprises that the most extreme differences between both Glass's estimators (in favour of using \(SD_2\)) occurs when there is a negative pairing between \(n\) and \(SD\), and \(n_1 < n_2\).
 
 \end{document}
