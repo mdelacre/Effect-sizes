@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  30 MAR 2021 10:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  15 APR 2021 12:57
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -719,30 +719,7 @@ Package grffile Info: Option `multidot' is set to `true'.
 Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
 Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
-)
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
-sty"
-Package: csquotes 2019/05/10 v5.2e context-sensitive quotations (JAW)
-\csq@reset=\count135
-\csq@gtype=\count136
-\csq@glevel=\count137
-\csq@qlevel=\count138
-\csq@maxlvl=\count139
-\csq@tshold=\count140
-\csq@ltx@everypar=\toks28
-
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
-def"
-File: csquotes.def 2019/05/10 v5.2e csquotes generic definitions (JAW)
-)
-Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
-Package csquotes Info: ... configuration file loaded successfully.
-
-("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
-cfg"
-File: csquotes.cfg 
-)) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/was\upgreek.sty
-"
+) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/was\upgreek.sty"
 Package: upgreek 2003/02/12 v2.0 (WaS)
 Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
 \symugrf@m=\mathgroup9
@@ -757,7 +734,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 sty"
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip74
-\multirow@cntb=\count141
+\multirow@cntb=\count135
 \multirow@dima=\skip75
 \bigstrutjot=\dimen149
 ) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\tabularx.s
@@ -768,7 +745,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen150
 \ar@mcellbox=\box38
 \extrarowheight=\dimen151
-\NC@list=\toks29
+\NC@list=\toks28
 \extratabsurround=\skip76
 \backup@length=\skip77
 \ar@cellbox=\box39
@@ -778,8 +755,8 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \TX@old@col=\dimen154
 \TX@target=\dimen155
 \TX@delta=\dimen156
-\TX@cols=\count142
-\TX@ftn=\toks30
+\TX@cols=\count136
+\TX@ftn=\toks29
 )
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/threeparttablex\th
 reeparttablex.sty"
@@ -798,26 +775,44 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \longtablewidth=\skip79
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count143
-\output=\toks31
-\linenoprevgraf=\count144
+\linenopenalty=\count137
+\output=\toks30
+\linenoprevgraf=\count138
 \linenumbersep=\dimen157
 \linenumberwidth=\dimen158
-\c@linenumber=\count145
-\c@pagewiselinenumber=\count146
-\c@LN@truepage=\count147
-\c@internallinenumber=\count148
-\c@internallinenumbers=\count149
+\c@linenumber=\count139
+\c@pagewiselinenumber=\count140
+\c@LN@truepage=\count141
+\c@internallinenumber=\count142
+\c@internallinenumbers=\count143
 \quotelinenumbersep=\dimen159
 \bframerule=\dimen160
 \bframesep=\dimen161
 \bframebox=\box40
-
-LaTeX Warning: Command \@parboxrestore  has changed.
-               Check if current package is valid.
-
 LaTeX Info: Redefining \\ on input line 3056.
 )
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
+sty"
+Package: csquotes 2019/05/10 v5.2e context-sensitive quotations (JAW)
+\csq@reset=\count144
+\csq@gtype=\count145
+\csq@glevel=\count146
+\csq@qlevel=\count147
+\csq@maxlvl=\count148
+\csq@tshold=\count149
+\csq@ltx@everypar=\toks31
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
+def"
+File: csquotes.def 2019/05/10 v5.2e csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/csquotes\csquotes.
+cfg"
+File: csquotes.cfg 
+))
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\rotating.
 sty"
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
@@ -829,44 +824,79 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPbot=\skip81
 \rot@float@box=\box41
 \rot@mess@toks=\toks32
+) ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.st
+y"
+Package: babel 2019/09/27 3.34 The Babel package
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.def
+"
+File: switch.def 2019/09/27 3.34 Babel switching mechanism
 )
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-english\engl
+ish.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2019/09/27 3.34 Babel common definitions
+\babel@savecnt=\count151
+\U@D=\dimen162
+
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.d
+ef")
+\bbl@dirlevel=\count152
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-english\engl
+ish.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+))
 Package csquotes Info: Checking for multilingual support...
-Package csquotes Info: ... none found.
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'english'.
 (ES.aux
 
-LaTeX Warning: Label `eq:glassdf' multiply defined.
-
-
 LaTeX Warning: Label `eq:Hedgesgs' multiply defined.
+
+
+LaTeX Warning: Label `eq:Cohendelta' multiply defined.
 
 )
 \openout1 = `ES.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 168.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-17.
+68.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-7.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 168.
+LaTeX Font Info:    ... okay on input line 168.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 16
+8.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -908,16 +938,16 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count151
-\scratchdimen=\dimen162
+\scratchcounter=\count153
+\scratchdimen=\dimen163
 \scratchbox=\box42
-\nofMPsegments=\count152
-\nofMParguments=\count153
+\nofMPsegments=\count154
+\nofMParguments=\count155
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count154
-\MPscratchDim=\dimen163
-\MPnumerator=\count155
-\makeMPintoPDFobject=\count156
+\MPscratchCnt=\count156
+\MPscratchDim=\dimen164
+\MPnumerator=\count157
+\makeMPintoPDFobject=\count158
 \everyMPtoPDFconversion=\toks34
 )
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-
@@ -950,14 +980,14 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 117.
+LaTeX Info: Redefining \microtypecontext on input line 168.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 117.
+LaTeX Info: Redefining \showhyphens on input line 168.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -968,7 +998,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring OFF on input line 117.
+Package hyperref Info: Link coloring OFF on input line 168.
 
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -978,43 +1008,46 @@ Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 estring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count157
+\c@section@level=\count159
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 168.
+LaTeX Info: Redefining \pageref on input line 168.
+LaTeX Info: Redefining \nameref on input line 168.
+
+Class apa6 Warning: Abstract not defined.
+
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-19.
+70.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-19.
+70.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-19.
+70.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-119.
+170.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-119.
+170.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 119.
+(Font)              <12> on input line 170.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 119.
+(Font)              <8> on input line 170.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 119.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 119
+(Font)              <6> on input line 170.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 170
 .
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1023,7 +1056,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 119
+LaTeX Font Info:    Trying to load font information for U+msb on input line 170
 .
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1037,287 +1070,56 @@ fg"
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{C:/Users/Marie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-] [2]
+]
 Underfull \vbox (badness 4954) has occurred while \output is active []
 
-[3] [4]
+[2] [3]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 135.
+(Font)              <10> on input line 186.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 135.
+(Font)              <7> on input line 186.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 135.
-[5]
-<"ES_files/figure-latex/""BIAS-1".pdf, id=44, 1084.05pt x 578.16pt>
+(Font)              <5> on input line 186.
+[4]
+<"ES_files/figure-latex/""BIAS-1".pdf, id=39, 1084.05pt x 578.16pt>
 File: "ES_files/figure-latex/""BIAS-1".pdf Graphic file (type pdf)
 <use "ES_files/figure-latex/""BIAS-1".pdf>
 Package pdftex.def Info: "ES_files/figure-latex/""BIAS-1".pdf  used on input li
-ne 152.
+ne 201.
 (pdftex.def)             Requested size: 401.50575pt x 214.1364pt.
-[6] [7 <./ES_files/figure-latex/BIAS-1.pdf>] [8] [9] [10] [11] [12] [13
+[5] [6 <./ES_files/figure-latex/BIAS-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [14
+[7] [8] [9] [10] [11] [12
 
-] [15] [16
+] [13
 
-] [17
+] [14] [15
 
-] [18] [19]
+] [16
+
+] [17]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-08.
+10.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [20] [21
+) [18] [19] [20
 
-] [22
+] [21
 
-] [23] [24] [25] [26]
+] [22] [23] [24]
 \openout4 = `ES.fff'.
 
-(ES.fff) [27]
+(ES.fff) [25]
 Underfull \vbox (badness 2846) has occurred while \output is active []
 
-[28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[26]
+Underfull \vbox (badness 2042) has occurred while \output is active []
 
-[29] [30] [31] [32]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[33] [34]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[35] [36] [37] [38] [39]pdfTeX warning (ext4): destination with the same identi
-fier (name{ref-Algina_et_al_2006}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1138 ...ode\hypertarget{ref-Algina_et_al_2006}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Altman_2005}) has been already used, 
-duplicate ignored
-<to be read again> 
-                   \relax 
-l.1141 \leavevmode\hypertarget{ref-Altman_2005}{}
-                                                 %pdfTeX warning (ext4): destin
-ation with the same identifier (name{ref-AERA_2006}) has been already used, dup
-licate ignored
-<to be read again> 
-                   \relax 
-l.1144 \leavevmode\hypertarget{ref-AERA_2006}{}
-                                               %pdfTeX warning (ext4): destinat
-ion with the same identifier (name{ref-APA_2010}) has been already used, duplic
-ate ignored
-<to be read again> 
-                   \relax 
-l.1147 \leavevmode\hypertarget{ref-APA_2010}{}
-                                              %pdfTeX warning (ext4): destinati
-on with the same identifier (name{ref-Andersen_et_al_2007}) has been already us
-ed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1150 ...e\hypertarget{ref-Andersen_et_al_2007}{}
-                                                  % [40]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Cain_et_al_2017}) has been alrea
-dy used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1153 ...vmode\hypertarget{ref-Cain_et_al_2017}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Coe_2002}) has been already used, dup
-licate ignored
-<to be read again> 
-                   \relax 
-l.1156 \leavevmode\hypertarget{ref-Coe_2002}{}
-                                              %pdfTeX warning (ext4): destinati
-on with the same identifier (name{ref-Cohen_1965}) has been already used, dupli
-cate ignored
-<to be read again> 
-                   \relax 
-l.1159 \leavevmode\hypertarget{ref-Cohen_1965}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Cumming_2013}) has been already used, d
-uplicate ignored
-<to be read again> 
-                   \relax 
-l.1162 \leavevmode\hypertarget{ref-Cumming_2013}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Delacre_et_al_2017}) has been already
- used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1165 ...de\hypertarget{ref-Delacre_et_al_2017}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Delacre_et_al_2019}) has been already
- used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1168 ...de\hypertarget{ref-Delacre_et_al_2019}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Ellis_2015}) has been already used, d
-uplicate ignored
-<to be read again> 
-                   \relax 
-l.1171 \leavevmode\hypertarget{ref-Ellis_2015}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Erceg-Hurn_Mirosevich_2008}) has been a
-lready used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1174 ...target{ref-Erceg-Hurn_Mirosevich_2008}{}
-                                                  % [41]pdfTeX warning (ext4): 
-destination with the same identifier (name{ref-Fan_2001}) has been already used
-, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1177 \leavevmode\hypertarget{ref-Fan_2001}{}
-                                              %pdfTeX warning (ext4): destinati
-on with the same identifier (name{ref-Glass_et_al_1981}) has been already used,
- duplicate ignored
-<to be read again> 
-                   \relax 
-l.1180 ...mode\hypertarget{ref-Glass_et_al_1981}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Glass_et_al_1972}) has been already u
-sed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1183 ...mode\hypertarget{ref-Glass_et_al_1972}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Pelletier_Cousineau_2018}) has been a
-lready used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1186 ...ertarget{ref-Pelletier_Cousineau_2018}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Grissom_2000}) has been already used,
- duplicate ignored
-<to be read again> 
-                   \relax 
-l.1189 \leavevmode\hypertarget{ref-Grissom_2000}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Grissom_Kim_2001}) has been already u
-sed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1192 ...mode\hypertarget{ref-Grissom_Kim_2001}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Grissom_and_kim_2005}) has been alrea
-dy used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1195 ...\hypertarget{ref-Grissom_and_kim_2005}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Hedges_Olkin_1985}) has been already 
-used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1198 ...ode\hypertarget{ref-Hedges_Olkin_1985}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Huynh_1989}) has been already used, d
-uplicate ignored
-<to be read again> 
-                   \relax 
-l.1201 \leavevmode\hypertarget{ref-Huynh_1989}{}
-                                                % [42]pdfTeX warning (ext4): de
-stination with the same identifier (name{ref-Kelley_2005}) has been already use
-d, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1204 \leavevmode\hypertarget{ref-Kelley_2005}{}
-                                                 %pdfTeX warning (ext4): destin
-ation with the same identifier (name{ref-Keselman_et_al_2008}) has been already
- used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1207 ...e\hypertarget{ref-Keselman_et_al_2008}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Kulinskaya_Staudte_2007}) has been al
-ready used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1210 ...pertarget{ref-Kulinskaya_Staudte_2007}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Lakens_2013}) has been already used, 
-duplicate ignored
-<to be read again> 
-                   \relax 
-l.1213 \leavevmode\hypertarget{ref-Lakens_2013}{}
-                                                 %pdfTeX warning (ext4): destin
-ation with the same identifier (name{ref-Micceri_1989}) has been already used, 
-duplicate ignored
-<to be read again> 
-                   \relax 
-l.1216 \leavevmode\hypertarget{ref-Micceri_1989}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Peng_and_Chen_2014}) has been already
- used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1219 ...de\hypertarget{ref-Peng_and_Chen_2014}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Peng_et_al_2013}) has been already us
-ed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1222 ...vmode\hypertarget{ref-Peng_et_al_2013}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Prentice_Miller_1992}) has been alrea
-dy used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1225 ...\hypertarget{ref-Prentice_Miller_1992}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Raviv}) has been already used, duplic
-ate ignored
-<to be read again> 
-                   \relax 
-l.1228 \leavevmode\hypertarget{ref-Raviv}{}
-                                           % [43]pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Shieh_2013}) has been already used, dup
-licate ignored
-<to be read again> 
-                   \relax 
-l.1231 \leavevmode\hypertarget{ref-Shieh_2013}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Stout_Ruble_1995}) has been already use
-d, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1234 ...mode\hypertarget{ref-Stout_Ruble_1995}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Sullivan_Feinn_2012}) has been alread
-y used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1237 ...e\hypertarget{ref-Sullivan_Feinn_2012}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Wackerly_et_al_2008}) has been alread
-y used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1240 ...e\hypertarget{ref-Wackerly_et_al_2008}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Welch_1938}) has been already used, d
-uplicate ignored
-<to be read again> 
-                   \relax 
-l.1243 \leavevmode\hypertarget{ref-Welch_1938}{}
-                                                %pdfTeX warning (ext4): destina
-tion with the same identifier (name{ref-Wilkinson_1999}) has been already used,
- duplicate ignored
-<to be read again> 
-                   \relax 
-l.1246 ...evmode\hypertarget{ref-Wilkinson_1999}{}
-                                                  %pdfTeX warning (ext4): desti
-nation with the same identifier (name{ref-Yuan_et_al_2004}) has been already us
-ed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1249 ...vmode\hypertarget{ref-Yuan_et_al_2004}{}
-                                                  % AED endfloat: Processing en
-d Figures and Tables [44] (ES.fff
+[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] (ES.fff
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal".png
-, id=473, 948.54375pt x 443.15562pt>
+, id=383, 948.54375pt x 443.15562pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal
 ".png Graphic file (type png)
@@ -1328,12 +1130,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Hom_bal".png  used on input line 3.
 (pdftex.def)             Requested size: 650.45776pt x 303.8911pt.
-[45 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[37 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal.png
 >]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unbal".p
-ng, id=480, 949.5475pt x 442.65375pt>
+ng, id=391, 949.5475pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unb
 al".png Graphic file (type png)
@@ -1344,12 +1146,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Hom_unbal".png  used on input line 13.
 (pdftex.def)             Requested size: 650.4506pt x 303.22273pt.
-[46 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[38 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_N".p
-ng, id=486, 948.04187pt x 440.64626pt>
+ng, id=397, 948.04187pt x 440.64626pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _N".png Graphic file (type png)
@@ -1360,12 +1162,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_bal_N".png  used on input line 23.
 (pdftex.def)             Requested size: 650.44632pt x 302.32497pt.
-[47 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[39 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_sd".
-png, id=492, 950.04938pt x 442.65375pt>
+png, id=403, 950.04938pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _sd".png Graphic file (type png)
@@ -1376,12 +1178,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_bal_sd".png  used on input line 33.
 (pdftex.def)             Requested size: 650.46098pt x 303.06738pt.
-[48 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[40 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd.
 png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR10".png, id=498, 947.54pt x 442.65375pt>
+ger_SDR10".png, id=409, 947.54pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR10".png Graphic file (type png)
@@ -1392,12 +1194,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_firstlarger_SDR10".png  used on input line 43.
 (pdftex.def)             Requested size: 650.44897pt x 303.8644pt.
-[49 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[41 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR10".png, id=505, 950.04938pt x 446.16687pt>
+ller_SDR10".png, id=415, 950.04938pt x 446.16687pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR10".png Graphic file (type png)
@@ -1408,12 +1210,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_firstsmaller_SDR10".png  used on input line 53.
 (pdftex.def)             Requested size: 650.46098pt x 305.47269pt.
-[50 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[42 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
 aller_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR2".png, id=511, 949.5475pt x 442.15187pt>
+ger_SDR2".png, id=421, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR2".png Graphic file (type png)
@@ -1424,12 +1226,12 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_firstlarger_SDR2".png  used on input line 63.
 (pdftex.def)             Requested size: 650.4506pt x 302.87895pt.
-[51 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
+[43 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
 asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR2.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR2".png, id=517, 949.5475pt x 442.15187pt>
+ller_SDR2".png, id=428, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR2".png Graphic file (type png)
@@ -1440,175 +1242,76 @@ Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
 puts/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relativ
 e quality/""Het_firstsmaller_SDR2".png  used on input line 73.
 (pdftex.def)             Requested size: 650.4506pt x 302.87895pt.
-[52 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES me
-asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
-aller_SDR2.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Hom_bal".png, id=523, 951.05313
-pt x 437.635pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Hom_bal".png Graphic file 
-(type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Hom_bal".png>
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Hom_bal
-".png  used on input line 83.
-(pdftex.def)             Requested size: 650.45164pt x 299.31071pt.
-[53 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Hom_bal.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Hom_unbal".png, id=530, 950.049
-38pt x 442.65375pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Hom_unbal".png Graphic fil
-e (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Hom_unbal".png>
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Hom_unb
-al".png  used on input line 93.
-(pdftex.def)             Requested size: 650.46098pt x 303.06738pt.
-[54 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Hom_unbal.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_bal".png, id=537, 952.55875
-pt x 445.16313pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_bal".png Graphic file 
-(type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_bal".png>
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_bal
-".png  used on input line 103.
-(pdftex.def)             Requested size: 650.46394pt x 303.98393pt.
-[55 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_bal.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_bal_sdratio".png, id=545, 9
-52.55875pt x 446.16687pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_bal_sdratio".png Graph
-ic file (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_bal_sdratio".png>
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_bal
-_sdratio".png  used on input line 113.
-(pdftex.def)             Requested size: 650.46394pt x 304.66936pt.
-[56 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_bal_sdratio.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR10".png, id=
-552, 952.55875pt x 445.665pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR10".png
- Graphic file (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR10".png>
+) [44 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
+measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_first
+smaller_SDR2.png>] [45
 
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_fir
-stlarger_SDR10".png  used on input line 123.
-(pdftex.def)             Requested size: 650.46394pt x 304.32664pt.
-[57 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR10.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR10".png, id
-=559, 949.5475pt x 445.16313pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR10".pn
-g Graphic file (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR10".png
->
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_fir
-stsmaller_SDR10".png  used on input line 133.
-(pdftex.def)             Requested size: 650.4506pt x 304.9417pt.
-[58 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR10.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR2".png, id=5
-66, 952.05687pt x 448.17438pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR2".png 
-Graphic file (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_firstlarger_SDR2".png>
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_fir
-stlarger_SDR2".png  used on input line 143.
-(pdftex.def)             Requested size: 650.45535pt x 306.19748pt.
-[59 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR2.png>]
-<"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence interval
-s/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR2".png, id=
-573, 951.05313pt x 445.665pt>
-File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence int
-ervals/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR2".png
- Graphic file (type png)
-<use "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inte
-rvals/Graphs/Unbiased estimators/Combined Figures/""Het_firstsmaller_SDR2".png>
 
-Package pdftex.def Info: "D:/Documents/Github_projects/Effect-sizes/Scripts out
-puts/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/""Het_fir
-stsmaller_SDR2".png  used on input line 153.
-(pdftex.def)             Requested size: 650.45164pt x 304.80266pt.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1252.
-[60 <D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence inter
-vals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR2.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1252.
+
+
+
+
+
+
+
+
+] [46]
+Overfull \hbox (6.90845pt too wide) detected at line 1095
+[]\OML/lmm/m/it/12 Var[] \OT1/lmr/m/n/12 = [] + \OML/lmm/m/it/12 [] []
+ []
+
+AED endfloat: Processing end Figures and Tables [47]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1124.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1124.
 (ES.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1252.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1252.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1124.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1124.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17235 strings out of 492452
- 268818 string characters out of 3128447
- 384766 words of memory out of 3000000
- 20961 multiletter control sequences out of 15000+200000
- 87334 words of font info for 135 fonts, out of 3000000 for 9000
+ 17694 strings out of 492452
+ 270995 string characters out of 3128447
+ 405998 words of memory out of 3000000
+ 21423 multiletter control sequences out of 15000+200000
+ 87715 words of font info for 140 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,2873b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,3036b,542s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.e
+nc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.e
 nc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-math
 sy.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-
 mathit.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm
-/lm-rm.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm
 /lm-mathex.enc}<C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/lm/lmbx12.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/lm/lmbxi10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/lm/lmex10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/lm/lmmi10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Marie/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Users/Marie/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Marie/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/lm/lmmi7.pfb><C:/Users/Marie/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Marie/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/Marie/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/Marie/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr5.pfb><C:/Users/Marie/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Marie/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Marie/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Marie/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Mar
-ie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/
-Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Us
-ers/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb><C:
-/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb>
-<C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.p
+1/public/lm/lmbx8.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmbxi10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/lm/lmex10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Marie/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/lm/lmmi5.pfb><C:/Users/Marie/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Marie/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmmi7.pfb><C:/Users/Marie/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Marie/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/Marie/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/Marie/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr5.pfb><C:/Users/Marie/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Marie/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Marie/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Mari
+e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/
+Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Use
+rs/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:
+/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy5.pfb>
+<C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.p
 fb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy
-8.pfb>
-Output written on ES.pdf (60 pages, 1650840 bytes).
+7.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
+msy8.pfb>
+Output written on ES.pdf (47 pages, 1107058 bytes).
 PDF statistics:
- 751 PDF objects out of 1000 (max. 8388607)
- 213 named destinations out of 1000 (max. 500000)
- 10446 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 641 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 500000)
+ 10398 words of extra memory for PDF output out of 12000 (max. 10000000)
 
