@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  15 APR 2021 12:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  16 APR 2021 11:57
 entering extended mode
 **./ES.tex
 (ES.tex
@@ -864,9 +864,6 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 (ES.aux
 
-LaTeX Warning: Label `eq:Hedgesgs' multiply defined.
-
-
 LaTeX Warning: Label `eq:Cohendelta' multiply defined.
 
 )
@@ -1100,7 +1097,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ] [17]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
-10.
+09.
 ("C:\Users\Marie\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [18] [19] [20
@@ -1110,16 +1107,16 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ] [22] [23] [24]
 \openout4 = `ES.fff'.
 
-(ES.fff) [25]
+(ES.fff) [25] [26]
 Underfull \vbox (badness 2846) has occurred while \output is active []
 
-[26]
-Underfull \vbox (badness 2042) has occurred while \output is active []
+[27] [28] [29]
+Underfull \vbox (badness 2452) has occurred while \output is active []
 
-[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] (ES.fff
+[30] [31] [32] [33] [34] [35] [36] (ES.fff
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal".png
-, id=383, 948.54375pt x 443.15562pt>
+, id=394, 948.54375pt x 443.15562pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_bal
 ".png Graphic file (type png)
@@ -1135,7 +1132,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal.png
 >]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unbal".p
-ng, id=391, 949.5475pt x 442.65375pt>
+ng, id=402, 949.5475pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Hom_unb
 al".png Graphic file (type png)
@@ -1151,7 +1148,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_N".p
-ng, id=397, 948.04187pt x 440.64626pt>
+ng, id=408, 948.04187pt x 440.64626pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _N".png Graphic file (type png)
@@ -1167,7 +1164,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N.p
 ng>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal_sd".
-png, id=403, 950.04938pt x 442.65375pt>
+png, id=414, 950.04938pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_bal
 _sd".png Graphic file (type png)
@@ -1183,7 +1180,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd.
 png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR10".png, id=409, 947.54pt x 442.65375pt>
+ger_SDR10".png, id=420, 947.54pt x 442.65375pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR10".png Graphic file (type png)
@@ -1199,7 +1196,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR10".png, id=415, 950.04938pt x 446.16687pt>
+ller_SDR10".png, id=426, 950.04938pt x 446.16687pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR10".png Graphic file (type png)
@@ -1215,7 +1212,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsm
 aller_SDR10.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstlar
-ger_SDR2".png, id=421, 949.5475pt x 442.15187pt>
+ger_SDR2".png, id=432, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stlarger_SDR2".png Graphic file (type png)
@@ -1231,7 +1228,7 @@ asures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstla
 rger_SDR2.png>]
 <"D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measu
 res/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_firstsma
-ller_SDR2".png, id=428, 949.5475pt x 442.15187pt>
+ller_SDR2".png, id=439, 949.5475pt x 442.15187pt>
 File: "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES 
 measures/Graphs/Unbiased estimators/Combined Figures_relative quality/""Het_fir
 stsmaller_SDR2".png Graphic file (type png)
@@ -1271,13 +1268,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17694 strings out of 492452
- 270995 string characters out of 3128447
- 405998 words of memory out of 3000000
+ 17698 strings out of 492452
+ 271055 string characters out of 3128447
+ 406961 words of memory out of 3000000
  21423 multiletter control sequences out of 15000+200000
- 87715 words of font info for 140 fonts, out of 3000000 for 9000
+ 87711 words of font info for 140 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,3036b,542s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,3051b,542s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.e
 nc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.e
@@ -1309,9 +1306,9 @@ rs/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:
 fb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy
 7.pfb><C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
 msy8.pfb>
-Output written on ES.pdf (47 pages, 1107058 bytes).
+Output written on ES.pdf (47 pages, 1059709 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
+ 652 PDF objects out of 1000 (max. 8388607)
+ 180 named destinations out of 1000 (max. 500000)
  10398 words of extra memory for PDF output out of 12000 (max. 10000000)
 
