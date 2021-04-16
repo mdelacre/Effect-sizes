@@ -106,30 +106,20 @@ Correspondence concerning this article should be addressed to Marie Delacre, Pos
 \hypertarget{introduction-how-to-compute-a-confidence-interval-around-mu_1-mu_2}{%
 \subsubsection{\texorpdfstring{Introduction: How to compute a confidence interval around \(\mu_1-\mu_2\)}{Introduction: How to compute a confidence interval around \textbackslash mu\_1-\textbackslash mu\_2}}\label{introduction-how-to-compute-a-confidence-interval-around-mu_1-mu_2}}
 
-Considering the link between confidences intervals and NHST approach, we can think of confidence limits as the most extreme values of \(\mu_1-\mu_2\) that we could define as null hypothesis and that would not lead to rejecting the null hypothesis ({\textbf{???}}) (i.e that would be associated with a \emph{p}-value that exactly equals \(\frac{alpha}{2}\)).
+Considering the link between confidences intervals and NHST approach, we can think of confidence limits as the most extreme values of \(\mu_1-\mu_2\) that we could define as null hypothesis and that would not lead to rejecting the null hypothesis (Cumming \& Finch, 2001), that is to say, the value associated with a \emph{p}-value that exactly equals \(\frac{alpha}{2}\).
 
-Under the assumption of iid normal distributions of residuals with equal variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
+Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
 
 \begin{equation} 
 t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 \label{eq:tstudent}
 \end{equation}
 
-With \(SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) and \(\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}\).
+With \(SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) and \(\sigma_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}\).
 
-\begin{figure}
-\centering
-\includegraphics{CI_files/figure-latex/SAMPLMEANDIFF1-1.pdf}
-\caption{\label{fig:SAMPLMEANDIFF1}Sampling distribution of Student's t under the assumptions of normality and homoscedasticity}
-\end{figure}
+Under the null hypothesis, this quantity will follow a central \emph{t}- distribution with \(n_1+n_2-2\) degrees of freedom. \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$. }. The central \emph{t}-distribution is always centered around \((\mu_1-\mu_2)_0\) (e.g.~when we expect that \(\mu_1=\mu_2\) under the null hypothesis, the central \emph{t}-distribution is centered around 0, when we expect that \(\mu_1-\mu_2=3\) under the null hypothesis, the central \emph{t}-distribution is centered around 3, etc.).
 
-\begin{figure}
-\centering
-\includegraphics{CI_files/figure-latex/ILLUSTRATION-1.pdf}
-\caption{\label{fig:ILLUSTRATION}Sampling distribution. Both curves have the shape of a t distribution (df=n1+n2-2). Left (right) curve is placed so that the proportion of estimates larger (or lower) than the empirical mean difference exactly equals alpha/2}
-\end{figure}
-
-Under the null hypothesis, this quantity will follow a central \emph{t}- distribution with \(n_1+n_2-2\) degrees of freedom (see Figure \ref{fig:SAMPLMEANDIFF1}) \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$}. We can therefore easily define \((\mu_1-\mu_2)_L\), the lower limit of the confidence interval, such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}\) exactly equals the quantile (1-\(\frac{\alpha}{2}\)) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L\), and the upper limit \((\mu_1-\mu_2)_U\) such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}\) exactly equals the quantile \(\frac{\alpha}{2}\) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U\):
+Considering all these information, we can therefore define \((\mu_1-\mu_2)_L\), the lower limit of the confidence interval, such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}\) exactly equals the quantile (1-\(\frac{\alpha}{2}\)) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L\) (i.e.~the symmetric \emph{t}-distribution that is centered around \((\mu_1-\mu_2)_L\)) and the upper limit \((\mu_1-\mu_2)_U\) such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}\) exactly equals the quantile \(\frac{\alpha}{2}\) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U\) (i.e.~the symmetric \emph{t}-distribution that is centered around \((\mu_1-\mu_2)_U\)):
 
 \begin{equation} 
 Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
@@ -141,10 +131,12 @@ Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\
 \label{eq:plausiblelimit2}
 \end{equation}
 
+This is illustrated in Figure \ref{fig:ILLUSTRATION}.
+
 \begin{figure}
 \centering
-\includegraphics{CI_files/figure-latex/SAMPLMEANDIFF2-1.pdf}
-\caption{\label{fig:SAMPLMEANDIFF2}Sampling distribution of Welch's t under the assumptions of normality and heteroscedasticity}
+\includegraphics{CI_files/figure-latex/ILLUSTRATION-1.pdf}
+\caption{\label{fig:ILLUSTRATION}Sampling distribution. Both curves have the shape of a t distribution (df=n1+n2-2). Left curve is placed so that the proportion of estimates larger than the empirical mean difference (dark grey area) exactly equals alpha/2 and the right curve is placed so that the proportion of estimates lower than the empirical mean difference (light grey area) also exactly equals alpha/2.}
 \end{figure}
 
 Under the assumption of iid normal distributions of residuals with unequal variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
@@ -177,9 +169,9 @@ It is not the most conventional way of computing confidences limits around any m
 \caption{\label{fig:SAMPLMEANDIFF3}Sampling distribution of centered mean difference divided by SE (in grey, i.e.~pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity.}
 \end{figure}
 
-We previously mentioned that if the null hypothesis is true,\(t_{Student}\) (see equation \eqref{eq:tstudent}) will follow a central \emph{t}-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral \emph{t}-distribution will arise ({\textbf{???}}), as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}.
+We previously mentioned that if the null hypothesis is true,\(t_{Student}\) (see equation \eqref{eq:tstudent}) will follow a central \emph{t}-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral \emph{t}-distribution will arise (Cumming \& Finch, 2001), as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}.
 
-Noncentral \emph{t}-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call \(\Delta\); {\textbf{???}}), the last being a function of \(\delta\) and sample sizes \(n_1\) and \(n_2\):
+Noncentral \emph{t}-distributions are described by two parameters: degrees of freedom (df) and noncentrality parameter (that we will call \(\Delta\); Cumming \& Finch, 2001), the last being a function of \(\delta\) and sample sizes \(n_1\) and \(n_2\):
 
 \begin{equation}
 \Delta = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
@@ -209,7 +201,7 @@ Like \(t_{Student}\), \(t_{Welch}\) (see equation \eqref{eq:twelch}) will follow
 \caption{\label{fig:SAMPLMEANDIFF4}Sampling distribution of centered mean difference divided by SE (in grey, i.e.~pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity.}
 \end{figure}
 
-The noncentrality parameter \(\Delta*\) is a function of \(\delta*\) and total sample size \(N = n_1 + n_2\) ({\textbf{???}})
+The noncentrality parameter \(\Delta*\) is a function of \(\delta*\) and total sample size \(N = n_1 + n_2\) (Shieh, 2013)
 
 \begin{equation}
 \Delta* = \frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma_1^2}{n_1/N}+\frac{\sigma_2^2}{n_2/N}}} \times \sqrt{N}
@@ -220,8 +212,21 @@ Considering the link between \(\Delta\) and \(\delta\), we can compute confidenc
 \[P[t_{v, \Delta*_L} \geq t_{Welch}] = \frac{\alpha}{2} \] and
 \[P[t_{v, \Delta*_U} \leq t_{Welch}] = \frac{\alpha}{2} \].
 
-With \emph{v} approximated by \(\hat{v} = \frac{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})^2}{\frac{(\frac{S_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{S_2^2}{n_2})^2}{n_2-1}}\) ({\textbf{???}})
+With \emph{v} approximated by \(\hat{v} = \frac{(\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2})^2}{\frac{(\frac{S_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{S_2^2}{n_2})^2}{n_2-1}}\) (Shieh, 2013)
 
 Second, we divide \(\Delta*_L\) and \(\Delta*_U\) by \(\sqrt{N}\) in order to have \(\delta*_L\) and \(\delta*_U\) (i.e.~confidences limits for Shieh's \(\delta*\)).
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Cumming_Finch_2001}{}%
+Cumming, G., \& Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervales that are based on central and noncentral distributions. \emph{Educational and Psychological Measurement}, \emph{61}(532), 532--574.
+
+\leavevmode\hypertarget{ref-Shieh_2013}{}%
+Shieh, G. (2013). Confidence intervals and sample size calculations for the weighted eta-squared effect sizes in one-way heteroscedastic ANOVA. \emph{Behavior Research Methods}, \emph{45}(1), 2--37. doi:\href{https://doi.org/10.3758/s13428-012-0228-7}{10.3758/s13428-012-0228-7}
+
+\leavevmode\hypertarget{ref-Cumming_Finch_2001}{}%
+Cumming, G., \& Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervales that are based on central and noncentral distributions. \emph{Educational and Psychological Measurement}, \emph{61}(532), 532--574.
+
+\leavevmode\hypertarget{ref-Shieh_2013}{}%
+Shieh, G. (2013). Confidence intervals and sample size calculations for the weighted eta-squared effect sizes in one-way heteroscedastic ANOVA. \emph{Behavior Research Methods}, \emph{45}(1), 2--37. doi:\href{https://doi.org/10.3758/s13428-012-0228-7}{10.3758/s13428-012-0228-7}
 
 \end{document}

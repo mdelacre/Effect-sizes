@@ -19,6 +19,7 @@ abstract: |
 
 keywords          : "keywords"
 wordcount         : "X"
+bibliography      : ["r-references.bib"]
 floatsintext      : yes
 figurelist        : no
 tablelist         : no
@@ -45,54 +46,34 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 ### Introduction: How to compute a confidence interval around $\mu_1-\mu_2$ 
 
-Considering the link between confidences intervals and NHST approach, we can think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis [@Cumming_Finch_2001] (i.e that would be associated with a *p*-value that exactly equals $\frac{alpha}{2}$). 
+Considering the link between confidences intervals and NHST approach, we can think of confidence limits as the most extreme values of $\mu_1-\mu_2$ that we could define as null hypothesis and that would not lead to rejecting the null hypothesis [@Cumming_Finch_2001], that is to say, the value associated with a *p*-value that exactly equals $\frac{alpha}{2}$. 
 
-Under the assumption of iid normal distributions of residuals with equal variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
+Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
 
 \begin{equation} 
 t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 (\#eq:tstudent)
 \end{equation} 
 
-With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ and $\sigma_{pooled} = \sqrt{\frac{(n_1-1)*S^2_1+(n_2-1)*S^2_2}{n_1+n_2-2}}$. 
+With $SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ and $\sigma_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}$. 
 
-```{r, SAMPLMEANDIFF1, fig.cap= "Sampling distribution of Student's t under the assumptions of normality and homoscedasticity"}
-samplingtest <- function(n1,n2,nsim){
-  
-  for (i in seq_len(nsim)){
-    A <- rnorm(n1,mean=4)
-    B <- rnorm(n2,mean=2)
-    if (i==1){
-      av <- mean(A)-mean(B)  
-      sd1 <- sd(A)
-      sd2 <- sd(B)
-      
-    } else {
-      av <- c(av,mean(A)-mean(B))
-      sd1 <- c(sd1,sd(A))
-      sd2 <- c(sd2,sd(B))
-    }
-    
-  }
-  
-  pooled_sd <- sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
-  pq <- (av-(4-2))/(pooled_sd*sqrt(1/n1+1/n2))
-  
-  1-pt(.025,df=n1+n2-2)
-  plot(density(pq),main="Sampling distribution of t",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
-  legend("top",col=c("black","red"),legend=c("empirical distribution (based on simulations)","t-distribution with n1+n2-2 degrees of freedom"),lty=c(2,2),bty="n")
-  
-  df <- n1+n2-2
-  sq <- seq(-4,4,.01) 
-  lines(sq,dt(sq,df=df),lty=2,pch=9,cex=.5,col="red")
-  
-}
+Under the null hypothesis, this quantity will follow a central *t*- distribution with $n_1+n_2-2$ degrees of freedom. \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$. }. The central *t*-distribution is always centered around $(\mu_1-\mu_2)_0$ (e.g. when we expect that $\mu_1=\mu_2$ under the null hypothesis, the central *t*-distribution is centered around 0, when we expect that $\mu_1-\mu_2=3$ under the null hypothesis, the central *t*-distribution is centered around 3, etc.). 
 
-samplingtest(n1=50,n2=60,nsim=100000)
+Considering all these information, we can therefore define $(\mu_1-\mu_2)_L$, the lower limit of the confidence interval, such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$ (i.e. the symmetric *t*-distribution that is centered around $(\mu_1-\mu_2)_L$) and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$ (i.e. the symmetric *t*-distribution that is centered around $(\mu_1-\mu_2)_U$):
 
-```
+\begin{equation} 
+Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit1)
+\end{equation} 
 
-```{r, ILLUSTRATION, fig.cap= "Sampling distribution. Both curves have the shape of a t distribution (df=n1+n2-2). Left (right) curve is placed so that the proportion of estimates larger (or lower) than the empirical mean difference exactly equals alpha/2",fig.width=100}
+\begin{equation} 
+Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
+(\#eq:plausiblelimit2)
+\end{equation} 
+
+This is illustrated in Figure \ref{fig:ILLUSTRATION}.
+
+```{r, ILLUSTRATION, fig.cap= "Sampling distribution. Both curves have the shape of a t distribution (df=n1+n2-2). Left curve is placed so that the proportion of estimates larger than the empirical mean difference (dark grey area) exactly equals alpha/2 and the right curve is placed so that the proportion of estimates lower than the empirical mean difference (light grey area) also exactly equals alpha/2."}
 meandiff.CI <- function(Group.1, Group.2,conf.level=.95){ # alternative="two.sided", less or "greater"
   n1 <- length(Group.1)
   n2 <- length(Group.2)
@@ -111,7 +92,7 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95){ # alternative="two.sid
       f=function(theo_mudiff,rep) 1-pt(q=(meandiff-theo_mudiff)/SE, df=n1+n2-2)-rep
       out=uniroot(f,c(0,2),rep=(1-conf.level)/2,extendInt = "yes")
       theo_mudiff.1 <- out$root
-      
+
       # upper limit = limit of mu1-mu2 such as pt(q=t_obs, df=n1+n2-2) = (1-conf.level)/2 = alpha/2
       # with t_obs = ((mean1-mean2)-(theo_mudiff))/SE 
       
@@ -122,63 +103,27 @@ meandiff.CI <- function(Group.1, Group.2,conf.level=.95){ # alternative="two.sid
 low_t <-(meandiff-theo_mudiff.1)/SE#+meandiff
 up_t <-(meandiff-theo_mudiff.2)/SE#+meandiff
 
-curve(dt(x-theo_mudiff.1,2),from=-14,to=16,xlab="",ylab="",main ="",axes=F)
-abline(v=theo_mudiff.1,lty=2,col="grey")
-curve(dt(x-theo_mudiff.2,2),add=TRUE)
-abline(v=theo_mudiff.2,lty=2,col="grey")
+x <- seq(-5,10,.001)
+y <- dt(x,df=n1+n2-2)
+y2 <- dt(x-theo_mudiff.1,df=n1+n2-2)
+y3 <- dt(x-theo_mudiff.2,df=n1+n2-2)
+plot(0,0,col="white",xlim=c(-5,10),ylim=c(0,.5),bty="n",xaxt="n",xlab="")
+lines(x+theo_mudiff.1,y)
+abline(v=theo_mudiff.1,lty=2,col="black")
+lines(x+theo_mudiff.2,y,col="black",cex=.1,pch=9)
+abline(v=theo_mudiff.2,lty=2,col="black")
 abline(v=meandiff)
+abline(h=0)
 axis(side=1,at=c(theo_mudiff.1,meandiff,theo_mudiff.2),labels=c(expression(paste("( ",bar(mu[1])," - ",bar(mu[2])," )"["L"])),expression(paste(bar("X"[1])," - ",bar("X"[2]))),expression(paste("( ",bar(mu[1])," - ",bar(mu[2])," )"["U"]))),col="white",gap.axis=5,cex.axis=.8,col.axis="black")
+polygon(c(x[x>=meandiff],meandiff),c(y2[x>=meandiff],0), col="darkgrey")
+polygon(c(x[x<=meandiff],meandiff),c(y3[x<=meandiff],0), col="lightgrey")
+
 
 }
 
-Group.1 <- rnorm(20,2,5)
-Group.2 <- rnorm(20,0,5)
+Group.1 <- rnorm(40,2,5)
+Group.2 <- rnorm(40,0,5)
 meandiff.CI(Group.1, Group.2,conf.level=.95)
-```
-
-
-Under the null hypothesis, this quantity will follow a central *t*- distribution with $n_1+n_2-2$ degrees of freedom (see Figure \ref{fig:SAMPLMEANDIFF1}) \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$}. We can therefore easily define $(\mu_1-\mu_2)_L$, the lower limit of the confidence interval, such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}$ exactly equals the quantile  (1-$\frac{\alpha}{2}$) of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L$, and the upper limit $(\mu_1-\mu_2)_U$ such as $\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}$ exactly equals the quantile  $\frac{\alpha}{2}$ of the central *t*-distribution of the null hypothesis $H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U$:
-
-\begin{equation} 
-Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
-(\#eq:plausiblelimit1)
-\end{equation} 
-
-\begin{equation} 
-Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
-(\#eq:plausiblelimit2)
-\end{equation} 
-
-```{r, SAMPLMEANDIFF2, fig.cap= "Sampling distribution of Welch's t under the assumptions of normality and heteroscedasticity"}
-samplingtest2 <- function(n1,n2,sigma1,sigma2,nsim){
-  
-  for (i in seq_len(nsim)){
-    A <- rnorm(n1,mean=4,sd=sigma1)
-    B <- rnorm(n2,mean=2,sd=sigma2) 
-    if (i==1){
-      av <- mean(A)-mean(B)  
-      sd1 <- sd(A)
-      sd2 <- sd(B)
-      
-    } else { 
-      av <- c(av,mean(A)-mean(B))
-      sd1 <- c(sd1,sd(A))
-      sd2 <- c(sd2,sd(B))
-    }
-    
-  }
-  
-  pq <- (av-(4-2))/sqrt(sd1^2/n1+sd2^2/n2) 
-  plot(density(pq),main="Sampling distribution of PQ",xlab="",cex.main=1.5,ylim=c(0,.5)) # plotting the sampling distribution of the pivotal quantity
-  legend("top",col=c("black","red"),legend=c("empirical distribution (based on simulations)","t-distribution with df degrees of freedom"),lty=c(2,2),bty="n")
-
-  df <- (sigma1^2/n1+sigma2^2/n2)^2/(((sigma1^2/n1)^2)/(n1-1)+((sigma2^2/n2)^2)/(n2-1)) 
-  sq <- seq(-4,4,.01) 
-  lines(sq,dt(sq,df=df),lty=2,pch=9,cex=.5,col="red")
-  
-}
-
-samplingtest2(n1=50,n2=60, sigma1=2,sigma2=5,nsim=100000)
 ```
 
 Under the assumption of iid normal distributions of residuals with unequal variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
@@ -243,7 +188,7 @@ samplingtest3 <- function(n1,n2,mu1,mu2,sigma,nsim){
   legend("top",col=c("grey","red"),legend=c(paste0("centered variable divided by SE (skewness=",round(skewness(pq),2),")"),paste0("not centered variable divided by SE (skewness=",round(skewness(q2),2),")")),lty=c(2,2),bty="n")
 }
 
-samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=100000)
+samplingtest3(n1=5,n2=12, mu1=6,mu2=2,sigma=5,nsim=1000)
 ```
 
 We previously mentioned that if the null hypothesis is true,$t_{Student}$ (see equation \@ref(eq:tstudent)) will follow a central *t*-distribution. However, if the null hypothesis is false, the distribution of this quantity will not be centered, and noncentral *t*-distribution will arise [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. 
@@ -314,7 +259,7 @@ Like $t_{Student}$, $t_{Welch}$ (see equation \@ref(eq:twelch)) will follow a ce
 
 ```{r, SAMPLMEANDIFF4, fig.cap= "Sampling distribution of centered mean difference divided by SE (in grey, i.e. pivotal quantity) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity."}
 
-samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=100000)
+samplingtest4(n1=5,n2=12, mu1=6,mu2=2,sigma1=5,sigma2=5,nsim=1000)
 
 ```
 

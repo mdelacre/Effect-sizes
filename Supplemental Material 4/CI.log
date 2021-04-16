@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  29 MAR 2021 10:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.28)  1 APR 2021 17:09
 entering extended mode
 **./CI.tex
 (CI.tex
@@ -1022,66 +1022,75 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{C:/Users/Marie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ] [2]
-<"CI_files/figure-latex/""SAMPLMEANDIFF1-1".pdf, id=18, 469.755pt x 325.215pt>
-File: "CI_files/figure-latex/""SAMPLMEANDIFF1-1".pdf Graphic file (type pdf)
-<use "CI_files/figure-latex/""SAMPLMEANDIFF1-1".pdf>
-Package pdftex.def Info: "CI_files/figure-latex/""SAMPLMEANDIFF1-1".pdf  used o
-n input line 122.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<"CI_files/figure-latex/""ILLUSTRATION-1".pdf, id=19, 7227.0pt x 325.215pt>
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 120.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 120.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 120.
+[3]
+<"CI_files/figure-latex/""ILLUSTRATION-1".pdf, id=43, 469.755pt x 325.215pt>
 File: "CI_files/figure-latex/""ILLUSTRATION-1".pdf Graphic file (type pdf)
 <use "CI_files/figure-latex/""ILLUSTRATION-1".pdf>
 Package pdftex.def Info: "CI_files/figure-latex/""ILLUSTRATION-1".pdf  used on 
-input line 128.
-(pdftex.def)             Requested size: 469.66122pt x 21.13475pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 132.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 132.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 132.
-[3] [4 <./CI_files/figure-latex/SAMPLMEANDIFF1-1.pdf> <./CI_files/figure-latex/
-ILLUSTRATION-1.pdf>]
-<"CI_files/figure-latex/""SAMPLMEANDIFF2-1".pdf, id=64, 469.755pt x 325.215pt>
-File: "CI_files/figure-latex/""SAMPLMEANDIFF2-1".pdf Graphic file (type pdf)
-<use "CI_files/figure-latex/""SAMPLMEANDIFF2-1".pdf>
-Package pdftex.def Info: "CI_files/figure-latex/""SAMPLMEANDIFF2-1".pdf  used o
-n input line 146.
+input line 138.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[5 <./CI_files/figure-latex/SAMPLMEANDIFF2-1.pdf>]
-<"CI_files/figure-latex/""SAMPLMEANDIFF3-1".pdf, id=79, 469.755pt x 325.215pt>
+
+LaTeX Warning: Reference `fig:SAMPLMEANDIFF2' on page 4 undefined on input line
+ 149.
+
+[4]
+<"CI_files/figure-latex/""SAMPLMEANDIFF3-1".pdf, id=55, 469.755pt x 325.215pt>
 File: "CI_files/figure-latex/""SAMPLMEANDIFF3-1".pdf Graphic file (type pdf)
 <use "CI_files/figure-latex/""SAMPLMEANDIFF3-1".pdf>
 Package pdftex.def Info: "CI_files/figure-latex/""SAMPLMEANDIFF3-1".pdf  used o
-n input line 176.
+n input line 168.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[6] [7 <./CI_files/figure-latex/SAMPLMEANDIFF3-1.pdf>]
-<"CI_files/figure-latex/""SAMPLMEANDIFF4-1".pdf, id=106, 469.755pt x 325.215pt>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5 <./CI_files/figure-latex/ILLUSTRATION-1.pdf>] [6 <./CI_files/figure-latex/SA
+MPLMEANDIFF3-1.pdf>]
+<"CI_files/figure-latex/""SAMPLMEANDIFF4-1".pdf, id=84, 469.755pt x 325.215pt>
 File: "CI_files/figure-latex/""SAMPLMEANDIFF4-1".pdf Graphic file (type pdf)
 <use "CI_files/figure-latex/""SAMPLMEANDIFF4-1".pdf>
 Package pdftex.def Info: "CI_files/figure-latex/""SAMPLMEANDIFF4-1".pdf  used o
-n input line 208.
+n input line 200.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[8 <./CI_files/figure-latex/SAMPLMEANDIFF4-1.pdf>] AED endfloat: Processing end
- Figures and Tables [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
+[7] [8 <./CI_files/figure-latex/SAMPLMEANDIFF4-1.pdf>] AED endfloat: Processing
+ end Figures and Tables [9pdfTeX warning (ext4): destination with the same iden
+tifier (name{ref-Cumming_Finch_2001}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.232 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{ref-Shieh_2013}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.232 \end{document}
+                    ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 232.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 232.
 (CI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 227.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 232.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 232.
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16627 strings out of 492452
- 249425 string characters out of 3128447
- 368725 words of memory out of 3000000
- 20620 multiletter control sequences out of 15000+200000
- 79156 words of font info for 99 fonts, out of 3000000 for 9000
+ 16629 strings out of 492452
+ 248998 string characters out of 3128447
+ 368630 words of memory out of 3000000
+ 20609 multiletter control sequences out of 15000+200000
+ 79736 words of font info for 105 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,51p,977b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 46i,12n,51p,905b,431s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-maths
 y.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-r
 m.enc}{C:/Users/Marie/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
@@ -1104,9 +1113,9 @@ al/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss8.pfb><C:/Users/Marie/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Marie/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Marie/A
 ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
-Output written on CI.pdf (9 pages, 321823 bytes).
+Output written on CI.pdf (9 pages, 443416 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 10306 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 195 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 10296 words of extra memory for PDF output out of 12000 (max. 10000000)
 
