@@ -1,0 +1,1 @@
+"Confidence.level";"n1";"n2";"m1-m2";"sd1/sd2";"Cohen_SCP";"Hedges_SCP";"Shieh_SCP";"transfoshieh_SCP"

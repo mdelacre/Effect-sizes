@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r "idHetrpos1", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators, when sample sizes and populations variances are unequal across groups, SDR < 1 et n1/n2 < 1 (condition d2)  ",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetrpos", pattern = "N1", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
+
+```{r "idHetrpos2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators, when sample sizes and populations variances are unequal across groups, SDR > 1 et n1/n2 > 1 (condition d1)  ",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetrpos", pattern = "n2", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
+
+```{r "idHetrneg1", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators, when sample sizes and populations variances are unequal across groups, SDR > 1 et n1/n2 < 1 (condition e1)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetrneg", pattern = "N3", full.names = TRUE)
+knitr::include_graphics(myimages)
+```
+
+
+```{r "idHetrneg2", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators, when sample sizes and populations variances are unequal across groups, SDR < 1 et n1/n2 > 1 (condition e2)",fig.width = 15,fig.height=8,out.width = '20%',fig.show='hold',fig.align='center'}
+myimages<-list.files("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/subconditions/hetrneg", pattern = "n4", full.names = TRUE)
+knitr::include_graphics(myimages)
+```

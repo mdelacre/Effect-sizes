@@ -137,13 +137,13 @@ setwd("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES m
 #       bty="n"
 # )
 # dev.off()
-
+getwd()
 png(file="legend.png",width=8000,height=800, units = "px", res = 300)  
 
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
        legend=c(expression(paste("Hedges' ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
-                expression(paste("Hedges' ",g[s],"'"))),
+                expression(paste("Hedges' ",g[s],"*"))),
        fill=c("black","grey40","grey60","grey80","white"),
        bty="n",horiz=T,cex=2
 )

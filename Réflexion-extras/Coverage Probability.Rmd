@@ -1,0 +1,76 @@
+### Confidence intervals around 5 point estimators
+
+#### Method
+
+In order to compute confidence intervals around Cohen's $g_s$, Glass's $g_s$ (using respectively the sample $SD$ of the first or second group as a standardizer), Hedges' $g'_s$ and Shieh's $g_s$, we created an R package (see https://github.com/mdelacre/deffectsize). In this package, confidence intervals were computed using non-central *t*-distributions, as explained in Supplemental Material 4 \footnote{In Supplemental Material 4, we have also shown that in accordance with our expectations, the p-values associated with t-statistics always equal the percentage of confidence intervals based on the same statistical quantity that includes 0. This insures the reliability of our calculation method}.(SUPP MAT A RETRAVAILLER!). Based on this package, we performed Monte Carlo simulations to assess the *coverage probability* of confidence intervals around all point estimators. As an indicator of accuracy, coverage probability is taken as the percentage of confidence intervals whose bounds correctly bracket the population value (% of coverage). The coverage percentage of a confidence interval is expected to be the specified nominal level which is 95% in our study. 
+
+Two-sided 95% confidence intervals around point estimators were computed for a set of 504 scenarios (with 100,000 iterations per scenario). In 126 scenarios, samples were extracted from a normally distributed population and in 378 scenarios, samples were extracted from non normal population distributions. Refering to the review of @Cain_et_al_2017, all possible combinations of population skewness and kurtosis and the number of scenarios for each combination are summarized in Table 6.
+
+\newpage
+
+|                         |               |               | __Kurtosis__ |               
+| :---------------------: | :-----------: |:-------------:|:------------:|:-------------:|
+|                         |               |     0         |   95.75      |    **TOTAL**    |
+|                         |               |---------------|--------------|---------------|
+|                         |        0      |     126       |     126      |     **252**     | 
+|                         |               |               |              |               |
+|      __Skewness__       |      -2.08    |      /        |     126      |     **126**     |
+|                         |               |               |              |               |
+|                         |      6.32     |        /      |     126      |     **126**     |
+|                         |               |               |              |               |
+|                         |    **TOTAL**    |    **126**      |    **378**     |    **504**     |
+
+Table: Number of Combinations of skewness and kurtosis in our simulations.
+
+For the 4 resulting combinations of skewness and kurtosis (see Table 6), scenarios varied as a function of the population mean difference ($\mu_1-\mu_2$; 0 or 1), the sample sizes (*$n_1$* and *$n_2$*; 20, 50 or 100), the sample size ratio (*n*-ratio = $\frac{n_1}{n_2}$; .2, .4, .5, 1, 2, 2.5 or 5), the population *SD*-ratio (i.e. $\frac{\sigma_1}{\sigma_2}$; .1, .25, .5, 1, 2, 4 or 10), and the sample size and population variance pairing $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2}\right)$. All possible combinations of *n*-ratio and population *SD*-ratio were performed. In sum, the simulations grouped over different sample sizes yield 4 conditions (a, b, c and d) based on the *n*-ratio, population *SD*-ratio, and sample size and population variance pairing, as previously summarized in Table 5.  
+
+#### Results
+
+##### When variances are equal across groups
+
+```{r "idHombalbis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are equal across groups (condition a)",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Hom_bal.png")
+```
+
+```{r "idHomunbalbis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are equal across groups and sample sizes are unequal (condition b)",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Hom_unbal.png")
+```
+
+Figures \ref{fig:idHombalbis} and \ref{fig:idHomunbalbis} represent configurations where the equality of variances assumption is met. When the normality assumption is met (first column in both Figures), the coverage probability of the confidence interval around all estimators is the specified nominal level (i.e. 95%). When the normality assumption is not met, results are very consistent with \ref{fig:idHombal}.  
+
+\footnote{When looking at the relative bias for all estimators, the maximum departure from zero is `r printnum(max(abs(output_normal_Hombal[,11:15])),digits=4)` when sample sizes are equal across groups, and `r printnum(max(abs(output_normal_Homunbal[,11:15])),digits=4)` with unequal sample sizes.}. However, the further from the normality assumption (i.e. when moving from left to right in Figures), the larger the bias. 
+
+Figure \ref{fig:idHombal} illustrates scenarios where both population variances and sample sizes are equal across groups (condition a). One can first notice that all estimators are consistent, as their bias and variance decrease when the total sample size increase. For any departure from the normality assumption, both bias and variance of Hedges' $g_s$, Shieh's $d_s$ and Hedges' $g'_s$ are similar\footnote{While the bias and variance of Cohen's $d_s$, Cohen's $d'_s$ and Shieh's $d_s$ are identical, the bias and variance of Hedges' $g_s$ is marginally different than the bias and variance of Hedges' $g'_s$ and Shieh's $g_s$ (these last two having identical bias and variance). Indeed, because of the sampling error, differences remain between sample variances, even when population variances are equal groups. Because the Hedges' correction applied to Cohen's $d_s$ does not imply the sample variances (unlike the one applied on both other estimators), the bias and variance of Hedges' $g_s$ is slighly different than the bias and variance of Hedges' $g'_s$ and Shieh's $g_s$} and smaller than the bias and variance of glass's $g_s$ estimates using either $S_1$ or $S_2$ as standardizer. Moreover, when samples are extracted from skewed distributions, Glass's $g_s$ will show different bias and variance as a function of the chosen standardizer ($S_1$ or $S_2$), even if both $S_1$ and $S_2$ are estimates of the same population variance, based on the same sample size. This is due to non-null correlations of opposite sign between the mean difference ($\bar{X_1}-\bar{X_2}$) and respectively $S_1$ and $S_2$. For interested reader, when a non nul correlation occurs between the sample means difference ($\bar{X_1}-\bar{X_2}$) and the standardizer of compared estimators as well as the way this correlation impacts the bias and variance of estimators is detailed in Supplemental Material 3. 
+
+Figure \ref{fig:idHomunbal} illustrates scenarios where population variances are equal across groups and sample sizes are unequal (condition b). For any departures from the normality assumptions, Hedges' $g_s$ shows the smallest bias and variance. Hedges' $g_s$ and Hedges' $g'_s$ are consistent estimators (i.e. the larger the sample sizes, the lower the bias and the variance), unlike Shieh's $g_s$ and Glass's $g_s$. The bias of Glass's $g_s$ does not depend either on the size of the experimental group or on the total sample size. The only way to decrease the bias of Glass's $g_s$ is therefore to add subjects in the control group.  On the other hand, the variance of Glass's $g_s$ depends on both sample sizes, but not in an equivalent way: in order to reduce the variance, it is much more efficient to add subjects in the control group and when the size of the experimental group decreases so does the variance, even when the total sample size is increased. Regarding Shieh's $g_s$, for a given sample size ratio,the bias and variance will decrease when sample sizes increase. However, there is a large effect of the sample sizes ratio in order that when the sample sizes ratio moves away from 1 by adding subjects, bias and variance might increase.\footnote{Regarding variance, in Supplemental Material 1, we mentioned that when the population effect size is nul, the larger the total sample size, the lower the variance, whatever the sample sizes ratio is constant or not. We also mentioned that this is no longer true when the population effect size is not zero and in our simulations, the effect size is never zero. The effect size effect is partially visible in Figure \ref{fig:idHomunbal} because we do not entirely remove the effect size effect when we divide the variance by $\delta^2$. This is due to the fact that one term, in the equation of the variance computation, does not depend on the effect size.} On the other side, when the sample sizes ratio moves closer to 1 by adding subjects, the bias will decrease. 
+
+When samples are extracted from skewed distributions and have unequal sizes (i.e. $n_1 \neq n_2$, the two last columns in Figure \ref{fig:idHomunbal}), for a constant total sample size, $Glass's \; g_s$, Shieh's $g_s$ and  Hedges' $g_s$ will show different bias and variance depending on which group is the largest one (e.g. when distributions are right-skewed, the bias and variance of all these estimators when $n_1$ and $n_2$ are respectively 50 and 20 are not the same as their bias and variance when $n_1$ and $n_2$ are respectively 20 and 50). This is due to a non-null correlations of opposite sign between the mean difference ($\bar{X_1}-\bar{X_2}$) and their respective standardizers depending on which group is the largest one, as detailed in Supplemental Material 3. One observes that under these configurations, the bias and variance of Glass's $g_s$ are sometimes a bit smaller and sometimes much larger than the bias and variance of Shieh's $g_s$ and Cohen's $d'_s$. \footnote{We learn from Supplemental Material 3 that when the $\mu_1-\mu_2 >0$ (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with $\bar{X_1}-\bar{X_2}$. We also learn from Supplemental Material 3 that the smaller $n_c$, the larger the magnitude of correlation between $s_c$ and $\bar{X_1}-\bar{X_2}$. When $cor(S_c,\bar{X_1}-\bar{X_2})$ is positive, the positive effect of increasing the magnitude of the correlation is counterbalanced by the negative effect of reducing $n_c$. On the other hand, when $cor(S_c,\bar{X_1}-\bar{X_2})$ is negative, the negative effect of increasing the magnitude of the correlation is amplified by the negative effect of decreasing $n_c$. This explain why the difference between Glass's $g_s$ and other estimators is larger when Glass's $g_s$ is the least efficient estimator.}
+
+In conclusion, Glass’s $g_s$ should always be avoided when the equality of variance assumption is met. Hedge’s $g_s$, Hedges' $g'_s$ and Shieh’s $g_s$ are equally performant as long as the sample size ratio is close to 1. However, when designs are highly unbalanced, Shieh’s $g_s$ is not consistent anymore. While Hedge’s $g'_s$ is consistent, Hedges’s $g_s$ remains a better estimator. 
+
+##### When variances are unequal across groups
+
+```{r "idHetbal1bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c), as a function of $n$-ratio",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_bal.png")
+```
+
+```{r "idHetbal2bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances are unequal across groups and sample sizes are equal (condition c) as a function of the $SD$-ratio",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_bal_sdratio.png")
+```
+
+```{r "idHetunbal1bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR10.png")
+```
+
+```{r "idHetunbal2bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=10$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR10.png")
+```
+
+```{r "idHetunbal3bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1>\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstlarger_SDR2.png")
+```
+
+```{r "idHetunbal4bis", fig.env = "sidewaysfigure",echo=FALSE, fig.cap="Bias and efficiency of estimators of standardized mean difference, when variances and sample sizes are unequal across groups (condition d), $\\frac{\\sigma_1}{\\sigma_2}=2$ and $\\sigma_1<\\sigma_2$",fig.show='hold',fig.align='center'}
+knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Confidence intervals/Graphs/Unbiased estimators/Combined Figures/Het_firstsmaller_SDR2.png")
+```
+
