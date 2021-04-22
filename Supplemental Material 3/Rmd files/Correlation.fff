@@ -17,7 +17,7 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHombalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHombalRskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:pltStdzrHombalRskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -31,7 +31,7 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHombalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHombalLskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:pltStdzrHombalLskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -66,14 +66,14 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHomunbalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHomunbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\), with \(n_1\)=20 and \(n_2\)=100)}
+\caption{\label{fig:pltStdzrHomunbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\), with \(n_1\)=20 and \(n_2\)=100)}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHomunbalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHomunbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
+\caption{\label{fig:pltStdzrHomunbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -108,12 +108,12 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHetbalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHetbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
+\caption{\label{fig:pltStdzrHetbalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHetbalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHetbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d'_s}\) as a function of the means difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
+\caption{\label{fig:pltStdzrHetbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(SD_1\)=2 and \(SD_2\)=4}
 \end{figure*}

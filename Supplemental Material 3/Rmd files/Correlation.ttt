@@ -65,9 +65,9 @@ When \(n_1=n_2\)\strut
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{null}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
 \end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{null}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
 \strut
@@ -107,9 +107,9 @@ When \(n_1>n_2\)\strut
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{positive (but very small)}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{positive (but very small)}\strut
 \end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{negative (but very small)}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{negative (but very small)}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
 \strut
@@ -149,9 +149,9 @@ When \(n_1<n_2\)\strut
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
 \strut
 \end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{positive}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{positive}\strut
 \end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d'_s}\): \emph{negative}\strut
+\(S_{Cohen's \; d^*_s}\): \emph{negative}\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
