@@ -1,10 +1,9 @@
-
-
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  english,
   man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -39,7 +38,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Simulation checks},
-  pdfauthor={Delacre Marie},
+  pdfauthor={Delacre Marie1},
   pdfkeywords={keywords},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -61,31 +60,72 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\shorttitle{Simulation checks}
-\affiliation{
-\vspace{0.5cm}
-\textsuperscript{1} ULB}
-\keywords{keywords\newline\indent Word count: X}
-\usepackage{csquotes}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
 
+% Table formatting
 \usepackage{longtable}
 \usepackage{lscape}
-\usepackage{multirow}
-\usepackage{tabularx}
-\usepackage[flushleft]{threeparttable}
-\usepackage{threeparttablex}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
 
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
 \newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
 \makeatletter
 \newcommand\LastLTentrywidth{1em}
 \newlength\longtablewidth
 \setlength{\longtablewidth}{1in}
 \newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
 
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Simulation checks}
+\keywords{keywords\newline\indent Word count: X}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -95,15 +135,32 @@
 \usepackage{lineno}
 
 \linenumbers
+\usepackage{csquotes}
 \usepackage{rotating}
 \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
 \usepackage{lscape}
 \newcommand{\blandscape}{\begin{landscape}}
 \newcommand{\elandscape}{\end{landscape}}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
 
 \title{Simulation checks}
 \author{Delacre Marie\textsuperscript{1}}
 \date{}
+
+
+\authornote{
+
+Correspondence concerning this article should be addressed to Delacre Marie, . E-mail:
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} ULB}
 
 \begin{document}
 \maketitle
@@ -111,7 +168,7 @@
 \hypertarget{supplemental-material-2}{%
 \section{Supplemental Material 2}\label{supplemental-material-2}}
 
-In order to insure the reliability of our calculation method, for all scenarios where \(G_1=G_2=0\), we compared empirical means and variances of all estimators (i.e.~means and variances of all estimates) with theoretical means and variances (i.e.~expected means and variances, computed based on equations in Tables 1, 2 and 3). Because we can draw exactly the same conclusions for \textbf{biased} (Cohen's \(d_s\), Glass's \(d_s\) using either \(sd_1\) or \(sd_2\) as standardizer, Shieh's \(d_s\) and Cohen's \(d'_s\)) and \textbf{unbiased} (Hedges' \(g_s\), Glass's \(g_s\) using either \(sd_1\) or \(sd_2\) as standardizer, Shieh's \(g_s\) and Hedges' \(g'_s\)) estimators, we will simultaneously present results for both categories of estimators. Results will be subdivided into 4 conditions:\\
+In order to insure the reliability of our calculation method, for all scenarios where \(G_1=G_2=0\), we compared empirical means and variances of all estimators (i.e.~means and variances of all estimates) with theoretical means and variances (i.e.~expected means and variances, computed based on equations in Tables 1, 2 and 3 in the main article). Because we can draw exactly the same conclusions for \textbf{biased} (Cohen's \(d_s\), Glass's \(d_s\) using either \(sd_1\) or \(sd_2\) as standardizer, Shieh's \(d_s\) and Cohen's \(d^*_s\)) and \textbf{unbiased} (Hedges' \(g_s\), Glass's \(g_s\) using either \(sd_1\) or \(sd_2\) as standardizer, Shieh's \(g_s\) and Hedges' \(g^*_s\)) estimators, we will simultaneously present results for both categories of estimators. Results will be subdivided into 4 conditions:\\
 - When population variances and sample sizes are equal across groups (condition a; see Figures A2.1 and A2.5 for respectively biased and unbiased estimators);\\
 - When population variances are equal across groups and sample sizes are unequal (condition b; see Figures A2.2 and A2.6 for respectively biased and unbiased estimators);\\
 - When population variances are unequal across groups and sample sizes are equal (condition c; see Figures A2.3 and A2.7 for respectively biased and unbiased estimators);\\
@@ -121,7 +178,7 @@ Because the equations of theoretical means and variances of Cohen's \(d_s\) and 
 
 On average, empirical means (and variances) of all estimators are very close to theoretical expectations when population variances are equal across groups, with equal sample sizes (condition a; see Tables A2.1 and A2.5) or unequal sample sizes (condition b; see Tables A2.2 and A2.6).
 
-When population variances are unequal across groups (conditions c and d; see Tables A2.3, A2.4, A2.7 and A2.8), empirical means (and variances) of Cohen's \(d'_s\) (Cohen's \(g'_s\)) and Shieh's \(d_s\) (Shieh's \(g_s\)) are still very close to theoretical expectations. Regarding Glass's \(d_s\) (Glass's \(g_s\)), on average, while empirical variances remain very close to theoretical expectations, one observes larger departures between empirical and theoretical means when using \(SD_2\) as standardizer. However, when looking at details in results for each scenarios (see \enquote{biased estimator\_condition C.xlsx}, \enquote{biased estimator\_condition D.xlsx}, \enquote{unbiased estimator\_condition C.xlsx} and \enquote{unbiased estimator\_condition C.xlsx} in Supplemental Material 2), one notices that the larger the population effect size, the larger the departure between empirical and theoretical means, and that relative to the population effect size, departures between empirical and theoretical means are always very small. On the other side, both empirical bias and variance of Cohen's \(d_s\) (Hedges' \(g_s\)) highly depart from theoretical expectations, even when looking at relative departures to the population effect size, especially when sample sizes are unequal across groups (condition d; see Table A2.4 and A2.8), which is not surprising, as Cohen's \(d_s\) (Hedges' \(g_s\)) relies on the equality of population variances assumption.
+When population variances are unequal across groups (conditions c and d; see Tables A2.3, A2.4, A2.7 and A2.8), empirical means (and variances) of Cohen's \(d^*_s\) (Hedges' \(g^*_s\)) and Shieh's \(d_s\) (Shieh's \(g_s\)) are still very close to theoretical expectations. Regarding Glass's \(d_s\) (Glass's \(g_s\)), on average, while empirical variances remain very close to theoretical expectations, one observes larger departures between empirical and theoretical means when using \(SD_2\) as standardizer. However, when looking at details in results for each scenarios (see \enquote{biased estimator\_condition C.xlsx}, \enquote{biased estimator\_condition D.xlsx}, \enquote{unbiased estimator\_condition C.xlsx} and \enquote{unbiased estimator\_condition C.xlsx} in Supplemental Material 2), one notices that the larger the population effect size, the larger the departure between empirical and theoretical means, and that relative to the population effect size, departures between empirical and theoretical means are always very small. On the other side, both empirical bias and variance of Cohen's \(d_s\) (Hedges' \(g_s\)) highly depart from theoretical expectations, even when looking at relative departures to the population effect size, especially when sample sizes are unequal across groups (condition d; see Table A2.4 and A2.8), which is not surprising, as Cohen's \(d_s\) (Hedges' \(g_s\)) relies on the equality of population variances assumption.
 
 \begin{sidewaysfigure}
 
@@ -186,5 +243,6 @@ When population variances are unequal across groups (conditions c and d; see Tab
 }
 
 \end{sidewaysfigure}
+
 
 \end{document}
