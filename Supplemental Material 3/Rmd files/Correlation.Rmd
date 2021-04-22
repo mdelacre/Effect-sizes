@@ -36,7 +36,6 @@ library("PearsonDS")
 # Introduction
 
 The *d*-family effect sizes are commonly used with between-subject designs where individuals are randomly assigned into one of two independent groups and group means are compared. The population effect size is defined as 
-  
 \begin{equation*} 
 \delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
 (\#eq:Cohendelta)
@@ -62,7 +61,7 @@ S_{Shieh's \; d_s} = \sqrt{S_1^2/q_1+S_2^2/q_2}; \;\;\; q_j=\frac{n_j}{N} (j=1,2
 S_{Cohen's \; d^*_s} = \sqrt{\frac{\left(S^2_{1}+S^2_{2} \right)}{2}}
 (\#eq:cohenprimeds)
 \end{equation*}   
-As we previously mentioned, the use of these formulas requires to meet the assumption of normality. Using them when distributions are not normal will have consequences on both bias and variance of all estimators. More specifically, when samples are extracted from skewed distributions, correlations might occur between the sample mean difference ($\bar{X_1}-\bar{X_2}$) and standardizers ($\sigma$). Throughout this Supplemental Material, we will study when these correlations occur. To this end, we will distinguish 3 situations:   
+As we previously mentioned, the use of these formulas requires to meet the assumption of normality. Using them when distributions are not normal will have consequences on both bias and variance of all estimators. More specifically, when samples are extracted from skewed distributions, correlations might occur between the sample mean difference ($\bar{X_1}-\bar{X_2}$) and standardizers ($S$). Throughout this Supplemental Material, we will study when these correlations occur. To this end, we will distinguish 3 situations:   
 - when $\sigma_1=\sigma_2$ and $n_1=n_2$ (condition a);  
 - when $\sigma_1=\sigma_2$ and $n_1\neq n_2$ (condition b);  
 - when $\sigma_1 \neq \sigma_2$ and $n_1 = n_2$ (condition c).
@@ -73,7 +72,7 @@ Before studying conditions a, b and c, we will briefly introduce the impact of t
 
 When distributions are right-skewed, there is a positive (negative) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$). When distributions are left-skewed, there is a negative (positive) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$).  When the population mean difference ($\mu_1-\mu_2$) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with $\bar{X_1}-\bar{X_2}$ than when choosing an estimator that is negatively correlated with $\bar{X_1}-\bar{X_2}$. When the population mean difference is negative, the reverse is true. 
 
-"All other parameters being equal" is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower $n_j$, the larger the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$. When the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decrease the bias. This is a nice example of situations where two factors might have an opposite action on bias. 
+"All other parameters being equal" is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower $n_j$, the larger the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$. When the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decreases the bias. This is a nice example of situations where two factors might have an opposite action on bias. 
 
 # Correlations between the mean difference ($\bf \bar{X_1}-\bar{X_2}$) and all standardizers
 
@@ -273,7 +272,7 @@ Homunbal_leftskew_sdCohenprime <- sqrt((Homunbal_leftskew_sd1^2+Homunbal_leftske
 
 When distributions are skewed, there are again non-null correlations between $\bar{X_j}$ and $S_j$, however $cor(S_1,\bar{X_1}) \neq cor(S_2,\bar{X_2})$, because of the different sample sizes. 
 
-```{r Homunbalcorasafctofn1,fig.cap="correlation between $S_j$ and $\\bar{X_j}$ when n = 25, 50, 75 or 100 and samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
+```{r Homunbalcorasafctofn1,fig.cap="correlation between $S_j$ and $\\bar{X_j}$ when $n$ = 25, 50, 75 or 100 and samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
 
 nSims=10000
 m1=0
@@ -320,14 +319,14 @@ y <- rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtos
   }
    
    par(mfrow=c(2,2))
-   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,Cor(mean,sd)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,Cor(mean,sd)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,Cor(mean,sd)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,Cor(mean,sd)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,cor(mean,SD)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,cor(mean,SD)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,cor(mean,SD)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,cor(mean,SD)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
 
 ```
 
-```{r Homunbalcorasafctofn2,fig.cap="correlation between $S_j$ and $\\bar{X_j}$ when n = 25, 50, 75 or 100 and samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
+```{r Homunbalcorasafctofn2,fig.cap="correlation between $S_j$ and $\\bar{X_j}$ when $n$ = 25, 50, 75 or 100 and samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
 
 nSims=10000
 m1=0
@@ -374,10 +373,10 @@ y <- rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtos
   }
    
    par(mfrow=c(2,2))
-   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,Cor(mean,sd)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,Cor(mean,sd)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,Cor(mean,sd)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
-   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,Cor(mean,sd)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean1,sd1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when n=",n1," ,cor(mean,SD)=",round(cor(mean1,sd1,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean2,sd2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when n=",n2," ,cor(mean,SD)=",round(cor(mean2,sd2,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean3,sd3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when n=",n3," ,cor(mean,SD)=",round(cor(mean3,sd3,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
+   plot(mean4,sd4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when n=",n4," ,cor(mean,SD)=",round(cor(mean4,sd4,method="spearman"),3)),xlim=c(-0.5,2.5),ylim=c(0,15))          
 
 ```
 
@@ -418,36 +417,36 @@ plot(Homunbal_leftskew_sdCohenprime,Homunbal_leftskew_meandiff,ylab=expression(S
 ```
 
 This might also explain that standardizers of Shieh's $d_s$ and Cohen's $d^*_s$ are **correlated** with $\bar{X_1}-\bar{X_2}$ (see Figures \ref{fig:pltStdzrHomunbalRskew} and \ref{fig:pltStdzrHomunbalLskew}):  
-- When computing $S_{Cohen's \; d^*_s}$, the same weight is given to both $S_1$ and $S_2$. Therefore, it doesn't seem surprising that the sign of the correlation between $S_{Cohen's \; d^*_s}$ and $\bar{X_1}-\bar{X_2}$ is the same as the size of the correlation between $\bar{X_1}-\bar{X_2}$ and the $SD$ of the smallest sample;   
+- When computing $S_{Cohen's \; d^*_s}$, the same weight is given to both $S_1$ and $S_2$. Therefore, it does not seem surprising that the sign of the correlation between $S_{Cohen's \; d^*_s}$ and $\bar{X_1}-\bar{X_2}$ is the same as the size of the correlation between $\bar{X_1}-\bar{X_2}$ and the $SD$ of the smallest sample;   
 - When computing $S_{Shieh's \; d_s}$, more weight is given to the $SD$ of the smallest sample, it is therefore not really surprising to observe that the correlation between $S_{Shieh's \; d_s}$ and $\bar{X_1}-\bar{X_2}$  is closer of the correlation between the $SD$ of the smallest group and $\bar{X_1}-\bar{X_2}$ (i.e. $|cor(S_{Shieh's \; d_s},\bar{X_1}-\bar{X_2})| > |cor(S_{Cohen's \; d^*_s},\bar{X_1}-\bar{X_2})|$);    
 - When computing $S_{Cohen}$, more weight is given to the $SD$ of the largest sample,  which by compensation effect, brings the correlation very close to 0.  
 
-The correlation between $\bar{X_1}-\bar{X_2}$ and respectively $SD_1$, $SD_2$, the standardizer of Cohen's $d^*_s$, the standardizer of Shieh's $d_s$ and the standardizer of Cohen's $d_s$ are summarized in Table 1:
+The correlation between $\bar{X_1}-\bar{X_2}$ and respectively $S_1$, $S_2$, the standardizer of Cohen's $d^*_s$, the standardizer of Shieh's $d_s$ and the standardizer of Cohen's $d_s$ are summarized in Table 1:
 
 
 |                               |           __**population distribution**__                                  |             
 |-------------------------------|:--------------------------------:|:---------------------------------------:|
 |                               |      *right-skewed*              |         *left-skewed*                   |
 |                               |----------------------------------|-----------------------------------------|
-|        When $n_1=n_2$         | $SD_1$: *positive*               | $SD_1$: *negative*                      |
-|                               | $SD_2$: *negative*               | $SD_2$: *positive*                      |
+|        When $n_1=n_2$         | $S_1$: *positive*               | $S_1$: *negative*                      |
+|                               | $S_2$: *negative*               | $S_2$: *positive*                      |
 |                               | $S_{Cohen's \; d_s}$: *null*     | $S_{Cohen's \; d_s}$: *null*            |
 |                               | $S_{Shieh's \; d_s}$: *null*     | $S_{Shieh's \; d_s}$: *null*            |
 |                               | $S_{Cohen's \; d^*_s}$: *null*    | $S_{Cohen's \; d^*_s}$: *null*           |
 |                               |                                  |                                         |
-|        When $n_1>n_2$         | $SD_1$: *positive*               | $SD_1$: *negative*                      |
-|                               | $SD_2$: *negative*               | $SD_2$: *positive*                      |
+|        When $n_1>n_2$         | $S_1$: *positive*               | $S_1$: *negative*                      |
+|                               | $S_2$: *negative*               | $S_2$: *positive*                      |
 |                               | $S_{Cohen's \; d_s}$: *null*     | $S_{Cohen's \; d_s}$: *null*            |
 |                               | $S_{Shieh's \; d_s}$: *negative* | $S_{Shieh's \; d_s}$: *positive*        |
 |                               | $S_{Cohen's \; d^*_s}$: *positive (but very small)*| $S_{Cohen's \; d^*_s}$: *negative (but very small)*       |
 |                               |                                  |                                         |
-|        When $n_1<n_2$         | $SD_1$: *positive*               | $SD_1$: *negative*                      |
-|                               | $SD_2$: *negative*               | $SD_2$: *positive*                      |
+|        When $n_1<n_2$         | $S_1$: *positive*               | $S_1$: *negative*                      |
+|                               | $S_2$: *negative*               | $S_2$: *positive*                      |
 |                               | $S_{Cohen's \; d_s}$: *negative (but very small)*     | $S_{Cohen's \; d_s}$: *positive (but very small)*            |
 |                               | $S_{Shieh's \; d_s}$: *positive* | $S_{Shieh's \; d_s}$: *negative*        |
 |                               | $S_{Cohen's \; d^*_s}$: *positive*| $S_{Cohen's \; d^*_s}$: *negative*       |
 
-Table: Correlation between standardizers ($SD_1$, $SD_2$, $S_{Cohen's \; d_s}$ and others) and $\bar{X_1}-\bar{X_2}$, when samples are extracted from skewed distributions with equal variances, and $n_1=n_2$ (condition a) or $n_1 \neq n_2$ (condition b)  
+Table: Correlation between standardizers ($S_1$, $S_2$, $S_{Cohen's \; d_s}$ and others) and $\bar{X_1}-\bar{X_2}$, when samples are extracted from skewed distributions with equal variances, and $n_1=n_2$ (condition a) or $n_1 \neq n_2$ (condition b)  
 
 
 ## When unequal population variances are estimated based on equal sample sizes (condition c)
@@ -575,10 +574,10 @@ Y4 <- rpearson(1000000,moments=c(m1,sd4^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurt
   }
    
    par(mfrow=c(2,2))
-   plot(mean1,SD1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when sd=",sd1,",Cor(mean,sd)=",round(cor(mean1,SD1,method="spearman"),3)))          
-   plot(mean2,SD2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when sd=",sd2,",Cor(mean,sd)=",round(cor(mean2,SD2,method="spearman"),3)))          
-   plot(mean3,SD3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when sd=",sd3,",Cor(mean,sd)=",round(cor(mean3,SD3,method="spearman"),3)))          
-   plot(mean4,SD4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when sd=",sd4,",Cor(mean,sd)=",round(cor(mean4,SD4,method="spearman"),3)))          
+   plot(mean1,SD1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when sd=",sd1,",cor(mean,SD)=",round(cor(mean1,SD1,method="spearman"),3)))          
+   plot(mean2,SD2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when sd=",sd2,",cor(mean,SD)=",round(cor(mean2,SD2,method="spearman"),3)))          
+   plot(mean3,SD3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when sd=",sd3,",cor(mean,SD)=",round(cor(mean3,SD3,method="spearman"),3)))          
+   plot(mean4,SD4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when sd=",sd4,",cor(mean,SD)=",round(cor(mean4,SD4,method="spearman"),3)))          
 ```
 
 ```{r Hetbalcorasafctofn2,fig.cap="correlation between $S_j$ and $\\bar{X_j}$ when $SD$ = 2, 4, 6 or 8 and samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
@@ -629,13 +628,13 @@ Y4 <- rpearson(1000000,moments=c(m1,sd4^2,skewness=skew*(n-2)/sqrt(n*(n-1)),kurt
   }
    
    par(mfrow=c(2,2))
-   plot(mean1,SD1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when sd=",sd1,",Cor(mean,sd)=",round(cor(mean1,SD1,method="spearman"),3)))          
-   plot(mean2,SD2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when sd=",sd2,",Cor(mean,sd)=",round(cor(mean2,SD2,method="spearman"),3)))          
-   plot(mean3,SD3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when sd=",sd3,",Cor(mean,sd)=",round(cor(mean3,SD3,method="spearman"),3)))          
-   plot(mean4,SD4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when sd=",sd4,",Cor(mean,sd)=",round(cor(mean4,SD4,method="spearman"),3)))          
+   plot(mean1,SD1,xlab=expression(bar(X)[1]),ylab=expression(S[1]),main=paste("when sd=",sd1,",cor(mean,SD)=",round(cor(mean1,SD1,method="spearman"),3)))          
+   plot(mean2,SD2,xlab=expression(bar(X)[2]),ylab=expression(S[2]),main=paste("when sd=",sd2,",cor(mean,SD)=",round(cor(mean2,SD2,method="spearman"),3)))          
+   plot(mean3,SD3,xlab=expression(bar(X)[3]),ylab=expression(S[3]),main=paste("when sd=",sd3,",cor(mean,SD)=",round(cor(mean3,SD3,method="spearman"),3)))          
+   plot(mean4,SD4,xlab=expression(bar(X)[4]),ylab=expression(S[4]),main=paste("when sd=",sd4,",cor(mean,SD)=",round(cor(mean4,SD4,method="spearman"),3)))          
 ```
 
-```{r pltSDHetbalRskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$), with $SD_1$=2 and $SD_2$=4",echo=FALSE}
+```{r pltSDHetbalRskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$), with $S_1$=2 and $S_2$=4",echo=FALSE}
 par(mfrow=c(2,2),mar=c(5,5,5,2))
 plot(Hetbal_rightskew_sd1,Hetbal_rightskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Hetbal_rightskew_sd1,Hetbal_rightskew_mean1,method="spearman"),2)))
 plot(Hetbal_rightskew_sd2,Hetbal_rightskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Hetbal_rightskew_sd2,Hetbal_rightskew_mean2,method="spearman"),2)))
@@ -644,7 +643,7 @@ plot(Hetbal_rightskew_sd1,Hetbal_rightskew_meandiff,ylab=expression(S[1]),xlab=e
 plot(Hetbal_rightskew_sd2,Hetbal_rightskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_rightskew_sd2,Hetbal_rightskew_meandiff),2)))
 ```
 
-```{r pltSDHetbalLskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$), with $SD_1$=2 and $SD_2$=4",echo=FALSE}
+```{r pltSDHetbalLskew,fig.cap="$S_j$ (j=1,2) as a function $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$), with $S_1$=2 and $S_2$=4",echo=FALSE}
 par(mfrow=c(2,2),mar=c(5,5,5,2))
 plot(Hetbal_leftskew_sd1,Hetbal_leftskew_mean1,ylab=expression(S[1]),xlab=expression(bar(X)[1]),main=paste("rho=",round(cor(Hetbal_leftskew_sd1,Hetbal_leftskew_mean1,method="spearman"),2)))
 plot(Hetbal_leftskew_sd2,Hetbal_leftskew_mean2,ylab=expression(S[2]),xlab=expression(bar(X)[2]),main=paste("rho=",round(cor(Hetbal_leftskew_sd2,Hetbal_leftskew_mean2,method="spearman"),2)))
@@ -653,40 +652,40 @@ plot(Hetbal_leftskew_sd1,Hetbal_leftskew_meandiff,ylab=expression(S[1]),xlab=exp
 plot(Hetbal_leftskew_sd2,Hetbal_leftskew_meandiff,ylab=expression(S[2]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_leftskew_sd2,Hetbal_leftskew_meandiff),2)))
 ```
 
-When distributions are skewed, there are again non-null correlations between $\bar{X_j}$ and $S_j$. As illustrated in Figures \ref{fig:Hetbalcorasafctofn1} and \ref{fig:Hetbalcorasafctofn2}, the correlation remain the same for any population $SD$ ($\sigma$). However, the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ differ: it is stronger in the sample extracted from the larger population variance (see Figures \ref{fig:pltSDHetbalRskew} and \ref{fig:pltSDHetbalLskew}). 
+When distributions are skewed, there are again non-null correlations between $\bar{X_j}$ and $S_j$. As illustrated in Figures \ref{fig:Hetbalcorasafctofn1} and \ref{fig:Hetbalcorasafctofn2}, the correlation remains the same for any population $SD$ ($\sigma$). However, the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ differs: it is stronger in the sample extracted from the larger population variance (see Figures \ref{fig:pltSDHetbalRskew} and \ref{fig:pltSDHetbalLskew}). 
 
-```{r pltStdzrHetbalRskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$), with $SD_1$=2 and $SD_2$=4",echo=FALSE}
+```{r pltStdzrHetbalRskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$), with $S_1$=2 and $S_2$=4",echo=FALSE}
 par(mfrow=c(1,3),mar=c(5,5,5,2))
 plot(Hetbal_rightskew_sdCohen,Hetbal_rightskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_rightskew_sdCohen,Hetbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hetbal_rightskew_sdShieh,Hetbal_rightskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_rightskew_sdShieh,Hetbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hetbal_rightskew_sdCohenprime,Hetbal_rightskew_meandiff,ylab=expression(S["Cohen d^*"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_rightskew_sdCohenprime,Hetbal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 ```
 
-```{r pltStdzrHetbalLskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$), with $SD_1$=2 and $SD_2$=4",echo=FALSE}
+```{r pltStdzrHetbalLskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$), with $S_1$=2 and $S_2$=4",echo=FALSE}
 par(mfrow=c(1,3),mar=c(5,5,5,2))
 plot(Hetbal_leftskew_sdCohen,Hetbal_leftskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_leftskew_sdCohen,Hetbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hetbal_leftskew_sdShieh,Hetbal_leftskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_leftskew_sdShieh,Hetbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hetbal_leftskew_sdCohenprime,Hetbal_leftskew_meandiff,ylab=expression(S["Cohen d^*"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hetbal_leftskew_sdCohenprime,Hetbal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 ```
 
-This also explain that when computing a standardizer that takes both $S_1$ and $S_2$ into account, it results in a standardizer that is correlated with $\bar{X_1}-\bar{X_2}$ (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference ($\bar{X_1}-\bar{X_2}$) and respectively the standardizer of Shieh's $d_s$, Cohen's $d^*_s$ and Cohen's $d_s$ will have the same sign as the correlation between ($\bar{X_1}-\bar{X_2}$) and the larger $SD$. Table 2 summarizes the sign of the correlation between $\bar{X_1}-\bar{X_2}$ and respectively $SD_1$, $SD_2$ and the three standardizers taking both $SD_1$ and $SD_2$ into account (see "Others" in the Table).
+This also explain that when computing a standardizer that takes both $S_1$ and $S_2$ into account, it results in a standardizer that is correlated with $\bar{X_1}-\bar{X_2}$ (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference ($\bar{X_1}-\bar{X_2}$) and respectively the standardizer of Shieh's $d_s$, Cohen's $d^*_s$ and Cohen's $d_s$ will have the same sign as the correlation between ($\bar{X_1}-\bar{X_2}$) and the larger $SD$. Table 2 summarizes the sign of the correlation between $\bar{X_1}-\bar{X_2}$ and respectively $S_1$, $S_2$ and the three standardizers taking both $S_1$ and $S_2$ into account (see "Others" in the Table).
 
 
 |                               |           __**population distribution**__             |             
 |-------------------------------|:-------------------------:|:-------------------------:|
 |                               |      *right-skewed*       |         *left-skewed*     |
 |                               |---------------------------|---------------------------|
-|   When $\sigma_1=\sigma_2$    | $SD_1$: *positive*        | $SD_1$: *negative*        |
-|                               | $SD_2$: *negative*        | $SD_2$: *positive*        |
+|   When $\sigma_1=\sigma_2$    | $S_1$: *positive*        | $S_1$: *negative*        |
+|                               | $S_2$: *negative*        | $S_2$: *positive*        |
 |                               | Others: *null*            | Others: *null*            |
 |                               |                           |                           |
-|   When $\sigma_1>\sigma_2$    | $SD_1$: *positive*        | $SD_1$: *negative*        |
-|                               | $SD_2$: *negative*        | $SD_2$: *positive*        |
+|   When $\sigma_1>\sigma_2$    | $S_1$: *positive*        | $S_1$: *negative*        |
+|                               | $S_2$: *negative*        | $S_2$: *positive*        |
 |                               | Others: *positive*        | Others: *negative*        |
 |                               |                           |                           |
-|   When $\sigma_1<\sigma_2$    | $SD_1$: *positive*        | $SD_1$: *negative*        |
-|                               | $SD_2$: *negative*        | $SD_2$: *positive*        |
+|   When $\sigma_1<\sigma_2$    | $S_1$: *positive*        | $S_1$: *negative*        |
+|                               | $S_2$: *negative*        | $S_2$: *positive*        |
 |                               | Others: *negative*        | Others: *positive*        |
 |                               |                           |                           |
 
-Table: Correlation between standardizers ($SD_1$,$SD_2$ and others) and $\bar{X_1}-\bar{X_2}$, when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.  
+Table: Correlation between standardizers ($S_1$,$S_2$ and others) and $\bar{X_1}-\bar{X_2}$, when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.  
