@@ -1,10 +1,9 @@
-
-
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  english,
   man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -39,7 +38,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Theoretical Bias, as a function of population parameters},
-  pdfauthor={Delacre Marie},
+  pdfauthor={Delacre Marie1},
   pdfkeywords={keywords},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -61,31 +60,72 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\shorttitle{Theoretical Bias}
-\affiliation{
-\vspace{0.5cm}
-\textsuperscript{1} ULB}
-\keywords{keywords\newline\indent Word count: X}
-\usepackage{csquotes}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
 
+% Table formatting
 \usepackage{longtable}
 \usepackage{lscape}
-\usepackage{multirow}
-\usepackage{tabularx}
-\usepackage[flushleft]{threeparttable}
-\usepackage{threeparttablex}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
 
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
 \newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
 \makeatletter
 \newcommand\LastLTentrywidth{1em}
 \newlength\longtablewidth
 \setlength{\longtablewidth}{1in}
 \newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
 
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Theoretical Bias}
+\keywords{keywords\newline\indent Word count: X}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -95,10 +135,27 @@
 \usepackage{lineno}
 
 \linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
 
 \title{Theoretical Bias, as a function of population parameters}
 \author{Delacre Marie\textsuperscript{1}}
 \date{}
+
+
+\authornote{
+
+Correspondence concerning this article should be addressed to Delacre Marie, . E-mail:
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} ULB}
 
 \begin{document}
 \maketitle
@@ -106,28 +163,26 @@
 \hypertarget{the-bias}{%
 \section{The bias}\label{the-bias}}
 
-For all \enquote{biased} estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:\\
-- when variances are equal across groups;\\
-- when variances are unequal across groups, with equal sample sizes;\\
-- when variances are unequal across groups, with unequal sample sizes.
+For all \enquote{biased} estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met, whatever variances are equal across groups or not. In order to simplify the analysis of their bias, it is convenient to subdivise all configurations into 3 conditions:\\
+- when population variances are equal across groups;\\
+- when population variances are unequal across groups, with equal sample sizes;\\
+- when population variances are unequal across groups, with unequal sample sizes.
 
 \hypertarget{preliminary-note}{%
 \subsection{Preliminary note}\label{preliminary-note}}
 
-For all previously mentioned estimators (Cohen's \(d_s\), Glass's \(d_s\), Cohen's \(d'_s\) and Shieh's \(d_s\)), the theoretical expectancy is computed by multiplying the population effect size by the following multiplier coefficient:
-
+For all previously mentioned estimators (Cohen's \(d_s\), Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\)), the theoretical expectancy is computed by multiplying the population effect size (respectively \(\delta_{Cohen}\), \(\delta_{Glass}\), Cohen's \(\delta^*_{Cohen}\) and \(\delta_{Shieh}\)) by the following multiplier coefficient:
 \begin{equation} 
 \gamma=\frac{\sqrt{\frac{df}{2}} \times \Gamma{\frac{df-1}{2}}}{\Gamma{\frac{df}{2}}}
 \label{eq:mc}
 \end{equation}
-
-Where \(df\) are the degrees of freedom. \(\gamma\) is \emph{always} positive, meaning that when the population effect size is not zero, all estimators will overstimate the real population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.\\
-While we focus on the theoretical bias of biased estimators (Cohen's \(d_s\), Glass's \(d_s\), Shieh's \(d_s\) and Cohen's \(d'_s\)) when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to :\\
+where \(df\) are the degrees of freedom (see the main article). \(\gamma\) is \emph{always} positive, meaning that when the population effect size is not zero, all estimators will overstimate the population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.\\
+While we focus on the theoretical bias of biased estimators (Cohen's \(d_s\), Glass's \(d_s\), Shieh's \(d_s\) and Cohen's \(d^*_s\)) when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to :\\
 - biased estimators when samples are extracted from symmetric distributions;\\
 - unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.
 
-\hypertarget{cohens-d_s-see-table-1}{%
-\subsection{\texorpdfstring{Cohen's \(d_s\) (see Table 1)}{Cohen's d\_s (see Table 1)}}\label{cohens-d_s-see-table-1}}
+\hypertarget{cohens-bf-d_s-see-table-1}{%
+\subsection{\texorpdfstring{Cohen's \(\bf d_s\) (see Table 1)}{Cohen's \textbackslash bf d\_s (see Table 1)}}\label{cohens-bf-d_s-see-table-1}}
 
 Under the assumptions that independant residuals are normally distributed with equal variances, the \textbf{bias} of Cohen's \(d_s\) is a function of total sample size (N) and the population effect size (\(\delta_{Cohen}\)):
 
@@ -150,12 +205,12 @@ Under the assumptions that independant residuals are normally distributed with e
   Of course, considering the degrees of freedom, the sample size ratio does not matter (i.e.~the bias will decrease, whatever one increases \(n_1\), \(n_2\) or both sample sizes).
 \end{itemize}
 
-\hypertarget{glasss-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Glass's \(d_s\) (see Table 2)}{Glass's d\_s (see Table 2)}}\label{glasss-d_s-see-table-2}}
+\hypertarget{glasss-bf-d_s-see-table-2}{%
+\subsection{\texorpdfstring{Glass's \(\bf d_s\) (see Table 2)}{Glass's \textbackslash bf d\_s (see Table 2)}}\label{glasss-bf-d_s-see-table-2}}
 
 Because degrees of freedom depend only on the control group size (neither on \(\sigma_1\) nor on \(\sigma_2\)), there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!
 
-The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(n_c\)) and the population effect size (\(\delta_{glass}\)):
+The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(n_c\)) and the population effect size (\(\delta_{Glass}\)):
 
 \begin{itemize}
 \tightlist
@@ -175,26 +230,26 @@ The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(
   The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other side, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
 \end{itemize}
 
-\hypertarget{cohens-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Cohen's \(d'_s\) (see Table 2)}{Cohen's d'\_s (see Table 2)}}\label{cohens-d_s-see-table-2}}
+\hypertarget{cohens-bf-d_s-see-table-2}{%
+\subsection{\texorpdfstring{Cohen's \(\bf d^*_s\) (see Table 2)}{Cohen's \textbackslash bf d\^{}*\_s (see Table 2)}}\label{cohens-bf-d_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations}}
 
 When \(\sigma_1=\sigma_2=\sigma\):
 \[df_{Cohen's \; d'_s} = \frac{(n_1-1)(n_2-1)(2\sigma^2)^2}{(n_2-1)\sigma^4+(n_1-1)\sigma^4} = \frac{(n_1-1)(n_2-1)\times 4\sigma^4}{\sigma^4(n_1+n_2-2)} = \frac{4(n_1-1)(n_2-1)}{n_1+n_2-2}\]
-One can see that degrees of freedom depend only on the total sample size (N) and the sample size allocation ratio \(\left( \frac{n_1}{n_2}\right)\). As a consequence, the \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect size (\(\delta'_{Cohen}\)), the sample size allocation ratio \(\left( \frac{n_1}{n_2}\right)\) and the total sample size (\(N\)).
+One can see that degrees of freedom depend only on the total sample size (N) and the sample size allocation ratio \(\left( \frac{n_1}{n_2}\right)\). As a consequence, the \textbf{bias} of Cohen's \(d^*_s\) is a function of the population effect size (\(\delta^*_{Cohen}\)), the sample size allocation ratio \(\left( \frac{n_1}{n_2}\right)\) and the total sample size (\(N\)).
 
 \begin{itemize}
 \tightlist
 \item
-  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta'_{Cohen}\);
+  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta^*_{Cohen}\);
 \end{itemize}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehomNratio2-1.pdf}
-\caption{\label{fig:biascohendprimehomNratio2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are equal across groups, as a function of the logarithm of the sample sizes ratio \(log\left(\frac{n_1}{n_2} \right)\).}
+\caption{\label{fig:biascohendprimehomNratio2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances are equal across groups, as a function of the logarithm of the sample sizes ratio \(log\left(\frac{n_1}{n_2} \right)\).}
 \end{figure}
 
 \begin{itemize}
@@ -206,7 +261,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehomNsize2-1.pdf}
-\caption{\label{fig:biascohendprimehomNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are equal across groups, as a function of the total sample size (N).}
+\caption{\label{fig:biascohendprimehomNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances are equal across groups, as a function of the total sample size (N).}
 \end{figure}
 
 \begin{itemize}
@@ -220,18 +275,18 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 
 When \(n_1=n_2=n\):
 \[df_{Cohen's \; d'_s} = \frac{(n-1)^2(\sigma^2_1+\sigma^2_2)^2}{(n-1)(\sigma^4_1+\sigma^4_2)} =  \frac{(n-1)(\sigma^4_1+\sigma^4_2+2\sigma^2_1\sigma^2_2)}{\sigma^4_1+\sigma^4_2}\]
-One can see that degrees of freedom depend only on the total sample size (N) and the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\). As a consequence, the \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect size (\(\delta'_{Cohen}\)), the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\) and the total sample size (\(N\)):
+One can see that degrees of freedom depend only on the total sample size (N) and the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\). As a consequence, the \textbf{bias} of Cohen's \(d^*_s\) is a function of the population effect size (\(\delta^*_{Cohen}\)), the \(SD\)-ratio \(\left( \frac{\sigma_1}{\sigma_2}\right)\) and the total sample size (\(N\)):
 
 \begin{itemize}
 \tightlist
 \item
-  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta'_{Cohen}\);
+  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta^*_{Cohen}\);
 \end{itemize}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalSDratio2-1.pdf}
-\caption{\label{fig:biascohendprimehetbalSDratio2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are unequal across groups and sample sizes are equal, as a function of the logarithm of the \(SD\)-ratio (\(log \left( \frac{\sigma_1}{\sigma_2} \right)\)).}
+\caption{\label{fig:biascohendprimehetbalSDratio2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances are unequal across groups and sample sizes are equal, as a function of the logarithm of the \(SD\)-ratio (\(log \left( \frac{\sigma_1}{\sigma_2} \right)\)).}
 \end{figure}
 
 \begin{itemize}
@@ -243,7 +298,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalNsize2-1.pdf}
-\caption{\label{fig:biascohendprimehetbalNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are unequal across groups and sample sizes are equal, as a function of the total sample size (N).}
+\caption{\label{fig:biascohendprimehetbalNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances are unequal across groups and sample sizes are equal, as a function of the total sample size (N).}
 \end{figure}
 
 \begin{itemize}
@@ -255,7 +310,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetbalvariance2-1.pdf}
-\caption{\label{fig:biascohendprimehetbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances are unequal across groups and sample sizes are equal, as a function of \(\sigma_1\) (top plots) and \(\sigma_2\) (bottom plots), for a constant \(SD\)-ratio.}
+\caption{\label{fig:biascohendprimehetbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances are unequal across groups and sample sizes are equal, as a function of \(\sigma_1\) (top plots) and \(\sigma_2\) (bottom plots), for a constant \(SD\)-ratio.}
 \end{figure}
 
 Note: for a constant \(SD\)-ratio, \(\sigma_1\) and \(\sigma_2\) don't matter (see Figure \ref{fig:biascohendprimehetbalvariance2}).
@@ -263,18 +318,18 @@ Note: for a constant \(SD\)-ratio, \(\sigma_1\) and \(\sigma_2\) don't matter (s
 \hypertarget{when-variances-are-unequal-across-populations-with-unequal-sample-sizes}{%
 \subsubsection{When variances are unequal across populations, with unequal sample sizes}\label{when-variances-are-unequal-across-populations-with-unequal-sample-sizes}}
 
-The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect size (\(\delta'_{Cohen}\)), the total sample size (N), and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\) :
+The \textbf{bias} of Cohen's \(d^*_s\) is a function of the population effect size (\(\delta^*_{Cohen}\)), the total sample size (N), and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\) :
 
 \begin{itemize}
 \tightlist
 \item
-  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta'_{Cohen}\);
+  The larger the population effect size, the more \(Cohen's \; d'_s\) will overestimate \(\delta^*_{Cohen}\);
 \end{itemize}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalNsize2-1.pdf}
-\caption{\label{fig:biascohendprimehetunbalNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances and sample sizes are unequal across groups, as a function of the total sample size (N).}
+\caption{\label{fig:biascohendprimehetunbalNsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances and sample sizes are unequal across groups, as a function of the total sample size (N).}
 \end{figure}
 
 \begin{itemize}
@@ -286,7 +341,7 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalnratiosdratio2-1.pdf}
-\caption{\label{fig:biascohendprimehetunbalnratiosdratio2}Degrees of freedom (\(DF\)) and \(\gamma\), when computing the bias of Cohen's \(d'_s\) when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
+\caption{\label{fig:biascohendprimehetunbalnratiosdratio2}Degrees of freedom (\(DF\)) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\) when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
 \end{figure}
 
 \begin{itemize}
@@ -298,7 +353,7 @@ The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect siz
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/dfnumdenomcohendprimehetunbalnratiosdratio2-1.pdf}
-\caption{\label{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}Numerator and denominator of the degrees of freedom (\(DF\)) computation, when computing the bias of Cohen's \(d'_s\) when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
+\caption{\label{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}Numerator and denominator of the degrees of freedom (\(DF\)) computation, when computing the bias of Cohen's \(d^*_s\) when variances and sample sizes are unequal across groups, as a function of the logarithm of the sample sizes ratio (\(log \left( \frac{n_1}{n_2} \right)\)), when \(SD\)-ratio equals 1.46 (first row), 3.39 (second row) or 7 (third row).}
 \end{figure}
 
 As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any \(SD\)-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the \(SD\)-ratio). On the other side, the denominator will be minimized when there is a positive pairing between varianes and sample sizes. For example, when \(\sigma_1 > \sigma_2\), the smallest denominator occurs when \(\frac{n_1}{n_2}=max\left(\frac{n_1}{n_2}\right)\) and the larger the \(SD\)-ratio, the larger the impact of the sample sizes ratio on the denominator.
@@ -306,13 +361,13 @@ As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biascohendprimehetunbalvariance2-1.pdf}
-\caption{\label{fig:biascohendprimehetunbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d'_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma= \frac{(\sigma_1^2+\sigma_2^2)}{2}\), for a constant \(SD\)-ratio.}
+\caption{\label{fig:biascohendprimehetunbalvariance2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Cohen's \(d^*_s\), when variances and sample sizes are unequal across groups, as a function of \(\sigma= \frac{(\sigma_1^2+\sigma_2^2)}{2}\), for a constant \(SD\)-ratio.}
 \end{figure}
 
 Note: for a constant \(SD\)-ratio, the variance does not matter. (See Figure \ref{fig:biascohendprimehetunbalvariance2}).
 
-\hypertarget{shiehs-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Shieh's \(d_s\) (see Table 2)}{Shieh's d\_s (see Table 2)}}\label{shiehs-d_s-see-table-2}}
+\hypertarget{shiehs-bf-d_s-see-table-2}{%
+\subsection{\texorpdfstring{Shieh's \(\bf d_s\) (see Table 2)}{Shieh's \textbackslash bf d\_s (see Table 2)}}\label{shiehs-bf-d_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations-1}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-1}}
@@ -362,7 +417,7 @@ One can see that degrees of freedom depend only on the total sample size (N) and
 \caption{\label{fig:biasshiehhomuneqNsize2}Degrees of freedom (DF), when computing the bias of Shieh's \(d_s\), when variances are equal across groups, , when adding subjects only in the first group (left) or in the second group (right).}
 \end{figure}
 
-Note: when computing Cohen's \(d'_s\), degrees of freedom increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's \(d_s\), this is not true anymore: there is a larger impact of the sample sizes ratio, in order that increasing the sample sizes ratio when adding subjects in only one group can decrease the degrees of freedom and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2}).
+Note: when computing Cohen's \(d^*_s\), degrees of freedom increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's \(d_s\), this is not true anymore: there is a larger impact of the sample sizes ratio, in order that increasing the sample sizes ratio when adding subjects in only one group can decrease the degrees of freedom and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2}).
 
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}}
@@ -486,12 +541,12 @@ The \textbf{bias} of Glass's \(d_s\) is a function of the population effect size
   The bias decreases when the size of the control group increases. On the other side, increasing the size of the experimental group does not impact the bias.
 \end{itemize}
 
-The \textbf{bias} of Cohen's \(d'_s\) is a function of the population effect size (\(\delta'_{Cohen}\)), the total sample size, and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
+The \textbf{bias} of Cohen's \(d^*_s\) is a function of the population effect size (\(\delta^*_{Cohen}\)), the total sample size, and the interaction between the sample sizes ratio and the \(SD\)-ratio \(\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)\):
 
 \begin{itemize}
 \tightlist
 \item
-  When \(\delta'_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta'_{Cohen}\), the more Cohen's \(d'_s\) will overestimate \(\delta'_{Cohen}\);\\
+  When \(\delta^*_{Cohen}\) is null, the bias is null. In all other configurations, the larger \(\delta^*_{Cohen}\), the more Cohen's \(d^*_s\) will overestimate \(\delta^*_{Cohen}\);\\
 \item
   The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both);\\
 \item
@@ -509,5 +564,6 @@ The \textbf{bias} of Shieh's \(d'_s\) is a function of the population effect siz
 \item
   The smallest bias always occurs when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see \enquote{Theoretical Bias, as a function of population parameters}).
 \end{itemize}
+
 
 \end{document}
