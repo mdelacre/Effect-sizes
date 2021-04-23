@@ -75,7 +75,7 @@ for (i in seq_len(length(Folder))){
   ### Cohen's d's
   
   #### t stat
-  res[,10] <- (sqrt(n1*n2)*(mean1-mean2))/sqrt(n2*s1^2+n1*s2^2)
+  res[,10] <- (mean1-mean2)/sqrt(s1^2/n1+s2^2/n2) #(sqrt(n1*n2)*(mean1-mean2))/sqrt(n2*s1^2+n1*s2^2)
   #### df
   res[,11]<-((n1-1)*(n2-1)*(s1^2+s2^2)^2)/((n2-1)*s1^4+(n1-1)*s2^4)
   #### ncp

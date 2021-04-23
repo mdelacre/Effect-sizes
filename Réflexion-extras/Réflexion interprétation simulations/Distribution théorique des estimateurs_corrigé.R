@@ -24,27 +24,52 @@ for (i in 2){   # i = 2 = le dossier contenant les simulations de distributions 
     nratio <- n1/n2
     
     if(sd1==sd2){
-    par(mfrow=c(2,2))
+#    par(mfrow=c(2,2))
 
 # distribution théorique attendue pour le d de Cohen
-      #    Cohen_ds <- file[,9]
-      #    delta=(m1-m2)/sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
-      #    df=n1+n2-2 
-      #    ncp=delta*sqrt((n1*n2)/(n1+n2))
-      #    theo_cohen <- sqrt((n1+n2)/(n1*n2))*rt(1000000,df=df,ncp=ncp)
-      #    plot(density(Cohen_ds),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta))
-      #    lines(density(theo_cohen),col="blue")    
-    
+      #Cohen_ds <- file[,9]
+      #delta=(m1-m2)/sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+      #df=n1+n2-2 
+      #ncp=delta/sqrt(1/n1+1/n2)
+      #mult <- sqrt(1/n1+1/n2)
+      #x_dt <- seq(qt(.0001,df,ncp), qt(.9999,df,ncp), by = 0.001)
+      #y_dt <- dt(x_dt, df = df, ncp = ncp)
+      #x <- mult*x_dt # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+      #y <- y_dt/mult # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+      #plot(x,y,  
+      #         type = "l", 
+      #         las=1,
+      #         bty="n",
+      #         yaxt="n",
+      #         ylab="",
+      #         main=paste("sd1=",sd1,";sd2=",sd2),
+      #         xlab=""
+      #    )
+      #    lines(density(Cohen_ds),col="blue")
+              
 #distribution théorique attendue pour le d de glass, utilisant sd1 comme standardiseur
 
-      #    delta1=(m1-m2)/sd1    
-      #    glass1<-file[,11] #file[,11] = la colonne contenant les valeurs de d de glass utilisant sd1 comme standardiseur, pour chaque itération de la simulation
-      #    df1=n1-1
-      #    ncp1=delta1/sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
-      #    theo1 <- sqrt((1/n1)+(sd2^2/(n2*sd1^2)))*rt(1000000,df=df1,ncp=ncp1) 
-      #    plot(density(glass1)) # distributions de glass1t = distribution du d de glass utilisant sd1 comme standardiseur, multiplié par sqrt((n1*n2)/(n1+n2))
-      #    lines(density(theo1),col="blue")    
-
+          delta1=(m1-m2)/sd1    
+          glass1<-file[,11] #file[,11] = la colonne contenant les valeurs de d de glass utilisant sd1 comme standardiseur, pour chaque itération de la simulation
+          df1=n1-1
+          ncp1=delta1/sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
+          
+          mult <- sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
+          x_dt <- seq(qt(.0001,df1,ncp1), qt(.9999,df1,ncp1), by = 0.001)
+          y_dt <- dt(x_dt, df = df1, ncp = ncp1)
+          x <- mult*x_dt # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+          y <- y_dt/mult # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+          plot(x,y,  
+               type = "l", 
+               las=1,
+               bty="n",
+               yaxt="n",
+               ylab="",
+               main=paste("sd1=",sd1,";sd2=",sd2),
+               xlab=""
+          )
+          lines(density(glass1),col="blue")
+          
 #distribution théorique attendue pour le d de glass, utilisant sd2 comme standardiseur
     
     #    delta2=(m1-m2)/sd2    
@@ -65,67 +90,68 @@ for (i in 2){   # i = 2 = le dossier contenant les simulations de distributions 
     #lines(density(theo_W),col="red")    
     
 # distribution théorique attendue pour le d cohen avec variances non poolées: SOLUTION PROPOSEE DANS L ANNEXE
-    cohendprime_t <- file[,17]  
-    delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-    df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
-    ncp_t=delta_t*sqrt((n1*n2*(sd1^2+sd2^2))/(2*(n2*sd1^2+n1*sd2^2)))
-    theo_cohendprime <- sqrt((2*(n2*sd1^2+n1*sd2^2))/(n1*n2*(sd1^2+sd2^2)))*rt(1000000,df=df_t,ncp=ncp_t)    
-    plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
-    lines(density(theo_cohendprime),col="red")    
+          #    cohendprime_t <- file[,17]  
+          #delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
+          #df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
+          #ncp_t=delta_t*sqrt((n1*n2*(sd1^2+sd2^2))/(2*(n2*sd1^2+n1*sd2^2)))
+          #theo_cohendprime <- sqrt((2*(n2*sd1^2+n1*sd2^2))/(n1*n2*(sd1^2+sd2^2)))*rt(1000000,df=df_t,ncp=ncp_t)    
+          #plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
+          #lines(density(theo_cohendprime),col="red")    
 
-# distribution théorique attendue pour le d cohen avec variances non poolées: SOLUTION PROPOSEE DANS CORROLARY 5
-    cohendprime_t <- file[,17]  
-    delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-    df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
-    ncp_t=delta_t*((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)
-    theo_cohendprime <- ((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)*rt(1000000,df=df_t,ncp=ncp_t)
-      #(sqrt(2)*(n2*sd1^2+n1*sd2^2))/(sqrt(sd1^2+sd2^2)*(n1*n2))*rt(1000000,df=df_t,ncp=ncp_t)    
-    plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
-    lines(density(theo_cohendprime),col="red")    
-    
-# TENTATIVE PERSO équivalente pour le d de Cohen avec variances non poolées
-#    welch_t <- file[,17]*sqrt((n1*n2*(file[,3]^2+file[,4]^2))/(2*(n2*file[,3]^2+n1*file[,4]^2))) 
-#    delta_w=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-#    df_w=(sd1^2/n1+sd2^2/n2)^2/((sd1^2/n1)^2/(n1-1)+(sd2^2/n2)^2/(n2-1))#quand n1=n2, c'est égal à df_w=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n1-1)*sd1^4+(n2-1)*sd2^4)
-#    ncp_w=delta_w*sqrt((n1*n2*(sd1^2+sd2^2))/(2*(n2*sd1^2+n1*sd2^2)))#delta_w*(sigma_eq*sqrt(N*nratio))/((nratio+1)*sigma_uneq)
-#    theo_w <- rt(1000000,df=df_w,ncp=ncp_w)    
-#    plot(density(welch_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_w))
-#    lines(density(theo_w),col="red")    
-
-# distribution théorique attendue pour le d cohen avec variances non poolées VERSION SANS BIAIS
-#    cohendprime_unbiased <- file[,18] 
-#    delta=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-#    df_unbiased=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
-#    ncp_unbiased=delta*sqrt((sd1^2+sd2^2)/2)/sqrt(sd1^2/n1+sd2^2/n2)
-#    k <- sqrt(sd1^2/n1+sd2^2/n2)/sqrt((sd1^2+sd2^2)/2)
-#    cf <- gamma(df/2)/(sqrt(df/2)*gamma((df-1)/2))
-#    theo_cohendprime_unbiased <- k*cf*rt(1000000,df=df_unbiased,ncp=ncp_unbiased)    
-#    plot(density(cohendprime_unbiased),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta))
-#    lines(density(theo_cohendprime_unbiased),col="red")    
 
 } else {
-      par(mfrow=c(1,2))
+#      par(mfrow=c(1,2))
 
+  # distribution théorique attendue pour le d de Cohen
+  #Cohen_ds <- file[,9]
+  #delta=(m1-m2)/sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
+  #df=n1+n2-2 
+  #ncp=delta/sqrt(1/n1+1/n2)
+  #mult <- sqrt(1/n1+1/n2)
+  #x_dt <- seq(qt(.0001,df,ncp), qt(.9999,df,ncp), by = 0.001)
+  #y_dt <- dt(x_dt, df = df, ncp = ncp)
   
-# distribution théorique attendue pour le d de Cohen
-  #    Cohen_ds <- file[,9]
-  #    delta=(m1-m2)/sqrt(((n1-1)*sd1^2+(n2-1)*sd2^2)/(n1+n2-2))
-  #    df=n1+n2-2 
-  #    ncp=delta*sqrt((n1*n2)/(n1+n2))
+  #x <- mult*x_dt # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+  #y <- y_dt/mult # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+  #plot(x,y,  
+  #     type = "l", 
+  #     las=1,
+  #     bty="n",
+  #     yaxt="n",
+  #     ylab="",
+  #     main=paste("sd1=",sd1,";sd2=",sd2),
+  #     xlab=""
+  #)
+  #lines(density(Cohen_ds),col="red")
+  
+    
   #    theo_cohen <- sqrt((n1+n2)/(n1*n2))*rt(1000000,df=df,ncp=ncp)
   #    plot(density(Cohen_ds),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta))
   #    lines(density(theo_cohen),col="blue")    
 
 # distribution théorique attendue pour le d de glass, utilisant sd1 comme standardiseur
   
-  #    delta1=(m1-m2)/sd1    
-  #    glass1<-file[,11] #file[,11] = la colonne contenant les valeurs de d de glass utilisant sd1 comme standardiseur, pour chaque itération de la simulation
-  #    df1=n1-1
-  #    ncp1=delta1/sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
-  #    theo1 <- sqrt((1/n1)+(sd2^2/(n2*sd1^2)))*rt(1000000,df=df1,ncp=ncp1) 
-  #    plot(density(glass1)) # distributions de glass1t = distribution du d de glass utilisant sd1 comme standardiseur, multiplié par sqrt((n1*n2)/(n1+n2))
-  #    lines(density(theo1),col="blue")    
-
+  delta1=(m1-m2)/sd1    
+  glass1<-file[,11] #file[,11] = la colonne contenant les valeurs de d de glass utilisant sd1 comme standardiseur, pour chaque itération de la simulation
+  df1=n1-1
+  ncp1=delta1/sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
+  
+  mult <- sqrt((1/n1)+(sd2^2/(n2*sd1^2)))
+  x_dt <- seq(qt(.0001,df1,ncp1), qt(.9999,df1,ncp1), by = 0.001)
+  y_dt <- dt(x_dt, df = df1, ncp = ncp1)
+  x <- mult*x_dt # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+  y <- y_dt/mult # mult = sqrt(1/n1+1/n2) pour le d  de Cohen
+  plot(x,y,  
+       type = "l", 
+       las=1,
+       bty="n",
+       yaxt="n",
+       ylab="",
+       main=paste("sd1=",sd1,";sd2=",sd2),
+       xlab=""
+  )
+  lines(density(glass1),col="red")
+  
 # distribution théorique attendue pour le d de glass, utilisant sd2 comme standardiseur
   
   #    delta2=(m1-m2)/sd2    
@@ -146,22 +172,22 @@ for (i in 2){   # i = 2 = le dossier contenant les simulations de distributions 
 #lines(density(theo_W),col="blue")    
 
     # distribution théorique attendue pour le d cohen avec variances non poolées: SOLUTION PROPOSEE DANS L ANNEXE
-    cohendprime_t <- file[,17] 
-    delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-    df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
-    ncp_t=delta_t*sqrt((n1*n2*(sd1^2+sd2^2))/(2*(n2*sd1^2+n1*sd2^2)))
-    theo_cohendprime <- sqrt((2*(n2*sd1^2+n1*sd2^2))/(n1*n2*(sd1^2+sd2^2)))*rt(1000000,df=df_t,ncp=ncp_t)    
-    plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
-    lines(density(theo_cohendprime),col="red")    
+    #cohendprime_t <- file[,17] 
+    #delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
+    #df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
+    #ncp_t=delta_t*sqrt((n1*n2*(sd1^2+sd2^2))/(2*(n2*sd1^2+n1*sd2^2)))
+    #theo_cohendprime <- sqrt((2*(n2*sd1^2+n1*sd2^2))/(n1*n2*(sd1^2+sd2^2)))*rt(1000000,df=df_t,ncp=ncp_t)    
+    #plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
+    #lines(density(theo_cohendprime),col="red")    
 
     # distribution théorique attendue pour le d cohen avec variances non poolées: SOLUTION PROPOSEE DANS CORROLARY 5
-    cohendprime_t <- file[,17]  
-    delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
-    df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
-    ncp_t=delta_t*((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)
-    theo_cohendprime <- ((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)*rt(1000000,df=df_t,ncp=ncp_t)
-    plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
-    lines(density(theo_cohendprime),col="red")    
+    #cohendprime_t <- file[,17]  
+    #delta_t=(m1-m2)/sqrt((sd1^2+sd2^2)/2)
+    #df_t=((n1-1)*(n2-1)*(sd1^2+sd2^2)^2)/((n2-1)*sd1^4+(n1-1)*sd2^4)
+    #ncp_t=delta_t*((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)
+    #theo_cohendprime <- ((n2*sd1^2+n1*sd2^2)/(n1*n2))/sqrt((sd1^2+sd2^2)/2)*rt(1000000,df=df_t,ncp=ncp_t)
+    #plot(density(cohendprime_t),main=paste("mu1-mu2=",m1-m2,"\n sd-ratio=",sd1/sd2,"\n nratio=",n1/n2),xlab=paste("delta=",delta_t))
+    #lines(density(theo_cohendprime),col="red")    
     
 # TENTATIVE PERSO équivalente pour le d de Cohen avec variances non poolées
 

@@ -158,7 +158,7 @@ When \(n_1<n_2\)\strut
 \efloatseparator
  
 \begin{longtable}[]{@{}lcc@{}}
-\caption{Correlation between standardizers (\(S_1\),\(S_2\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.}\tabularnewline
+\caption{Correlation between standardizers (\(S_1\), \(S_2\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.}\tabularnewline
 \toprule
 & \textbf{\textbf{population distribution}} &\tabularnewline
 \midrule

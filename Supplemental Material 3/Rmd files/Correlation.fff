@@ -3,14 +3,14 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDMEANHombalsym-1.pdf}
-\caption{\label{fig:pltSDMEANHombalsym}\(S_j\) as a function of \(\bar{X_j}\) (j=1,2), when samples are extracted from symmetric distributions (\(\gamma_1 = 0\))}
+\caption{\label{fig:pltSDMEANHombalsym}\(S_j\) as a function of \(\bar{X_j}\) (\(j\)=1,2), when samples are extracted from symmetric distributions (\(\gamma_1 = 0\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHombalRskew-1.pdf}
-\caption{\label{fig:pltSDHombalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:pltSDHombalRskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -24,7 +24,7 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHombalLskew-1.pdf}
-\caption{\label{fig:pltSDHombalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:pltSDHombalLskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -38,28 +38,28 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/Homunbalcorasafctofn1-1.pdf}
-\caption{\label{fig:Homunbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_j}\) when \(n\) = 25, 50, 75 or 100 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:Homunbalcorasafctofn1}Correlation between \(S_j\) and \(\bar{X_j}\) when \(n\) = 25, 50, 75 or 100 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/Homunbalcorasafctofn2-1.pdf}
-\caption{\label{fig:Homunbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when \(n\) = 25, 50, 75 or 100 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:Homunbalcorasafctofn2}Correlation between \(S_j\) and \(\bar{X_j}\) when \(n\) = 25, 50, 75 or 100 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHomunbalRskew-1.pdf}
-\caption{\label{fig:pltSDHomunbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(n_1\)=20 and \(n_2\)=100}
+\caption{\label{fig:pltSDHomunbalRskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHomunbalLskew-1.pdf}
-\caption{\label{fig:pltSDHomunbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
+\caption{\label{fig:pltSDHomunbalLskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(n_1\)=20 and \(n_2\)=100}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
@@ -80,28 +80,28 @@
 
 \centering
 \includegraphics{Correlation_files/figure-latex/Hetbalcorasafctofn1-1.pdf}
-\caption{\label{fig:Hetbalcorasafctofn1}correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:Hetbalcorasafctofn1}Correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/Hetbalcorasafctofn2-1.pdf}
-\caption{\label{fig:Hetbalcorasafctofn2}correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:Hetbalcorasafctofn2}Correlation between \(S_j\) and \(\bar{X_j}\) when \(SD\) = 2, 4, 6 or 8 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHetbalRskew-1.pdf}
-\caption{\label{fig:pltSDHetbalRskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(S_1\)=2 and \(S_2\)=4}
+\caption{\label{fig:pltSDHetbalRskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\)), with \(S_1\)=2 and \(S_2\)=4}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
 \centering
 \includegraphics{Correlation_files/figure-latex/pltSDHetbalLskew-1.pdf}
-\caption{\label{fig:pltSDHetbalLskew}\(S_j\) (j=1,2) as a function \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(S_1\)=2 and \(S_2\)=4}
+\caption{\label{fig:pltSDHetbalLskew}\(S_j\) (\(j\)=1,2) as a function of \(\bar{X_j}\) (top plots) or \(\bar{X_1}-\bar{X_2}\) (bottom plots), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(S_1\)=2 and \(S_2\)=4}
 \end{figure*}
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}

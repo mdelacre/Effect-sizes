@@ -3,11 +3,11 @@ title             : "Simulation checks"
 shorttitle        : "Simulation checks"
 
 author: 
-  - name          : "Delacre Marie"
+  - name          : "Marie Delacre"
     affiliation   : "1"
-    corresponding : no    # Define only one corresponding author
-    address       : ""
-    email         : ""
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "marie.delacre@ulb.be"
 
 affiliation:
   - id            : "1"
