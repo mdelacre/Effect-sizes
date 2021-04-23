@@ -327,7 +327,7 @@ plot(log(nratio2),VAR2,xlab=expression(paste("log(",n[c],"/",n[e],")")),ylab=exp
 #round(nratio2[VAR2==min(VAR2)])
 ```
 
-Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the adddition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), and the larger the population effect size the more it is true. For example, when $\delta_{Glass}$= `r delta_glass1`, the lowest variance will occur when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{Glass}$= `r delta_glass2`, the lowest variance will occur when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
+Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the adddition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), especially when the effect size gets larger. For example, when $\delta_{Glass}$= `r delta_glass1`, the lowest variance will occur when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{Glass}$= `r delta_glass2`, the lowest variance will occur when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
 
 ### When variances are unequal across populations, with equal sample sizes
 
@@ -480,7 +480,7 @@ plot(Ne3,VAR3,xlab="N",ylab=expression(paste("Var(",d[s],")")))
 plot(Nc4,VAR4,xlab="N",ylab=expression(paste("Var(",d[s],")")))
 ```
 
-+ Whatever the $SD$ and sample sizes pairing, increasing $n_c$ and/or $n_e$ will decrease the variance (see Figure \ref{fig:varglassHetunbalNsize2});
++ For any $SD$ and sample sizes pairing, increasing $n_c$ and/or $n_e$ will decrease the variance (see Figure \ref{fig:varglassHetunbalNsize2});
 
   + The effect of the sample sizes ratio depends on the $SD$-ratio:    
     - We previously mentioned that when $\sigma_c=\sigma_e$,  the variance is minimized when sample sizes of both groups are almost identical (see Figure \ref{fig:varglasshomNratio2}), meaning that it is more efficient, in order to reduce variance, to add subjects uniformly in both groups;  
@@ -1022,7 +1022,7 @@ plot(Nsize2,var2,ylab=expression(paste("Var(",d[s],")")),xlab="N")
 
 ```
 
-  + The larger the total sample size, the lower the variance. It remains true when the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) and when it is not (see Figure \ref{fig:varshiehhomNsize4}).
+  + The larger the total sample size, the lower the variance. It does not matter whether the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) or not (see Figure \ref{fig:varshiehhomNsize4}).
 
 Note: in "Theoretical Bias, as a function of population parameters", we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the total sample size term ($N$) in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}). 
 
