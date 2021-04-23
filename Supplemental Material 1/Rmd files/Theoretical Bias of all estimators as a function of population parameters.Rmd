@@ -31,7 +31,7 @@ output            : papaja::apa6_pdf
 
 # The bias 
 
-For all "biased" estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's $d_s$ (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other side, the biases of Glass's $d_s$, Cohen's $d^*_s$ and Shieh's $d_s$ are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:  
+For all "biased" estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's $d_s$ (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other hand, the biases of Glass's $d_s$, Cohen's $d^*_s$ and Shieh's $d_s$ are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:  
 - when population variances are equal across groups;     
 - when population variances are unequal across groups, with equal sample sizes;  
 - when population variances are unequal across groups, with unequal sample sizes.  
@@ -134,7 +134,7 @@ plot(Nexp,DF2,xlab=expression(n[e]))
 plot(Nexp,coeffmult2,ylab=expression(gamma),xlab=expression(n[e]))
 ```
 
-  + The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other side, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
+  + The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other hand, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
 
 ## Cohen's $\bf d^*_s$ (see Table 2)
 
@@ -205,8 +205,7 @@ plot(Nsize,coeffmult,ylab=expression(gamma),xlab="N")
   + The larger the total sample size, the lower the bias (see Figure \ref{fig:biascohendprimehomNsize2}).
 
 ### When variances are unequal across populations, with equal sample sizes
-
-When $n_1=n_2=n$: 
+When $n_1 = n_2 = n$:
 $$df_{Cohen's \; d^*_s} = \frac{(n-1)^2(\sigma^2_1+\sigma^2_2)^2}{(n-1)(\sigma^4_1+\sigma^4_2)} =  \frac{(n-1)(\sigma^4_1+\sigma^4_2+2\sigma^2_1\sigma^2_2)}{\sigma^4_1+\sigma^4_2}$$ 
 One can see that degrees of freedom depend only on the total sample size  ($N$) and the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$. As a consequence, the **bias** of Cohen's $d^*_s$ is a function of the population effect size ($\delta^*_{Cohen}$), the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$ and the total sample size ($N$): 
 
@@ -442,7 +441,7 @@ plot(log(nratio2),DF_NUM2,ylab="DF",xlab=expression(paste("log(",n[1],"/",n[2],"
 plot(log(nratio2),DF_DENOM2,ylab=expression(gamma),xlab=expression(paste("log(",n[1],"/",n[2],")")))
 ```
 
-As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any $SD$-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the $SD$-ratio). On the other side, the denominator will be minimized when there is a positive pairing between variances and sample sizes. For example, when $\sigma_1 > \sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}$ reaches its maximum value and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator. 
+As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, for any $SD$-ratio, the numerator of the degrees of freedom will be maximized when sample sizes are equal across groups (and is not impacted by the $SD$-ratio). On the other hand, the denominator will be minimized when there is a positive pairing between variances and sample sizes. For example, when $\sigma_1 > \sigma_2$, the smallest denominator occurs when $\frac{n_1}{n_2}$ reaches its maximum value and the larger the $SD$-ratio, the larger the impact of the sample sizes ratio on the denominator. 
 
 ```{r biascohendprimehetunbalvariance,include=FALSE}
 coeffmult <- NULL
@@ -595,8 +594,8 @@ Note: when computing Cohen's $d^*_s$, degrees of freedom increased when adding s
 
 When $n_1=n_2=n$:
 $$df_{Shieh's \; d_s} = \frac{\left( \frac{\sigma_1^2+\sigma_2^2}{n} \right)^2}{\frac{(\sigma_1^2/n)^2+(\sigma_2^2/n)^2}{n-1}}$$
-$$df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2}{n^2} \times\frac{n-1}{\frac{\sigma_1^4+\sigma_2^4}{n^2}}$$
-$$df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2 \times (n-1)}{\sigma_1^4+\sigma_2^4}$$
+$$\leftrightarrow df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2}{n^2} \times\frac{n-1}{\frac{\sigma_1^4+\sigma_2^4}{n^2}}$$
+$$\leftrightarrow df_{Shieh's \; d_s} = \frac{(\sigma_1^2+\sigma_2^2)^2 \times (n-1)}{\sigma_1^4+\sigma_2^4}$$
 
 One can see that degrees of freedom depend on the total sample size ($N$) and the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$.  As a consequence, the bias depends on the population effect size ($\delta_{Shieh}$), the $SD$-ratio $\left( \frac{\sigma_1}{\sigma_2}\right)$ and the total sample size ($N$).
 
@@ -937,17 +936,17 @@ Moreover, for a constant $SD$-ratio, the variances do not matter (See Figure \re
 The **bias** of Cohen's $d_s$ is a function of the population effect size $\delta_{Cohen}$ and the total sample size ($N$): 
 
   + When $\delta_{Cohen}$ is null, the bias is null. In all other configurations, the larger $\delta_{Cohen}$, the more Cohen's $d_s$ will overestimate $\delta_{Cohen}$;  
-  + The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both).  
+  + The bias decreases when the total sample size increases (it does not matter whether one adds subjects in only one group or in both).  
 
 The **bias** of Glass's $d_s$ is a function of the population effect size ($\delta_{Glass}$) and the size of the control group ($n_e$):  
 
   + When $\delta_{Glass}$ is null, the bias is null. In all other configurations, the larger $\delta_{Glass}$, the more Glass's $d_s$ will overestimate $\delta_{Glass}$;  
-  + The bias decreases when the size of the control group increases. On the other side, increasing the size of the experimental group does not impact the bias.  
+  + The bias decreases when the size of the control group increases. On the other hand, increasing the size of the experimental group does not impact the bias.  
 
 The **bias** of Cohen's $d^*_s$ is a function of the population effect size ($\delta^*_{Cohen}$), the total sample size, and the interaction between the sample sizes ratio and the $SD$-ratio $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)$:       
 
   + When $\delta^*_{Cohen}$ is null, the bias is null. In all other configurations, the larger $\delta^*_{Cohen}$, the more Cohen's $d^*_s$ will overestimate $\delta^*_{Cohen}$;  
-  + The bias decreases when the total sample size increases (whatever one adds subjects in only one group or in both);  
+  + The bias decreases when the total sample size increases (it does not matter whether one adds subjects in only one group or in both);
   + The smallest bias always occurs when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.  
 
 The **bias** of Shieh's $d^*_s$ is a function of the population effect size ($\delta_{Shieh}$), the total sample size, and the interaction between the sample sizes ratio and the $SD$-ratio $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)$:   

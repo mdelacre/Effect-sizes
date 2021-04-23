@@ -271,7 +271,7 @@ plot(Ne,VAR2,xlab=expression(n[e]),ylab=expression(frac(df, df-2)- (frac(sqrt(fr
 
 ```
 
-While the variance of Glass's $d_s$ still depends on the total sample size and the sample sizes allocation ratio, it also depends on the population effect size ($\delta_{Glass}$). The larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the control group increases. On the other side, the effect of the population effect size does *not* depend on the size of the experimental group since  
+While the variance of Glass's $d_s$ still depends on the total sample size and the sample sizes allocation ratio, it also depends on the population effect size ($\delta_{Glass}$). The larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the control group increases. On the other hand, the effect of the population effect size does *not* depend on the size of the experimental group since  
 $$\lim_{n_c\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right]=0$$ 
 $$\lim_{n_e\rightarrow \infty}\left[\frac{df}{df-2} - \left( \frac{\sqrt{\frac{df}{2}} \times \Gamma \left(\frac{df-1}{2} \right)}{\Gamma \left( \frac{df}{2}\right)}\right)^2 \right] \neq 0$$ 
 
@@ -523,7 +523,7 @@ Note: when the population effect size was null, when $\sigma_c<\sigma_e$, it was
 
 ### In summary
 
-The variance of Glass's $d_s$ is a function of the population effect size ($\delta_{Glass}$), the $SD$-ratio, the total sample size and the interaction between sample sizes ratio and $SD$-ratio $\left(\frac{n_c}{n_e}\times\frac{\sigma_1}{\sigma_2} \right)$:  
+The variance of Glass's $d_s$ is a function of the population effect size ($\delta_{Glass}$), the $SD$-ratio, the total sample size and the interaction between sample sizes ratio and $SD$-ratio $\left(\frac{n_c}{n_e}\times\frac{\sigma_c}{\sigma_e} \right)$:  
 
   + The variance decreases when the $SD$-ratio increases (i.e. when $\sigma_e >> \sigma_c$);  
   + The variance always decreases when the control and/or the experimental group increases. The benefit of adding subjects rather in the control, in the experimental, or in both groups, in order to reduce the variance, varies as a function of the $SD$-ratio and the population effect size. The only situation where it is optimal to maximize the experimental group is when $\sigma_e > \sigma_c$ and $\delta_{Glass} \approx 0$. Most of the time, it is more efficient to maximize the control groups (e.g. anytime $\sigma_e < \sigma_c$, and when $\delta_{Glass}$ is very large) or to uniformly add subjects in both groups (e.g. when $\sigma_e > \sigma_c$ and $\delta_{Glass}$ is neither null nor huge); 
@@ -891,7 +891,7 @@ plot(SD,var,xlab=expression(sigma),ylab=expression(paste("Var(",d[s],")")))
 abline(v=0)
 ```
   
-Note: for a constant SD-ratio, the variance does not matter. (See Figure \ref{fig:varcohendprimehetunbalvariance2}).
+Note: for a constant $SD$-ratio, the variance does not matter. (See Figure \ref{fig:varcohendprimehetunbalvariance2}).
 
 #### When $\bf \pmb{\delta^*_{Cohen}} \neq 0$
 
@@ -1022,9 +1022,9 @@ plot(Nsize2,var2,ylab=expression(paste("Var(",d[s],")")),xlab="N")
 
 ```
 
-  + The larger the total sample size, the lower the variance, whatever the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) or not (see Figure \ref{fig:varshiehhomNsize4}).
+  + The larger the total sample size, the lower the variance. It remains true when the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) and when it is not (see Figure \ref{fig:varshiehhomNsize4}).
 
-Note: in "Theoretical Bias, as a function of population parameters", we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the presence of $N$ in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}). 
+Note: in "Theoretical Bias, as a function of population parameters", we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the total sample size term ($N$) in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}). 
 
 #### When $\bf \pmb{\delta_{Shieh}} \neq 0$
 
@@ -1070,7 +1070,7 @@ plot(log(SDratio),var,ylab=expression(paste("Var(",d[s],")")),xlab=expression(pa
 #SDratio[var==min(var)]
 ```
 
-  + The further the SD-ratio is from 1, the larger the variance (see Figure \ref{fig:varshiehhetbalSDratio2});  
+  + The further the $SD$-ratio is from 1, the larger the variance (see Figure \ref{fig:varshiehhetbalSDratio2});  
 
 ```{r varshiehhetbalNsize,include=FALSE}
 Nsize=NULL
@@ -1131,7 +1131,7 @@ plot(SD1,var,ylab=expression(paste("Var(",d[s],")")),xlab=expression(sigma[1]))
 #SDratio[coeffmult==min(coeffmult)]
 ```
 
-Note: for a constant SD-ratio, the size of the variance does not matter (see Figure \ref{fig:varshiehhetbalvariance2}). 
+Note: for a constant $SD$-ratio, the size of the variance does not matter (see Figure \ref{fig:varshiehhetbalvariance2}). 
 
 #### When $\bf \pmb{\delta_{Shieh}} \neq 0$
 
@@ -1269,7 +1269,7 @@ plot(Nsize4,var4,ylab=expression(paste("Var(",d[s],")")),xlab="N")
 
 ```
 
-  + The larger the total sample size, the lower the variance, whatever the sample sizes ratio is constant (see Figure \ref{fig:varshiehhetunbalNsize2}) or not (see Figure \ref{fig:varshiehhetunbalNsize4}).
+  + The larger the total sample size, the lower the variance. It remains true when the sample sizes ratio is constant (see Figure \ref{fig:varshiehhetunbalNsize2}) and when it is not (see Figure \ref{fig:varshiehhetunbalNsize4}).
 
   Note: When variances were equal across populations, adding subjects only in the first group had the same impact on the variance as adding subjects only in the second group (see Figure \ref{fig:varshiehhomNsize4}). When variances are unequal across groups, this is not true anymore (see Figure \ref{fig:varshiehhetunbalNsize4}).
 
@@ -1407,7 +1407,7 @@ plot(SD2,round(var,6),ylab=expression(paste("Var(",d[s],")")),xlab=expression(si
 
 ```
   
-Moreover, for a constant SD-ratio, the variances do not matter (See Figure \ref{fig:varshiehhetunbalvariance2}).
+Moreover, for a constant $SD$-ratio, the variances do not matter (See Figure \ref{fig:varshiehhetunbalvariance2}).
 
 #### When $\bf \pmb{\delta_{Shieh}} \neq 0$
 
