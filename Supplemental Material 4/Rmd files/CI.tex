@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man,floatsintext]{apa6}
+  man]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -38,8 +38,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Reminder about Confidence Intervals},
-  pdfauthor={Marie Delacre1},
-  pdfkeywords={keywords},
+  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -125,7 +124,13 @@
   {}{\typeout{Failed to patch title.}}
 \makeatother
 \shorttitle{CI REMINDER}
-\keywords{keywords\newline\indent Word count: X}
+\keywords{\newline\indent Word count: 273}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
 \usepackage{lineno}
 
 \linenumbers
@@ -139,86 +144,54 @@
 \fi
 
 \title{Reminder about Confidence Intervals}
-\author{Marie Delacre\textsuperscript{1}}
+\author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
 
 
 \authornote{
 
-Correspondence concerning this article should be addressed to Marie Delacre, Postal address. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
+Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
 
 }
 
-\affiliation{\vspace{0.5cm}\textsuperscript{1} ULB}
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
 
 \begin{document}
 \maketitle
 
-\hypertarget{introduction-how-to-compute-a-confidence-interval-around-pmbmu_1-mu_2}{%
-\subsubsection{\texorpdfstring{Introduction: How to compute a confidence interval around \(\pmb{\mu_1-\mu_2}\)}{Introduction: How to compute a confidence interval around \textbackslash pmb\{\textbackslash mu\_1-\textbackslash mu\_2\}}}\label{introduction-how-to-compute-a-confidence-interval-around-pmbmu_1-mu_2}}
+\hypertarget{how-to-compute-a-confidence-interval-around-a-point-estimator}{%
+\subsubsection{How to compute a confidence interval around a point estimator}\label{how-to-compute-a-confidence-interval-around-a-point-estimator}}
 
-Considering the link between confidence intervals and NHST approach, we can think of the confidence limits as the most extreme values of \(\mu_1-\mu_2\) that we could define as null hypothesis and that would not lead to rejecting the null hypothesis (Cumming \& Finch, 2001), that is to say, the values associated with a \emph{p}-value that exactly equals \(\frac{alpha}{2}\).
-
-Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
+As illustration, we will explain how to compute a confidence interval around Cohen's \(d_s\) (the explanation would be very similar for all other estimators). Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
 \begin{equation*} 
 t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 \label{eq:tstudent}
 \end{equation*}
-with \(SE = \sigma_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) and \(\sigma_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}\).
-
-Under the null hypothesis, this quantity will follow a central \emph{t}-distribution with \(n_1+n_2-2\) degrees of freedom. \footnote{Distribution is central because under the null hypothesis, the quantity is a (supposed normal) centered variable, divided by SE, an independant variable closely related with the $\chi^2$. }. The central \emph{t}-distribution is always centered around \((\mu_1-\mu_2)_0\). For example, when we expect that \(\mu_1=\mu_2\) under the null hypothesis, the central \emph{t}-distribution is centered around 0, when we expect that \(\mu_1-\mu_2=3\) under the null hypothesis, the central \emph{t}-distribution is centered around 3.
-
-Considering all these information we can define \((\mu_1-\mu_2)_L\), the lower limit of the confidence interval, such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}\) exactly equals the quantile (1-\(\frac{\alpha}{2}\)) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L\) (i.e.~the symmetric \emph{t}-distribution that is centered around \((\mu_1-\mu_2)_L\)) and the upper limit \((\mu_1-\mu_2)_U\) such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}\) exactly equals the quantile \(\frac{\alpha}{2}\) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U\) (i.e.~the symmetric \emph{t}-distribution that is centered around \((\mu_1-\mu_2)_U\)):
-\begin{equation*} 
-Pr[t_{n_1+n_2-2} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
-\label{eq:plausiblelimit1}
+with \(SE = S_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\), \(S_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}\) and \(S_j\) = the standard deviation of the \(j^{th}\) sample (\(j=1,2\)). Under the null hypothesis, this quantity will follow a central \emph{t}-distribution with \(n_1+n_2-2\) degrees of freedom. However, when the null hypothesis is false, the distribution of this quantity is not centered and a noncentral \emph{t}-distribution arises (Cumming \& Finch, 2001), as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. Noncentral \emph{t}-distributions are described by two parameters: degrees of freedom (\(df\)) and noncentrality parameter (that we will call \(\Delta\); Cumming \& Finch, 2001), the last being a function of the population effect size (\(\delta\)) and sample sizes (\(n_1\) and \(n_2\)):
+\begin{equation*}
+\Delta = \frac{\delta}{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+\label{eq:ncp}
 \end{equation*}
-\begin{equation*} 
-Pr[t_{n_1+n_2-2} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
-\label{eq:plausiblelimit2}
-\end{equation*}
-Under the assumption of iid normal distribution of residuals with unequal variances across groups, in order to test the null hypothesis that \(\mu_1-\mu_2= (\mu_1-\mu_2)_0\), we can compute the following quantity:
-\begin{equation*} 
-t_{Welch}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
-\label{eq:twelch}
-\end{equation*}
-with \(SE = \sqrt{\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2}}\). Again, under the null hypothesis, we know that this quantity will follow a central \emph{t}-distribution with \(df=\frac{(\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2})^2}{\frac{(\frac{S^2_1}{n_1})^2}{n_1-1}+\frac{(\frac{S^2_2}{n_2})^2}{n_2-1}}\) degrees of freedom. We can therefore easily define \((\mu_1-\mu_2)_L\) such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}\) exactly equals the quantile (1-\(\frac{\alpha}{2}\)) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_L\), and the upper limit \((\mu_1-\mu_2)_U\) such as \(\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}\) exactly equals the quantile \(\frac{\alpha}{2}\) of the central \emph{t}-distribution of the null hypothesis \(H_0: \mu_1 - \mu_2 = (\mu_1-\mu_2)_U\):
-\begin{equation*} 
-Pr[t_{df} \geq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_L}{SE}]= \frac{\alpha}{2}
-\label{eq:plausiblelimit1}
-\end{equation*}
-\begin{equation*} 
-Pr[t_{df} \leq \frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_U}{SE}]= \frac{\alpha}{2}
-\label{eq:plausiblelimit2}
-\end{equation*}
-It is not the most conventional way of computing confidence limits around any mean differences, however this approach is interesting as it helps to understand how to compute confidence limits around a measure of effect size.
-
-\hypertarget{how-to-compute-a-confidence-interval-around-a-point-estimator}{%
-\subsubsection{How to compute a confidence interval around a point estimator}\label{how-to-compute-a-confidence-interval-around-a-point-estimator}}
+with \(\delta=\frac{(\mu_1-\mu_2)-(\mu_1-\mu_2)_0}{\sigma_{pooled}}\), \(\sigma_{pooled} = \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1)\times \sigma^2_2}{n_1+n_2-2}}\) and \(\sigma_j\) = the standard deviation of the \(j^{th}\) population (\(j=1,2\)). Considering the link between \(\Delta\) and \(\delta\), it is possible to compute confidence limits for \(\Delta\) and multiply them by \(\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) in order to have confidence limits for \(\delta\). In other words, we first need to determine the noncentrality parameters of the \emph{t}-distributions for which \(t_{Student}\) corresponds respectively to the quantiles \(\left(1-\frac{\alpha}{2}\right)\) and \(\frac{\alpha}{2}\):
+\[P[t_{df, \Delta_L,1-\frac{\alpha}{2}} \geq t_{Student}] = \frac{\alpha}{2} \]
+\[P[t_{df, \Delta_U,\frac{\alpha}{2}} \leq t_{Student}] = \frac{\alpha}{2} \]
+with \(df = n_1+n_2-2\). Second, we multiply \(\Delta_L\) and \(\Delta_U\) by \(\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\) in order to define \(\delta_L\) and \(\delta_U\):
+\[\delta_L = \Delta_L \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\]
+\[\delta_U = \Delta_U \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\]
 
 \begin{figure}
 \centering
 \includegraphics{CI_files/figure-latex/SAMPLMEANDIFF3-1.pdf}
-\caption{\label{fig:SAMPLMEANDIFF3}Sampling distribution of centered mean difference divided by SE (in grey) and not centered mean difference divided by SE (in red), assuming normality and homoscedasticity.}
+\caption{\label{fig:SAMPLMEANDIFF3}Sampling distribution of \(t=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}\) when the null hypothesis is true (in grey) and when the null hypothesis is false, with \((\mu_1-\mu_2)-(\mu_1-\mu_2)_0=4\) and \(SE=5\) (in red).}
 \end{figure}
 
-As illustration, we will explain how to compute a confidence interval around Cohen's \(d_s\) (the explanation would be very similar for all other estimators). We previously mentioned that when the null hypothesis is true, \(t_{Student}\) follows a central \emph{t}-distribution. However, when the null hypothesis is false, the distribution of this quantity is not centered and noncentral \emph{t}-distribution arises (Cumming \& Finch, 2001), as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}.
-
-Noncentral \emph{t}-distributions are described by two parameters: degrees of freedom (\(df\)) and noncentrality parameter (that we will call \(\Delta\); Cumming \& Finch, 2001), the last being a function of \(\delta\) and sample sizes \(n_1\) and \(n_2\):
-\begin{equation*}
-\Delta = \frac{\mu_1-\mu_2}{\sigma_{pooled}} \times \sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}
-\label{eq:ncp}
-\end{equation*}
-Considering the link between \(\Delta\) and \(\delta\), it is possible to compute confidence limits for \(\Delta\) and divide them by \(\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}\) in order to have confidence limits for \(\delta\). In other words, we first need to determine the noncentrality parameters of the \emph{t}-distributions for which \(t_{Student}\) corresponds respectively to the quantiles \(\left(1-\frac{\alpha}{2}\right)\) and \(\frac{\alpha}{2}\):
-\[P[t_{df, \Delta_L} \geq t_{Student}] = \frac{\alpha}{2} \]
-\[P[t_{df, \Delta_U} \leq t_{Student}] = \frac{\alpha}{2} \]
-with \(df = n_1+n_2-2\). Second, we divide \(\Delta_L\) and \(\Delta_U\) by \(\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}\) in order to define \(\delta_L\) and \(\delta_U\):
-\[\delta_L = \frac{\Delta_L}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}\]
-\[\delta_U = \frac{\Delta_U}{\sqrt{\frac{n_1 \times n_2}{n_1 + n_2}}}\]
+\hypertarget{reference}{%
+\section*{Reference}\label{reference}}
+\addcontentsline{toc}{section}{Reference}
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-Cumming_Finch_2001}{}%
-Cumming, G., \& Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are based on central and noncentral distributions. \emph{Educational and Psychological Measurement}, \emph{61}(532), 532--574.
+Cumming, G., \& Finch, S. (2001). A primer on the understanding, use, and calculation of confidence intervals that are based on central and noncentral distributions. \emph{Educational and Psychological Measurement}, \emph{61}(4), 532--574.
 
 
 \end{document}

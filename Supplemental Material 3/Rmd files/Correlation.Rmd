@@ -1,20 +1,31 @@
 ---
 title             : "Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators"
-shorttitle        : ""
+shorttitle        : "Correlation between sample means and SD"
 
 author: 
-  - name          : "Marie Delacre"
+  - name          : "Marie Delacre" 
     affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
+    corresponding : yes    
+    address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
     email         : "marie.delacre@ulb.be"
-
+  - name          : "Daniel Lakens"
+    affiliation   : "2"
+  - name          : "Christophe Ley"
+    affiliation   : "3"
+  - name          : "Limin Liu"
+    affiliation   : "3"
+  - name          : "Christophe Leys"
+    affiliation   : "1"
+    
 affiliation:
   - id            : "1"
-    institution   : "ULB"
+    institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
+  - id            : "2"
+    institution   : "Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands"
+  - id            : "3"
+    institution   : "Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium"
 
-keywords          : "keywords"
-wordcount         : "X"
+wordcount         : "1434 words"
 
 floatsintext      : no
 figurelist        : no
@@ -70,7 +81,7 @@ Before studying conditions a, b and c, we will briefly introduce the impact of t
 
 # How correlations between the mean difference ($\bf \bar{X_1}-\bar{X_2}$) and standardizers affect the bias of estimators.
 
-When distributions are right-skewed, there is a positive (negative) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$). When distributions are left-skewed, there is a negative (positive) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$).  When the population mean difference ($\mu_1-\mu_2$) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with $\bar{X_1}-\bar{X_2}$ than when choosing an estimator that is negatively correlated with $\bar{X_1}-\bar{X_2}$. When the population mean difference is negative, the reverse is true. 
+When population distributions are right-skewed, there is a positive (negative) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$). When distributions are left-skewed, there is a negative (positive) correlation between $S_1$ ($S_2$) and ($\bar{X_1}-\bar{X_2}$).  When the population mean difference ($\mu_1-\mu_2$) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with $\bar{X_1}-\bar{X_2}$ than when choosing an estimator that is negatively correlated with $\bar{X_1}-\bar{X_2}$. When the population mean difference is negative, the reverse is true. 
 
 "All other parameters being equal" is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower $n_j$, the larger the magnitude of the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$. When the correlation between $S_j$ and $\bar{X_1}-\bar{X_2}$ is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decreases the bias. This is a nice example of situations where two factors might have an opposite action on bias. 
 

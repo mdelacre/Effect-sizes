@@ -3,18 +3,29 @@ title             : "Theoretical Bias, as a function of population parameters"
 shorttitle        : "Theoretical Bias"
 
 author: 
-  - name          : "Marie Delacre"
+  - name          : "Marie Delacre" 
     affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
+    corresponding : yes    
+    address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
     email         : "marie.delacre@ulb.be"
-
+  - name          : "Daniel Lakens"
+    affiliation   : "2"
+  - name          : "Christophe Ley"
+    affiliation   : "3"
+  - name          : "Limin Liu"
+    affiliation   : "3"
+  - name          : "Christophe Leys"
+    affiliation   : "1"
+    
 affiliation:
   - id            : "1"
-    institution   : "ULB"
+    institution   : "Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium"
+  - id            : "2"
+    institution   : "Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands"
+  - id            : "3"
+    institution   : "Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium"
 
-keywords          : "keywords"
-wordcount         : "X"
+wordcount         : "2287 words"
 
 floatsintext      : no
 figurelist        : no
@@ -949,7 +960,7 @@ The **bias** of Cohen's $d^*_s$ is a function of the population effect size ($\d
   + The bias decreases when the total sample size increases (it does not matter whether one adds subjects in only one group or in both);
   + The smallest bias always occurs when there is a positive pairing between $\frac{\sigma_1}{\sigma_1}$ and $\frac{n_1}{n_1}$. Moreover, the larger the $SD$-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias.  
 
-The **bias** of Shieh's $d^*_s$ is a function of the population effect size ($\delta_{Shieh}$), the total sample size, and the interaction between the sample sizes ratio and the $SD$-ratio $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)$:   
+The **bias** of Shieh's $d_s$ is a function of the population effect size ($\delta_{Shieh}$), the total sample size, and the interaction between the sample sizes ratio and the $SD$-ratio $\left(\frac{n_1}{n_2}\times\frac{\sigma_1}{\sigma_2} \right)$:   
 
   + When $\delta_{Shieh}$ is null, the bias is null. In all other configurations, the larger $\delta_{Shieh}$, the more Shieh's $d_s$ will overestimate $\delta_{Shieh}$;    
   + For a constant sample sizes ratio, the bias decreases when the total sample size increases;  
