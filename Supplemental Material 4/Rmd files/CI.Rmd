@@ -68,8 +68,8 @@ with $SE = S_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $S_{pooled} = 
 (\#eq:ncp)
 \end{equation*} 
 with $\delta=\frac{(\mu_1-\mu_2)-(\mu_1-\mu_2)_0}{\sigma_{pooled}}$, $\sigma_{pooled} = \sqrt{\frac{(n_1-1) \times \sigma^2_1+(n_2-1)\times \sigma^2_2}{n_1+n_2-2}}$ and $\sigma_j$ = the standard deviation of the $j^{th}$ population ($j=1,2$). Considering the link between $\Delta$ and $\delta$, it is possible to compute confidence limits for $\Delta$ and multiply them by $\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ in order to have confidence limits for $\delta$. In other words, we first need to determine the noncentrality parameters of the *t*-distributions for which $t_{Student}$ corresponds respectively to  the quantiles $\left(1-\frac{\alpha}{2}\right)$ and $\frac{\alpha}{2}$: 
-$$P[t_{df, \Delta_L,1-\frac{\alpha}{2}} \geq t_{Student}] = \frac{\alpha}{2} $$ 
-$$P[t_{df, \Delta_U,\frac{\alpha}{2}} \leq t_{Student}] = \frac{\alpha}{2} $$ 
+$$P[t_{df, \Delta_L} \geq t_{Student}] = \frac{\alpha}{2} $$ 
+$$P[t_{df, \Delta_U} \leq t_{Student}] = \frac{\alpha}{2} $$ 
 with $df = n_1+n_2-2$. Second, we multiply $\Delta_L$ and $\Delta_U$ by $\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$ in order to define $\delta_L$ and $\delta_U$: 
 $$\delta_L = \Delta_L \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
 $$\delta_U = \Delta_U \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
