@@ -131,7 +131,7 @@ for (i in seq_len(length(Folder))){
 # If sdSD & bal or SDsd & bal: no correlation between n and sd (rnull)
 
 library(stringr)
-setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
+setwd("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
 
 png(file="legend.png",width=1500,height=1000, units = "px", res = 300)  
 
@@ -145,7 +145,7 @@ legend("center",
 
 dev.off()
 
-Path <-  "C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
   
@@ -174,7 +174,7 @@ for (j in seq_len(length(list.files(Path)))){
   
   # Study each condition separately
   Conditions_id <- list(id_Hom_bal=id_Hom_bal,
-                        id_Hom_rnull=c(id_Hom_nN,id_Hom_Nn),
+                        id_Hom_unbal=c(id_Hom_nN,id_Hom_Nn),
                         id_Het_bal=c(id_sdSD_bal,id_SDsd_bal), 
                         id_Het_rpos=c(id_sdSD_nN,id_SDsd_Nn),
                         id_Het_rneg=c(id_SDsd_nN,id_sdSD_Nn))
@@ -225,10 +225,10 @@ for (j in seq_len(length(list.files(Path)))){
     res.eff <- t(res3[,3:7])
     colnames(res.eff) <- paste0(res3[,1],":",res3[,2])
     
-    setwd("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/")
+    setwd("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/")
     #dir.create(names(Conditions_id)[i])
     
-    setwd(paste0("C:/Users/Marie/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
+    setwd(paste0("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}

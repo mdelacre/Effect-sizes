@@ -390,10 +390,10 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   
   if (totalN == 70){
     
-    # Heteroscedasticity, positive correlation between n and sd ("Het_rpos")
+    # Heteroscedasticity, when the first group is the smaller one
     id_sdSD_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 < 1),]))
     id_SDsd_nN=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1<File$n2)&(File$sd1.sd2 > 1),]))
-    # Heteroscedasticity, negative correlation between n and sd ("Het_rneg")
+    # Heteroscedasticity, when the second group is the larger one
     id_sdSD_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 < 1),]))
     id_SDsd_Nn=as.numeric(rownames(File[(File$n1+File$n2==70) & (File$m1.m2!=0)&(File$n1>File$n2)&(File$sd1.sd2 > 1),]))
     
