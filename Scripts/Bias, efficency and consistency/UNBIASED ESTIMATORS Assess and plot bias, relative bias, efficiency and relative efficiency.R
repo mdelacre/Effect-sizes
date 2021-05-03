@@ -38,59 +38,58 @@ library(stringr)
     #    nratio=n1/n2
     #    cohen_delta_prime <- (m1-m2)/sqrt((sd1^2+sd2^2)/2)  
     
-    # Compute bias View(file)
-    #    bias_Hedges <- mean(file[,10]) - cohen_delta # Hedges' g_s is a corrected estimate of cohen's delta!
-    #    bias_glass1 <- mean(file[,13]) - glass_delta1 
-    #    bias_glass2 <- mean(file[,14]) - glass_delta2
-    #    bias_shieh <- mean(file[,16]) - shieh_delta
-    #    bias_cohen_delta_prime <- mean(file[,18]) - cohen_delta_prime
-    
-    # Compute relative bias
-    #    relbias_Hedges <- (mean(file[,10]) - cohen_delta)/cohen_delta
-    #    relbias_glass1 <- (mean(file[,13]) - glass_delta1)/glass_delta1 
-    #    relbias_glass2 <- (mean(file[,14]) - glass_delta2)/glass_delta2
-    #    relbias_shieh <- (mean(file[,16]) - shieh_delta)/shieh_delta
-    #    relbias_cohen_delta_prime <- (mean(file[,18]) - cohen_delta_prime)/cohen_delta_prime
-    
-    # Compute variance
-    #    eff_Hedges <- var(file[,10])
-    #    eff_glass1 <- var(file[,13])
-    #    eff_glass2 <- var(file[,14])
-    #    eff_shieh <- var(file[,16])
-    #    eff_cohen_delta_prime <- var(file[,18])
-    
-    # Compute relative variance
-    #    releff_Hedges <- var(file[,10])/cohen_delta^2
-    #    releff_glass1 <- var(file[,13])/glass_delta1^2 
-    #    releff_glass2 <- var(file[,14])/glass_delta2^2
-    #    releff_shieh <- var(file[,16])/shieh_delta^2
-    #    releff_cohen_delta_prime <- var(file[,18])/cohen_delta_prime^2
-    
+# Compute bias
+#bias_cohen <- mean(file[,9]) - cohen_delta
+#bias_glass1 <- mean(file[,11]) - glass_delta1 
+#bias_glass2 <- mean(file[,12]) - glass_delta2
+#bias_shieh <- mean(file[,15]) - shieh_delta
+#bias_cohen_delta_prime <- mean(file[,17]) - cohen_delta_prime
+
+# Compute relative bias
+#relbias_cohen <- (mean(file[,9]) - cohen_delta)/cohen_delta
+#relbias_glass1 <- (mean(file[,11]) - glass_delta1)/glass_delta1 
+#relbias_glass2 <- (mean(file[,12]) - glass_delta2)/glass_delta2
+#relbias_shieh <- (mean(file[,15]) - shieh_delta)/shieh_delta
+#relbias_cohen_delta_prime <- (mean(file[,17]) - cohen_delta_prime)/cohen_delta_prime
+
+# Compute variance
+#eff_cohen <- var(file[,9])
+#eff_glass1 <- var(file[,11])
+#eff_glass2 <- var(file[,12])
+#eff_shieh <- var(file[,15])
+#eff_cohen_delta_prime <- var(file[,17])
+
+# Compute relative variance
+#releff_cohen <- var(file[,9])/cohen_delta^2
+#releff_glass1 <- var(file[,11])/glass_delta1^2 
+#releff_glass2 <- var(file[,12])/glass_delta2^2
+#releff_shieh <- var(file[,15])/shieh_delta^2
+#releff_cohen_delta_prime <- var(file[,17])/cohen_delta_prime^2
     #    good_mes[j,1] <- n1
     #    good_mes[j,2] <- n2
     #    good_mes[j,3] <- n1/n2
     #    good_mes[j,4] <- m1-m2
     #    good_mes[j,5] <- sd1/sd2
     
-    #    good_mes[j,6] <- bias_Hedges
+    #    good_mes[j,6] <- bias_cohen
     #    good_mes[j,7] <- bias_glass1
     #    good_mes[j,8] <- bias_glass2
     #    good_mes[j,9] <- bias_shieh
     #    good_mes[j,10] <- bias_cohen_delta_prime
-    
-    #   good_mes[j,11] <- relbias_Hedges
+
+    #   good_mes[j,11] <- relbias_cohen
     #    good_mes[j,12] <- relbias_glass1
     #    good_mes[j,13] <- relbias_glass2
     #    good_mes[j,14] <- relbias_shieh
     #    good_mes[j,15] <- relbias_cohen_delta_prime
     
-    #    good_mes[j,16] <- eff_Hedges
+    #    good_mes[j,16] <- eff_cohen
     #    good_mes[j,17] <- eff_glass1
     #    good_mes[j,18] <- eff_glass2
     #    good_mes[j,19] <- eff_shieh
     #    good_mes[j,20] <- eff_cohen_delta_prime
     
-    #    good_mes[j,21] <- releff_Hedges
+    #    good_mes[j,21] <- releff_cohen
     #    good_mes[j,22] <- releff_glass1
     #    good_mes[j,23] <- releff_glass2
     #    good_mes[j,24] <- releff_shieh
@@ -231,6 +230,9 @@ for (j in seq_len(length(list.files(Path)))){
     png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
     
     # plot for the bias
+    
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
+    
     
     if (j==1){ylabelbias=expression(paste("E(" , hat(delta) , ") -",delta ))
     } else {ylabelbias=""}
