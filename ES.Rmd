@@ -6,7 +6,7 @@ author:
     affiliation   : "1"
     corresponding : yes    
     address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
-    email         : "marie.delacre@ulb.ac.be"
+    email         : "marie.delacre@ulb.be"
   - name          : "Daniel Lakens"
     affiliation   : "2"
   - name          : "Christophe Ley"
@@ -27,14 +27,14 @@ affiliation:
 authornote: |
 abstract: |
 keywords          : "keywords"
-wordcount         : "7574"
+wordcount         : "7426"
 bibliography      : ["r-references.bib"]
 floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no 
+mask              : yes 
 draft             : no
 documentclass     : "apa6"
 classoption       : "man"
