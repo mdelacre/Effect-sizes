@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man]{apa6}
+  man,mask]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -38,7 +38,6 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Theoretical Bias, as a function of population parameters},
-  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -170,7 +169,7 @@ For all \enquote{biased} estimators, when the population effect size is null so 
 \hypertarget{preliminary-note}{%
 \subsection{Preliminary note}\label{preliminary-note}}
 
-For all previously mentioned estimators (Cohen's \(d_s\), Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\)), the theoretical expectency is computed by multiplying the population effect size (respectively \(\delta_{Cohen}\), \(\delta_{Glass}\), \(\delta^*_{Cohen}\) and \(\delta_{Shieh}\)) by the following multiplier coefficient:
+For all previously mentioned estimators (Cohen's \(d_s\), Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\)), the theoretical expectation is computed by multiplying the population effect size (respectively \(\delta_{Cohen}\), \(\delta_{Glass}\), \(\delta^*_{Cohen}\) and \(\delta_{Shieh}\)) by the following multiplier coefficient:
 \begin{equation} 
 \gamma=\frac{\sqrt{\frac{df}{2}} \times \Gamma{\frac{df-1}{2}}}{\Gamma{\frac{df}{2}}}
 \label{eq:mc}

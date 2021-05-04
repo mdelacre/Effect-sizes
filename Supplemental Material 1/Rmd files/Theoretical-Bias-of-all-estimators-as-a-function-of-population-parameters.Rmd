@@ -32,7 +32,7 @@ figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no
+mask              : yes
 draft             : no
 
 documentclass     : "apa6"
@@ -49,7 +49,7 @@ For all "biased" estimators, when the population effect size is null so is the b
 
 ## Preliminary note
 
-For all previously mentioned estimators (Cohen's $d_s$, Glass's $d_s$, Cohen's $d^*_s$ and Shieh's $d_s$), the theoretical expectency is computed by multiplying the population effect size (respectively $\delta_{Cohen}$, $\delta_{Glass}$, $\delta^*_{Cohen}$ and $\delta_{Shieh}$) by the following multiplier coefficient:
+For all previously mentioned estimators (Cohen's $d_s$, Glass's $d_s$, Cohen's $d^*_s$ and Shieh's $d_s$), the theoretical expectation is computed by multiplying the population effect size (respectively $\delta_{Cohen}$, $\delta_{Glass}$, $\delta^*_{Cohen}$ and $\delta_{Shieh}$) by the following multiplier coefficient:
 \begin{equation} 
 \gamma=\frac{\sqrt{\frac{df}{2}} \times \Gamma{\frac{df-1}{2}}}{\Gamma{\frac{df}{2}}}
 (\#eq:mc)
