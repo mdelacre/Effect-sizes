@@ -36,7 +36,7 @@ figurelist        : no
 tablelist         : no
 footnotelist      : no
 linenumbers       : yes
-mask              : no
+mask              : yes
 draft             : no
 
 documentclass     : "apa6"
