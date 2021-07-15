@@ -132,6 +132,7 @@
 
 \linenumbers
 \usepackage{csquotes}
+\usepackage{bm}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -192,15 +193,15 @@ As we previously mentioned, the use of these formulas requires to meet the assum
 
 Before studying conditions a, b and c, we will briefly introduce the impact of these correlations on the bias. Note that we will compute correlations using the coefficient of Spearman's \(\rho\). We decided to use Spearman's \(\rho\) instead of Pearson's \(\rho\) because some plots revealed non-perfectly linear relations.
 
-\hypertarget{how-correlations-between-the-mean-difference-bf-barx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}{%
-\section{\texorpdfstring{How correlations between the mean difference (\(\bf \bar{X_1}-\bar{X_2}\)) and standardizers affect the bias of estimators.}{How correlations between the mean difference (\textbackslash bf \textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}) and standardizers affect the bias of estimators.}}\label{how-correlations-between-the-mean-difference-bf-barx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}}
+\hypertarget{how-correlations-between-the-mean-difference-bmbarx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}{%
+\section{\texorpdfstring{How correlations between the mean difference (\(\bm{\bar{X_1}-\bar{X_2}}\)) and standardizers affect the bias of estimators.}{How correlations between the mean difference (\textbackslash bm\{\textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}\}) and standardizers affect the bias of estimators.}}\label{how-correlations-between-the-mean-difference-bmbarx_1-barx_2-and-standardizers-affect-the-bias-of-estimators.}}
 
 When population distributions are right-skewed, there is a positive (negative) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When distributions are left-skewed, there is a negative (positive) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When the population mean difference (\(\mu_1-\mu_2\)) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with \(\bar{X_1}-\bar{X_2}\) than when choosing an estimator that is negatively correlated with \(\bar{X_1}-\bar{X_2}\). When the population mean difference is negative, the reverse is true.
 
 ``All other parameters being equal'' is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower \(n_j\), the larger the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\). When the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decreases the bias. This is a nice example of situations where two factors might have an opposite action on bias.
 
-\hypertarget{correlations-between-the-mean-difference-bf-barx_1-barx_2-and-all-standardizers}{%
-\section{\texorpdfstring{Correlations between the mean difference (\(\bf \bar{X_1}-\bar{X_2}\)) and all standardizers}{Correlations between the mean difference (\textbackslash bf \textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}) and all standardizers}}\label{correlations-between-the-mean-difference-bf-barx_1-barx_2-and-all-standardizers}}
+\hypertarget{correlations-between-the-mean-difference-bmbarx_1-barx_2-and-all-standardizers}{%
+\section{\texorpdfstring{Correlations between the mean difference (\(\bm{\bar{X_1}-\bar{X_2}}\)) and all standardizers}{Correlations between the mean difference (\textbackslash bm\{\textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}\}) and all standardizers}}\label{correlations-between-the-mean-difference-bmbarx_1-barx_2-and-all-standardizers}}
 
 \hypertarget{when-equal-population-variances-are-estimated-based-on-equal-sample-sizes-condition-a}{%
 \subsection{When equal population variances are estimated based on equal sample sizes (condition a)}\label{when-equal-population-variances-are-estimated-based-on-equal-sample-sizes-condition-a}}

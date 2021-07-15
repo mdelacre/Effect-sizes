@@ -5,8 +5,8 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -38,10 +38,12 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Theoretical Bias, as a function of population parameters},
+  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
+  pdflang={en-EN},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -82,9 +84,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -96,20 +98,6 @@
 
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
-% See https://github.com/crsh/papaja/issues/292
-\makeatletter
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
-
-\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-\z@\relax}%
-  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-\makeatother
 
 % \usepackage{etoolbox}
 \makeatletter
@@ -134,24 +122,25 @@
 
 \linenumbers
 \usepackage{csquotes}
+\usepackage{bm}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[shorthands=off,main=english]{babel}
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{Theoretical Bias, as a function of population parameters}
 \author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
 
-
-\authornote{
-
-Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
-
-}
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
 
@@ -161,7 +150,7 @@ Correspondence concerning this article should be addressed to Marie Delacre, CP1
 \hypertarget{the-bias}{%
 \section{The bias}\label{the-bias}}
 
-For all \enquote{biased} estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other hand, the biases of Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:\\
+For all ``biased'' estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d_s\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other hand, the biases of Glass's \(d_s\), Cohen's \(d^*_s\) and Shieh's \(d_s\) are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:\\
 - when population variances are equal across groups;\\
 - when population variances are unequal across groups, with equal sample sizes;\\
 - when population variances are unequal across groups, with unequal sample sizes.
@@ -179,8 +168,8 @@ While we focus on the theoretical bias of biased estimators when the normality a
 - biased estimators when samples are extracted from symmetric distributions;\\
 - unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.
 
-\hypertarget{cohens-bf-d_s-see-table-1}{%
-\subsection{\texorpdfstring{Cohen's \(\bf d_s\) (see Table 1)}{Cohen's \textbackslash bf d\_s (see Table 1)}}\label{cohens-bf-d_s-see-table-1}}
+\hypertarget{cohens-bmd_s-see-table-1}{%
+\subsection{\texorpdfstring{Cohen's \(\bm{d_s}\) (see Table 1)}{Cohen's \textbackslash bm\{d\_s\} (see Table 1)}}\label{cohens-bmd_s-see-table-1}}
 
 Under the assumptions that independant residuals are normally distributed with equal variances, the \textbf{bias} of Cohen's \(d_s\) is a function of total sample size (\(N\)) and the population effect size (\(\delta_{Cohen}\)):
 
@@ -203,8 +192,8 @@ Under the assumptions that independant residuals are normally distributed with e
   Of course, considering the degrees of freedom, the sample size ratio does not matter (i.e.~the bias will decrease when increasing \(n_1\), \(n_2\) or both sample sizes).
 \end{itemize}
 
-\hypertarget{glasss-bf-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Glass's \(\bf d_s\) (see Table 2)}{Glass's \textbackslash bf d\_s (see Table 2)}}\label{glasss-bf-d_s-see-table-2}}
+\hypertarget{glasss-bmd_s-see-table-2}{%
+\subsection{\texorpdfstring{Glass's \(\bm{d_s}\) (see Table 2)}{Glass's \textbackslash bm\{d\_s\} (see Table 2)}}\label{glasss-bmd_s-see-table-2}}
 
 Because degrees of freedom depend only on the control group size (neither on \(\sigma_1\) nor on \(\sigma_2\)), there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!
 
@@ -228,8 +217,8 @@ The \textbf{bias} of Glass's \(d_s\) is a function of the control group size (\(
   The larger the size of the control group, the lower the bias (see the two top plots in Figure \ref{fig:biasGlassctrlsize2}). On the other hand, increasing the experimental group size does not impact the bias (see the two bottom plots in Figure \ref{fig:biasGlassctrlsize2}).
 \end{itemize}
 
-\hypertarget{cohens-bf-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Cohen's \(\bf d^*_s\) (see Table 2)}{Cohen's \textbackslash bf d\^{}*\_s (see Table 2)}}\label{cohens-bf-d_s-see-table-2}}
+\hypertarget{cohens-bmd_s-see-table-2}{%
+\subsection{\texorpdfstring{Cohen's \(\bm{d^*_s}\) (see Table 2)}{Cohen's \textbackslash bm\{d\^{}*\_s\} (see Table 2)}}\label{cohens-bmd_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations}}
@@ -364,8 +353,8 @@ As illustrated in Figure \ref{fig:dfnumdenomcohendprimehetunbalnratiosdratio2}, 
 
 Note: for a constant \(SD\)-ratio, the variance does not matter. (See Figure \ref{fig:biascohendprimehetunbalvariance2}).
 
-\hypertarget{shiehs-bf-d_s-see-table-2}{%
-\subsection{\texorpdfstring{Shieh's \(\bf d_s\) (see Table 2)}{Shieh's \textbackslash bf d\_s (see Table 2)}}\label{shiehs-bf-d_s-see-table-2}}
+\hypertarget{shiehs-bmd_s-see-table-2}{%
+\subsection{\texorpdfstring{Shieh's \(\bm{d_s}\) (see Table 2)}{Shieh's \textbackslash bm\{d\_s\} (see Table 2)}}\label{shiehs-bmd_s-see-table-2}}
 
 \hypertarget{when-variances-are-equal-across-populations-1}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-1}}
@@ -560,7 +549,7 @@ The \textbf{bias} of Shieh's \(d_s\) is a function of the population effect size
 \item
   For a constant sample sizes ratio, the bias decreases when the total sample size increases;\\
 \item
-  The smallest bias always occurs when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see \enquote{Theoretical Bias, as a function of population parameters}).
+  The smallest bias always occurs when there is a positive pairing between \(\frac{\sigma_1}{\sigma_1}\) and \(\frac{n_1}{n_1}\). Moreover, the larger the \(SD\)-ratio, the further from 1 is the sample sizes ratio associated with the smallest bias (for more details, see ``Theoretical Bias, as a function of population parameters'').
 \end{itemize}
 
 

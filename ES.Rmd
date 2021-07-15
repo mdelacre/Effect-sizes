@@ -52,7 +52,7 @@ header-includes:
   - \newcommand{\blandscape}{\begin{landscape}}
   - \newcommand{\elandscape}{\end{landscape}}
   - \usepackage{fancyhdr}
-
+  - \usepackage{bm}
 ---
 
 ```{r setup, include = FALSE}

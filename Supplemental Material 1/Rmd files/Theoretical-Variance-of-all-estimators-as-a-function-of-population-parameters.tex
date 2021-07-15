@@ -5,8 +5,8 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -38,10 +38,12 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Theoretical variance, as a function of population parameters},
+  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
+  pdflang={en-EN},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -82,9 +84,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -96,20 +98,6 @@
 
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
-% See https://github.com/crsh/papaja/issues/292
-\makeatletter
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
-
-\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-\z@\relax}%
-  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-\makeatother
 
 % \usepackage{etoolbox}
 \makeatletter
@@ -134,24 +122,25 @@
 
 \linenumbers
 \usepackage{csquotes}
+\usepackage{bm}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[shorthands=off,main=english]{babel}
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{Theoretical variance, as a function of population parameters}
 \author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
 
-
-\authornote{
-
-Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
-
-}
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
 
@@ -163,14 +152,14 @@ Correspondence concerning this article should be addressed to Marie Delacre, CP1
 
 Note: while we focus on the theoretical variance of biased estimators (Cohen's \(d_s\), Glass's \(d_s\), Shieh's \(d_s\) and Cohen's \(d^*_s\)) when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to biased estimators when samples are extracted from symmetric distributions. Moreover, unbiased estimators depend on the same factors as biased estimators, so our conclusions remain similar for unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.
 
-\hypertarget{cohens-bf-d_s}{%
-\subsection{\texorpdfstring{Cohen's \(\bf d_s\)}{Cohen's \textbackslash bf d\_s}}\label{cohens-bf-d_s}}
+\hypertarget{cohens-bmd_s}{%
+\subsection{\texorpdfstring{Cohen's \(\bm{d_s}\)}{Cohen's \textbackslash bm\{d\_s\}}}\label{cohens-bmd_s}}
 
 \hypertarget{when-variances-are-equal-across-populations}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations}}
 
-\hypertarget{when-bf-pmbdelta_cohen0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Cohen}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Cohen\}\}=0}}\label{when-bf-pmbdelta_cohen0}}
+\hypertarget{when-bmdelta_cohen0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Cohen}=0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Cohen\}=0\}}}\label{when-bmdelta_cohen0}}
 
 When the population effect size is zero, the variance of Cohen's \(d_s\) can be simplified as follows:
 
@@ -202,8 +191,8 @@ The \textbf{variance} of Cohen's \(d_s\) is a function of total sample size (\(N
   The further the sample sizes allocation ratio is from 1, the larger the variance (see Figure \ref{fig:varcohenNratio2}).
 \end{itemize}
 
-\hypertarget{when-bf-pmbdelta_cohen-neq-0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Cohen}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Cohen\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_cohen-neq-0}}
+\hypertarget{when-bmdelta_cohenneq-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Cohen}\neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Cohen\}\textbackslash neq 0\}}}\label{when-bmdelta_cohenneq-0}}
 
 \begin{figure}
 \centering
@@ -233,14 +222,14 @@ The variance of Cohen's \(d_s\) is a function of the population effect size (\(\
   Finally, the variance increases when \(\delta_{Cohen}\) increases. Note that the effect of \(\delta_{Cohen}\) is moderated by the total sample size (the larger \(N\), the smaller the effect of \(\delta_{Cohen}\) on the variance).
 \end{itemize}
 
-\hypertarget{glasss-bf-d_s}{%
-\subsection{\texorpdfstring{Glass's \(\bf d_s\)}{Glass's \textbackslash bf d\_s}}\label{glasss-bf-d_s}}
+\hypertarget{glasss-bmd_s}{%
+\subsection{\texorpdfstring{Glass's \(\bm{d_s}\)}{Glass's \textbackslash bm\{d\_s\}}}\label{glasss-bmd_s}}
 
 \hypertarget{when-variances-are-equal-across-populations-1}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-1}}
 
-\hypertarget{when-bf-pmbdelta_glass0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\}=0}}\label{when-bf-pmbdelta_glass0}}
+\hypertarget{when-bmdelta_glass0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass}=0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\}=0\}}}\label{when-bmdelta_glass0}}
 
 When the population effect size is zero, the variance of Glass's \(d_s\) can be simplified as follows:
 
@@ -266,8 +255,8 @@ When the population effect size is zero, the variance of Glass's \(d_s\) can be 
 
 The sample sizes ratio associated with the lowest variance is not exactly 1 (because of the term \(\frac{df}{df-2}\), \(df\) depending only on \(n_c\)), but is very close to 1 (and the larger the total sample size, the closer to 1 is the sample sizes ratio associated with the lowest variance). The further from this sample size ratio, the larger the variance (see Figure \ref{fig:varglasshomNratio2}).
 
-\hypertarget{when-bf-pmbdelta_glass-neq-0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_glass-neq-0}}
+\hypertarget{when-bmdelta_glass-neq-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\} \textbackslash neq 0\}}}\label{when-bmdelta_glass-neq-0}}
 
 \begin{figure}
 \centering
@@ -292,8 +281,8 @@ Note: while the sample sizes ratio associated with the lowest variance was very 
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes}}
 
-\hypertarget{when-bf-pmbdelta_glass0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\}=0}}\label{when-bf-pmbdelta_glass0-1}}
+\hypertarget{when-bmdelta_glass-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass} = 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\} = 0\}}}\label{when-bmdelta_glass-0}}
 
 When the population effect size is zero, the variance of Glass's \(d_s\) can be simplified as follows:
 
@@ -324,16 +313,16 @@ where \(n=N/2=\) sample size of each group. The variance is therefore a function
   The larger the \(SD\)-ratio (i.e.~the larger is \(\sigma_c\) in comparison with \(\sigma_e\)), the lower the variance (see Figure \ref{fig:varglasshetbalSDratio2}). However, the effect of the \(SD\)-ratio decreases when sample sizes increase, because \(\lim_{n(=n_c=n_e)\rightarrow \infty}\left[\frac{df}{n(df-2)} \right]=0\).
 \end{itemize}
 
-\hypertarget{when-bf-pmbdelta_glass-neq-0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_glass-neq-0-1}}
+\hypertarget{when-bmdelta_glass-neq-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\} \textbackslash neq 0\}}}\label{when-bmdelta_glass-neq-0-1}}
 
 While the variance of Glass's \(d_s\) still depends on the total sample size and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Glass}\)). The larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the control group increases, as previously explained and illustrated in Figure \ref{fig:ESmoderatorGlassNsize2}.
 
 \hypertarget{when-variances-are-unequal-across-populations-with-unequal-sample-sizes}{%
 \subsubsection{When variances are unequal across populations, with unequal sample sizes}\label{when-variances-are-unequal-across-populations-with-unequal-sample-sizes}}
 
-\hypertarget{when-bf-pmbdelta_glass0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\}=0}}\label{when-bf-pmbdelta_glass0-2}}
+\hypertarget{when-bmdelta_glass-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass} = 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\} = 0\}}}\label{when-bmdelta_glass-0-1}}
 
 When the population effect size is zero, the variance of Glass's \(d_s\) can be simplified as follows:
 
@@ -382,8 +371,8 @@ The variance of Glass's \(d_s\) is therefore a function of the total sample size
 
 Note that the effect of the \(SD\)-ratio, and the interaction effect between \(SD\)-ratio and sample sizes ratio decreases when the sample size of the control group increases (because \(\frac{n_c-1}{n_c-3}\) gets closer to 1).
 
-\hypertarget{when-bf-pmbdelta_glass-neq-0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Glass}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Glass\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_glass-neq-0-2}}
+\hypertarget{when-bmdelta_glass-neq-0-2}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Glass} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Glass\} \textbackslash neq 0\}}}\label{when-bmdelta_glass-neq-0-2}}
 
 While the variance of Glass's \(d_s\) still depends on the total sample size, the \(SD\)-ratio and the interaction between the \(SD\)-ratio and the sample sizes ratio, it also depends on the population effect size (\(\delta_{Glass}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the sample size of the control group increases, as previously explained and illustrated in Figure \ref{fig:ESmoderatorGlassNsize2}.
 
@@ -404,14 +393,14 @@ The variance of Glass's \(d_s\) is a function of the population effect size (\(\
   The variance increases when \(\delta_{Glass}\) increases. Note that the effect of \(\delta_{Glass}\) is moderated by the control group size (the larger \(n_e\), the smaller the effect of \(\delta_{Glass}\) on the variance).
 \end{itemize}
 
-\hypertarget{cohens-bf-d_s-1}{%
-\subsection{\texorpdfstring{Cohen's \(\bf d^*_s\)}{Cohen's \textbackslash bf d\^{}*\_s}}\label{cohens-bf-d_s-1}}
+\hypertarget{cohens-bmd_s-1}{%
+\subsection{\texorpdfstring{Cohen's \(\bm{d^*_s}\)}{Cohen's \textbackslash bm\{d\^{}*\_s\}}}\label{cohens-bmd_s-1}}
 
 \hypertarget{when-variances-are-equal-across-populations-2}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-2}}
 
-\hypertarget{when-bf-pmbdelta_cohen0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\}=0}}\label{when-bf-pmbdelta_cohen0-1}}
+\hypertarget{when-bmdelta_cohen-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} = 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} = 0\}}}\label{when-bmdelta_cohen-0}}
 
 When the population effect size is zero, the variance of Cohen's \(d^*_s\) is computed as follows :
 \[Var_{Cohen's \; d^*_s} = \frac{df}{df-2} \times \frac{N}{n_1n_2}\]
@@ -442,8 +431,8 @@ In this configuration, the degrees of freedom as well as the variance of Cohen's
   The larger the total sample size, the lower the bias (see Figure \ref{fig:varcohendprimehomNsize2}).
 \end{itemize}
 
-\hypertarget{when-bf-pmbdelta_cohen-neq-0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_cohen-neq-0-1}}
+\hypertarget{when-bmdelta_cohen-neq-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} \textbackslash neq 0\}}}\label{when-bmdelta_cohen-neq-0}}
 
 \begin{figure}
 \centering
@@ -457,8 +446,8 @@ While the variance of Cohen's \(d^*_s\) still depends on the total sample size a
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes-1}}
 
-\hypertarget{when-bf-pmbdelta_cohen0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\}=0}}\label{when-bf-pmbdelta_cohen0-2}}
+\hypertarget{when-bmdelta_cohen-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} = 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} = 0\}}}\label{when-bmdelta_cohen-0-1}}
 
 When the population effect size is zero, the variance of Cohen's \(d^*_s\) can be simplified as follows:
 \[Var_{Cohen's \; d^*_s} = \frac{df}{df-2} \times \frac{2}{n}\]
@@ -496,16 +485,16 @@ where \(n=N/2\)=sample size of each group, and \(df=\frac{(n-1)(\sigma^4_1+\sigm
 
 Note: for a constant \(SD\)-ratio, the size of the variance does not matter (see Figure \ref{fig:varcohendprimehetbalvariance2}).
 
-\hypertarget{when-bf-pmbdelta_cohen-neq-0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_cohen-neq-0-2}}
+\hypertarget{when-bmdelta_cohen-neq-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} \textbackslash neq 0\}}}\label{when-bmdelta_cohen-neq-0-1}}
 
 While the variance of Cohen's \(d^*_s\) still depednds on the total sample size and the \(SD\)-ratio, it also depends on the population effect size (\(\delta^*_{Cohen}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when the total sample size increases and/or the \(SD\)-ratio get closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
 \hypertarget{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-1}{%
 \subsubsection{When variances are unequal across populations, with unequal sample sizes}\label{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-1}}
 
-\hypertarget{when-bf-pmbdelta_cohen0-3}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\}=0}}\label{when-bf-pmbdelta_cohen0-3}}
+\hypertarget{when-bmdelta_cohen-0-2}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} = 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} = 0\}}}\label{when-bmdelta_cohen-0-2}}
 
 When the population effect size is zero, the variance of Cohen's \(d^*_s\) can be simplified as follows:
 \[Var_{Cohen's \; d^*_s} = \frac{df}{df-2} \times \frac{2\left( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2} \right)}{\sigma^2_1+\sigma^2_2}\]
@@ -532,7 +521,7 @@ with \(df =\frac{(n_1-1)(n_2-1)(\sigma^2_1+\sigma^2_2)^2}{(n_2-1)\sigma_1^4+(n_1
 \begin{itemize}
 \tightlist
 \item
-  The smallest variance always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance in the denominator of the \(df\) computation and in the numerator of the variance computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (see Figure \ref{fig:varcohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator of the \(df\) computation (see the file \enquote{Theoretical Bias, as a function of population parameters}).
+  The smallest variance always occurs when there is a positive pairing between variances and sample sizes, because one gives more weight to the smallest variance in the denominator of the \(df\) computation and in the numerator of the variance computation. Moreover, the further the \(SD\)-ratio is from 1, the further from 1 will also be the sample sizes ratio associated with the smallest variance (see Figure \ref{fig:varcohendprimehetunbalnratiosdratio2}). This can be explained by splitting the numerator and the denominator of the \(df\) computation (see the file ``Theoretical Bias, as a function of population parameters'').
 \end{itemize}
 
 \begin{figure}
@@ -543,8 +532,8 @@ with \(df =\frac{(n_1-1)(n_2-1)(\sigma^2_1+\sigma^2_2)^2}{(n_2-1)\sigma_1^4+(n_1
 
 Note: for a constant \(SD\)-ratio, the variance does not matter. (See Figure \ref{fig:varcohendprimehetunbalvariance2}).
 
-\hypertarget{when-bf-pmbdelta_cohen-neq-0-3}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta^*_{Cohen}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\^{}*\_\{Cohen\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_cohen-neq-0-3}}
+\hypertarget{when-bmdelta_cohen-neq-0-2}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta^*_{Cohen} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\^{}*\_\{Cohen\} \textbackslash neq 0\}}}\label{when-bmdelta_cohen-neq-0-2}}
 
 While the variance of Cohen's \(d^*_s\) still depends on the total sample size, the \(SD\)-ratio and the interaction between the sample sizes ratio and the \(SD\)-ratio, it also depends on the population effect size (\(\delta^*_{Cohen}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when the total sample size increases and/or when there is a positive pairing between the sample sizes ratio and the \(SD\)-ratio), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
@@ -561,14 +550,14 @@ The variance of Cohen's \(d^*_s\) is a function of the population effect size (\
   The variance increases when \(\delta^*_{Cohen}\) increases. Note that the effect of \(\delta^*_{Cohen}\) is moderated by the total sample size and the interaction between sample sizes ratio and \(SD\)-ratio.
 \end{itemize}
 
-\hypertarget{shiehs-bf-d_s}{%
-\subsection{\texorpdfstring{Shieh's \(\bf d_s\)}{Shieh's \textbackslash bf d\_s}}\label{shiehs-bf-d_s}}
+\hypertarget{shiehs-bmd_s}{%
+\subsection{\texorpdfstring{Shieh's \(\bm{d_s}\)}{Shieh's \textbackslash bm\{d\_s\}}}\label{shiehs-bmd_s}}
 
 \hypertarget{when-variances-are-equal-across-populations-3}{%
 \subsubsection{When variances are equal across populations}\label{when-variances-are-equal-across-populations-3}}
 
-\hypertarget{when-bf-pmbdelta_shieh0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\}=0}}\label{when-bf-pmbdelta_shieh0}}
+\hypertarget{when-bmdelta_shieh-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} = 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} = 0\}}}\label{when-bmdelta_shieh-0}}
 
 When the population effect size is zero, the variance of Shieh's \(d_s\) can be simplified as follows:
 \[Var_{Shieh's \; d_s} = \frac{df}{(df-2)N}\]
@@ -604,10 +593,10 @@ with \(df = \frac{N^2(n_1-1)(n_2-1)}{n_2^2(n_2-1)+n_1^2(n_1-1)}\). In this confi
   The larger the total sample size, the lower the variance. It does not matter whether the sample sizes ratio is constant (see Figure \ref{fig:varshiehhomNsize2}) or not (see Figure \ref{fig:varshiehhomNsize4}).
 \end{itemize}
 
-Note: in \enquote{Theoretical Bias, as a function of population parameters}, we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the total sample size term (\(N\)) in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}).
+Note: in ``Theoretical Bias, as a function of population parameters,'' we noticed that increasing the sample sizes ratio when adding subjects in only one group could decrease the degrees of freedom. However, due to the total sample size term (\(N\)) in the denominator of the variance computation, even when degrees of freedom decrease due to the fact that one adds subjects only in one group, the variance still decreases (because the denominator of the variance computation increases; see Figure \ref{fig:varshiehhomNsize4}).
 
-\hypertarget{when-bf-pmbdelta_shieh-neq-0}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_shieh-neq-0}}
+\hypertarget{when-bmdelta_shieh-neq-0}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} \textbackslash neq 0\}}}\label{when-bmdelta_shieh-neq-0}}
 
 While the variance of Shieh's \(d_s\) still depends on the total sample size and the sample sizes ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when sample sizes increase, without increasing the sample sizes ratio, and/or the sample sizes ratio gets closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
@@ -616,8 +605,8 @@ Note: we previously noticed that when the effet size is zero, the variance of Sh
 \hypertarget{when-variances-are-unequal-across-populations-with-equal-sample-sizes-2}{%
 \subsubsection{When variances are unequal across populations, with equal sample sizes}\label{when-variances-are-unequal-across-populations-with-equal-sample-sizes-2}}
 
-\hypertarget{when-bf-pmbdelta_shieh0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\}=0}}\label{when-bf-pmbdelta_shieh0-1}}
+\hypertarget{when-bmdelta_shieh-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} = 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} = 0\}}}\label{when-bmdelta_shieh-0-1}}
 
 When the population effect size is zero, the variance of Shieh's \(d_s\) can be simplified as follows:
 \[Var_{Shieh's \; d_s} = \frac{df}{(df-2)N}\]
@@ -655,16 +644,16 @@ with \(df = \frac{(\sigma_1^2+\sigma_2^2)^2 \times (n-1)}{\sigma_1^4+\sigma_2^4}
 
 Note: for a constant \(SD\)-ratio, the size of the variance does not matter (see Figure \ref{fig:varshiehhetbalvariance2}).
 
-\hypertarget{when-bf-pmbdelta_shieh-neq-0-1}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_shieh-neq-0-1}}
+\hypertarget{when-bmdelta_shieh-neq-0-1}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} \textbackslash neq 0\}}}\label{when-bmdelta_shieh-neq-0-1}}
 
 While the variance of Shieh's \(d_s\) still depends on the total sample size and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase (i.e.~when sample sizes increase and/or the \(SD\)-ratio gets closer to 1), as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
 \hypertarget{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-2}{%
 \subsubsection{When variances are unequal across populations, with unequal sample sizes}\label{when-variances-are-unequal-across-populations-with-unequal-sample-sizes-2}}
 
-\hypertarget{when-bf-pmbdelta_shieh0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}}=0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\}=0}}\label{when-bf-pmbdelta_shieh0-2}}
+\hypertarget{when-bmdelta_shieh-0-2}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} = 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} = 0\}}}\label{when-bmdelta_shieh-0-2}}
 
 When the population effect size is zero, the variance of Shieh's \(d_s\) can be simplified as follows:
 \[Var_{Shieh's \; d_s} = \frac{df}{(df-2)N}\]
@@ -710,8 +699,8 @@ Note: When variances were equal across populations, adding subjects only in the 
 
 Moreover, for a constant \(SD\)-ratio, the variances do not matter (See Figure \ref{fig:varshiehhetunbalvariance2}).
 
-\hypertarget{when-bf-pmbdelta_shieh-neq-0-2}{%
-\paragraph{\texorpdfstring{When \(\bf \pmb{\delta_{Shieh}} \neq 0\)}{When \textbackslash bf \textbackslash pmb\{\textbackslash delta\_\{Shieh\}\} \textbackslash neq 0}}\label{when-bf-pmbdelta_shieh-neq-0-2}}
+\hypertarget{when-bmdelta_shieh-neq-0-2}{%
+\paragraph{\texorpdfstring{When \(\bm{\delta_{Shieh} \neq 0}\)}{When \textbackslash bm\{\textbackslash delta\_\{Shieh\} \textbackslash neq 0\}}}\label{when-bmdelta_shieh-neq-0-2}}
 
 While the variance of Shieh's \(d_s\) still depends on the total sample size and the interaction between the sample sizes ratio and the \(SD\)-ratio, it also depends on the population effect size (\(\delta_{Shieh}\)): the larger the population effect size, the larger the variance. However, the effect of the population effect size decreases when the degrees of freedom increase, as previously illustrated in Figure \ref{fig:ESmoderator2}.
 
