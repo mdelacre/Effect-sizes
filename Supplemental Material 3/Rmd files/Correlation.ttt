@@ -1,158 +1,35 @@
-\begin{longtable}[]{@{}lcc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.29}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.39}}@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\), \(S_{Cohen's \; d_s}\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, and \(n_1=n_2\) (condition a) or \(n_1 \neq n_2\) (condition b)}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
-\textbf{\textbf{population distribution}}\strut
-\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
-\textbf{\textbf{population distribution}}\strut
-\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endhead
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\emph{right-skewed}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\emph{left-skewed}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-----------------------------------\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
------------------------------------------\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1=n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1>n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{positive (but very small)}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{negative (but very small)}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1<n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{negative (but very small)}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{positive (but very small)}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{negative}\strut
-\end{minipage}\tabularnewline
+& \emph{right-skewed} & \emph{left-skewed} \\
+& ---------------------------------- & ----------------------------------------- \\
+When \(n_1=n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null} \\
+& \(S_{Shieh's \; d_s}\): \emph{null} & \(S_{Shieh's \; d_s}\): \emph{null} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{null} & \(S_{Cohen's \; d^*_s}\): \emph{null} \\
+& & \\
+When \(n_1>n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null} \\
+& \(S_{Shieh's \; d_s}\): \emph{negative} & \(S_{Shieh's \; d_s}\): \emph{positive} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{positive (but very small)} & \(S_{Cohen's \; d^*_s}\): \emph{negative (but very small)} \\
+& & \\
+When \(n_1<n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{negative (but very small)} & \(S_{Cohen's \; d_s}\): \emph{positive (but very small)} \\
+& \(S_{Shieh's \; d_s}\): \emph{positive} & \(S_{Shieh's \; d_s}\): \emph{negative} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{positive} & \(S_{Cohen's \; d^*_s}\): \emph{negative} \\
 \bottomrule
 \end{longtable}
 \efloatseparator
@@ -160,26 +37,26 @@ When \(n_1<n_2\)\strut
 \begin{longtable}[]{@{}lcc@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.}\tabularnewline
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endfirsthead
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endhead
-& \emph{right-skewed} & \emph{left-skewed}\tabularnewline
-& --------------------------- & ---------------------------\tabularnewline
-When \(\sigma_1=\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{null} & Others: \emph{null}\tabularnewline
-& &\tabularnewline
-When \(\sigma_1>\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{positive} & Others: \emph{negative}\tabularnewline
-& &\tabularnewline
-When \(\sigma_1<\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{negative} & Others: \emph{positive}\tabularnewline
-& &\tabularnewline
+& \emph{right-skewed} & \emph{left-skewed} \\
+& --------------------------- & --------------------------- \\
+When \(\sigma_1=\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{null} & Others: \emph{null} \\
+& & \\
+When \(\sigma_1>\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{positive} & Others: \emph{negative} \\
+& & \\
+When \(\sigma_1<\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{negative} & Others: \emph{positive} \\
+& & \\
 \bottomrule
 \end{longtable}

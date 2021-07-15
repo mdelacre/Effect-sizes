@@ -5,8 +5,8 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -38,10 +38,13 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators},
+  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
+  pdflang={en-EN},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -50,7 +53,7 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -91,9 +94,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -105,20 +108,6 @@
 
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
-% See https://github.com/crsh/papaja/issues/292
-\makeatletter
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
-
-\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-\z@\relax}%
-  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-\makeatother
 
 % \usepackage{etoolbox}
 \makeatletter
@@ -148,19 +137,19 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[shorthands=off,main=english]{babel}
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators}
 \author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
 
-
-\authornote{
-
-Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
-
-}
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
 
@@ -208,7 +197,7 @@ Before studying conditions a, b and c, we will briefly introduce the impact of t
 
 When population distributions are right-skewed, there is a positive (negative) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When distributions are left-skewed, there is a negative (positive) correlation between \(S_1\) (\(S_2\)) and (\(\bar{X_1}-\bar{X_2}\)). When the population mean difference (\(\mu_1-\mu_2\)) is positive (like in our simulations), all other parameters being equal, an estimator is always less biased and variable when choosing a standardizer that is positively correlated with \(\bar{X_1}-\bar{X_2}\) than when choosing an estimator that is negatively correlated with \(\bar{X_1}-\bar{X_2}\). When the population mean difference is negative, the reverse is true.
 
-\enquote{All other parameters being equal} is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower \(n_j\), the larger the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\). When the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decreases the bias. This is a nice example of situations where two factors might have an opposite action on bias.
+``All other parameters being equal'' is mentioned because it is always possible that other factors in action have an opposite effect on bias and variance in order that increasing the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) does not necessarily reduce the bias and the variance. For example, when population variances are equal across groups and sample sizes are unequal, we will see below that the lower \(n_j\), the larger the magnitude of the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\). When the correlation between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) is positive, the smaller the sample size, the larger the positive correlation. At the same time, we know that increasing the sample size decreases the bias. This is a nice example of situations where two factors might have an opposite action on bias.
 
 \hypertarget{correlations-between-the-mean-difference-bf-barx_1-barx_2-and-all-standardizers}{%
 \section{\texorpdfstring{Correlations between the mean difference (\(\bf \bar{X_1}-\bar{X_2}\)) and all standardizers}{Correlations between the mean difference (\textbackslash bf \textbackslash bar\{X\_1\}-\textbackslash bar\{X\_2\}) and all standardizers}}\label{correlations-between-the-mean-difference-bf-barx_1-barx_2-and-all-standardizers}}
@@ -235,7 +224,7 @@ More specifically, when distributions are right-skewed, there is a \textbf{posit
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHombalRskew-1.pdf}
-\caption{\label{fig:pltStdzrHombalRskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
+\caption{\label{fig:pltStdzrHombalRskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from right skewed distributions (\(\gamma_1 = 6.32\))}
 \end{figure}
 
 One should also notice that both correlations between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) are equal, in absolute terms (possible tiny differences might be observed due to sampling error in our simulations). As a consequence, when computing a standardizer taking both \(S_1\) and \(S_2\) into account, it results in a standardizer that is uncorrelated with \(\bar{X_1}-\bar{X_2}\) (see Figure \ref{fig:pltStdzrHombalRskew}).
@@ -251,7 +240,7 @@ On the other hand, when distributions are left-skewed, there is a \textbf{negati
 \begin{figure}
 \centering
 \includegraphics{Correlation_files/figure-latex/pltStdzrHombalLskew-1.pdf}
-\caption{\label{fig:pltStdzrHombalLskew}\(S_{Glass's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
+\caption{\label{fig:pltStdzrHombalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure}
 
 Again, because correlations between \(S_j\) and \(\bar{X_1}-\bar{X_2}\) are similar in absolute terms, any standardizers taking both \(S_1\) and \(S_2\) into account will be uncorrelated with \(\bar{X_1}-\bar{X_2}\) (see Figure \ref{fig:pltStdzrHombalLskew}).
@@ -308,161 +297,38 @@ This might also explain that standardizers of Shieh's \(d_s\) and Cohen's \(d^*_
 
 The correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(S_1\), \(S_2\), the standardizer of Cohen's \(d^*_s\), the standardizer of Shieh's \(d_s\) and the standardizer of Cohen's \(d_s\) are summarized in Table 1.
 
-\begin{longtable}[]{@{}lcc@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.29}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.39}}@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\), \(S_{Cohen's \; d_s}\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, and \(n_1=n_2\) (condition a) or \(n_1 \neq n_2\) (condition b)}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
-\textbf{\textbf{population distribution}}\strut
-\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\centering
-\textbf{\textbf{population distribution}}\strut
-\end{minipage} & \begin{minipage}[b]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endhead
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\emph{right-skewed}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\emph{left-skewed}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-----------------------------------\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
------------------------------------------\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1=n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1>n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{null}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{positive (but very small)}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{negative (but very small)}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-When \(n_1<n_2\)\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_1\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_1\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_2\): \emph{negative}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_2\): \emph{positive}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{negative (but very small)}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d_s}\): \emph{positive (but very small)}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Shieh's \; d_s}\): \emph{negative}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.27\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.29\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{positive}\strut
-\end{minipage} & \begin{minipage}[t]{0.35\columnwidth}\centering
-\(S_{Cohen's \; d^*_s}\): \emph{negative}\strut
-\end{minipage}\tabularnewline
+& \emph{right-skewed} & \emph{left-skewed} \\
+& ---------------------------------- & ----------------------------------------- \\
+When \(n_1=n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null} \\
+& \(S_{Shieh's \; d_s}\): \emph{null} & \(S_{Shieh's \; d_s}\): \emph{null} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{null} & \(S_{Cohen's \; d^*_s}\): \emph{null} \\
+& & \\
+When \(n_1>n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{null} & \(S_{Cohen's \; d_s}\): \emph{null} \\
+& \(S_{Shieh's \; d_s}\): \emph{negative} & \(S_{Shieh's \; d_s}\): \emph{positive} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{positive (but very small)} & \(S_{Cohen's \; d^*_s}\): \emph{negative (but very small)} \\
+& & \\
+When \(n_1<n_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& \(S_{Cohen's \; d_s}\): \emph{negative (but very small)} & \(S_{Cohen's \; d_s}\): \emph{positive (but very small)} \\
+& \(S_{Shieh's \; d_s}\): \emph{positive} & \(S_{Shieh's \; d_s}\): \emph{negative} \\
+& \(S_{Cohen's \; d^*_s}\): \emph{positive} & \(S_{Cohen's \; d^*_s}\): \emph{negative} \\
 \bottomrule
 \end{longtable}
 
@@ -507,32 +373,32 @@ When distributions are skewed, there are again non-null correlations between \(\
 \caption{\label{fig:pltStdzrHetbalLskew}\(S_{Cohen's \; d_s}\), \(S_{Shieh's \; d_s}\) and \(S_{Cohen's \; d^*_s}\) as a function of the mean difference (\(\bar{X_1}-\bar{X_2}\)), when samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\)), with \(S_1\)=2 and \(S_2\)=4}
 \end{figure}
 
-This also explains that when computing a standardizer that takes both \(S_1\) and \(S_2\) into account, it results in a standardizer that is correlated with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and respectively the standardizer of Shieh's \(d_s\), Cohen's \(d^*_s\) and Cohen's \(d_s\) will have the same sign as the correlation between (\(\bar{X_1}-\bar{X_2}\)) and the larger \(SD\). Table 2 summarizes the sign of the correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(S_1\), \(S_2\) and the three standardizers taking both \(S_1\) and \(S_2\) into account (see \enquote{Others} in the Table).
+This also explains that when computing a standardizer that takes both \(S_1\) and \(S_2\) into account, it results in a standardizer that is correlated with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHetbalRskew} and \ref{fig:pltStdzrHetbalLskew}). The correlation between the mean difference (\(\bar{X_1}-\bar{X_2}\)) and respectively the standardizer of Shieh's \(d_s\), Cohen's \(d^*_s\) and Cohen's \(d_s\) will have the same sign as the correlation between (\(\bar{X_1}-\bar{X_2}\)) and the larger \(SD\). Table 2 summarizes the sign of the correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(S_1\), \(S_2\) and the three standardizers taking both \(S_1\) and \(S_2\) into account (see ``Others'' in the Table).
 
 \begin{longtable}[]{@{}lcc@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\) and others) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal sample sizes, as a function of the SD-ratio.}\tabularnewline
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endfirsthead
 \toprule
-& \textbf{\textbf{population distribution}} &\tabularnewline
+& \textbf{\textbf{population distribution}} & \\
 \midrule
 \endhead
-& \emph{right-skewed} & \emph{left-skewed}\tabularnewline
-& --------------------------- & ---------------------------\tabularnewline
-When \(\sigma_1=\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{null} & Others: \emph{null}\tabularnewline
-& &\tabularnewline
-When \(\sigma_1>\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{positive} & Others: \emph{negative}\tabularnewline
-& &\tabularnewline
-When \(\sigma_1<\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative}\tabularnewline
-& \(S_2\): \emph{negative} & \(S_2\): \emph{positive}\tabularnewline
-& Others: \emph{negative} & Others: \emph{positive}\tabularnewline
-& &\tabularnewline
+& \emph{right-skewed} & \emph{left-skewed} \\
+& --------------------------- & --------------------------- \\
+When \(\sigma_1=\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{null} & Others: \emph{null} \\
+& & \\
+When \(\sigma_1>\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{positive} & Others: \emph{negative} \\
+& & \\
+When \(\sigma_1<\sigma_2\) & \(S_1\): \emph{positive} & \(S_1\): \emph{negative} \\
+& \(S_2\): \emph{negative} & \(S_2\): \emph{positive} \\
+& Others: \emph{negative} & Others: \emph{positive} \\
+& & \\
 \bottomrule
 \end{longtable}
 

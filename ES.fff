@@ -1,6 +1,6 @@
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.3in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_bal}
 
 }
 
@@ -10,7 +10,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.31in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Hom_unbal}
 
 }
 
@@ -20,7 +20,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.3in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_N}
 
 }
 
@@ -30,7 +30,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.31in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_bal_sd}
 
 }
 
@@ -40,7 +40,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.29in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR10}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR10}
 
 }
 
@@ -50,7 +50,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.31in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR10}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR10}
 
 }
 
@@ -60,7 +60,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.31in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR2}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstlarger_SDR2}
 
 }
 
@@ -70,7 +70,7 @@
  
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=6.31in]{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR2}
+{\centering \includegraphics{Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Combined Figures_relative quality/Het_firstsmaller_SDR2}
 
 }
 

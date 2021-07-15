@@ -178,7 +178,7 @@ plot(Hombal_rightskew_sd2,Hombal_rightskew_meandiff,ylab=expression(S[2]),xlab=e
 
 More specifically, when distributions are right-skewed, there is a **positive** correlation between $\bar{X_j}$ and $S_j$ (see the two top plots in Figure \ref{fig:pltSDHombalRskew}), resulting in a *positive* correlation between $S_1$ and $\bar{X_1}-\bar{X_2}$ and in a *negative* correlation between $S_2$ and $\bar{X_1}-\bar{X_2}$ (see the two bottom plots in Figure \ref{fig:pltSDHombalRskew}). This can be explained by the fact that $\bar{X_1}$ and $\bar{X_1}-\bar{X_2}$ are positively correlated while $\bar{X_2}$ and $\bar{X_1}-\bar{X_2}$ are negatively correlated (of course, correlations would be trivially reversed if we computed $\bar{X_2}-\bar{X_1}$ instead of $\bar{X_1}-\bar{X_2}$).
 
-```{r pltStdzrHombalRskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
+```{r pltStdzrHombalRskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$)",echo=FALSE}
 par(mfrow=c(1,3),mar=c(5,5,5,2))
 plot(Hombal_leftskew_sdCohen,Hombal_leftskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sdCohen,Hombal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hombal_leftskew_sdShieh,Hombal_leftskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_leftskew_sdShieh,Hombal_leftskew_meandiff,method="spearman"),2)),cex.lab=1.5)
@@ -198,7 +198,7 @@ plot(Hombal_leftskew_sd2,Hombal_leftskew_meandiff,ylab=expression(S[2]),xlab=exp
 
 On the other hand, when distributions are left-skewed, there is a **negative** correlation between $\bar{X_j}$ and $S_j$ (see the two top plots in Figure \ref{fig:pltSDHombalLskew}), resulting in a *negative* correlation between $S_1$ and $\bar{X_1}-\bar{X_2}$ and in a *positive* correlation between $S_2$ and $\bar{X_1}-\bar{X_2}$ (see the two bottom plots in Figure \ref{fig:pltSDHombalLskew}).
 
-```{r pltStdzrHombalLskew,fig.cap="$S_{Glass's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
+```{r pltStdzrHombalLskew,fig.cap="$S_{Cohen's \\; d_s}$, $S_{Shieh's \\; d_s}$ and $S_{Cohen's \\; d^*_s}$ as a function of the mean difference ($\\bar{X_1}-\\bar{X_2}$), when samples are extracted from left skewed distributions ($\\gamma_1 = -6.32$)",echo=FALSE}
 par(mfrow=c(1,3),mar=c(5,5,5,2))
 plot(Hombal_rightskew_sdCohen,Hombal_rightskew_meandiff,ylab=expression(S["Cohen d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sdCohen,Hombal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)
 plot(Hombal_rightskew_sdShieh,Hombal_rightskew_meandiff,ylab=expression(S["Shieh d"[s]]),xlab=expression(paste(bar(X)[1]," - ",bar(X)[2])),main=paste("rho=",round(cor(Hombal_rightskew_sdShieh,Hombal_rightskew_meandiff,method="spearman"),2)),cex.lab=1.5)

@@ -34,11 +34,11 @@ floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
-mask              : yes
+linenumbers       : no
+mask              : no
 draft             : no
 documentclass     : "apa6"
-classoption       : "man"
+classoption: "man"
 output:
   papaja::apa6_pdf:
     includes:
@@ -51,6 +51,8 @@ header-includes:
   - \usepackage{lscape}
   - \newcommand{\blandscape}{\begin{landscape}}
   - \newcommand{\elandscape}{\end{landscape}}
+  - \usepackage{fancyhdr}
+
 ---
 
 ```{r setup, include = FALSE}
@@ -191,7 +193,7 @@ While the pooled error term is the best choice when variances are equal between 
 |     |       |  |$\approx Var(Cohen's \; d_s) \times \left[1-\frac{3}{4N-9}\right]^2$   |
 |    |      |  |    |
 
-Table: Expentency, bias and variance of Cohen's $d_s$ and Hedges' $g_s$ under the assumptions that independent residuals are normally distributed with equal variances across groups.  
+Table: Expectation, bias and variance of Cohen's $d_s$ and Hedges' $g_s$ under the assumptions that independent residuals are normally distributed with equal variances across groups.  
 
 *Note*. $\delta_{Cohen}= \frac{\mu_1-\mu_2}{\sigma_{pooled}}$ and $c_f=\frac{\sqrt{\frac{df}{2}} \times \Gamma\left( \frac{df-1}{2}\right)}{\Gamma\left( \frac{df}{2}\right)}$; Cohen's $d_s$ is a biased estimator, because its expectation differs from the population effect size. Moreover, the larger the population estimator ($\delta_{Cohen}$), the larger the bias. Indeed, the bias is the difference between the expectation and $\delta_{Cohen}$: $\delta_{bias} = \delta_{Cohen} \times (c_f-1)$. On the other hand, Hedges' $g_s$ is an unbiased estimator, because its expectation equals $\delta_{Cohen}$; equations in Table 1 require $df \ge 3$ (i.e. $N \ge 5$).
 
@@ -236,7 +238,7 @@ where $\delta_{Glass} = \frac{\mu_{c}-\mu_{e}}{\sigma_{c}}$ and $\mu_c$ and $\mu
 |    |      |  |    |
   |  Shieh's $d_s$  |$\frac{\left(\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2} \right)^2}{\frac{(\sigma^2_1/n_1)^2}{n_1-1}+\frac{(\sigma^2_2/n_2)^2}{n_2-1}}$|$\delta_{Shieh} \times c_f$|$\frac{df}{(df-2)N}  + \delta^2_{Shieh} \left( \frac{df}{df-2} - c_f^2 \right)$    |
 |    |      |  |    |
-Table: Expentency, bias and variance of Glass's $d_s$ and Cohen's $d^*_s$ and Shieh's $d_s$ under the assumption that independent residuals are normally distributed.
+Table: Expectation, bias and variance of Glass's $d_s$ and Cohen's $d^*_s$ and Shieh's $d_s$ under the assumption that independent residuals are normally distributed.
 
 *Note*. $c_f=\frac{\sqrt{\frac{df}{2}} \times \Gamma\left( \frac{df-1}{2}\right)}{\Gamma\left( \frac{df}{2}\right)}$; $\delta_{Glass}=\frac{\mu_c-\mu_e}{\sigma_c}$, $\delta_{Shieh}=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1}{n_1/N}+\frac{\sigma^2_2}{n_2/N}}}$ and $\delta^*_{Cohen}=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1+\sigma^2_2}{2}}}$; all estimators are biased estimators, because their expectations differ from the population effect size $\delta$. Moreover, the larger the population estimator ($\delta$), the larger the bias. Indeed, the bias is the difference between the expectation and $\delta$: $\delta_{bias} = \delta \times (c_f-1)$. 
 
