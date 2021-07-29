@@ -602,7 +602,7 @@ plot(Nsize,DF,xlab=expression(n[1]))
 plot(Nsize2,DF2,ylab="DF",xlab=expression(n[2]))
 ```
 
-Note: when computing Cohen's $d^*_s$, degrees of freedom increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's $d_s$, this is not true anymore: there is a larger impact of the sample sizes ratio such that moving the sample sizes ratio from 1 when adding subjects in only one group can decrease the degrees of freedom and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2}).
+Note: when computing Cohen's $d^*_s$, degrees of freedom increased when adding subjects in either one or both groups, even when the sample size ratio increased. When computing Shieh's $d_s$, this is not true anymore: there is a larger impact of the sample sizes ratio such that moving the sample sizes ratio away from 1 when adding subjects in only one group can decrease the degrees of freedom and therefore, increase the bias (See Figure \ref{fig:biasshiehhomuneqNsize2}).
 
 ### When variances are unequal across populations, with equal sample sizes
 
