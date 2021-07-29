@@ -65,7 +65,7 @@ When the equality of variances assumption is not met, we are considering three a
 S_{Glass's \; d_s} = S_{c}
 (\#eq:Glassds)
 \end{equation*}   
-- Using a standardizer that takes the sample sizes allocation ratio $\left( \frac{n_1}{n_2}\right)$ into account:   
+- Using a standardizer that takes the sample sizes allocation ratio $\left( \frac{n_2}{n_1}\right)$ into account:   
 \begin{equation*}  
 S_{Shieh's \; d_s} = \sqrt{S_1^2/q_1+S_2^2/q_2}; \;\;\; q_j=\frac{n_j}{N} (j=1,2)
 (\#eq:Shiehds)
