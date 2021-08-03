@@ -130,6 +130,7 @@
 \newcommand{\blandscape}{\begin{landscape}}
 \newcommand{\elandscape}{\end{landscape}}
 \usepackage{fancyhdr}
+\usepackage{bm}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
@@ -290,7 +291,7 @@ While the pooled error term is the best choice when variances are equal between 
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.12}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.27}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.48}}@{}}
-\caption{Expentency, bias and variance of Cohen's \(d_s\) and Hedges' \(g_s\) under the assumptions that independent residuals are normally distributed with equal variances across groups.}\tabularnewline
+\caption{Expectation, bias and variance of Cohen's \(d_s\) and Hedges' \(g_s\) under the assumptions that independent residuals are normally distributed with equal variances across groups.}\tabularnewline
 \toprule
 & df & Expectation & Variance \\
 \midrule
@@ -352,7 +353,7 @@ where \(\delta_{Glass} = \frac{\mu_{c}-\mu_{e}}{\sigma_{c}}\) and \(\mu_c\) and 
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.20}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.18}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.51}}@{}}
-\caption{Expentency, bias and variance of Glass's \(d_s\) and Cohen's \(d^*_s\) and Shieh's \(d_s\) under the assumption that independent residuals are normally distributed.}\tabularnewline
+\caption{Expectation, bias and variance of Glass's \(d_s\) and Cohen's \(d^*_s\) and Shieh's \(d_s\) under the assumption that independent residuals are normally distributed.}\tabularnewline
 \toprule
 & df & Expectation & Variance \\
 \midrule
@@ -811,15 +812,15 @@ Yuan, K.-H., Bentler, P. M., \& Chan, W. (2004). Structural equation modeling wi
 
 \begin{appendix}
 \section{}
-\hypertarget{the-bias-of-cohens-bf-d_s-is-twice-as-large-as-the-bias-of-shiehs-bf-d_s-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}{%
-\subsection{\texorpdfstring{The bias of Cohen's \(\bf d_s\) is twice as
-large as the bias of Shieh's \(\bf d_s\) when population variances and
+\hypertarget{the-bias-of-cohens-bmd-is-twice-as-large-as-the-bias-of-shiehs-bmd-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}{%
+\subsection{\texorpdfstring{The bias of Cohen's \(\bm{d}\) is twice as
+large as the bias of Shieh's \(\bm{d}\) when population variances and
 sample sizes are equal across groups: mathematical
-demonstration.}{The bias of Cohen's \textbackslash bf d\_s is twice as large as the bias of Shieh's \textbackslash bf d\_s when population variances and sample sizes are equal across groups: mathematical demonstration.}}\label{the-bias-of-cohens-bf-d_s-is-twice-as-large-as-the-bias-of-shiehs-bf-d_s-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}}
+demonstration.}{The bias of Cohen's \textbackslash bm\{d\} is twice as large as the bias of Shieh's \textbackslash bm\{d\} when population variances and sample sizes are equal across groups: mathematical demonstration.}}\label{the-bias-of-cohens-bmd-is-twice-as-large-as-the-bias-of-shiehs-bmd-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}}
 
-As mentioned in Table 1, the bias of Cohen's \(d_s\) is defined as
+As mentioned in Table 1, the bias of Cohen's \(d\) is defined as
 \begin{equation} 
-Bias_{Cohen's \; d{_s}}= \delta_{Cohen} \times \left( \frac{\sqrt{\frac{df_{Student}}{2}} \times \Gamma{\left(\frac{df_{Student}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Student}}{2}\right)}} -1 \right)
+Bias_{Cohen's \; d}= \delta_{Cohen} \times \left( \frac{\sqrt{\frac{df_{Student}}{2}} \times \Gamma{\left(\frac{df_{Student}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Student}}{2}\right)}} -1 \right)
 \label{eq:Cohenbias}
 \end{equation} with \begin{equation*} 
 \delta_{Cohen}=\frac{\mu_1-\mu_2}{\sqrt{\frac{(n_1-1)\times \sigma^2_1+(n_2-1)\times\sigma^2_2}{n_1+n_2-2}}}
@@ -829,9 +830,9 @@ df_{Student}=n_1+n_2-2
 \label{eq:Cohendf}
 \end{equation*}
 
-As mentioned in Table 2, the bias of Shieh's \(d_s\) is defined as
+As mentioned in Table 2, the bias of Shieh's \(d\) is defined as
 \begin{equation} 
-Bias_{Shieh's \; d{_s}}=\delta_{Shieh} \times \left( \frac{\sqrt{\frac{df_{Welch}}{2}} \times \Gamma{\left(\frac{df_{Welch}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Welch}}{2}\right)}} -1 \right)
+Bias_{Shieh's \; d}=\delta_{Shieh} \times \left( \frac{\sqrt{\frac{df_{Welch}}{2}} \times \Gamma{\left(\frac{df_{Welch}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Welch}}{2}\right)}} -1 \right)
 \label{eq:Shiehbias}
 \end{equation} with \begin{equation*} 
 \delta_{Shieh}=\frac{\mu_1-\mu_2}{\sqrt{\frac{\sigma^2_1}{n_1/N}+\frac{\sigma^2_2}{n_2/N}}} \quad (N=n_1+n_2)
@@ -845,50 +846,49 @@ When \(n_1=n_2=n\) and \(\sigma_1=\sigma_2=\sigma\), \(\delta_{Cohen}\)
 is twice larger than \(\delta_{Shieh}\), as shown below in equations
 \ref{eq:Cohendeltavarbalanced} and \ref{eq:Shiehdeltavarbalanced}:
 \begin{equation} 
-\delta_{Cohen}=\frac{\mu_1-\mu_2}{\sqrt{\frac{2(n-1)\sigma^2}{2(n-1)}}}=\bf \frac{\pmb \mu_1- \pmb \mu_2}{\pmb \sigma}
+\delta_{Cohen}=\frac{\mu_1-\mu_2}{\sqrt{\frac{2(n-1)\sigma^2}{2(n-1)}}}=\bm{\frac{\mu_1-\mu_2}{\sigma}}
 \label{eq:Cohendeltavarbalanced}
 \end{equation} \begin{equation} 
-\delta_{Shieh}=\frac{\mu_1-\mu_2}{\sqrt{2\left( \frac{\sigma^2}{n/(2n)}\right)}}=\bf \frac{\pmb \mu_1-\pmb\mu_2}{2\pmb\sigma}
+\delta_{Shieh}=\frac{\mu_1-\mu_2}{\sqrt{2\left( \frac{\sigma^2}{n/(2n)}\right)}}=\bm{\frac{\mu_1-\mu_2}{2\sigma}} 
 \label{eq:Shiehdeltavarbalanced}
 \end{equation}\\
 Moreover, degrees of freedom associated with Student's \emph{t}-test and
 Welch's \emph{t}-test are identical, as shown below in equations
 \ref{eq:Studentdfvarbalanced} and \ref{eq:Welchdfvarbalanced}:
 \begin{equation} 
-df_{Student}=\bf 2(n-1)
+df_{Student}=\bm{2(n-1)} 
 \label{eq:Studentdfvarbalanced}
 \end{equation} \begin{equation} 
-df_{Welch}=\frac{\left[2(\sigma^2/n)\right]^2}{\frac{2(\sigma^2/n)^2}{n-1}}= \bf 2(n-1)
+df_{Welch}=\frac{\left[2(\sigma^2/n)\right]^2}{\frac{2(\sigma^2/n)^2}{n-1}}= \bm{2(n-1)} 
 \label{eq:Welchdfvarbalanced}
 \end{equation}
 
 Equations \ref{eq:Cohenbias} and \ref{eq:Shiehbias} can therefore be
 redefined as follows: \begin{equation} 
-Bias_{Cohen's \; d{_s}}=\frac{\mu_1-\mu_2}{\sigma} \times \left( \frac{\sqrt{n-1} \times \Gamma{\left(\frac{2n-3}{2}\right)}}{\Gamma{\left( n-1\right)}} -1 \right)
+Bias_{Cohen's \; d}=\frac{\mu_1-\mu_2}{\sigma} \times \left( \frac{\sqrt{n-1} \times \Gamma{\left(\frac{2n-3}{2}\right)}}{\Gamma{\left( n-1\right)}} -1 \right)
 \label{eq:Cohenbiasvarbalanced}
 \end{equation} \begin{equation} 
-Bias_{Shieh's \; d{_s}}=\frac{\mu_1-\mu_2}{\bf 2\sigma} \times \left( \frac{\sqrt{n-1} \times \Gamma{\left(\frac{2n-3}{2}\right)}}{\Gamma{\left( n-1\right)}} -1 \right)
+Bias_{Shieh's \; d}=\frac{\mu_1-\mu_2}{\bf 2\sigma} \times \left( \frac{\sqrt{n-1} \times \Gamma{\left(\frac{2n-3}{2}\right)}}{\Gamma{\left( n-1\right)}} -1 \right)
 \label{eq:Shiehbiasvarbalanced}
 \end{equation}
 
-We can therefore conclude that the bias of Cohen's \(d_s\) is twice
-larger than the bias of Shieh's \(d_s\).
+We can therefore conclude that the bias of Cohen's \(d\) is twice larger
+than the bias of Shieh's \(d\).
 
 \newpage
 
-\hypertarget{the-variance-of-cohens-bf-d_s-is-four-times-larger-than-the-bias-of-shiehs-bf-d_s-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}{%
-\subsection{\texorpdfstring{The variance of Cohen's \(\bf d_s\) is four
-times larger than the bias of Shieh's \(\bf d_s\) when population
+\hypertarget{the-variance-of-cohens-bmd-is-four-times-larger-than-the-bias-of-shiehs-bmd-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}{%
+\subsection{\texorpdfstring{The variance of Cohen's \(\bm{d}\) is four
+times larger than the bias of Shieh's \(\bm{d}\) when population
 variances and sample sizes are equal across groups: mathematical
-demonstration.}{The variance of Cohen's \textbackslash bf d\_s is four times larger than the bias of Shieh's \textbackslash bf d\_s when population variances and sample sizes are equal across groups: mathematical demonstration.}}\label{the-variance-of-cohens-bf-d_s-is-four-times-larger-than-the-bias-of-shiehs-bf-d_s-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}}
+demonstration.}{The variance of Cohen's \textbackslash bm\{d\} is four times larger than the bias of Shieh's \textbackslash bm\{d\} when population variances and sample sizes are equal across groups: mathematical demonstration.}}\label{the-variance-of-cohens-bmd-is-four-times-larger-than-the-bias-of-shiehs-bmd-when-population-variances-and-sample-sizes-are-equal-across-groups-mathematical-demonstration.}}
 
-The variance of Cohen's \(d_s\) is defined in Table 1 as
-\begin{equation}
-Var_{Cohen's \; d{_s}}=\frac{N\times df_{Student}}{n_1n_2 \times (df_{Student}-2)} + \delta^2_{Cohen} \left[ \frac{df_{Student}}{df_{Student}-2} - \left( \frac{\sqrt{\frac{df_{Student}}{2}} \times \Gamma{\left(\frac{df_{Student}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Student}}{2}\right)}} \right)^2\right]
+The variance of Cohen's \(d\) is defined in Table 1 as \begin{equation}
+Var_{Cohen's \; d}=\frac{N\times df_{Student}}{n_1n_2 \times (df_{Student}-2)} + \delta^2_{Cohen} \left[ \frac{df_{Student}}{df_{Student}-2} - \left( \frac{\sqrt{\frac{df_{Student}}{2}} \times \Gamma{\left(\frac{df_{Student}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Student}}{2}\right)}} \right)^2\right]
 \label{eq:Cohenvar}
-\end{equation} and the variance of Shieh's \(d_s\) is defined in Table 2
+\end{equation} and the variance of Shieh's \(d\) is defined in Table 2
 as \begin{equation}
-Var_{Shieh's \; d{_s}}=\frac{df_{Welch}}{(df_{Welch}-2)N}  + \delta^2_{Shieh} \left[ \frac{df_{Welch}}{df_{Welch}-2} - \left( \frac{\sqrt{\frac{df_{Welch}}{2}} \times \Gamma{\left(\frac{df_{Welch}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Welch}}{2}\right)}} \right)^2 \right]
+Var_{Shieh's \; d}=\frac{df_{Welch}}{(df_{Welch}-2)N}  + \delta^2_{Shieh} \left[ \frac{df_{Welch}}{df_{Welch}-2} - \left( \frac{\sqrt{\frac{df_{Welch}}{2}} \times \Gamma{\left(\frac{df_{Welch}-1}{2}\right)}}{\Gamma{\left( \frac{df_{Welch}}{2}\right)}} \right)^2 \right]
 \label{eq:Shiehvar}
 \end{equation}
 
@@ -899,8 +899,8 @@ Student's \emph{t}-test and Welch's \emph{t}-test equal \(2(n-1)\), when
 first term of the addition in equation \ref{eq:Cohenvar} is 4 times
 larger than the first term of the addition in equation
 \ref{eq:Shiehvar}:
-\[\frac{N\times df_{Student}}{n_1n_2 \times (df_{Student}-2)}=\frac{2n\times 2(n-1)}{n^2 \times (2n-4)} =\bf \frac{4(n-1)}{n(2n-4)}\]
-\[\frac{df_{Welch}}{(df_{Welch}-2)N} = \frac{2(n-1)}{2n(2n-4)}= \bf \frac{n-1}{n(2n-4)}\]
+\[\frac{N\times df_{Student}}{n_1n_2 \times (df_{Student}-2)}=\frac{2n\times 2(n-1)}{n^2 \times (2n-4)} =\bm{\frac{4(n-1)}{n(2n-4)}} \]
+\[\frac{df_{Welch}}{(df_{Welch}-2)N} = \frac{2(n-1)}{2n(2n-4)}= \bm{\frac{n-1}{n(2n-4)}}\]
 We have also previously shown in equations
 \ref{eq:Cohendeltavarbalanced} and \ref{eq:Shiehdeltavarbalanced} that
 \(\delta_{Cohen}\) is twice larger than \(\delta_{Shieh}\) when
@@ -911,8 +911,7 @@ a consequence, the second term of the addition in equation
 addition in equation \ref{eq:Shiehvar}. Because both terms of the
 addition in equation \ref{eq:Cohenvar} are four times larger than those
 in equation \ref{eq:Shiehvar}, we can conclude that the variance of
-Cohen's \(d_s\) is four times larger than the variance of Shieh's
-\(d_s\).
+Cohen's \(d\) is four times larger than the variance of Shieh's \(d\).
 \end{appendix}
 
 \end{document}
