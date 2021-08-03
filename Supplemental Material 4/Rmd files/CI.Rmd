@@ -57,12 +57,12 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 ### How to compute a confidence interval around a point estimator
 
-As illustration, we will explain how to compute a confidence interval around Cohen's $d_s$ (the explanation would be very similar for all other estimators). Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
+As illustration, we will explain how to compute a confidence interval around Cohen's $d$ (the explanation would be very similar for all other estimators). Under the assumption of iid normal distribution of residuals with equal population variances across groups, in order to test the null hypothesis that $\mu_1-\mu_2= (\mu_1-\mu_2)_0$, we can compute the following quantity:
 \begin{equation*} 
 t_{Student}=\frac{(\bar{X_1}-\bar{X_2})-(\mu_1-\mu_2)_0}{SE}
 (\#eq:tstudent)
 \end{equation*} 
-with $SE = S_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $S_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}$ and $S_j$ = the standard deviation of the $j^{th}$ sample ($j=1,2$). Under the null hypothesis, this quantity will follow a central *t*-distribution with $n_1+n_2-2$ degrees of freedom. However, when the null hypothesis is false, the distribution of this quantity is not centered and a noncentral *t*-distribution arises [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. Noncentral *t*-distributions are described by two parameters: degrees of freedom ($df$) and noncentrality parameter [that we will call $\Delta$; @Cumming_Finch_2001], the last being a function of the population effect size ($\delta$) and sample sizes ($n_1$ and $n_2$):
+with $SE = S_{pooled} \times \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$, $S_{pooled} = \sqrt{\frac{(n_1-1) \times S^2_1+(n_2-1)\times S^2_2}{n_1+n_2-2}}$ and $S_j$ = the standard deviation of the $j^{th}$ sample ($j=1,2$). Under the null hypothesis, this quantity will follow a central *t*-distribution with $n_1+n_2-2$ degrees of freedom. However, when the null hypothesis is false, the distribution of this quantity is not centered and a noncentral *t*-distribution arises [@Cumming_Finch_2001], as illustrated in Figure \ref{fig:SAMPLMEANDIFF3}. Noncentral *t*-distributions are described by two parameters: degrees of freedom ($df$) and noncentrality parameter [that we will call $\Delta$, @Cumming_Finch_2001], the last being a function of the population effect size ($\delta$) and sample sizes ($n_1$ and $n_2$):
 \begin{equation*}
 \Delta = \frac{\delta}{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
 (\#eq:ncp)
