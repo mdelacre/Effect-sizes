@@ -5,8 +5,8 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -38,10 +38,12 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Simulation checks},
+  pdfauthor={Marie Delacre1, Daniel Lakens2, Christophe Ley3, Limin Liu3, \& Christophe Leys1},
+  pdflang={en-EN},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -82,9 +84,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -96,20 +98,6 @@
 
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
-
-% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
-% See https://github.com/crsh/papaja/issues/292
-\makeatletter
-\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
-
-\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
-  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-  {-\z@\relax}%
-  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-\makeatother
 
 % \usepackage{etoolbox}
 \makeatletter
@@ -144,19 +132,19 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[shorthands=off,main=english]{babel}
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{Simulation checks}
 \author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
 
-
-\authornote{
-
-Correspondence concerning this article should be addressed to Marie Delacre, CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles. E-mail: \href{mailto:marie.delacre@ulb.be}{\nolinkurl{marie.delacre@ulb.be}}
-
-}
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
 
@@ -166,21 +154,21 @@ Correspondence concerning this article should be addressed to Marie Delacre, CP1
 \hypertarget{supplemental-material-2}{%
 \section{Supplemental Material 2}\label{supplemental-material-2}}
 
-In order to insure the reliability of our calculation method, for all scenarios where \(G_1=G_2=0\), we compared empirical means and variances of all estimators (i.e.~means and variances of all estimates) with theoretical means and variances (i.e.~expected means and variances, computed based on equations in Tables 1, 2 and 3 in the main article). Because we can draw exactly the same conclusions for \textbf{biased} (Cohen's \(d_s\), Glass's \(d_s\) using either \(S_1\) or \(S_2\) as standardizer, Shieh's \(d_s\) and Cohen's \(d^*_s\)) and \textbf{unbiased} (Hedges' \(g_s\), Glass's \(g_s\) using either \(S_1\) or \(S_2\) as standardizer, Shieh's \(g_s\) and Hedges' \(g^*_s\)) estimators, we will simultaneously present results for both categories of estimators. Results will be subdivided into 4 conditions:\\
+In order to insure the reliability of our calculation method, for all scenarios where \(G_1=G_2=0\), we compared empirical means and variances of all estimators (i.e.~means and variances of all estimates) with theoretical means and variances (i.e.~expected means and variances, computed based on equations in Tables 1, 2 and 3 in the main article). Because we can draw exactly the same conclusions for \textbf{biased} (Cohen's \(d\), Glass's \(d\) using either \(S_1\) or \(S_2\) as standardizer, Shieh's \(d\) and Cohen's \(d^*\)) and \textbf{unbiased} (Hedges' \(g\), Glass's \(g\) using either \(S_1\) or \(S_2\) as standardizer, Shieh's \(g\) and Hedges' \(g^*\)) estimators, we will simultaneously present results for both categories of estimators. Results will be subdivided into 4 conditions:\\
 - When population variances and sample sizes are equal across groups (condition a; see Figures A2.1 and A2.5 for respectively biased and unbiased estimators);\\
 - When population variances are equal across groups and sample sizes are unequal (condition b; see Figures A2.2 and A2.6 for respectively biased and unbiased estimators);\\
 - When population variances are unequal across groups and sample sizes are equal (condition c; see Figures A2.3 and A2.7 for respectively biased and unbiased estimators);\\
 - When population variances and sample sizes are unequal across groups (condition d; see Figures A2.4 and A2.8 for respectively biased and unbiased estimators).
 
-Because the equations of theoretical means and variances of Cohen's \(d_s\) and Hedges' \(g_s\) rely on the assumption of normality and equality of population variances, we expect empirical and theoretical parameters to be very close only in conditions a and b. For all other estimators, the equations of theoretical means and variances rely solely on the assumption of normality and therefore, we expect empirical and theoretical parameters to be very close in all conditions.
+Because the equations of theoretical means and variances of Cohen's \(d\) and Hedges' \(g\) rely on the assumption of normality and equality of population variances, we expect empirical and theoretical parameters to be very close only in conditions a and b. For all other estimators, the equations of theoretical means and variances rely solely on the assumption of normality and therefore, we expect empirical and theoretical parameters to be very close in all conditions.
 
 On average, empirical means (and variances) of all estimators are very close to theoretical expectations when population variances are equal across groups, with equal sample sizes (condition a; see Tables A2.1 and A2.5) or unequal sample sizes (condition b; see Tables A2.2 and A2.6).
 
-When population variances are unequal across groups (conditions c and d; see Tables A2.3, A2.4, A2.7 and A2.8), empirical means (and variances) of Cohen's \(d^*_s\) (Hedges' \(g^*_s\)) and Shieh's \(d_s\) (Shieh's \(g_s\)) are still very close to theoretical expectations. Regarding Glass's \(d_s\) (Glass's \(g_s\)), on average, while empirical variances remain very close to theoretical expectations, one observes larger departures between empirical and theoretical means when using \(S_2\) as standardizer. However, when looking at details in results for each scenario (see \enquote{biased estimator\_condition C.xlsx}, \enquote{biased estimator\_condition D.xlsx}, \enquote{unbiased estimator\_condition C.xlsx} and \enquote{unbiased estimator\_condition C.xlsx} in Supplemental Material 2), one notices that the larger the population effect size, the larger the departure between empirical and theoretical means, and that relative to the population effect size, departures between empirical and theoretical means are always very small. On the other hand, both empirical bias and variance of Cohen's \(d_s\) (Hedges' \(g_s\)) highly depart from theoretical expectations, even when looking at relative departures to the population effect size, especially when sample sizes are unequal across groups (condition d; see Table A2.4 and A2.8), which is not surprising, as Cohen's \(d_s\) (Hedges' \(g_s\)) relies on the equality of population variances assumption.
+When population variances are unequal across groups (conditions c and d; see Tables A2.3, A2.4, A2.7 and A2.8), empirical means (and variances) of Cohen's \(d^*\) (Hedges' \(g^*\)) and Shieh's \(d\) (Shieh's \(g\)) are still very close to theoretical expectations. Regarding Glass's \(d\) (Glass's \(g\)), on average, while empirical variances remain very close to theoretical expectations, one observes larger departures between empirical and theoretical means when using \(S_2\) as standardizer. However, when looking at details in results for each scenario (see ``biased estimator\_condition C.xlsx,'' ``biased estimator\_condition D.xlsx,'' ``unbiased estimator\_condition C.xlsx'' and ``unbiased estimator\_condition C.xlsx'' in Supplemental Material 2), one notices that the larger the population effect size, the larger the departure between empirical and theoretical means, and that relative to the population effect size, departures between empirical and theoretical means are always very small. On the other hand, both empirical bias and variance of Cohen's \(d\) (Hedges' \(g\)) highly depart from theoretical expectations, even when looking at relative departures to the population effect size, especially when sample sizes are unequal across groups (condition d; see Table A2.4 and A2.8), which is not surprising, as Cohen's \(d\) (Hedges' \(g\)) relies on the equality of population variances assumption.
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.53in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.1} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.1} 
 
 }
 
@@ -188,7 +176,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.46in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.2} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.2} 
 
 }
 
@@ -196,7 +184,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.47in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.3} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.3} 
 
 }
 
@@ -204,7 +192,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.51in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.4} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.4} 
 
 }
 
@@ -212,7 +200,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.49in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.5} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.5} 
 
 }
 
@@ -220,7 +208,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.5in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.6} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.6} 
 
 }
 
@@ -228,7 +216,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.49in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.7} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.7} 
 
 }
 
@@ -236,7 +224,7 @@ When population variances are unequal across groups (conditions c and d; see Tab
 
 \begin{sidewaysfigure}
 
-{\centering \includegraphics[width=12.49in]{D:/Documents/Github_projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.8} 
+{\centering \includegraphics{C:/Users/Admin/Documents/Github projects/Effect-sizes/Supplemental Material 2/Files/Png tables/Table A2.8} 
 
 }
 
