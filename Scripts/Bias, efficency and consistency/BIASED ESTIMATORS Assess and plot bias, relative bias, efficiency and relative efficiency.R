@@ -1,9 +1,9 @@
 library(stringr)
 
-#setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs")
+#setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs")
 #dir.create("Quality of ES measures")
 
-Mainfolder="C:/Users/Admin/Documents/ES MEASURES/"
+Mainfolder="C:/Users/mdelacre/Documents/ES MEASURES/"
 subfolder=list.files(Mainfolder)
 Folder=paste0(Mainfolder,subfolder)
 
@@ -98,7 +98,7 @@ releff_cohen_delta_prime <- var(file[,17])/cohen_delta_prime^2
     
       }
   
-    setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators")
+    setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators")
 
     shapeparam<-str_extract_all(Folder[i], "[[:digit:]]+\\.*[[:digit:]]*")
     sub<-paste0("G1=",shapeparam[[1]][2],",G2=",shapeparam[[1]][4]) # Sign is not extracted but it's not a big deal
@@ -126,7 +126,7 @@ releff_cohen_delta_prime <- var(file[,17])/cohen_delta_prime^2
 ########## sdSD = the first group has the smallest sd 
 ########## SDsd = the first group has the biggest sd
 
-setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
+setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
 
 # png(file="legend.png",width=1500,height=1000, units = "px", res = 300)  
 # plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
@@ -150,7 +150,7 @@ legend("center",
 
 dev.off()
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
   
@@ -220,10 +220,10 @@ for (j in seq_len(length(list.files(Path)))){
     res.eff <- t(res3[,3:7])
     colnames(res.eff) <- paste0(res3[,1],":",res3[,2])
     
-    setwd("C:/Users/Admin/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/")
+    setwd("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/")
     #dir.create(names(Conditions_id)[i])
 
-    setwd(paste0("C:/Users/Admin/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
+    setwd(paste0("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}
@@ -276,7 +276,7 @@ for (j in seq_len(length(list.files(Path)))){
 # Because the comparison pattern is very similar whatever n = 20, 50 or 100
 # We will only plot the results as a function of the SD-ratio when n = 20
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
   
@@ -328,7 +328,7 @@ for (j in seq_len(length(list.files(Path)))){
   res.eff <- t(res3[,2:6])
   colnames(res.eff) <- paste0(1,":",1/sdval)
   
-  setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/id_Het_bal/sd-ratio"))
+  setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/id_Het_bal/sd-ratio"))
   if(G1==-2.08){
     g1=2.08
   } else {g1=G1}
@@ -381,7 +381,7 @@ for (j in seq_len(length(list.files(Path)))){
 # Note: There are too many conditions to represent them all in a single Figure. 
 # We will therefore generate 3 figures per condition, as a function of the Total sample size (n1+n2)
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   
@@ -470,7 +470,7 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   res.eff <- t(res3[,4:8])
   colnames(res.eff) <- paste0(res3[,1],":",res3[,2],"\n (1:",1/res3[,3],")")
 
-  setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
+  setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Raw estimators of goodness/",names(Conditions_id)[i]))
   if(G1==-2.08){
     g1=2.08
   } else {g1=G1}
@@ -530,9 +530,9 @@ plot_hetr(totalN=150)
 #     Conditions a, b and c, as a function of the n-ratio
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
+setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/")
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
   
@@ -602,10 +602,10 @@ for (j in seq_len(length(list.files(Path)))){
     res.releff <- t(res4[,3:7])
     colnames(res.releff) <- paste0(res4[,1],":",res4[,2])
     
-    setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/")
+    setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/")
     #dir.create(names(Conditions_id)[i])
     
-    setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
+    setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}
@@ -674,7 +674,7 @@ for (j in seq_len(length(list.files(Path)))){
 # We therefore chose n=100 in order to reduce a result that is an artefact of the way we computed
 # The relative variance.
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
   
@@ -726,7 +726,7 @@ for (j in seq_len(length(list.files(Path)))){
   res.releff <- t(res3[,2:6])
   colnames(res.releff) <- paste0(1,":",1/sdval)
   
-  setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio"))
+  setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio"))
   if(G1==-2.08){
     g1=2.08
   } else {g1=G1}
@@ -794,7 +794,7 @@ for (j in seq_len(length(list.files(Path)))){
 
 ### For a constant N, effect of the SD
 
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
   
@@ -884,7 +884,7 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     res.releff <- t(res3[,4:8])
     colnames(res.releff) <- paste0(res3[,1],":",res3[,2],"\n (1:",1/res3[,3],")")
     
-    setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
+    setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}
@@ -950,7 +950,7 @@ plot_hetr(totalN=150)
 # Graphs are really hard to read, because due to the way we computed the relative variance, 
 
 ### For a constant SD, effect of N
-Path <-  "C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
+Path <-  "C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Biased estimators/"
 
 #Ratiolarger/smaller
 plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
@@ -1035,7 +1035,7 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     res.relbias <- t(res[,5:9])
     colnames(res.relbias) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
 
-    setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Réflexion-extras/interaction_n_sd_shieh&Cohen")
+    setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Réflexion-extras/interaction_n_sd_shieh&Cohen")
     write.table(res.relbias,"res.relbias.txt",sep=";",dec=",")
     
     param <- str_extract_all(list.files(Path)[j], "[[:digit:]]+\\.*[[:digit:]]*")
@@ -1079,10 +1079,10 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     res.releff <- t(res3[,5:9])
     colnames(res.releff) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
 
-    setwd("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Réflexion-extras/interaction_n_sd_shieh&Cohen")
+    setwd("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Réflexion-extras/interaction_n_sd_shieh&Cohen")
     write.table(res.releff,"res.releff.txt",sep=";",dec=",")
     
-    setwd(paste0("C:/Users/Admin/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
+    setwd(paste0("C:/Users/mdelacre/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Biased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
       g1=2.08
     } else {g1=G1}

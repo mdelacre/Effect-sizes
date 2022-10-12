@@ -17,11 +17,12 @@ Row
 ### 
 
 ```{r, fig.height=8}
-knitr::include_graphics("D:/Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
+
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal", pattern = "bias_eff", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_bal", pattern = "bias_eff", full.names = TRUE)
 ```
 
 
@@ -58,11 +59,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal", pattern = "bias_eff", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Hom_unbal", pattern = "bias_eff", full.names = TRUE)
 ```
 
 Row
@@ -98,11 +99,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal", pattern = "bias_eff", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal", pattern = "bias_eff", full.names = TRUE)
 ```
 
 Row
@@ -138,11 +139,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio", full.names = TRUE)[-1]
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio", full.names = TRUE)[-1]
 ```
 
 Row
@@ -178,11 +179,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/SDR=10", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/SDR=10", full.names = TRUE)
 ```
 
 Row
@@ -218,11 +219,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/SDR=10", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/SDR=10", full.names = TRUE)
 ```
 
 Row
@@ -258,11 +259,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/SDR=2", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstlarger/SDR=2", full.names = TRUE)
 ```
 
 Row
@@ -298,11 +299,11 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
 ```
 
 ```{r}
-myimages<-list.files("D://Documents/Github_projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/SDR=2", full.names = TRUE)
+myimages<-list.files("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_firstsmaller/SDR=2", full.names = TRUE)
 ```
 
 Row
