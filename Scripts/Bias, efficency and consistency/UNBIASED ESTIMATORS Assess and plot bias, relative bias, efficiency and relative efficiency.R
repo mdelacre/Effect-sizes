@@ -627,7 +627,7 @@ for (j in seq_len(length(list.files(Path)))){
     
     png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";",names(Conditions_id)[i], ".png"),width=1400,height=1700, units = "px", res = 300)  
     
-    par(mar = c(4,5,1.5,0),mfrow = c(3,1))   
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
     # plot for the relative bias
     
@@ -651,20 +651,20 @@ for (j in seq_len(length(list.files(Path)))){
     
     # plot for the raw variance
     
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
-    } else {ylabeleff=""}
+#    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+    #    } else {ylabeleff=""}
     
-    barplot(res.eff, 
-            col = c("black","grey40","grey60","grey80","white"),
-            beside = TRUE,
-            ylab = ylabeleff,
-            cex.lab=1.5,
-            xaxt="n",
-            args.legend = list(
-              x = length(res.eff)*1.2,
-              y = max(res.eff)+.5,
-              bty="n"
-            ))
+    #barplot(res.eff, 
+    #        col = c("black","grey40","grey60","grey80","white"),
+    #        beside = TRUE,
+    #        ylab = ylabeleff,
+    #        cex.lab=1.5,
+    #        xaxt="n",
+    #        args.legend = list(
+    #          x = length(res.eff)*1.2,
+    #          y = max(res.eff)+.5,
+    #          bty="n"
+    #        ))
     
     # plot for the relative variance
     
@@ -755,17 +755,17 @@ for (j in seq_len(length(list.files(Path)))){
   colnames(res.eff) <- paste0(1,":",1/sdval)
   
   # Matrix containing variances information
-  res3 <- matrix(0,6,6)  
+  res4 <- matrix(0,6,6)  
   names<-expand.grid("var_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
-  colnames(res3) <- c("sd-ratio",paste0(names[,1],names[,2]))
-  res3[,1] <- sdval 
-  res3[,2] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2),mean)[1:6]
-  res3[,3] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2),mean)[1:6]
-  res3[,4] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2),mean)[1:6]
-  res3[,5] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2),mean)[1:6]
-  res3[,6] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2),mean)[1:6]
+  colnames(res4) <- c("sd-ratio",paste0(names[,1],names[,2]))
+  res4[,1] <- sdval 
+  res4[,2] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2),mean)[1:6]
+  res4[,3] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2),mean)[1:6]
+  res4[,4] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2),mean)[1:6]
+  res4[,5] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2),mean)[1:6]
+  res4[,6] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2),mean)[1:6]
   # Select only bias columns
-  res.releff <- t(res3[,2:6])
+  res.releff <- t(res4[,2:6])
   colnames(res.releff) <- paste0(1,":",1/sdval)
   
   setwd(paste0("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/id_Het_bal/sd-ratio"))
@@ -775,7 +775,7 @@ for (j in seq_len(length(list.files(Path)))){
   
   png(file=paste0("bias_eff,G1=",g1, " & G2=",G2,";","id_Het_bal.png"),width=1400,height=1700, units = "px", res = 300)  
   
-  par(mar = c(4,5,1.5,0),mfrow = c(3,1))   
+  par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
   
   # plot for the relative bias
   
@@ -798,16 +798,16 @@ for (j in seq_len(length(list.files(Path)))){
   
   # plot for the variance
   
-  barplot(res.eff, 
-          col = c("black","grey40","grey60","grey80","white"),
-          beside = TRUE,
-          ylab = ylabeleff,
-          cex.lab=1.5,
-          args.legend = list(
-            x = length(res.eff)*1.2,
-            y = max(res.eff)+.5,
-            bty="n"
-          ))
+  # barplot(res.eff, 
+  #        col = c("black","grey40","grey60","grey80","white"),
+  #        beside = TRUE,
+  #        ylab = ylabeleff,
+  #        cex.lab=1.5,
+  #        args.legend = list(
+  #          x = length(res.eff)*1.2,
+  #          y = max(res.eff)+.5,
+  #          bty="n"
+  #        ))
   
   # plot for the relative variance
   
@@ -940,19 +940,19 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     colnames(res.eff) <- paste0(res3[,1],":",res3[,2],"\n (1:",1/res3[,3],")")
     
     # Matrix containing variances information
-    res3 <- matrix(0,6,8)  
+    res4 <- matrix(0,6,8)  
     names<-expand.grid("eff_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
-    colnames(res3) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
-    res3[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
-    res3[,4] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
-    res3[,5] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
-    res3[,6] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
-    res3[,7] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
-    res3[,8] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    colnames(res4) <- c("n1","n2","sd-ratio",paste0(names[,1],names[,2]))
+    res4[,1:3] <- cbind(combi[,2],combi[,3],combi[,1])
+    res4[,4] <- tapply(Sel$releff_Hedges,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res4[,5] <- tapply(Sel$releff_Glass1,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res4[,6] <- tapply(Sel$releff_Glass2,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res4[,7] <- tapply(Sel$releff_Shieh,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
+    res4[,8] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$sd1.sd2,Sel$n1,Sel$n2),mean)[1:6]
     
     # Select only variances columns
-    res.releff <- t(res3[,4:8])
-    colnames(res.releff) <- paste0(res3[,1],":",res3[,2],"\n (1:",1/res3[,3],")")
+    res.releff <- t(res4[,4:8])
+    colnames(res.releff) <- paste0(res4[,1],":",res4[,2],"\n (1:",1/res4[,3],")")
     
     setwd(paste0("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
     if(G1==-2.08){
@@ -960,7 +960,7 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     } else {g1=G1}
     png(file=paste0("G1=",g1, " & G2=",G2,";",names(Conditions_id)[i],"; N=",totalN,".png"),width=1400,height=1700, units = "px", res = 300)  
     
-    par(mar = c(4,5,1.5,0),mfrow = c(3,1))   
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
     # plot for the relative bias
     
@@ -983,20 +983,20 @@ plot_hetr <- function(totalN){for (j in seq_len(length(list.files(Path)))){
     
     # plot for the raw variance
     
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
-    } else {ylabeleff=""}
+    #if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")"))
+    #} else {ylabeleff=""}
     
-    barplot(res.eff, 
-            col = c("black","grey40","grey60","grey80","white"),
-            beside = TRUE,
-            ylab = ylabeleff,
-            cex.lab=1.5,
-            cex.names=.8,
-            args.legend = list(
-              x = length(res.eff)*1.2,
-              y = max(res.eff)+.5,
-              bty="n"
-            ))
+    #barplot(res.eff, 
+    #        col = c("black","grey40","grey60","grey80","white"),
+    #        beside = TRUE,
+    #        ylab = ylabeleff,
+    #        cex.lab=1.5,
+    #        cex.names=.8,
+    #        args.legend = list(
+    #          x = length(res.eff)*1.2,
+    #          y = max(res.eff)+.5,
+    #          bty="n"
+    #        ))
     
     # plot for the variance
     
@@ -1204,7 +1204,7 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     
     png(file=paste0("G1=",g1, " & G2=",G2,";",names(Conditions_id)[i],"; SDR=",ratio,".png"),width=1400,height=1700, units = "px", res = 300)  
     
-    par(mar = c(4,5,1.5,0),mfrow = c(3,1))   
+    par(mar = c(4,5,1.5,0),mfrow = c(2,1))   
     
     # plot for the relative bias
     
@@ -1228,21 +1228,21 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     
     # plot for the raw variance
     
-    if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
-    } else {ylabeleff=""}
+    #if (j==1){ylabeleff=expression(paste("Var(" , hat(delta) , ")/",delta^2))
+    #} else {ylabeleff=""}
     
-    barplot(res.eff, 
-            col = c("black","grey40","grey60","grey80","white"),
-            beside = TRUE,
-            ylab = ylabeleff,
-            cex.lab=1.5,
-            cex.names=.6,
-            ylim=ylim,
-            args.legend = list(
-              x = length(res.eff)*1.2,
-              y = max(res.eff)+.5,
-              bty="n"
-            ))
+    #barplot(res.eff, 
+    #        col = c("black","grey40","grey60","grey80","white"),
+    #        beside = TRUE,
+    #        ylab = ylabeleff,
+    #        cex.lab=1.5,
+    #        cex.names=.6,
+    #        ylim=ylim,
+    #        args.legend = list(
+    #          x = length(res.eff)*1.2,
+    #          y = max(res.eff)+.5,
+    #          bty="n"
+    #        ))
     
     # plot for the relative variance
     
