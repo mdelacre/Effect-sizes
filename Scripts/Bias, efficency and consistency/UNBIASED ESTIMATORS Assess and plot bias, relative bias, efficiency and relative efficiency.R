@@ -127,18 +127,20 @@ library(stringr)
 
 setwd("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Raw estimators of goodness")
 
-# png(file="legend.png",width=1500,height=1000, units = "px", res = 300)  
-# plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
-# legend("center", 
-#       legend=c(expression(paste("Hedges' ",g[s])),expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g[s])),
-#                expression(paste("Hedges' ",g[s],"'"))),
-#       fill=c("black","grey40","grey60","grey80","white"),
-#       bty="n"
-# )
-# dev.off()
+ png(file="legendwithouthedges.png",width=8000,height=800, units = "px", res = 300)  
+ plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
+ legend("center", 
+       legend=c(
+         expression(paste("Glass's ",g[s],"(",sigma," =",S[1],")")),
+         expression(paste("Glass's ",g[s],"(",sigma," =",S[2],")")),
+         expression(paste("Shieh's ",g[s])),
+         expression(paste("Hedges' ",g[s],"*"))),
+       fill=c("grey40","grey60","grey80","white"),
+       bty="n",horiz=T,cex=2)
+ dev.off()
 getwd()
-png(file="legend.png",width=8000,height=800, units = "px", res = 300)  
 
+png(file="legend.png",width=8000,height=800, units = "px", res = 300)  
 plot(1,1,bty="n",xaxt="n",yaxt="n",ylim=c(.62,.67),main="",xlab="",ylab="",pch=19,type="o")
 legend("center", 
        legend=c(expression(paste("Hedges' ",g)),expression(paste("Glass's ",g,"(",sigma," =",S[1],")")),expression(paste("Glass's ",g,"(",sigma," =",S[2],")")),expression(paste("Shieh's ",g)),
@@ -149,6 +151,7 @@ legend("center",
 
 dev.off()
 
+getwd()
 Path <-  "C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
 
 for (j in seq_len(length(list.files(Path)))){
@@ -1039,6 +1042,7 @@ plot_hetr(totalN=150)
 ### For a constant SD, effect of N
 Path<-"C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Data summary/Unbiased estimators/"
 
+#We do not plot Hedges' d because it is not appropriate when sample sizes and population variances are unequal
 #Ratiolarger/smaller
 plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
   
@@ -1087,8 +1091,8 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     combi <- expand.grid(nval, sd1val, sd2val)
     
     # Matrix containing biases information
-    res <- matrix(0,6,9)  
-    names<-expand.grid("bias_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    res <- matrix(0,6,8)  
+    names<-expand.grid("bias_",c("Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res) <- c("sd1","sd2","n1","n2",paste0(names[,1],names[,2]))
     res[,1:2] <- cbind(combi[,2],combi[,3])
     for (k in 1:length(combi[,1])){
@@ -1111,16 +1115,14 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
         res[k,3]<-100 
         res[k,4] <- 20}
     }
-    res[,5] <- tapply(Sel$relbias_Hedges,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res[,6] <- tapply(Sel$relbias_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res[,7] <- tapply(Sel$relbias_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res[,8] <- tapply(Sel$relbias_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res[,9] <- tapply(Sel$relbias_Hedges,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res[,5] <- tapply(Sel$relbias_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res[,6] <- tapply(Sel$relbias_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res[,7] <- tapply(Sel$relbias_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res[,8] <- tapply(Sel$relbias_Hedges,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
     
     # Select only bias columns
-    res.relbias <- t(res[,5:9])
+    res.relbias <- t(res[,5:8])
     colnames(res.relbias) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
-    
     param <- str_extract_all(list.files(Path)[j], "[[:digit:]]+\\.*[[:digit:]]*")
     if(param[[1]][2]==2.08){
       G1 <- -as.numeric(param[[1]][2])
@@ -1128,43 +1130,42 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     G2 <- as.numeric(param[[1]][4])
     
     # Matrix containing variances information
-    res2 <- matrix(0,6,9)  
-    names<-expand.grid("eff_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
-    colnames(res2) <- c("n1","n2","sd1","sd2",paste0(names[,1],names[,2]))
-    res2[,1:2] <- cbind(combi[,2],combi[,3])
-    for (k in 1:length(combi[,1])){
-      if(combi[k,1]==.2){
-        res2[k,3]<-20
-        res2[k,4] <- 100
-      } else if (combi[k,1]==.4){
-        res2[k,3]<-20
-        res2[k,4] <- 50 
-      } else if(combi[k,1]==.5){
-        res2[k,3]<-50 
-        res2[k,4] <- 100
-      } else if(combi[k,1]==2){
-        res2[k,3]<-100 
-        res2[k,4] <- 50
-      } else if(combi[k,1]==2.5){
-        res2[k,3]<-50 
-        res2[k,4] <- 20
-      } else if(combi[k,1]==5){
-        res2[k,3]<-100 
-        res2[k,4] <- 20}
-    }
-    res2[,5] <- tapply(Sel$eff_Hedges,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res2[,6] <- tapply(Sel$eff_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res2[,7] <- tapply(Sel$eff_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res2[,8] <- tapply(Sel$eff_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res2[,9] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    #res2 <- matrix(0,6,8)  
+    #names<-expand.grid("eff_",c("Glass1","Glass2","Shieh","cohen_delta_prime"))
+    #colnames(res2) <- c("n1","n2","sd1","sd2",paste0(names[,1],names[,2]))
+    #res2[,1:2] <- cbind(combi[,2],combi[,3])
+    #for (k in 1:length(combi[,1])){
+    #  if(combi[k,1]==.2){
+    #    res2[k,3]<-20
+    #    res2[k,4] <- 100
+    #  } else if (combi[k,1]==.4){
+    #    res2[k,3]<-20
+    #    res2[k,4] <- 50 
+    #  } else if(combi[k,1]==.5){
+    #    res2[k,3]<-50 
+    #    res2[k,4] <- 100
+    #  } else if(combi[k,1]==2){
+    #    res2[k,3]<-100 
+    #    res2[k,4] <- 50
+    #  } else if(combi[k,1]==2.5){
+    #    res2[k,3]<-50 
+    #    res2[k,4] <- 20
+    #  } else if(combi[k,1]==5){
+    #    res2[k,3]<-100 
+    #    res2[k,4] <- 20}
+    #}
+    #res2[,5] <- tapply(Sel$eff_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    #res2[,6] <- tapply(Sel$eff_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    #res2[,7] <- tapply(Sel$eff_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    #res2[,8] <- tapply(Sel$eff_cohen_delta_prime,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
     
     # Select only variances columns
-    res.eff <- t(res2[,5:9])
-    colnames(res.eff) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
+    #res.eff <- t(res2[,5:8])
+    #colnames(res.eff) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
     
     # Matrix containing variances information
-    res3 <- matrix(0,6,9)  
-    names<-expand.grid("releff_",c("Hedges","Glass1","Glass2","Shieh","cohen_delta_prime"))
+    res3 <- matrix(0,6,8)  
+    names<-expand.grid("releff_",c("Glass1","Glass2","Shieh","cohen_delta_prime"))
     colnames(res3) <- c("n1","n2","sd1","sd2",paste0(names[,1],names[,2]))
     res3[,1:2] <- cbind(combi[,2],combi[,3])
     for (k in 1:length(combi[,1])){
@@ -1187,14 +1188,13 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
         res3[k,3]<-100 
         res3[k,4] <- 20}
     }
-    res3[,5] <- tapply(Sel$releff_Hedges,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res3[,6] <- tapply(Sel$releff_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res3[,7] <- tapply(Sel$releff_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res3[,8] <- tapply(Sel$releff_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
-    res3[,9] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res3[,5] <- tapply(Sel$releff_Glass1,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res3[,6] <- tapply(Sel$releff_Glass2,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res3[,7] <- tapply(Sel$releff_Shieh,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
+    res3[,8] <- tapply(Sel$releff_cohen_delta_prime,list(Sel$n1.n2,Sel$sd1.sd2),mean)[1:6]
     
     # Select only variances columns
-    res.releff <- t(res3[,5:9])
+    res.releff <- t(res3[,5:8])
     colnames(res.releff) <- paste0("1:",res[,2],"\n (",res[,3],":",res[,4],")")
     
     setwd(paste0("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/Unbiased estimators/Relative estimators of goodness/",names(Conditions_id)[i]))
@@ -1215,7 +1215,7 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     } else {ylim=c(0,.16)}
     
     barplot(res.relbias, 
-            col = c("black","grey40","grey60","grey80","white"),
+            col = c("grey40","grey60","grey80","white"),
             beside = TRUE,
             main=paste0("G1=",G1,"; G2=",G2),
             xaxt="n",
@@ -1272,7 +1272,7 @@ plot_hetr <- function(ratio){for (j in seq_len(length(list.files(Path)))){
     }
     
     barplot(res.releff, 
-            col = c("black","grey40","grey60","grey80","white"),
+            col = c("grey40","grey60","grey80","white"),
             beside = TRUE,
             ylab = ylabeleff,
             cex.lab=1.5,

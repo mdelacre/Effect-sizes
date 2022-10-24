@@ -179,7 +179,7 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legendwithouthedges.png")
 ```
 
 ```{r}
@@ -219,7 +219,7 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legendwithouthedges.png")
 ```
 
 ```{r}
@@ -259,7 +259,7 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legendwithouthedges.png")
 ```
 
 ```{r}
@@ -299,7 +299,7 @@ Row
 ### 
 
 ```{r,fig.height=8}
-knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legend.png")
+knitr::include_graphics("C:/Users/mdelacre/Documents/Github projects/Effect-sizes/Scripts outputs/Quality of ES measures/Graphs/legendwithouthedges.png")
 ```
 
 ```{r}
