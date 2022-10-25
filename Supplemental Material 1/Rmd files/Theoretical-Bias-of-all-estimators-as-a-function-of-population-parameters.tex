@@ -5,10 +5,14 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\title{Theoretical Bias, as a function of population parameters}
+\author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
+\date{}
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -123,7 +127,7 @@
 \linenumbers
 \usepackage{csquotes}
 \usepackage{bm}
-\ifxetex
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -133,13 +137,9 @@
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 \fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-
-\title{Theoretical Bias, as a function of population parameters}
-\author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
-\date{}
 
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
@@ -150,7 +150,7 @@
 \hypertarget{the-bias}{%
 \section{The bias}\label{the-bias}}
 
-For all ``biased'' estimators, when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other hand, the biases of Glass's \(d\), Cohen's \(d^*\) and Shieh's \(d\) are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:\\
+For all ``biased'' estimators, \(\delta_{bias}=\delta \times (c_f-1)\) where \(c_f=\frac{\sqrt{\frac{df}{2}} \times \Gamma\left(\frac{df-1}{2}\right)}{\Gamma\left( \frac{df}{2}\right)}\) and the distinct values of \(df\) are provided in the main article, in equation 7 for Cohen's \(d\), in equation 9 for Glass' \(d\), in equation 11 for Shieh's \(d\) and in equation 16 for Cohen's \(d^*\). As we can see in the equation of \(\delta_{bias}\), when the population effect size is null so is the bias. We will therefore focus on configurations where there is a non-null population effect size. The sampling distribution of Cohen's \(d\) (and therefore its bias) is only known under the assumptions of normality and homoscedasticity. On the other hand, the biases of Glass' \(d\), Cohen's \(d^*\) and Shieh's \(d\) are theoretically known for all configurations where the normality assumption is met. In order to simplify the analysis of their bias, it is convenient to subdivide all configurations into 3 conditions:\\
 - when population variances are equal across groups;\\
 - when population variances are unequal across groups, with equal sample sizes;\\
 - when population variances are unequal across groups, with unequal sample sizes.
@@ -158,12 +158,13 @@ For all ``biased'' estimators, when the population effect size is null so is the
 \hypertarget{preliminary-note}{%
 \subsection{Preliminary note}\label{preliminary-note}}
 
-For all previously mentioned estimators (Cohen's \(d\), Glass's \(d\), Cohen's \(d^*\) and Shieh's \(d\)), the theoretical expectation is computed by multiplying the population effect size (respectively \(\delta_{Cohen}\), \(\delta_{Glass}\), \(\delta^*_{Cohen}\) and \(\delta_{Shieh}\)) by the following multiplier coefficient:
+For all previously mentioned estimators (Cohen's \(d\), Glass' \(d\), Cohen's \(d^*\) and Shieh's \(d\)), the theoretical expectation is computed by multiplying the population effect size (respectively \(\delta_{Cohen}\), \(\delta_{Glass}\), \(\delta^*_{Cohen}\) and \(\delta_{Shieh}\)) by the following multiplier coefficient:
 \begin{equation} 
-\gamma=\frac{\sqrt{\frac{df}{2}} \times \Gamma{\frac{df-1}{2}}}{\Gamma{\frac{df}{2}}}
+\gamma=\frac{\sqrt{\frac{df}{2}} \times \Gamma{\left(\frac{df-1}{2}\right)}}{\Gamma{\left(\frac{df}{2}\right)}}
 \label{eq:mc}
 \end{equation}
-where \(df\) are the degrees of freedom (see the main article). \(\gamma\) is \emph{always} positive, meaning that when the population effect size is not zero, all estimators will overestimate the population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.\\
+
+where \(df\) are the degrees of freedom (see the main article). One can show that \(\gamma\) is always bigger than 1, meaning that when the population effect size is not zero, all estimators will overestimate the population effect size. Moreover, its limit tends to 1 when the degrees of freedom (\(df\)) tend to infinity, meaning that the larger the degrees of freedom, the lower the bias.\\
 While we focus on the theoretical bias of biased estimators when the normality assumption is met, it is interesting to notice that our main conclusions seem to generalize to :\\
 - biased estimators when samples are extracted from symmetric distributions;\\
 - unbiased estimators when samples are extracted from heavy-tailed symmetric distributions.
@@ -171,7 +172,7 @@ While we focus on the theoretical bias of biased estimators when the normality a
 \hypertarget{cohens-bmd-see-table-1}{%
 \subsection{\texorpdfstring{Cohen's \(\bm{d}\) (see Table 1)}{Cohen's \textbackslash bm\{d\} (see Table 1)}}\label{cohens-bmd-see-table-1}}
 
-Under the assumptions that independant residuals are normally distributed with equal variances, the \textbf{bias} of Cohen's \(d\) is a function of total sample size (\(N\)) and the population effect size (\(\delta_{Cohen}\)):
+Under the assumptions that independent residuals are normally distributed with equal variances, the \textbf{bias} of Cohen's \(d\) is a function of total sample size (\(N\)) and the population effect size (\(\delta_{Cohen}\)):
 
 \begin{itemize}
 \tightlist
@@ -192,23 +193,23 @@ Under the assumptions that independant residuals are normally distributed with e
   Of course, considering the degrees of freedom, the sample size ratio does not matter (i.e.~the bias will decrease when increasing \(n_1\), \(n_2\) or both sample sizes).
 \end{itemize}
 
-\hypertarget{glasss-bmd-see-table-2}{%
-\subsection{\texorpdfstring{Glass's \(\bm{d}\) (see Table 2)}{Glass's \textbackslash bm\{d\} (see Table 2)}}\label{glasss-bmd-see-table-2}}
+\hypertarget{glass-bmd-see-table-2}{%
+\subsection{\texorpdfstring{Glass' \(\bm{d}\) (see Table 2)}{Glass' \textbackslash bm\{d\} (see Table 2)}}\label{glass-bmd-see-table-2}}
 
 Because degrees of freedom depend only on the control group size (neither on \(\sigma_1\) nor on \(\sigma_2\)), there is no need to distinguish between cases where there is homoscedasticity or heteroscedasticity!
 
-The \textbf{bias} of Glass's \(d\) is a function of the control group size (\(n_c\)) and the population effect size (\(\delta_{Glass}\)):
+The \textbf{bias} of Glass' \(d\) is a function of the control group size (\(n_c\)) and the population effect size (\(\delta_{Glass}\)):
 
 \begin{itemize}
 \tightlist
 \item
-  The larger the population effect size, the more Glass's \(d\) will overestimate \(\delta_{Glass}\);
+  The larger the population effect size, the more Glass' \(d\) will overestimate \(\delta_{Glass}\);
 \end{itemize}
 
 \begin{figure}
 \centering
 \includegraphics{Theoretical-Bias-of-all-estimators-as-a-function-of-population-parameters_files/figure-latex/biasGlassctrlsize2-1.pdf}
-\caption{\label{fig:biasGlassctrlsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Glass's \(d\), when variances are equal across groups, as a function of \(n_c\) (top) and \(n_e\) (bottom).}
+\caption{\label{fig:biasGlassctrlsize2}Degrees of freedom (DF) and \(\gamma\), when computing the bias of Glass' \(d\), when variances are equal across groups, as a function of \(n_c\) (top) and \(n_e\) (bottom).}
 \end{figure}
 
 \begin{itemize}
@@ -518,12 +519,12 @@ The \textbf{bias} of Cohen's \(d\) is a function of the population effect size \
   The bias decreases when the total sample size increases (it does not matter whether one adds subjects in only one group or in both).
 \end{itemize}
 
-The \textbf{bias} of Glass's \(d\) is a function of the population effect size (\(\delta_{Glass}\)) and the size of the control group (\(n_e\)):
+The \textbf{bias} of Glass' \(d\) is a function of the population effect size (\(\delta_{Glass}\)) and the size of the control group (\(n_e\)):
 
 \begin{itemize}
 \tightlist
 \item
-  When \(\delta_{Glass}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Glass}\), the more Glass's \(d\) will overestimate \(\delta_{Glass}\);\\
+  When \(\delta_{Glass}\) is null, the bias is null. In all other configurations, the larger \(\delta_{Glass}\), the more Glass' \(d\) will overestimate \(\delta_{Glass}\);\\
 \item
   The bias decreases when the size of the control group increases. On the other hand, increasing the size of the experimental group does not impact the bias.
 \end{itemize}

@@ -216,7 +216,7 @@ The empirical value of an estimator (called the \emph{estimate}) depends on the 
 
 \color{black}An estimator is unbiased if the distribution of estimates is centered around the true population parameter. An estimator is positively (or negatively) biased if the distribution is centered around a value that is higher (or lower) than the true population parameter (see Figure \ref{fig:BIAS}). In other words, examining the bias of an estimator tells us if estimates are on average accurate. The \emph{bias} of a point estimator \(\hat{\delta}\) can be computed as
 \begin{equation} 
-\delta_{bias}=E(\hat{\delta})-\delta
+bias(\hat{\delta})=E(\hat{\delta})-\delta
 \label{eqn:BIAS}
 \end{equation}
 where \(E(\hat{\delta})\) is the expectation of the sampling distribution of the estimator and \(\delta\) is the true (population) parameter.
@@ -227,7 +227,7 @@ where \(E(\hat{\delta})\) is the expectation of the sampling distribution of the
 
 As we can see in Tables 1 and 2 the bias is directly related to the population effect size. The larger the population effect size, the larger the bias. As we shall see in the sequel, each effect size estimator actually estimates a different expression of the population effect size. It is therefore necessary to examine the \emph{relative bias}, defined as the ratio between the bias and the population effect size :
 \begin{equation} 
-\delta_{relative \; bias}=\frac{E(\hat{\delta})-\delta}{\delta}.
+relative \; bias(\hat{\delta})=\frac{E(\hat{\delta})-\delta}{\delta}.
 \label{eqn:RELBIAS}
 \end{equation}
 While the bias informs us about the quality of estimates on average, in particular their capacity of lying close to the true value, it says nothing about individual estimates. Imagine a situation where the distribution of estimates is centered around the real parameter but with such a large variance that some point estimates are very far from the center. This would be problematic, since any single estimate might be very far from the true population value. Therefore it is not only essential for an estimator to be unbiased, but it is also desirable that the variability of its sampling distribution is small. Ideally, all sample estimates are close to the true population parameter. Among two unbiased estimators \(\hat{\delta_1}\) and \(\hat{\delta_2}\), we therefore say that \(\hat{\delta_1}\) is \emph{more efficient} than \(\hat{\delta_2}\) if
