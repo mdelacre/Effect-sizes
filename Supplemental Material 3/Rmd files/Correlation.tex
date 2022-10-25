@@ -5,10 +5,14 @@
 \documentclass[
   english,
   man,mask]{apa6}
+\title{Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators}
+\author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
+\date{}
+
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -133,7 +137,7 @@
 \linenumbers
 \usepackage{csquotes}
 \usepackage{bm}
-\ifxetex
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
@@ -143,13 +147,9 @@
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 \fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-
-\title{Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators}
-\author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
-\date{}
 
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Université Libre de Bruxelles, Service of Analysis of the Data (SAD), Bruxelles, Belgium\\\textsuperscript{2} Eindhoven University of Technology, Human Technology Interaction Group, Eindhoven, the Netherlands\\\textsuperscript{3} Universiteit Gent, Department of Applied Mathematics, Computer Science and Statistics, Gent, Belgium}
@@ -160,12 +160,12 @@
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-The \emph{d}-family effect sizes are commonly used with between-subject designs where individuals are randomly assigned into one of two independent groups and group means are compared. The population effect size is defined as
-\begin{equation*} 
+The \emph{d}-family effect sizes are commonly used for mean differences between groups or conditions. In all generality, the population effect size is defined as
+\begin{equation} 
 \delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
-\label{eq:Cohendelta}
-\end{equation*}
-where both populations follow a normal distribution with mean \(\mu_j\) in the \(j^{th}\) population (\(j\)=1,2) and common standard deviation \(\sigma\). There exist different estimators of this population effect size, varying as a function of the chosen standardizer. When the equality of variances assumption is met, \(\sigma\) is estimated by pooling both sample standard deviations (\(S_1\) and \(S_2\)):
+\label{eqn:Cohendelta}
+\end{equation}
+where \(\mu_1\) and \(\mu_2\) respectively stand for the population means of population 1 and 2, and \(\sigma\) represents the ``variability'' of the combined observations from both population. There exist different estimators of the effect size measure in expression \ref{eqn:Cohendelta}. For all, the mean difference is estimated by the difference \(\bar{X}_1-\bar{X}_2\) of both sample means. When the equality of variances assumption is met, \(\sigma\) is estimated by pooling both sample standard deviations (\(S_1\) and \(S_2\)):
 \begin{equation*} 
 S_{Cohen's \; d} = \sqrt{\frac{(n_1-1) \times S_1^2+(n_2-1) \times S_2^2}{n_1+n_2-2}}
 \label{eq:Cohends}
@@ -173,7 +173,7 @@ S_{Cohen's \; d} = \sqrt{\frac{(n_1-1) \times S_1^2+(n_2-1) \times S_2^2}{n_1+n_
 When the equality of variances assumption is not met, we are considering three alternative estimates:\\
 - Using the standard deviation of the control group (\(S_c\)) as standardizer:
 \begin{equation*} 
-S_{Glass's \; d} = S_{c}
+S_{Glass' \; d} = S_{c}
 \label{eq:Glassds}
 \end{equation*}\\
 - Using a standardizer that takes the sample sizes allocation ratio \(\left( \frac{n_2}{n_1}\right)\) into account:\\
@@ -263,7 +263,7 @@ When distributions are skewed, there are again non-null correlations between \(\
 \caption{\label{fig:Homunbalcorasafctofn2}Correlation between \(S_j\) and \(\bar{X_j}\) when \(n\) = 25, 50, 75 or 100 and samples are extracted from left skewed distributions (\(\gamma_1 = -6.32\))}
 \end{figure}
 
-When distributions are skewed, one observes that the larger the sample size, the lower the correlation between \(S_j\) and \(\bar{X_j}\) (See Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn2}).
+When distributions are skewed, one observes that the larger the sample size, the lower the correlation between \(S_j\) and \(\bar{X_j}\) (see Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn2}).
 
 \begin{figure}
 \centering
@@ -292,8 +292,8 @@ This might explain that the magnitude of the correlation between \(S_j\) and \(\
 \end{figure}
 
 This might also explain that standardizers of Shieh's \(d\) and Cohen's \(d^*\) are \textbf{correlated} with \(\bar{X_1}-\bar{X_2}\) (see Figures \ref{fig:pltStdzrHomunbalRskew} and \ref{fig:pltStdzrHomunbalLskew}):\\
-- When computing \(S_{Cohen's \; d^*}\), the same weight is given to both \(S_1\) and \(S_2\). Therefore, it does not seem surprising that the sign of the correlation between \(S_{Cohen's \; d^*}\) and \(\bar{X_1}-\bar{X_2}\) is the same as the size of the correlation between \(\bar{X_1}-\bar{X_2}\) and the \(SD\) of the smallest sample;\\
-- When computing \(S_{Shieh's \; d}\), more weight is given to the \(SD\) of the smallest sample, it is therefore not really surprising to observe that the correlation between \(S_{Shieh's \; d}\) and \(\bar{X_1}-\bar{X_2}\) is closer of the correlation between the \(SD\) of the smallest group and \(\bar{X_1}-\bar{X_2}\) (i.e.~\(|cor(S_{Shieh's \; d},\bar{X_1}-\bar{X_2})| > |cor(S_{Cohen's \; d^*},\bar{X_1}-\bar{X_2})|\));\\
+- When computing \(S_{Cohen's \; d^*}\), the same weight is given to both \(S_1\) and \(S_2\). Therefore, it does not seem surprising that the sign of the correlation between \(S_{Cohen's \; d^*}\) and \(\bar{X_1}-\bar{X_2}\) is the same as the sign of the correlation between \(\bar{X_1}-\bar{X_2}\) and the \(SD\) of the smallest sample;\\
+- When computing \(S_{Shieh's \; d}\), more weight is given to the \(SD\) of the smallest sample, it is therefore not really surprising to observe that the correlation between \(S_{Shieh's \; d}\) and \(\bar{X_1}-\bar{X_2}\) is closer of the correlation between the \(SD\) of the smallest group and \(\bar{X_1}-\bar{X_2}\);\\
 - When computing \(S_{Cohen's \; d}\), more weight is given to the \(SD\) of the largest sample, which by compensation effect brings the correlation very close to 0.
 
 The correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(S_1\), \(S_2\), the standardizer of Cohen's \(d^*\), the standardizer of Shieh's \(d\) and the standardizer of Cohen's \(d\) are summarized in Table 1.
@@ -304,11 +304,19 @@ The correlation between \(\bar{X_1}-\bar{X_2}\) and respectively \(S_1\), \(S_2\
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.39}}@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\), \(S_{Cohen's \; d}\), \(S_{Shieh's \; d}\) and \(S_{Cohen's \; d^*}\)) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, and \(n_1=n_2\) (condition a) or \(n_1 \neq n_2\) (condition b)}\tabularnewline
 \toprule
-& \textbf{\textbf{population distribution}} & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\textbf{population distribution}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endfirsthead
 \toprule
-& \textbf{\textbf{population distribution}} & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\textbf{population distribution}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 & \emph{right-skewed} & \emph{left-skewed} \\

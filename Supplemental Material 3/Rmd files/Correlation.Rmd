@@ -49,12 +49,13 @@ library("PearsonDS")
 
 # Introduction
 
-The *d*-family effect sizes are commonly used with between-subject designs where individuals are randomly assigned into one of two independent groups and group means are compared. The population effect size is defined as 
-\begin{equation*} 
+
+The *d*-family effect sizes are commonly used for mean differences between groups or conditions. In all generality, the population effect size is defined as 
+\begin{equation} 
 \delta = \frac{\mu_{1}-\mu_{2}}{\sigma} 
-(\#eq:Cohendelta)
-\end{equation*} 
-where both populations follow a normal distribution with mean $\mu_j$ in the $j^{th}$ population ($j$=1,2) and common standard deviation $\sigma$. There exist different estimators of this population effect size, varying as a function of the chosen standardizer. When the equality of variances assumption is met, $\sigma$ is estimated by pooling both sample standard deviations ($S_1$ and $S_2$):
+\label{eqn:Cohendelta}
+\end{equation} 
+where $\mu_1$ and $\mu_2$ respectively stand for the population means of population 1 and 2, and $\sigma$ represents the "variability" of the combined observations from both population. There exist different estimators of the effect size measure in expression \ref{eqn:Cohendelta}. For all, the mean difference is estimated by the difference $\bar{X}_1-\bar{X}_2$ of both sample means. When the equality of variances assumption is met, $\sigma$ is estimated by pooling both sample standard deviations ($S_1$ and $S_2$):
 \begin{equation*} 
 S_{Cohen's \; d} = \sqrt{\frac{(n_1-1) \times S_1^2+(n_2-1) \times S_2^2}{n_1+n_2-2}}
 (\#eq:Cohends)
@@ -62,7 +63,7 @@ S_{Cohen's \; d} = \sqrt{\frac{(n_1-1) \times S_1^2+(n_2-1) \times S_2^2}{n_1+n_
 When the equality of variances assumption is not met, we are considering three alternative estimates:   
 - Using the standard deviation of the control group ($S_c$) as standardizer: 
 \begin{equation*} 
-S_{Glass's \; d} = S_{c}
+S_{Glass' \; d} = S_{c}
 (\#eq:Glassds)
 \end{equation*}   
 - Using a standardizer that takes the sample sizes allocation ratio $\left( \frac{n_2}{n_1}\right)$ into account:   
@@ -394,7 +395,7 @@ y <- rpearson(1000000,moments=c(m1,sd^2,skewness=skew*(N-2)/sqrt(N*(N-1)),kurtos
 
 ```
 
-When distributions are skewed, one observes that the larger the sample size, the lower the correlation between $S_j$ and $\bar{X_j}$ (See Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn2}).
+When distributions are skewed, one observes that the larger the sample size, the lower the correlation between $S_j$ and $\bar{X_j}$ (see Figures \ref{fig:Homunbalcorasafctofn1} and \ref{fig:Homunbalcorasafctofn2}).
 
 ```{r pltSDHomunbalRskew,fig.cap="$S_j$ ($j$=1,2) as a function of $\\bar{X_j}$ (top plots) or $\\bar{X_1}-\\bar{X_2}$ (bottom plots), when samples are extracted from right skewed distributions ($\\gamma_1 = 6.32$), with $n_1$=20 and $n_2$=100",echo=FALSE}
 par(mfrow=c(2,2),mar=c(5,5,5,2))
@@ -431,8 +432,8 @@ plot(Homunbal_leftskew_sdCohenprime,Homunbal_leftskew_meandiff,ylab=expression(S
 ```
 
 This might also explain that standardizers of Shieh's $d$ and Cohen's $d^*$ are **correlated** with $\bar{X_1}-\bar{X_2}$ (see Figures \ref{fig:pltStdzrHomunbalRskew} and \ref{fig:pltStdzrHomunbalLskew}):  
-- When computing $S_{Cohen's \; d^*}$, the same weight is given to both $S_1$ and $S_2$. Therefore, it does not seem surprising that the sign of the correlation between $S_{Cohen's \; d^*}$ and $\bar{X_1}-\bar{X_2}$ is the same as the size of the correlation between $\bar{X_1}-\bar{X_2}$ and the $SD$ of the smallest sample;   
-- When computing $S_{Shieh's \; d}$, more weight is given to the $SD$ of the smallest sample, it is therefore not really surprising to observe that the correlation between $S_{Shieh's \; d}$ and $\bar{X_1}-\bar{X_2}$  is closer of the correlation between the $SD$ of the smallest group and $\bar{X_1}-\bar{X_2}$ (i.e. $|cor(S_{Shieh's \; d},\bar{X_1}-\bar{X_2})| > |cor(S_{Cohen's \; d^*},\bar{X_1}-\bar{X_2})|$);    
+- When computing $S_{Cohen's \; d^*}$, the same weight is given to both $S_1$ and $S_2$. Therefore, it does not seem surprising that the sign of the correlation between $S_{Cohen's \; d^*}$ and $\bar{X_1}-\bar{X_2}$ is the same as the sign of the correlation between $\bar{X_1}-\bar{X_2}$ and the $SD$ of the smallest sample;   
+- When computing $S_{Shieh's \; d}$, more weight is given to the $SD$ of the smallest sample, it is therefore not really surprising to observe that the correlation between $S_{Shieh's \; d}$ and $\bar{X_1}-\bar{X_2}$  is closer of the correlation between the $SD$ of the smallest group and $\bar{X_1}-\bar{X_2}$;    
 - When computing $S_{Cohen's \; d}$, more weight is given to the $SD$ of the largest sample,  which by compensation effect brings the correlation very close to 0.  
 
 The correlation between $\bar{X_1}-\bar{X_2}$ and respectively $S_1$, $S_2$, the standardizer of Cohen's $d^*$, the standardizer of Shieh's $d$ and the standardizer of Cohen's $d$ are summarized in Table 1.

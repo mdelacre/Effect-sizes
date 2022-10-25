@@ -4,11 +4,19 @@
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.39}}@{}}
 \caption{Correlation between standardizers (\(S_1\), \(S_2\), \(S_{Cohen's \; d}\), \(S_{Shieh's \; d}\) and \(S_{Cohen's \; d^*}\)) and \(\bar{X_1}-\bar{X_2}\), when samples are extracted from skewed distributions with equal variances, and \(n_1=n_2\) (condition a) or \(n_1 \neq n_2\) (condition b)}\tabularnewline
 \toprule
-& \textbf{\textbf{population distribution}} & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\textbf{population distribution}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endfirsthead
 \toprule
-& \textbf{\textbf{population distribution}} & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\textbf{population distribution}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} \\
 \midrule
 \endhead
 & \emph{right-skewed} & \emph{left-skewed} \\
