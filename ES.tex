@@ -562,6 +562,8 @@ where \(n\) is the sample size and \(m_{2}\), \(m_{3}\) and \(m_{4}\) are respec
 \includegraphics[width=400px]{ES_files/figure-latex/DISTR-1} \caption{Plots of the four distributions considered in our simulations, with $\mu=0$ and $\sigma=1$. The undotted curve is the normal distribution.}\label{fig:DISTR}
 \end{figure}
 
+\newpage
+
 \begin{longtable}[]{@{}ccccc@{}}
 \caption{Number of combinations of skewness and kurtosis in our simulations.}\tabularnewline
 \toprule
@@ -591,7 +593,7 @@ For the 4 resulting combinations of skewness and kurtosis (see Table 4), all oth
 \newpage
 
 \begin{longtable}[]{@{}ccccc@{}}
-\caption{4 conditions based on the \(n\)-ratio and the \(SD\)-ratio.}\tabularnewline
+\caption{Four conditions based on the \(n\)-ratio and the \(SD\)-ratio.}\tabularnewline
 \toprule
 & & & \textbf{\emph{n}-ratio} & \\
 \midrule
@@ -618,7 +620,7 @@ Before presenting the comparison of the estimators for each condition, it is use
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \item
-  We previously explained why we need to consider here relative bias and relative variance instead of raw bias and variance. Thus, anytime we will mention the biases and variances in the results section, we will be referring to relative bias and variance.
+  We previously explained why we need to consider here relative bias and relative variance instead of raw bias and variance. Thus, anytime we mention the biases and variances in the results section, we refer to relative bias and variance.
 \item
   For the sake of readability, the vertical axis differs across plots.
 \item
@@ -766,7 +768,7 @@ When distributions are symmetric, the bias of Glass' \(g\) only depends on the s
 \hypertarget{recommendations}{%
 \subsection{Recommendations}\label{recommendations}}
 
-We recommend using Hedges' \(g^*\) in order to assess the magnitude of the effect when comparing two independent means, because a) it does not rely on the equality of population variances assumption \footnote{The assumption of equal variances across populations is rarely realistic in practice (Cain et al., 2017; Delacre et al., 2017; Delacre et al. , 2019; Erceg-Hurn $\&$ Mirosevich, 2008; Glass et al., 1972; Grissom, 2000; Micceri, 1989; Yuan et al., 2004) (unlike Hedges' $g$), b) it is always consistent} (unlike Shieh's \(g\)), c) it is easy to interpret (Hedges' \(g^*\) can be interpreted in the same way as Hedges' \(g\)) and d) it remains constant for any sample size ratio, even when population variances are unequal across groups, as shown in the Shiny App at \url{https://effectsize.shinyapps.io/ShiehvsCohen/}.
+We recommend using Hedges' \(g^*\) in order to assess the magnitude of the effect when comparing two independent means, because a) it does not rely on the equality of population variances assumption \footnote{The assumption of equal variances across populations is rarely realistic in practice (Cain et al., 2017; Delacre et al., 2017; Delacre et al. , 2019; Erceg-Hurn $\&$ Mirosevich, 2008; Glass et al., 1972; Grissom, 2000; Micceri, 1989; Yuan et al., 2004) (unlike Hedges' $g$)}, b) it is always consistent (unlike Shieh's \(g\)), c) it is easy to interpret (Hedges' \(g^*\) can be interpreted in the same way as Hedges' \(g\)) and d) it remains constant for any sample size ratio, even when population variances are unequal across groups, as shown in the Shiny App at \url{https://effectsize.shinyapps.io/ShiehvsCohen/}.
 
 Effect size estimates such as Hedges' \(g^*\) should always be reported with a confidence interval. To help researchers compute Hedges' \(g^*\) and its confidence interval we created the R package \emph{deffectsize} (see \url{https://github.com/mdelacre/deffectsize}). The \emph{datacohen\_CI} function was built in order to compute point estimators and confidence intervals based on raw data and the \emph{cohen\_CI} function was built in order to compute point estimators and confidence intervals based on descriptive statistics (sample means, sample variances and sample sizes). By default, unbiased Hedges' \(g^*\) is computed but it is also possible to compute biased estimators (e.g.~Cohen's \(d^*\)) and/or to use a pooled error term as standardizer by assuming that the equality of population variances is met (e.g.~Hedges' \(g\) or Cohen's \(d\), depending on whether we choose to compute unbiased or biased estimator). Other functions (\emph{datashieh\_CI}, \emph{shieh\_CI}, \emph{dataglass\_CI} and \emph{glass\_CI}) are available in order to compute Shieh's \(g\) (or Shieh's \(d\)) and Glass' \(g\) (or Glass' \(d\)) as well as their respective confidence intervals, even though we do not recommend to use these effect sizes by default. Researchers who do not use R can use a Shiny app to compute point estimators and confidence intervals based on descriptive statistics : \url{https://effectsize.shinyapps.io/deffsize/}.
 
