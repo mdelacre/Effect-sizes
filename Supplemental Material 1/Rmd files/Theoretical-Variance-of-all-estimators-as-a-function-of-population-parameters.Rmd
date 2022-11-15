@@ -342,7 +342,7 @@ plot(log(nratio2),VAR2,xlab=expression(paste("log(",n[c],"/",n[e],")")),ylab=exp
 #round(nratio2[VAR2==min(VAR2)])
 ```
 
-Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true anymore when the population effect size is not zero. Indeed, because of the second term in the addition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), especially when the effect size gets larger. For example, when $\delta_{Glass}$= `r delta_glass1`, the lowest variance will occur when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{Glass}$= `r delta_glass2`, the lowest variance will occur when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
+Note: while the sample sizes ratio associated with the lowest variance was very close to 1 with a null population effect size, this is not true when the population effect size is not zero. Indeed, because of the second term in the addition, when computing the variance, one gives much more weight to the effect size of the control group  (see Figure \ref{fig:varglasshomNratiobis2}), especially when the effect size gets larger. For example, when $\delta_{Glass}$= `r delta_glass1`, the lowest variance will occur when $n_c$ is approximately `r round(nratio[VAR==min(VAR)])` times larger than $n_e$. When $\delta_{Glass}$= `r delta_glass2`, the lowest variance will occur when $n_c$ is approximately `r round(nratio2[VAR2==min(VAR2)])` times larger than $n_e$, etc. 
 
 ### When variances are unequal across populations, with equal sample sizes
 
@@ -540,7 +540,7 @@ Note: when the population effect size was null, when $\sigma_c<\sigma_e$, it was
 
 The variance of Glass' $d$ is a function of the population effect size ($\delta_{Glass}$), the $SD$-ratio, the total sample size and the interaction between sample sizes ratio and $SD$-ratio $\left(\frac{n_c}{n_e}\times\frac{\sigma_c}{\sigma_e} \right)$:  
 
-  + The variance decreases when the $SD$-ratio increases (i.e. when $\sigma_e >> \sigma_c$);  
+  + The variance decreases when the $SD$-ratio increases (i.e. when $\sigma_e > \sigma_c$);  
   + The variance always decreases when the control and/or the experimental group increases. The benefit of adding subjects rather in the control, in the experimental, or in both groups, in order to reduce the variance, varies as a function of the $SD$-ratio and the population effect size. The only situation where it is optimal to maximize the experimental group is when $\sigma_e > \sigma_c$ and $\delta_{Glass} \approx 0$. Most of the time, it is more efficient to maximize the control groups (e.g. anytime $\sigma_e < \sigma_c$, and when $\delta_{Glass}$ is very large) or to uniformly add subjects in both groups (e.g. when $\sigma_e > \sigma_c$ and $\delta_{Glass}$ is neither null nor huge); 
   + The variance increases when $\delta_{Glass}$ increases. Note that the effect of $\delta_{Glass}$ is moderated by the control group size (the larger $n_e$, the smaller the effect of $\delta_{Glass}$ on the variance).   
 

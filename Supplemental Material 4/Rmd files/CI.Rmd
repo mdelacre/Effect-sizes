@@ -31,7 +31,7 @@ abstract: |
 
 wordcount         : "273"
 bibliography      : ["r-references.bib"]
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no

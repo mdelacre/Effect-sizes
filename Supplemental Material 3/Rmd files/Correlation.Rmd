@@ -27,7 +27,7 @@ affiliation:
 
 wordcount         : "1434 words"
 
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no

@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man,mask]{apa6}
+  man,mask,floatsintext]{apa6}
 \title{Correlations between the sample mean difference and standardizers of all estimators, and implications on biases and variances of all estimators}
 \author{Marie Delacre\textsuperscript{1}, Daniel Lakens\textsuperscript{2}, Christophe Ley\textsuperscript{3}, Limin Liu\textsuperscript{3}, \& Christophe Leys\textsuperscript{1}}
 \date{}
@@ -126,12 +126,6 @@
 \makeatother
 \shorttitle{Correlation between sample means and SD}
 \keywords{\newline\indent Word count: 1434 words}
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
 \usepackage{lineno}
 
 \linenumbers
