@@ -6,7 +6,7 @@ author:
     affiliation   : "1"
     corresponding : yes    
     address       : "CP191, avenue F.D. Roosevelt 50, 1050 Bruxelles"
-    email         : "marie.delacre@ulb.ac.be"
+    email         : "marie.delacre@ulb.be"
   - name          : "Daniel Lakens"
     affiliation   : "2"
   - name          : "Christophe Ley"
@@ -29,14 +29,15 @@ affiliation:
 authornote: |
   A Shiny app to compute point estimators and confidence intervals based on descriptive statistics is available from https://effectsize.shinyapps.io/deffsize/. We would like to thank Aaron Caldwell for his help creating the figures in the Shiny App, and Geoff Cumming for his detailed feedback and the followed discussions. Daniël Lakens was funded by VIDI Grant 452-17-013 from the Netherlands Organisation for Scientific Research.
 abstract: |
-keywords          : "keywords"
+  Researchers are generally required to report and interpret effect sizes and associated confidence intervals. When comparing two independent groups, the most commonly used estimator of effect size is Cohen's $d$ where sample mean difference is divided by the pooled standard deviation. However, computing the pooled error term is not recommended when both groups do not share common population variances. Furthermore, the assumption of equal population variances is unlikely in many psychological fields. The question which effect size estimator to report when equal variances are not assumed remains open. Based on Monte Carlo simulations, we compare Hedges' $g$ (i.e. Cohen's $d$ with correction for bias) to Glass' $g$, Shieh's $g$ and Hedges' $g^*$. Comparisons are made under normality as well as under realistic deviations from the assumptions of normality and equal variances. We recommend the use of Hedges' $g^*$ because it shows better properties than all other estimators. Practical recommendations, R package and Shiny App in order to compute effect size estimators and confidence intervals are provided.
+keywords          : "Effect sizes, mean comparisons, t-test, Cohen's d"
 wordcount         : "7053"
 bibliography      : ["r-references.bib"]
 floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
-linenumbers       : yes
+linenumbers       : no
 mask              : no
 draft             : no
 documentclass     : "apa6"
